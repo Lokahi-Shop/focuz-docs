@@ -19,8 +19,8 @@ the object/pen approach.
     - *GRBL:* **Jog**, **Command**
     - *Calibration:* **WCS Offset**, **Test Grid**
 - **Marking parameters** — Speed, Power, Frequency, Q-Pulse, Passes.
-- **Fill types** — unidirectional / bidirectional / crosshatch hatch, **Hilbert**, **snake**, **contour**
-  (race-track / max-detail), and **thatch**; plus hatch spacing/angle and auto-rotate.
+- **Fill types** — unidirectional / bidirectional / cross line fills, **Hilbert**, **snake**, **contour**
+  (race-track / max-detail), and **thatch**; plus fill spacing/angle and auto-rotate.
 - **Variation** — sweeping a parameter across a layer/action/sublayer (linear / sine / random).
 - **Timings** — per-layer or per-action overrides for laser/jump delays (Device / Custom modes).
 - **Cut sublayers** — marking an **offset band** around a path (with optional outline), for cut-style passes.

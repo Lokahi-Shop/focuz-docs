@@ -36,7 +36,7 @@ Quick-reference material.
 ### Glossary
 
 - Definitions for **galvo**, **MO** (master oscillator), **`.cor`**, **`markcfg7`**, **WCS**,
-  **MPos / LPos**, **hatch**, **Hilbert**, and more.
+  **MPos / LPos**, **fill**, **Hilbert**, and more.
 
 ## See also
 

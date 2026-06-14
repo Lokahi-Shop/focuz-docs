@@ -44,7 +44,7 @@ begin conservative and adjust:
 | **Q-Pulse** | Pulse width / energy-per-pulse control. |
 | **Passes** | How many times to repeat the mark. |
 
-For a filled (engraved) shape, also pick a **fill type** (e.g. bidirectional hatch) and a **hatch
+For a filled (engraved) shape, also pick a **fill type** (e.g. bidirectional) and a **fill
 spacing**. To mark just the outline, leave the fill off. See [The Sequencer](../sequencer.md) for all
 parameters and fill types.
 

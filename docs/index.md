@@ -21,7 +21,7 @@ fiber laser with full control over fills, marking order, registration, and per-l
   existing `markcfg7` device profile and `.cor` correction files.
 - **A sequencer, not just a pen list.** Jobs are built as an ordered **sequence of actions** with
   repeats, per-slice steps, and grouping (see below) — a more powerful model for multi-step and 3D jobs.
-- **Rich fills and per-layer control.** Hatch (uni/bi/cross), Hilbert, snake, contour, and thatch fills;
+- **Rich fills and per-layer control.** Line fills (unidirectional, bidirectional, cross), Hilbert, snake, contour, and thatch fills;
   per-layer speed/power/frequency/Q-pulse/passes; variation sweeps; and offset "cut" passes.
 
 ## How FocuZ works
