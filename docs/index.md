@@ -43,8 +43,8 @@ That ordered-sequence model is what unlocks FocuZ's more advanced behavior:
 - **Repeats** — an action (or a whole group) can run multiple times.
 - **Run-every-Nth** — sub-steps can fire on every Nth pass or 3D slice (e.g. clean or index between
   passes), instead of every time.
-- **Groups & layers** — actions are organized into groups, layers, and sublayers you can enable, reorder,
-  and repeat independently.
+- **Groups & layers** — actions are organized into groups, layers, and sublayers you can enable and
+  repeat independently.
 
 So in FocuZ you're describing *what the machine does, in order* — not just *what art exists on a page*.
 The [Sequencer](sequencer.md) and [Marking & Tracing](marking-tracing.md) sections cover this in depth.

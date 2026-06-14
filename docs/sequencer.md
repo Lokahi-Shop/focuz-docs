@@ -9,8 +9,7 @@ the object/pen approach.
 
 ## What this page will cover
 
-- **Structure** — **groups**, **layers**, and **sublayers**; enabling/disabling, reordering, and
-  collapsing.
+- **Structure** — **groups**, **layers**, and **sublayers**; enabling/disabling and collapsing.
 - **Repeats & run-every-Nth** — repeating an action or group, and running a sublayer only on every Nth pass
   or 3D slice.
 - **Action types**
