@@ -1,0 +1,73 @@
+site_name: FocuZ Documentation
+site_description: User guide for FocuZ — laser-control software for BJJCZ galvo controllers.
+site_url: https://wiki.lokahi.shop/
+copyright: © 2026 Lokahi Innovation. All rights reserved.
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://lokahi.shop
+      name: lokahi.shop
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Overview: getting-started/index.md
+      - Installation & driver: getting-started/installation.md
+      - First-run setup: getting-started/first-run.md
+      - Your first mark: getting-started/your-first-mark.md
+  - Hardware & Device Setup: hardware-setup.md
+  - Lenses, Corrections & Calibration: lenses-corrections.md
+  - Importing Geometry: importing.md
+  - The Canvas: canvas.md
+  - The Sequencer: sequencer.md
+  - Marking & Tracing: marking-tracing.md
+  - Rotary Marking: rotary.md
+  - Jog, Homing & Terminal: jog-terminal.md
+  - Projects & Files: projects-files.md
+  - Updates & Licensing: updates-licensing.md
+  - Troubleshooting & FAQ: troubleshooting.md
+  - Reference: reference.md
+  - Support: support.md
