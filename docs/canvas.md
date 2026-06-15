@@ -1,19 +1,42 @@
 # The Canvas (Design & Preview)
 
-The canvas is where you place, orient, and preview your work in 2D or 3D. Toggle between the **Sequencer**
-view and the **Preview** with the toolbar toggle.
+The canvas is where you place, orient, and preview your work. The toolbar **Preview toggle** switches
+between the **Sequencer** layout and the **Preview**.
 
-!!! info "This page is being written"
-    The outline below is what it will cover.
+## 2D vs. 3D view
 
-## What this page will cover
+- **2D** — the flat design view for 2D art.
+- **3D** — a perspective view for 3D imports and 3D-slice previews. Switching to a 3D Slice action puts the
+  canvas in 3D mode.
 
-- **2D vs. 3D view** — when each is used, and the **Preview** toggle.
-- **Navigation** — wheel **zoom**, **pan**, **orbit** (3D), the **view cube**, reset view, and zoom-to-fit.
-- **Selection** — click to select, multi-select, and the two-way highlight between the **layer tree** and
-  the canvas.
-- **Editing** — **nudge** (arrow keys) and the position / size / rotation transforms.
-- **Display** — the grid, layer coloring, and fill/cut preview overlays.
+## Navigating
+
+| Action | How |
+|---|---|
+| **Zoom** | Mouse wheel |
+| **Pan** | Right-click drag |
+| **Orbit** (3D) | Middle-click drag |
+| **Snap to a view** (3D) | Click a face/edge of the **view cube** |
+| **Reset view** | Reset button |
+| **Zoom to fit** | Fit-to-content button |
+
+## Selecting & editing
+
+- **Click** an object to select it; multi-select within a layer.
+- Selecting in the **layer tree** highlights the object on the canvas, and vice-versa.
+- **Nudge** the selection with the arrow keys (step sizes are set in [Preferences](projects-files.md)).
+- Use the **Position / Size / Rotation** controls (and link/unlink X/Y scaling) to place objects precisely —
+  see [Importing Geometry](importing.md).
+
+![TODO screenshot: canvas with an object selected and the view cube](assets/canvas-selection.png){ .screenshot }
+
+<!-- TODO screenshot: canvas selection + view cube -->
+
+## What you see
+
+- A **grid** for scale reference (toggleable).
+- Imported geometry colored by layer.
+- **Fill** and **cut** previews drawn over the shapes so you can see the marking pattern before you run.
 
 ## See also
 
