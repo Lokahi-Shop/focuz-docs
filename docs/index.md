@@ -19,6 +19,10 @@ fiber laser with full control over fills, marking order, registration, and per-l
 - **Runs your existing BJJCZ controller.** FocuZ talks directly to BJJCZ/JCZ fiber controllers — the
   same hardware EZCad2 and LightBurn drive — so there's no new control board to buy. It even imports your
   existing `markcfg7` device profile and `.cor` correction files.
+- **An integrated motion + accessory controller.** Alongside the galvo controller, FocuZ pairs with a
+  **FocuZ:grbl** controller (a custom GRBL build) that drives **X / Y / Z axis motion** (jogging, homing)
+  *and* **accessory relays** — switch **air assist**, a **vacuum**, or other peripherals on and off, either
+  by hand or automatically as steps in a job. See [Jog, Homing & Terminal](jog-terminal.md).
 - **A sequencer, not just a pen list.** Jobs are built as an ordered **sequence of actions** with
   repeats, per-slice steps, and grouping (see below) — a more powerful model for multi-step and 3D jobs.
 - **Rich fills and per-layer control.** Line fills (unidirectional, bidirectional, cross), Hilbert, snake, contour, and thatch fills;
@@ -36,7 +40,7 @@ and FocuZ executes them top to bottom when you press **Run**. Each step is an *a
 
 - **mark imported 2D art**,
 - **slice and mark a 3D model**,
-- **jog an axis**, **pause**, **run a G-code command**, and more.
+- **jog an axis**, **switch a relay** (air assist, vacuum), **pause**, **run a G-code command**, and more.
 
 That ordered-sequence model is what unlocks FocuZ's more advanced behavior:
 
