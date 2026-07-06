@@ -5,7 +5,7 @@ This section takes you from a fresh download to your first successful mark.
 ## The path
 
 1. **[Installation & driver](installation.md)** — install FocuZ and the BJJCZ USB driver.
-2. **[First-run setup](first-run.md)** — the Device Setup Wizard: import your `markcfg7` and configure a lens.
+2. **[First-run setup](first-run.md)** — Device Setup: import your `markcfg7` and configure a lens.
 3. **[Your first mark](your-first-mark.md)** — import art, set power/speed, trace it, and run it.
 
 ## Before you start
