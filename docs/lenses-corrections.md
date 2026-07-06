@@ -52,6 +52,22 @@ Each lens has a focal working distance. Set it on **Jog ▸ Lens Offset**:
 
 Then **Home & Jog to Lens 0** (on the Jog card) gets you straight back to focus for that lens.
 
+### Finding focus: the Z Focus Test
+
+The **Z Focus Test** ([Sequencer](sequencer.md) ▸ Calibration) finds the optimum focal height empirically:
+it marks a row of numbered tick marks, stepping the Z height between marks — the sharpest mark is your
+focal height.
+
+1. Add a **Z Focus Test** action. In **Setup**, set the number of **5-Mark Groups**, **Mark Spacing**,
+   **Mark Height**, and **Label Height** — the pattern on the canvas updates as you type.
+2. On the sublayer, set the Z **Distance** per mark and pick the mode: **Auto** (FocuZ jogs Z between
+   marks — needs the FocuZ:grbl controller connected and Z homed) or **Manual** (FocuZ prompts you to move
+   Z between marks yourself).
+3. **Run**, then inspect the part for the sharpest, cleanest line.
+4. **Auto** — enter that mark's number when prompted and FocuZ jogs straight down to its focal height;
+   save it to the active lens via **Lens Offset**. **Manual** — move Z down by that many of your steps,
+   then save the same way.
+
 ## Aligning the mark to the part
 
 - **Calibration ▸ Offset** (a [Sequencer](sequencer.md) action) lets you mark or trace a target, drag it on

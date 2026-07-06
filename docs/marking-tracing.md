@@ -65,9 +65,15 @@ plus a percentage and an estimated **time remaining**.
 
 A **3D Slice** action marks a model layer by layer:
 
-- Slices run in **Z order** (top to bottom).
+- Slices run **top to bottom** by default; check **Inverse** to mark bottom-up, starting at the floor.
 - Sublayers (jog, accessory, etc.) can fire on every slice or every Nth slice (Run-every-N).
-- **Fill-Through** controls whether the bottom slice is marked.
+- **Fill-Through** controls whether the bottom slice is marked. With a hole-respecting **Hull**
+  perimeter (see [3D perimeters](sequencer.md#3d-layers-the-perimeter)), the model's through-holes are
+  marked at full depth.
+- **Z+ Offset** adds extra depth, entered in **mm** or **slices** (pick the unit next to the value):
+    - **With a perimeter**, the slice stack shifts up so the background around the model carves deeper.
+    - **Without a perimeter**, the base (floor) slice is marked that many extra times — paired with a
+      **Jog** sublayer, each extra pass steps the axis on, driving the profile deeper into the material.
 
 See [Importing Geometry](importing.md) for setting up a 3D job.
 
