@@ -31,15 +31,28 @@ between the **Sequencer** layout and the **Preview**.
 
 ### Rotating 3D models
 
-- The **Origin:** dropdown in the Rotation section picks the pivot: **Model Registration** (rotate about
-  the model's registration point) or **Workspace Center**.
-- For a rotated model, **Size** and **Location** always describe the **current rotated footprint** — the
-  box the model actually occupies in the workspace, which is what marking uses (slice height, where it
-  lands). The values stay consistent when you reselect or reload the project, and edits round-trip.
-- Size editing follows the rotation: at **right angles** (0/90/180/270°) each axis can be stretched
-  independently (or proportionally with the link on); at **other angles** scaling is uniform — the
-  proportional link locks on (a gold indicator appears beside it) and one value scales all three axes.
-  To stretch a single axis at an odd angle, bake the rotation into the model in your CAD tool and
+A 3D model carries **two independent rotations** that combine:
+
+- **Model Registration** — spins the model about its registration-cube point. A center point spins it
+  in place; a corner or edge point tilts it about that point. The model's location doesn't change.
+- **Workspace Center** — rotates the model about the workspace origin (0,0,0). A model away from the
+  origin **swings around it** as the angle changes, turning as it goes; a model sitting at the origin
+  spins in place.
+
+The **Origin:** dropdown picks **which of the two sets the RX/RY/RZ fields show and edit** — switching
+it never moves the model, and each set remembers its values. Returning a set to 0 undoes exactly that
+rotation; with both sets at 0 the model is back in its original pose.
+
+- **Size** and **Location** always describe the **current rotated footprint** — the box the model
+  actually occupies in the workspace, which is what marking uses (slice height, where it lands). This
+  holds whether or not the model is selected, and the values stay consistent across reselects, mode
+  switches, and project reloads.
+- Typed Location edits and arrow-key nudges move the model along plain **workspace axes** by exactly
+  the amount entered, whatever the rotations are.
+- Size editing follows the **combined** rotation: at **right angles** (0/90/180/270°) each axis can be
+  stretched independently (or proportionally with the link on); at **other angles** scaling is uniform —
+  the proportional link locks on (a gold indicator appears beside it) and one value scales all three
+  axes. To stretch a single axis at an odd angle, bake the rotation into the model in your CAD tool and
   re-import at 0°.
 - A flat perimeter has no tilt, so X/Y rotation is disabled while a perimeter is selected (Z rotation
   still works).
