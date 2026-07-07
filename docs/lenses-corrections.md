@@ -14,7 +14,7 @@ aligning the mark to the part.
 
 ## Distortion correction (the Corrections dialog)
 
-Open **Corrections** (from the [setup wizard](getting-started/first-run.md) or the lens controls). It has
+Open **Corrections** (from [Device Setup](getting-started/first-run.md) or the lens controls). It has
 two modes for correcting galvo/lens distortion, and remembers settings per lens:
 
 === "`.cor` file (recommended)"
@@ -30,6 +30,10 @@ two modes for correcting galvo/lens distortion, and remembers settings per lens:
     - **Scale X/Y** and **Angle**
     - per-lens **Field size X/Y** (mm)
     - **Bulge**, **Parallel**, and **Trapezoidal** correction (X/Y)
+
+    Or import them from a `markcfg7`: **From device markcfg7** reuses the file the device was
+    configured with (no file picking needed), and **Choose markcfg7…** imports from any file. Either
+    way, if the file carries a different work offset, FocuZ asks whether to bring that in too.
 
 !!! tip "Round at center, distorted at the edges?"
     That's a distortion-correction issue — load the correct `.cor` for the lens, or tune the manual values.

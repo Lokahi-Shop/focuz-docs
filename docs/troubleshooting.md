@@ -18,7 +18,7 @@ Common issues and how to resolve them. If something isn't here, see [Support](su
 
 ## "Device not configured" / Run is blocked
 
-Import a **`markcfg7`** via the [Device Setup Wizard](getting-started/first-run.md) — Run and Trace stay
+Import a **`markcfg7`** via [Device Setup](getting-started/first-run.md) — Run and Trace stay
 blocked until the device is configured.
 
 ## Marking quality & placement

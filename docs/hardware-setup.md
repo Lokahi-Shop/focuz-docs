@@ -24,10 +24,10 @@ is the deeper reference.
 
 FocuZ can reconnect automatically on startup. The controller must be connected to **Trace** or **Run**.
 
-## Device Setup Wizard (Device ▸ Setup Wizard)
+## Device Setup (Device ▸ Device Setup)
 
-The guided 3-step wizard (laser type + `markcfg7` import, lens correction, summary). It's the fastest way
-to a working configuration and is covered step-by-step in
+The one-page setup — laser type + `markcfg7` import on top, lens correction below. It's the fastest way
+to a working configuration and is covered in
 [First-run setup](getting-started/first-run.md). Importing a `markcfg7` is what marks the device
 **configured** and unlocks Run/Trace.
 
