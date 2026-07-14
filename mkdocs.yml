@@ -63,6 +63,7 @@ nav:
   - Importing Geometry: importing.md
   - The Canvas: canvas.md
   - The Sequencer: sequencer.md
+  - The Settings Library: library.md
   - Marking & Tracing: marking-tracing.md
   - Rotary Marking: rotary.md
   - Jog, Homing & Terminal: jog-terminal.md
