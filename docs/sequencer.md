@@ -59,7 +59,7 @@ Adding an action opens a picker grouped by purpose:
   [Lenses, Corrections & Calibration](lenses-corrections.md)).
 - **Z Focus Test** — find the optimal focal height by marking a stepped-Z test pattern (see
   [Finding focus](lenses-corrections.md#finding-focus-the-z-focus-test)).
-- **Test Grid** — mark a parameter-sweep grid to dial in settings.
+- **Test Grid** — mark a parameter-sweep grid to dial in settings (see [The Test Grid](test-grid.md)).
 
 ## Marking parameters
 
