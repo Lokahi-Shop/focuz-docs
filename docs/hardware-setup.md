@@ -31,6 +31,12 @@ to a working configuration and is covered in
 [First-run setup](getting-started/first-run.md). Importing a `markcfg7` is what marks the device
 **configured** and unlocks Run/Trace.
 
+!!! note "Fiber lasers"
+    FocuZ currently supports **fiber** lasers. When you import a `markcfg7`, FocuZ reads the laser type
+    from it and shows it in the device summary. A fiber profile configures the device as usual. A CO2,
+    YAG, or SPI profile is **saved**, but marking and tracing stay disabled for that laser type — so you
+    can set up and explore, just not mark. Support for more laser types will come as they're verified.
+
 ## Laser Setup (Device ▸ Laser Setup)
 
 The full device configuration screen. It includes the same connection controls plus:
