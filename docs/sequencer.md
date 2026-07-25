@@ -35,6 +35,8 @@ Adding an action opens a picker grouped by purpose:
 
 - **2D Import** — mark imported 2D art (see [Importing Geometry](importing.md)).
 - **2D Cut** — mark an offset **cut band** around imported 2D art.
+- **2D Rotary** — mark 2D art wrapped around a cylindrical part, with its own part and split
+  settings (see [Rotary Marking](rotary.md#the-2d-rotary-action)).
 - **3D Slice** — slice a 3D model and mark it layer by layer.
 - **3D Cut** — mark an offset cut band around a 3D model's outline.
 - **3D Shadow** — flatten a 3D model to its floor outline and **fill** it like 2D art (see
