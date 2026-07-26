@@ -5,8 +5,8 @@ you're setting up for the first time, start with [First-run setup](getting-start
 is the deeper reference.
 
 !!! note "Device vs. lens settings"
-    **Device** settings (here) describe the controller and galvo head — field size, axis mapping, laser
-    timing. **Lens** settings (correction, focal Z) are per-lens and live in
+    **Device** settings (here) describe the controller and galvo head — axis mapping, laser timing,
+    frequency range. **Lens** settings (field size, correction, focal Z) are per-lens and live in
     [Lenses, Corrections & Calibration](lenses-corrections.md).
 
 ## Connecting (Device ▸ Connection)
@@ -39,14 +39,22 @@ to a working configuration and is covered in
 
 ## Laser Setup (Device ▸ Laser Setup)
 
-The full device configuration screen. It includes the same connection controls plus:
+The full device configuration screen, in two sections: **Configuration** (what the machine is) and
+**Timing Defaults** (the delay/jump values layers fall back to).
 
-### Importing the device profile
+### Configuration
 
-- **Import markcfg7** — loads device settings from your machine's `markcfg7` (field size, field angle,
-  galvo axis mapping). This is the recommended way to configure the device; manual entry is for fine-tuning.
+#### Importing the device profile
 
-### Galvo axis assignment
+- **Import markcfg7** — loads device settings from your machine's `markcfg7`: laser type, galvo axis
+  mapping, timing defaults, red-light and power-map values. This is the recommended way to configure the
+  device; manual entry is for fine-tuning. (Field size, field angle, and the work offset are **per-lens**
+  and import separately in the lens Corrections dialog.)
+- The import also returns the **path tolerances** (below) to their standard values. If you had tuned
+  them, a small **↶** button appears next to each changed tolerance — click it to bring back the value
+  you had before the import.
+
+#### Galvo axis assignment
 
 - **Galvo 1 / Galvo 2 → X / Y** — which physical galvo drives which axis. This comes from `markcfg7`; only
   change it if your art marks transposed (rotated/mirrored axes).
@@ -56,24 +64,31 @@ The full device configuration screen. It includes the same connection controls p
     The fix is almost always the galvo X/Y assignment or a mirror toggle here. A re-import of the correct
     `markcfg7` usually sets these for you.
 
-### Laser timing & pulse
-
-- **Open MO delay** — delay after opening the laser's master oscillator before marking.
-- **Enable pulse width** — toggles pulse-width control.
-- **Delays** — laser on/off, polygon (corner), and end delays; jump speed and ramp settings. Defaults from
-  `markcfg7` are a good starting point; tune for mark quality.
-
-### Frequency limits
+#### Frequency limits
 
 - **Min / Max frequency (kHz)** — the allowed pulse-frequency range for your laser (1–9999). FocuZ clamps
-  per-layer frequency to this range so you can't drive the laser outside spec.
+  per-layer frequency to this range so you can't drive the laser outside spec. This is a capability
+  range for the machine, which is why it lives in Configuration rather than Timing Defaults.
 
-### Path tolerances
+#### Path tolerances
 
 - **Curve tolerance (mm)** — how finely curves are approximated into line segments. Smaller = smoother
   curves but more segments.
 - **Closed-path tolerance (mm)** — how close endpoints must be for a path to count as closed (affects
   fills).
+
+#### Fiber pulse settings
+
+- **Open MO delay** — delay after opening the laser's master oscillator before marking.
+- **Enable pulse width** — toggles pulse-width control (MOPA on, non-MOPA off).
+- **Laser leak handle** — closes the master oscillator between jobs on lasers that need it.
+
+### Timing Defaults
+
+The device-wide **delay** (laser on/off, end, polygon corner) and **jump** (speed, min, max, limit)
+values. Every layer whose Timing Mode is **Device** uses these at mark time; layers with **Custom**
+timing override them per layer (see [Timings](sequencer.md#timings)). Values from a `markcfg7` import
+are a good starting point; tune for mark quality.
 
 ## Power Map (Device ▸ Power Map)
 
