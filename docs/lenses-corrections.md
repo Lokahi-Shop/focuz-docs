@@ -44,6 +44,10 @@ two modes for correcting galvo/lens distortion, and remembers settings per lens:
 The **WCS offset** shifts the work origin so the mark lands where the part actually is. It's stored
 **per lens**. Set it from the lens's **WCS** control (it opens the Corrections dialog for the active lens).
 
+The canvas origin (0,0) **is** the WCS reference point: artwork placed at 0,0 marks at the work origin,
+and moving art +20 in X marks +20 from that origin. The offset itself applies only when marking and
+tracing — changing it never moves artwork on the canvas.
+
 ## Focal height (Z) per lens
 
 Each lens has a focal working distance. Set it on **Jog ▸ Lens Offset**:
