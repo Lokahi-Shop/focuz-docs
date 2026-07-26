@@ -35,9 +35,20 @@ two modes for correcting galvo/lens distortion, and remembers settings per lens:
     configured with (no file picking needed), and **Choose markcfg7…** imports from any file. Either
     way, if the file carries a different work offset, FocuZ asks whether to bring that in too.
 
+    **Field size** may be left **empty** — that means "not set for this lens", and the grayed number in
+    the box is the device value FocuZ will use instead. Setting it correctly matters: field size scales
+    every mark, so a wrong one makes everything the wrong *size*. **From device markcfg7** is the
+    quickest way to get it right, because it brings in the field size and the scale together.
+
 !!! tip "Round at center, distorted at the edges?"
     That's a distortion-correction issue — load the correct `.cor` for the lens, or tune the manual values.
     See [Troubleshooting](troubleshooting.md).
+
+!!! tip "Marks come out the right shape but the wrong size?"
+    That's field size, not distortion. Check the **Field size** on the lens card — it shows the value in
+    use and where it came from (`.cor` file, set for this lens, or the device default). With a `.cor`
+    loaded you can trim the remaining error with the **Scale** boxes, which fine-tune on top of the file:
+    multiply the current scale by `target / measured`.
 
 ## WCS (work coordinate) offset
 
