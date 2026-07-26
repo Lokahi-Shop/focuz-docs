@@ -77,7 +77,10 @@ focal height.
 - **Calibration ▸ Offset** (a [Sequencer](sequencer.md) action) lets you mark or trace a target, drag it on
   the canvas to where it actually landed, and apply the difference as the work offset. The layer header's
   **Apply Offset (Lx)** button names the currently selected lens right in its label, so you can see whose
-  offset will be updated before you click.
+  offset will be updated before you click. The **Return to 0,0** checkbox next to it (on by default) snaps
+  the target back to the design origin after applying — with the drag absorbed into the offset, that's
+  where it now marks, so a re-trace lands on the same spot on the material. Untick it to keep the target
+  where you dragged it instead.
 - **Red Light Trace** (Device menu) helps align the red pointer to where the IR beam fires (they have a
   small fixed parallax) and set the red-light offset and trace speed.
 
