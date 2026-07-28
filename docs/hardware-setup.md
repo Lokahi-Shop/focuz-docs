@@ -72,8 +72,10 @@ The full device configuration screen, in two sections: **Configuration** (what t
 
 #### Path tolerances
 
-- **Curve tolerance (mm)** — how finely curves are approximated into line segments. Smaller = smoother
-  curves but more segments.
+- **Curve tolerance (mm)** — how far a curve is allowed to deviate from the line segments that
+  approximate it. Smaller = smoother curves but more segments. It's measured at the artwork's **final
+  size**, so resizing art doesn't change how smooth it marks. The default (0.01 mm) is well below a
+  typical beam width; loosening it produces fewer points and faster marking.
 - **Closed-path tolerance (mm)** — how close endpoints must be for a path to count as closed (affects
   fills).
 
