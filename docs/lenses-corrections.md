@@ -35,14 +35,29 @@ two modes for correcting galvo/lens distortion, and remembers settings per lens:
     configured with (no file picking needed), and **Choose markcfg7…** imports from any file. Either
     way, if the file carries a different work offset, FocuZ asks whether to bring that in too.
 
+    **Field size** may be left **empty** — that means "not set for this lens", and the grayed number in
+    the box is the device value FocuZ will use instead. Setting it correctly matters: field size scales
+    every mark, so a wrong one makes everything the wrong *size*. **From device markcfg7** is the
+    quickest way to get it right, because it brings in the field size and the scale together.
+
 !!! tip "Round at center, distorted at the edges?"
     That's a distortion-correction issue — load the correct `.cor` for the lens, or tune the manual values.
     See [Troubleshooting](troubleshooting.md).
+
+!!! tip "Marks come out the right shape but the wrong size?"
+    That's field size, not distortion. Check the **Field size** on the lens card — it shows the value in
+    use and where it came from (`.cor` file, set for this lens, or the device default). With a `.cor`
+    loaded you can trim the remaining error with the **Scale** boxes, which fine-tune on top of the file:
+    multiply the current scale by `target / measured`.
 
 ## WCS (work coordinate) offset
 
 The **WCS offset** shifts the work origin so the mark lands where the part actually is. It's stored
 **per lens**. Set it from the lens's **WCS** control (it opens the Corrections dialog for the active lens).
+
+The canvas origin (0,0) **is** the WCS reference point: artwork placed at 0,0 marks at the work origin,
+and moving art +20 in X marks +20 from that origin. The offset itself applies only when marking and
+tracing — changing it never moves artwork on the canvas.
 
 ## Focal height (Z) per lens
 
@@ -75,7 +90,12 @@ focal height.
 ## Aligning the mark to the part
 
 - **Calibration ▸ Offset** (a [Sequencer](sequencer.md) action) lets you mark or trace a target, drag it on
-  the canvas to where it actually landed, and **Apply** the difference as the work offset.
+  the canvas to where it actually landed, and apply the difference as the work offset. The layer header's
+  **Apply Offset (Lx)** button names the currently selected lens right in its label, so you can see whose
+  offset will be updated before you click. The **Return to 0,0** checkbox next to it (on by default) snaps
+  the target back to the design origin after applying — with the drag absorbed into the offset, that's
+  where it now marks, so a re-trace lands on the same spot on the material. Untick it to keep the target
+  where you dragged it instead.
 - **Red Light Trace** (Device menu) helps align the red pointer to where the IR beam fires (they have a
   small fixed parallax) and set the red-light offset and trace speed.
 

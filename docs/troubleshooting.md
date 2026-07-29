@@ -36,6 +36,13 @@ correct **`.cor`** for the lens or tune the manual values in
 **The mark is offset from where the part is.** Set the per-lens **WCS offset** or use **Calibration ▸
 Offset** to drag-align it.
 
+**Marks are the wrong size right after using EZCad2 or LightBurn.** Those programs load their own
+correction table into the controller's memory, and it stays active until the controller powers off.
+FocuZ loads its own correction state onto the controller every time it connects, replacing whatever a
+previous program left there — so simply **reconnect in FocuZ** and mark. (If you go the other way —
+FocuZ to EZCad2/LightBurn — power-cycle the controller first, or re-select the correction file there:
+those programs don't always refresh the controller when settings change.)
+
 ## Motion & axes
 
 **An axis won't move / "alarm" after a limit hit.** The FocuZ:grbl controller loses an axis's homed status
