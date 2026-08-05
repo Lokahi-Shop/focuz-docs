@@ -36,11 +36,16 @@ Open **Jog** from the menu. The Jog card gives you homing, axis control, and liv
 - After an **alarm** (e.g. a limit hit) an axis loses its homed status and must be re-homed before its
   position is trusted again — see [Troubleshooting & FAQ](troubleshooting.md).
 
-### Axis Enable
+### Motorized axes (Enable X / Y / Z)
 
-Each axis has an **Enable** checkbox. Enabling an axis includes it in operations that need confident
-absolute positioning. Whether a run requires a given axis to be homed depends on which axes are enabled and
-what the job does.
+Tell FocuZ which axes your machine drives with the **Enable X / Y / Z** checkboxes in
+**Device ▸ Device Setup** (the *Motorized Axis* section) or **Device ▸ Laser Setup** — both show the
+same setting. Enabling an axis includes it in operations that need confident absolute positioning and
+shows its jog controls and Home button here on the Jog tab; a disabled axis is hidden. Whether a run
+requires a given axis to be homed depends on which axes are enabled and what the job does.
+
+All three axes are **off by default** — leave an axis disabled if you position it manually (e.g. a
+fixed-focus or hand-set Z). Your choices persist until you change them.
 
 ### Position & limits
 
