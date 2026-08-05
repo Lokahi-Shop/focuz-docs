@@ -12,7 +12,8 @@ Setup**.
 
 <!-- TODO screenshot: Device Setup single page -->
 
-Everything is on one page: a **Device Setup** section on top, and **Lens Setup** below it.
+Everything is on one page: a **Device Setup** section on top, **Lens Setup** below it, and an
+optional **Rotary Setup** at the bottom.
 
 ## Device Setup
 
@@ -26,8 +27,9 @@ Everything is on one page: a **Device Setup** section on top, and **Lens Setup**
 
 !!! note "What `markcfg7` import sets — and doesn't"
     This section imports **device-level** settings only. **Per-lens** correction (the `.cor` file or
-    manual values) is configured in the Lens Setup section. FocuZ remembers the imported `markcfg7`,
-    so lens setup can reuse it without asking for the file again.
+    manual values) is configured in the Lens Setup section, and **rotary axis** settings in the
+    Rotary Setup section. FocuZ remembers the imported `markcfg7`, so lens and rotary setup can
+    reuse it without asking for the file again.
 
 ## Lens Setup
 
@@ -44,6 +46,23 @@ Everything is on one page: a **Device Setup** section on top, and **Lens Setup**
    [Lenses, Corrections & Calibration](../lenses-corrections.md).
 
 See **[Lenses, Corrections & Calibration](../lenses-corrections.md)** for what each correction setting does.
+
+## Rotary Setup (optional)
+
+> *If you use a rotary, import its axis settings.*
+
+If your machine has a rotary axis, pull its settings in here too:
+
+- **From device markcfg7** — reuses the `markcfg7` you imported above (no re-picking).
+- **Choose markcfg7…** — imports from any other `markcfg7` file.
+- **Defaults…** — opens the full [Rotary Setup](../rotary.md) dialog, where you can also enter
+  default part diameter, split size, and overlap values for new 2D Rotary actions.
+
+Either way, only the **motor** parameters are read from the file — steps per rotation,
+direction, and speeds. FocuZ-side rotary settings (chuck/roller mode, gear ratio, roller
+size, the part/split defaults) keep their current values — gear ratio describes *your*
+rotary attachment, so it's never taken from the file. The line below the buttons shows the
+rotary values currently in use.
 
 Click **Finish** when you're done. You can fine-tune lenses any time via the Corrections dialog, and set
 focal Z heights on the Jog tab.
