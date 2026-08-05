@@ -67,9 +67,9 @@ lands exactly where it should.
 ### Motor
 
 - **Steps/Rot** — motor steps per motor rotation (combine with Gear Ratio for the part).
-- **Min Speed / Max Speed** — each rotation ramps from Min Speed up to Max Speed, in
-  pulses/sec. A heavy chuck or part may need a lower Min Speed to start smoothly without
-  losing steps; a light setup can start faster.
+- **Ramp Min / Max Speed** — each rotation ramps from Ramp Min up to Max Speed, in
+  pulses/sec. Ramp Min is the starting speed, not a limit — a heavy chuck or part may need a
+  lower one to start smoothly without losing steps; a light setup can start faster.
 - **Accel** — acceleration ramp time, in ms.
 - **Return Spd** — speed used when returning to zero.
 
