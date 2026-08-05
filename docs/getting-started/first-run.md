@@ -55,11 +55,13 @@ If your machine has a rotary axis, pull its settings in here too:
 
 - **From device markcfg7** — reuses the `markcfg7` you imported above (no re-picking).
 - **Choose markcfg7…** — imports from any other `markcfg7` file.
+- **Defaults…** — opens the full [Rotary Setup](../rotary.md) dialog, where you can also enter
+  default part diameter, split size, and overlap values for new 2D Rotary actions.
 
-Either way, only the **rotary axis** parameters are read — motor steps, speeds, direction, and part
-diameter. FocuZ-side rotary settings (chuck/roller mode, roller size, split settings) keep their
-current values; configure those in **Device ▸ Rotary Setup** — see [Rotary marking](../rotary.md).
-The line below the buttons shows the rotary values currently in use.
+Either way, only the **motor** parameters are read from the file — steps per rotation, gear
+ratio, direction, and speeds. FocuZ-side rotary settings (chuck/roller mode, roller size, the
+part/split defaults) keep their current values. The line below the buttons shows the rotary
+values currently in use.
 
 Click **Finish** when you're done. You can fine-tune lenses any time via the Corrections dialog, and set
 focal Z heights on the Jog tab.
