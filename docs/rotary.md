@@ -76,8 +76,8 @@ lands exactly where it should.
 ### BJJCZ Controls
 
 Live rotary motion for setup, available while the controller is connected: jog **CCW / CW** by
-the **Jog Dist** angle, **Go Home**, and **Set Zero** to define the zero position, with a live
-position readout.
+the **Jog Dist** angle, **Set Zero** to define the current position as zero, and **Go to Zero**
+to rotate back to it at the Return Spd — with a live position readout.
 
 **Import Rotary from markcfg7…** pulls rotary parameters from an existing `markcfg7` file, the
 same way as the main [device import](hardware-setup.md). The Device Setup window
