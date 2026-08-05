@@ -58,10 +58,11 @@ If your machine has a rotary axis, pull its settings in here too:
 - **Defaults…** — opens the full [Rotary Setup](../rotary.md) dialog, where you can also enter
   default part diameter, split size, and overlap values for new 2D Rotary actions.
 
-Either way, only the **motor** parameters are read from the file — steps per rotation, gear
-ratio, direction, and speeds. FocuZ-side rotary settings (chuck/roller mode, roller size, the
-part/split defaults) keep their current values. The line below the buttons shows the rotary
-values currently in use.
+Either way, only the **motor** parameters are read from the file — steps per rotation,
+direction, and speeds. FocuZ-side rotary settings (chuck/roller mode, gear ratio, roller
+size, the part/split defaults) keep their current values — gear ratio describes *your*
+rotary attachment, so it's never taken from the file. The line below the buttons shows the
+rotary values currently in use.
 
 Click **Finish** when you're done. You can fine-tune lenses any time via the Corrections dialog, and set
 focal Z heights on the Jog tab.
