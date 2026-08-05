@@ -76,7 +76,10 @@ connected: jog **CCW / CW** by the **Jog Dist** angle, **Go Home**, and **Set Ze
 the zero position, with a live position readout.
 
 **Import Rotary from markcfg7…** pulls rotary parameters from an existing `markcfg7` file, the
-same way as the main [device import](hardware-setup.md).
+same way as the main [device import](hardware-setup.md). The Device Setup window
+([first-run setup](getting-started/first-run.md)) offers the same import in its Rotary Setup
+section — including reusing the device's own `markcfg7` — so a rotary can be configured during
+first run.
 
 ## The 2D Rotary action
 
