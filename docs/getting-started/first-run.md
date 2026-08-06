@@ -67,7 +67,7 @@ size, the part/split defaults) keep their current values — gear ratio describe
 rotary attachment, so it's never taken from the file. The line below the buttons shows the
 rotary values currently in use.
 
-Click **Apply** when you're done to keep your setup, or **Cancel** to discard every change you
+Click **Apply All** when you're done to keep your setup, or **Cancel** to discard every change you
 made in this window and return to how it was before. You can fine-tune lenses any time via the Corrections dialog, and set
 focal Z heights on the Jog tab.
 
