@@ -63,6 +63,16 @@ Adding an action opens a picker grouped by purpose:
   [Finding focus](lenses-corrections.md#finding-focus-the-z-focus-test)).
 - **Test Grid** — mark a parameter-sweep grid to dial in settings (see [The Test Grid](test-grid.md)).
 
+## Adding, copying & removing actions
+
+- **Add Action** (top of the Sequencer) appends a new action slot.
+- Each slot starts on the **Select Action** chooser — pick a type from the picker to configure it.
+- Once a real type is picked, the slot shows **Delete** and **Copy**: Copy duplicates the action (its
+  type and settings) as a new slot; Delete removes it. An empty chooser slot shows neither.
+- The list always keeps at least one slot. Deleting the **last remaining** action returns it to the
+  empty chooser instead of leaving an empty list; deleting any earlier action shifts the rest up and
+  renumbers them. All of this is undoable.
+
 ## Marking parameters
 
 Per layer:
