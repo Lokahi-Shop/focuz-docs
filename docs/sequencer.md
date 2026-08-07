@@ -50,7 +50,9 @@ Adding an action opens a picker grouped by purpose:
 - **Goto** — loop the sequence back to an earlier action. Pick the **target action** and a **Repeat**
   count: on reaching the Goto, the sequence returns to that action `Repeat` times (so the actions in
   between run `Repeat + 1` times total). **Repeat 0** passes straight through, as if the Goto weren't
-  there. A run won't start until the Goto has both a target and a repeat count set.
+  there. A run won't start until the Goto has both a target and a repeat count set. Goto loops can be
+  **nested** — a Goto whose loop sits inside another Goto's loop runs its own repeats each time the
+  outer loop comes back around.
 - **Select Action** — a no-op placeholder (skipped at marking); useful while building.
 
 **GRBL** (the [FocuZ:grbl controller](jog-terminal.md))
