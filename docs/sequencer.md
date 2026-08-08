@@ -58,8 +58,10 @@ Adding an action opens a picker grouped by purpose:
 **GRBL (FocuZ)** (the [FocuZ:grbl controller](jog-terminal.md))
 
 - **GRBL - Jog** — move an axis as a job step.
-- **GRBL - Command** — send raw G-code/M-code — including switching **accessory relays** (air assist,
-  vacuum) on/off mid-job. See [the relay section](jog-terminal.md#accessory-relays-air-vacuum-more).
+- **GRBL - Command** — send raw G-code/M-code, **one command per line** — including switching
+  **accessory relays** (air assist, vacuum) on/off mid-job. Lines run in order, and the sequence
+  doesn't advance until every line — and any motion it started — has fully completed. See
+  [the relay section](jog-terminal.md#accessory-relays-air-vacuum-more).
 
 **Calibration**
 
