@@ -60,7 +60,9 @@ Adding an action opens a picker grouped by purpose:
 - **GRBL - Jog** — move an axis as a job step.
 - **GRBL - Command** — send raw G-code/M-code, **one command per line** — including switching
   **accessory relays** (air assist, vacuum) on/off mid-job. Lines run in order, and the sequence
-  doesn't advance until every line — and any motion it started — has fully completed. See
+  doesn't advance until every line — and any motion it started — has fully completed. Arcs
+  (`G2`/`G3`) and probing (`G38`) aren't supported on the motion controller — FocuZ flags those
+  lines before the run so you can correct them. See
   [the relay section](jog-terminal.md#accessory-relays-air-vacuum-more).
 
 **Calibration**
