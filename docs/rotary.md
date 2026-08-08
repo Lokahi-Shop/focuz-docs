@@ -72,11 +72,12 @@ lands exactly where it should.
 - **Accel** — acceleration ramp time, in ms.
 - **Return Spd** — speed used when returning to zero.
 
-### BJJCZ Controls
+### Jogging the rotary
 
-Live rotary motion for setup, available while the controller is connected: jog **CCW / CW** by
-the **Jog Dist** angle, **Set Zero** to define the current position as zero, and **Go to Zero**
-to rotate back to it at the Return Spd — with a live position readout.
+Live rotary motion lives on the **Jog** card's **BJJCZ Rotary** strip (available while the
+controller is connected): jog **CCW / CW** by the set angle, **Set Zero** to define the current
+position as zero, and **Go to Zero** to rotate back to it at the Return Spd — with a live
+position readout. See [Jog, Homing & Terminal](jog-terminal.md).
 
 **Import Rotary from markcfg7…** pulls rotary parameters from an existing `markcfg7` file, the
 same way as the main [device import](hardware-setup.md). The Device Setup window

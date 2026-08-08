@@ -49,10 +49,19 @@ what the job does.
 
 ### Manual jogging
 
-- Set a **jog distance** (step size) and **jog speed**, then use the per-axis jog buttons to move by that
-  step. Arrow-key **nudge** gives finer control.
+The **FocuZ Jog** section is a directional pad: **Y+ / Y− / X− / X+** arranged as a cross, with
+**Z+ / Z−** beside it. Set the **Step** (mm) and **Feed** for XY and for Z beneath their buttons,
+then click to move by that step. Axes that aren't enabled in Device/Laser Setup show grayed out.
+
 - **Home & Jog to Lens 0** homes Z and moves to the active lens's saved focal height in one step — handy
   for getting straight to focus (see [Lenses, Corrections & Calibration](lenses-corrections.md)).
+
+### BJJCZ Rotary
+
+The Jog card's **BJJCZ Rotary** strip jogs the rotary axis (it runs on the laser controller, so
+it's live whenever the laser is connected): jog **CCW / CW** by the set angle, **Set Zero** to
+define the current position as zero, and **Go to Zero** to rotate back to it — with a live
+position readout. See [Rotary Marking](rotary.md).
 
 !!! warning "How jogging really behaves (open-loop)"
     The FocuZ:grbl controller is **open-loop** and **queues** moves:
