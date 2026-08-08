@@ -31,13 +31,10 @@ on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured
   roller, so both diameters matter: the part diameter for wrapping the artwork, the roller
   diameter for the motion math.
 
-### Part (defaults)
+### Default Values
 
-- **Diameter** — a *default* part diameter for new 2D Rotary actions. Leave it blank if every
-  job is a different part — each action carries its own diameter either way.
-
-### Split
-
+- **Diameter (default)** — a *default* part diameter for new 2D Rotary actions. Leave it blank
+  if every job is a different part — each action carries its own diameter either way.
 - **Size (default)** — a *default* strip width for new 2D Rotary actions, in mm of part
   surface. Smaller splits stay closer to the laser's focus and the field's sweet spot; larger
   splits mean fewer seams and faster jobs. Keep the strip shallow enough that its edges are
@@ -47,6 +44,8 @@ on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured
 
 The three defaults only pre-fill a new 2D Rotary action's fields; a blank default leaves the
 action's field blank until you enter it there.
+
+### Split
 - **Overlap fills only (outlines marked once)** — with an overlap set, fills keep the overlap
   but outlines are trimmed to the exact seam, so outline strokes are never double-marked. Use
   this when overlap helps your fills but doubles up your outlines.
