@@ -47,13 +47,23 @@ Adding an action opens a picker grouped by purpose:
 - **Delay** — wait a set time.
 - **Pause** — stop and wait for you to continue (a modal prompt).
 - **Stop** — end the sequence here.
+- **Goto** — loop the sequence back to an earlier action. Pick the **target action** and a **Repeat**
+  count: on reaching the Goto, the sequence returns to that action `Repeat` times (so the actions in
+  between run `Repeat + 1` times total). **Repeat 0** passes straight through, as if the Goto weren't
+  there. A run won't start until the Goto has both a target and a repeat count set. Goto loops can be
+  **nested** — a Goto whose loop sits inside another Goto's loop runs its own repeats each time the
+  outer loop comes back around.
 - **Select Action** — a no-op placeholder (skipped at marking); useful while building.
 
-**GRBL** (the [FocuZ:grbl controller](jog-terminal.md))
+**GRBL (FocuZ)** (the [FocuZ:grbl controller](jog-terminal.md))
 
 - **GRBL - Jog** — move an axis as a job step.
-- **GRBL - Command** — send raw G-code/M-code — including switching **accessory relays** (air assist,
-  vacuum) on/off mid-job. See [the relay section](jog-terminal.md#accessory-relays-air-vacuum-more).
+- **GRBL - Command** — send raw G-code/M-code, **one command per line** — including switching
+  **accessory relays** (air assist, vacuum) on/off mid-job. Lines run in order, and the sequence
+  doesn't advance until every line — and any motion it started — has fully completed. Arcs
+  (`G2`/`G3`) and probing (`G38`) aren't supported on the motion controller — FocuZ flags those
+  lines before the run so you can correct them. See
+  [the relay section](jog-terminal.md#accessory-relays-air-vacuum-more).
 
 **Calibration**
 

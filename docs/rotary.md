@@ -31,13 +31,10 @@ on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured
   roller, so both diameters matter: the part diameter for wrapping the artwork, the roller
   diameter for the motion math.
 
-### Part (defaults)
+### Default Values
 
-- **Diameter** — a *default* part diameter for new 2D Rotary actions. Leave it blank if every
-  job is a different part — each action carries its own diameter either way.
-
-### Split
-
+- **Diameter (default)** — a *default* part diameter for new 2D Rotary actions. Leave it blank
+  if every job is a different part — each action carries its own diameter either way.
 - **Size (default)** — a *default* strip width for new 2D Rotary actions, in mm of part
   surface. Smaller splits stay closer to the laser's focus and the field's sweet spot; larger
   splits mean fewer seams and faster jobs. Keep the strip shallow enough that its edges are
@@ -47,6 +44,8 @@ on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured
 
 The three defaults only pre-fill a new 2D Rotary action's fields; a blank default leaves the
 action's field blank until you enter it there.
+
+### Split
 - **Overlap fills only (outlines marked once)** — with an overlap set, fills keep the overlap
   but outlines are trimmed to the exact seam, so outline strokes are never double-marked. Use
   this when overlap helps your fills but doubles up your outlines.
@@ -73,11 +72,12 @@ lands exactly where it should.
 - **Accel** — acceleration ramp time, in ms.
 - **Return Spd** — speed used when returning to zero.
 
-### BJJCZ Controls
+### Jogging the rotary
 
-Live rotary motion for setup, available while the controller is connected: jog **CCW / CW** by
-the **Jog Dist** angle, **Set Zero** to define the current position as zero, and **Go to Zero**
-to rotate back to it at the Return Spd — with a live position readout.
+Live rotary motion lives on the **Jog** card's **BJJCZ Rotary** strip (available while the
+controller is connected): jog **CCW / CW** by the set angle, **Set Zero** to define the current
+position as zero, and **Go to Zero** to rotate back to it at the Return Spd — with a live
+position readout. See [Jog, Homing & Terminal](jog-terminal.md).
 
 **Import Rotary from markcfg7…** pulls rotary parameters from an existing `markcfg7` file, the
 same way as the main [device import](hardware-setup.md). The Device Setup window
