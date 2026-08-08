@@ -97,8 +97,12 @@ focal height.
   the target back to the design origin after applying — with the drag absorbed into the offset, that's
   where it now marks, so a re-trace lands on the same spot on the material. Untick it to keep the target
   where you dragged it instead.
-- **Red Light Trace** (Device menu) helps align the red pointer to where the IR beam fires (they have a
-  small fixed parallax) and set the red-light offset and trace speed.
+- **Red Light Trace** (Device menu, or the **Red Light** button at the bottom of the Corrections
+  dialog) helps align the red pointer to where the IR beam fires (they have a small fixed parallax).
+  The red-light **offset and scale are stored per lens** — like the other corrections here, they
+  apply to the lens named when you open it — while trace speed, repeats, and durations are
+  device-wide. The window is organized into **Calibration** (red light toggle, per-lens offset and
+  scale), **Locate** (move the pointer to a position or the field center), and **Timing**.
 
 !!! warning "Per-lens actions confirm the target lens"
     Actions that change per-lens calibration apply to the **currently selected lens** and confirm which lens
