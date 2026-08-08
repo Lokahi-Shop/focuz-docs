@@ -14,8 +14,9 @@ aligning the mark to the part.
 
 ## Distortion correction (the Corrections dialog)
 
-Open **Corrections** (from [Device Setup](getting-started/first-run.md) or the lens controls). It has
-two modes for correcting galvo/lens distortion, and remembers settings per lens:
+Open **Corrections** from **Device ▸ Lens Corrections** (it applies to the currently selected lens),
+or during [Device Setup](getting-started/first-run.md). It has two modes for correcting galvo/lens
+distortion, and remembers settings per lens:
 
 === "`.cor` file (recommended)"
 
