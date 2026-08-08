@@ -84,11 +84,14 @@ focal height.
    marks — needs the FocuZ:grbl controller connected and Z homed) or **Manual** (FocuZ prompts you to move
    Z between marks yourself).
 
-    **Stacked** (Setup checkbox) marks every line — number included — at the **same spot** instead of in a
-    row: you move the *material* to a fresh spot between marks (FocuZ prompts before each mark; in Manual
-    mode the prompt covers moving Z and the material together). Useful when the surface only offers one
-    good marking spot, e.g. a narrow or curved part. The canvas still shows the laid-out row; the
-    **Preview** shows the stacked output as it will mark.
+    **Stacked** (Setup checkbox) marks every line — number included — at the **same spot** (the pattern's
+    Location) instead of in a row, so the material must move to a fresh spot between marks. Checking it
+    adds a second sublayer that advances the material along **X**: on **Auto** (offered when the X axis is
+    enabled) FocuZ jogs X by its **Distance** between marks — no prompts needed; on **Manual** FocuZ
+    prompts you to move the material before each mark (in Manual Z mode the prompt covers moving Z and
+    the material together). Useful when the surface only offers one good marking spot, e.g. a narrow or
+    curved part. The canvas still shows the laid-out row; the **Preview** shows the stacked output as it
+    will mark, one line at a time.
 3. **Run**, then inspect the part for the sharpest, cleanest line.
 4. **Auto** — enter that mark's number when prompted and FocuZ jogs straight down to its focal height;
    save it to the active lens via **Lens Offset**. **Manual** — move Z down by that many of your steps,
