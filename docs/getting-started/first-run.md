@@ -36,7 +36,8 @@ optional **Rotary Setup** at the bottom.
 > *Configure the lens you'll mark with. Set its correction (a .cor file or manual values).*
 
 1. Pick the **Lens** you're using (**L1–L8**). FocuZ keeps correction settings **per lens**, so each lens
-   has its own field size, scale/angle, and correction.
+   has its own field size, scale/angle, and correction. Give it a short **Label** (e.g. "110" or
+   "174") — the label follows the lens everywhere it's shown, including the lens dropdown.
 2. Click **Corrections…** to open the correction dialog and either:
     - **load a `.cor` file** (recommended — the lens map EZCad2/LightBurn use), or
     - enter **manual** correction values — typed in directly, imported with **From device markcfg7**
