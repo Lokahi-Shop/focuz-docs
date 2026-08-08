@@ -102,7 +102,9 @@ focal height.
   The red-light **offset and scale are stored per lens** — like the other corrections here, they
   apply to the lens named when you open it — while trace speed, repeats, and durations are
   device-wide. The window is organized into **Calibration** (red light toggle, per-lens offset and
-  scale), **Locate** (move the pointer to a position or the field center), and **Timing**.
+  scale), **Locate** (move the pointer to a position or the field center), and **Timing**. An
+  **Import markcfg7** button at the top loads a file's red-light offset, scale, and speed into the
+  boxes — nothing commits until **Save**.
 
 !!! warning "Per-lens actions confirm the target lens"
     Actions that change per-lens calibration apply to the **currently selected lens** and confirm which lens
