@@ -99,10 +99,10 @@ focal height.
   where you dragged it instead.
 - **Red Light Trace** (Device menu, or the **Red Light** button at the bottom of the Corrections
   dialog) helps align the red pointer to where the IR beam fires (they have a small fixed parallax).
-  The red-light **offset and scale are stored per lens** — like the other corrections here, they
-  apply to the lens named when you open it — while trace speed, repeats, and durations are
-  device-wide. The window is organized into **Calibration** (red light toggle, per-lens offset and
-  scale), **Locate** (move the pointer to a position or the field center), and **Timing**. An
+  The red-light **offset, scale, and trace speed are stored per lens** — like the other corrections
+  here, they apply to the lens named when you open it — while repeats and durations are
+  device-wide. The window is organized into **Calibration** (red light toggle, per-lens offset,
+  scale, and speed), **Locate** (move the pointer to a position or the field center), and **Timing**. An
   **Import markcfg7** button at the top loads a file's red-light offset, scale, and speed into the
   boxes — nothing commits until **Save**.
 
