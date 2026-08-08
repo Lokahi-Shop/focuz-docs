@@ -55,7 +55,7 @@ Adding an action opens a picker grouped by purpose:
   outer loop comes back around.
 - **Select Action** — a no-op placeholder (skipped at marking); useful while building.
 
-**GRBL** (the [FocuZ:grbl controller](jog-terminal.md))
+**GRBL (FocuZ)** (the [FocuZ:grbl controller](jog-terminal.md))
 
 - **GRBL - Jog** — move an axis as a job step.
 - **GRBL - Command** — send raw G-code/M-code — including switching **accessory relays** (air assist,
