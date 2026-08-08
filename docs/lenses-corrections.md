@@ -83,6 +83,12 @@ focal height.
 2. On the sublayer, set the Z **Distance** per mark and pick the mode: **Auto** (FocuZ jogs Z between
    marks — needs the FocuZ:grbl controller connected and Z homed) or **Manual** (FocuZ prompts you to move
    Z between marks yourself).
+
+    **Stacked** (Setup checkbox) marks every line — number included — at the **same spot** instead of in a
+    row: you move the *material* to a fresh spot between marks (FocuZ prompts before each mark; in Manual
+    mode the prompt covers moving Z and the material together). Useful when the surface only offers one
+    good marking spot, e.g. a narrow or curved part. The canvas still shows the laid-out row; the
+    **Preview** shows the stacked output as it will mark.
 3. **Run**, then inspect the part for the sharpest, cleanest line.
 4. **Auto** — enter that mark's number when prompted and FocuZ jogs straight down to its focal height;
    save it to the active lens via **Lens Offset**. **Manual** — move Z down by that many of your steps,
