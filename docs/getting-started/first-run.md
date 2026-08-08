@@ -33,7 +33,7 @@ optional **Rotary Setup** at the bottom.
 
 ## Lens Setup
 
-> *Configure the lens you'll mark with. Set its correction (a .cor file or manual values).*
+> *Configure the lens(es) you'll mark with. Set each lens's correction (a .cor file or manual values).*
 
 1. Pick the **Lens** you're using (**L1–L8**). FocuZ keeps correction settings **per lens**, so each lens
    has its own field size, scale/angle, and correction. Give it a short **Label** (e.g. "110" or
@@ -45,6 +45,9 @@ optional **Rotary Setup** at the bottom.
       **Choose markcfg7…**.
 3. *(Later)* set the lens's **focal Z height** on the **Jog ▸ Lens Offset** screen — see
    [Lenses, Corrections & Calibration](../lenses-corrections.md).
+
+You can configure **more than one lens** here — pick a lens, set it up, then switch to another
+and come back; each keeps its own settings.
 
 See **[Lenses, Corrections & Calibration](../lenses-corrections.md)** for what each correction setting does.
 
@@ -65,7 +68,8 @@ size, the part/split defaults) keep their current values — gear ratio describe
 rotary attachment, so it's never taken from the file. The line below the buttons shows the
 rotary values currently in use.
 
-Click **Finish** when you're done. You can fine-tune lenses any time via the Corrections dialog, and set
+Click **Apply All** when you're done to keep your setup, or **Cancel** to discard every change you
+made in this window and return to how it was before. You can fine-tune lenses any time via the Corrections dialog, and set
 focal Z heights on the Jog tab.
 
 Next: **[Your first mark](your-first-mark.md)**.
