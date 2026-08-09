@@ -102,6 +102,39 @@ A curve that maps **requested power → actual output power** at 0 %, 10 %, … 
 laser whose output isn't proportional to the set percentage, or to cap output. **Linear** resets to a 1:1
 map; **Reset** restores defaults.
 
+## Digital I/O (Device ▸ BJJCZ IO)
+
+If your machine has external wiring — a start footswitch, a door interlock, a stack light, a PLC —
+this is where you tell FocuZ which controller port each signal uses. Ports are numbered **0–15**, and
+**NULL** means "not connected". Each signal also has a **HIGH / LOW** button setting the level at
+which it counts as active.
+
+Nothing here takes effect until you tick **Enable I/O** and press **Save**, so a machine with no
+external wiring is unaffected. **Import markcfg7** copies the assignments out of an existing EZCad2
+configuration.
+
+**Outputs** FocuZ drives:
+
+- **Marking IO** — active while a job is marking (released as soon as it finishes).
+- **Red Light Pointer** — active while the red pointer or a trace is running.
+- **Laser Ready / Laser Power** — reserved for machines that expect those lines.
+
+**Inputs** FocuZ watches, each with its own behavior:
+
+- **Start Mark** — starts the sequence. With **Pulse Mode** ticked, one press runs one job; unticked,
+  it keeps re-running while the signal is held. Releasing never cancels a job in progress.
+- **Laser Ready** — checked once, when a job starts. If the laser isn't ready the run is blocked with
+  a message; it is not re-checked while marking.
+- **Door** and the **Stop Mark** bits (0–7) — watched **while marking only**. If one trips, the job
+  stops immediately and shows the message you set for it. A stopped job does not resume — restarting
+  marks from the beginning.
+
+!!! warning "A held signal never starts a job on its own"
+    FocuZ only starts on a *change* from inactive to active. If a start input is already active when
+    FocuZ launches or reconnects — a stuck switch, for example — nothing happens until it is released
+    and pressed again. Outputs are also driven back to their idle state when a run ends and when
+    FocuZ closes, so nothing is left switched on.
+
 ## Rotary
 
 Rotary-axis configuration lives under **Device ▸ Rotary Setup** and is covered in
