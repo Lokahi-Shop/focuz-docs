@@ -22,11 +22,13 @@ so the homing, jogging, and accessory features described here light up once it's
 
 ## Jog
 
-Open **Jog** from the menu. The Jog card gives you homing, axis control, and live position.
+Open **Jog** from the menu. The Jog window gives you homing, axis control, and live position. It's a
+separate window, so you can leave it open beside the canvas and keep working — close it with the ✕ or
+reopen it from the menu at any time.
 
-![TODO screenshot: Jog card](assets/jog-card.png){ .screenshot }
+![TODO screenshot: Jog window](assets/jog-card.png){ .screenshot }
 
-<!-- TODO screenshot: Jog overlay card -->
+<!-- TODO screenshot: Jog window -->
 
 ### Homing
 
@@ -70,7 +72,7 @@ then click to move by that step. Axes that aren't enabled in Device/Laser Setup 
 
 ### BJJCZ Rotary
 
-The Jog card's **BJJCZ Rotary** strip jogs the rotary axis (it runs on the laser controller, so
+The Jog window's **BJJCZ Rotary** strip jogs the rotary axis (it runs on the laser controller, so
 it's live whenever the laser is connected): jog **CCW / CW** by the set angle, **Set Zero** to
 define the current position as zero, and **Go to Zero** to rotate back to it — with a live
 position readout. See [Rotary Marking](rotary.md).
@@ -89,9 +91,13 @@ Open **Terminal** to talk to the FocuZ:grbl controller directly. Type a command,
 the output window shows what you sent (`> …`) and the controller's replies. Use it to run G-code, check
 status, or switch accessory outputs (below).
 
-![TODO screenshot: Terminal card](assets/terminal-card.png){ .screenshot }
+Like Jog, the Terminal is its own window and can stay open beside the canvas. Drag its edges to resize it —
+the output area grows with the window so you can watch a long session, and the command box always stays
+in view along the bottom.
 
-<!-- TODO screenshot: Terminal overlay card -->
+![TODO screenshot: Terminal window](assets/terminal-card.png){ .screenshot }
+
+<!-- TODO screenshot: Terminal window -->
 
 ## Accessory relays — air, vacuum & more
 

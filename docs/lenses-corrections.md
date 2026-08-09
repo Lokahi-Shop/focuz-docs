@@ -70,7 +70,7 @@ Each lens has a focal working distance. Set it on **Jog ▸ Lens Offset**:
 
 > The Offset can be updated later without re-finding the focal distance.
 
-Then **Home & Jog to Lens 0** (on the Jog card) gets you straight back to focus for that lens.
+Then **Home & Jog to Lens 0** (on the Jog window) gets you straight back to focus for that lens.
 
 ### Finding focus: the Z Focus Test
 

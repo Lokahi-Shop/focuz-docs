@@ -46,7 +46,7 @@ those programs don't always refresh the controller when settings change.)
 ## Motion & axes
 
 **An axis won't move / "alarm" after a limit hit.** The FocuZ:grbl controller loses an axis's homed status
-on an alarm. Clear the alarm and **re-home** the axis (Jog card). Position confidence comes from homing —
+on an alarm. Clear the alarm and **re-home** the axis (Jog window). Position confidence comes from homing —
 see the [open-loop note](jog-terminal.md#manual-jogging).
 
 **Air assist / vacuum won't switch.** These run off the controller's [accessory relays](jog-terminal.md#accessory-relays-air-vacuum-more).
