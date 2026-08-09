@@ -106,11 +106,14 @@ focal height.
   speed, plus repeats and durations). An **Import markcfg7** button at the top loads a file's
   red-light offset, scale, and speed into the boxes — nothing commits until **Save**.
 
-    To dial the alignment in: mark a square with the laser (nearly field-sized works best), then
-    press **Square** — the red light continuously traces a Size X×Y square. Walk it onto the burn
-    with the jog pad (each press nudges the offset by the **Distance** step) or by typing offsets
-    directly; the square moves live. When it sits exactly on the marked square, **Save** commits
-    the calibration to the lens.
+    To dial the alignment in, the easiest route is the **Calibration ▸ Red Light** sequencer
+    action: it marks a centered reference square (default 90% of the field, always a square at
+    the field center, work offset ignored so it lands truly centered), then opens this window
+    ready to go — the square size preloaded and the red-light square already tracing. Walk the
+    red square onto the burn with the jog pad (each press nudges the offset by the **Distance**
+    step) or by typing offsets directly; the square moves live. When it sits exactly on the
+    marked square, **Save** commits the calibration to the lens. The same **Square** button works
+    any time you open the window yourself, against any square you've marked.
 
 !!! warning "Per-lens actions confirm the target lens"
     Actions that change per-lens calibration apply to the **currently selected lens** and confirm which lens
