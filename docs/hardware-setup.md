@@ -26,10 +26,22 @@ FocuZ can reconnect automatically on startup. The controller must be connected t
 
 ## Device Setup (Device ▸ Device Setup)
 
-The one-page setup — laser type + `markcfg7` import on top, lens correction below. It's the fastest way
-to a working configuration and is covered in
-[First-run setup](getting-started/first-run.md). Importing a `markcfg7` is what marks the device
-**configured** and unlocks Run/Trace.
+The one-page setup — `markcfg7` import on top, lens setup below. It's the fastest way to a working
+configuration and is covered in [First-run setup](getting-started/first-run.md). Importing a
+`markcfg7` is what marks the device **configured** and unlocks Run/Trace.
+
+Your `markcfg7` lives in EZCad2's **plug** folder. That one import configures **everything device-wide**:
+laser settings, rotary axis, red light, power map, and I/O port assignments. If you'd rather bring in
+just one of those, each has its own **Import markcfg7** button on its own panel in the **Device** menu.
+
+**Lens settings are always imported separately, per lens** — field size, correction, and work offset
+belong to the lens, not the machine, so they're set in [Corrections](lenses-corrections.md) for whichever
+lens you're configuring.
+
+!!! note "Two things an import never changes"
+    Rotary settings **merge** — only the axis values in the file are applied, so your mode, roller size
+    and split defaults survive. And I/O is never switched **on** by an import: assignments come across,
+    but you still have to enable I/O yourself, because `markcfg7` files often name a start-marking port.
 
 !!! note "Fiber lasers"
     FocuZ currently supports **fiber** lasers. When you import a `markcfg7`, FocuZ reads the laser type
@@ -101,6 +113,39 @@ are a good starting point; tune for mark quality.
 A curve that maps **requested power → actual output power** at 0 %, 10 %, … 100 %. Use it to linearize a
 laser whose output isn't proportional to the set percentage, or to cap output. **Linear** resets to a 1:1
 map; **Reset** restores defaults.
+
+## Digital I/O (Device ▸ BJJCZ IO)
+
+If your machine has external wiring — a start footswitch, a door interlock, a stack light, a PLC —
+this is where you tell FocuZ which controller port each signal uses. Ports are numbered **0–15**, and
+**NULL** means "not connected". Each signal also has a **HIGH / LOW** button setting the level at
+which it counts as active.
+
+Nothing here takes effect until you tick **Enable I/O** and press **Save**, so a machine with no
+external wiring is unaffected. **Import markcfg7** copies the assignments out of an existing EZCad2
+configuration.
+
+**Outputs** FocuZ drives:
+
+- **Marking IO** — active while a job is marking (released as soon as it finishes).
+- **Red Light Pointer** — active while the red pointer or a trace is running.
+- **Laser Ready / Laser Power** — reserved for machines that expect those lines.
+
+**Inputs** FocuZ watches, each with its own behavior:
+
+- **Start Mark** — starts the sequence. With **Pulse Mode** ticked, one press runs one job; unticked,
+  it keeps re-running while the signal is held. Releasing never cancels a job in progress.
+- **Laser Ready** — checked once, when a job starts. If the laser isn't ready the run is blocked with
+  a message; it is not re-checked while marking.
+- **Door** and the **Stop Mark** bits (0–7) — watched **while marking only**. If one trips, the job
+  stops immediately and shows the message you set for it. A stopped job does not resume — restarting
+  marks from the beginning.
+
+!!! warning "A held signal never starts a job on its own"
+    FocuZ only starts on a *change* from inactive to active. If a start input is already active when
+    FocuZ launches or reconnects — a stuck switch, for example — nothing happens until it is released
+    and pressed again. Outputs are also driven back to their idle state when a run ends and when
+    FocuZ closes, so nothing is left switched on.
 
 ## Rotary
 
