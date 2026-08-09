@@ -31,6 +31,15 @@ Your license is stored securely on the machine.
 A license includes a period of **free updates**. **Renew Updates** (License menu) extends that period when
 it's time, through the in-app renewal flow.
 
+## Legal documents
+
+The bottom of the License panel opens the two documents that ship with FocuZ:
+
+- **End User License Agreement** — the terms you accepted on first run. You can re-read it any time,
+  **Save** a copy, or tick **Show this on next application start** to see the acceptance screen again.
+- **Third-Party Licenses** — attribution and license text for the open-source components FocuZ is built
+  on. Opens in its own window, with **Save** to keep a copy.
+
 ## See also
 
 - [Getting Started](getting-started/index.md) · [Support](support.md)
