@@ -26,10 +26,22 @@ FocuZ can reconnect automatically on startup. The controller must be connected t
 
 ## Device Setup (Device ▸ Device Setup)
 
-The one-page setup — laser type + `markcfg7` import on top, lens correction below. It's the fastest way
-to a working configuration and is covered in
-[First-run setup](getting-started/first-run.md). Importing a `markcfg7` is what marks the device
-**configured** and unlocks Run/Trace.
+The one-page setup — `markcfg7` import on top, lens setup below. It's the fastest way to a working
+configuration and is covered in [First-run setup](getting-started/first-run.md). Importing a
+`markcfg7` is what marks the device **configured** and unlocks Run/Trace.
+
+Your `markcfg7` lives in EZCad2's **plug** folder. That one import configures **everything device-wide**:
+laser settings, rotary axis, red light, power map, and I/O port assignments. If you'd rather bring in
+just one of those, each has its own **Import markcfg7** button on its own panel in the **Device** menu.
+
+**Lens settings are always imported separately, per lens** — field size, correction, and work offset
+belong to the lens, not the machine, so they're set in [Corrections](lenses-corrections.md) for whichever
+lens you're configuring.
+
+!!! note "Two things an import never changes"
+    Rotary settings **merge** — only the axis values in the file are applied, so your mode, roller size
+    and split defaults survive. And I/O is never switched **on** by an import: assignments come across,
+    but you still have to enable I/O yourself, because `markcfg7` files often name a start-marking port.
 
 !!! note "Fiber lasers"
     FocuZ currently supports **fiber** lasers. When you import a `markcfg7`, FocuZ reads the laser type
