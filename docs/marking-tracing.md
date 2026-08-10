@@ -33,6 +33,9 @@ Press **Run** to execute the sequence top to bottom. While running, **Run** beco
 - **Device must be configured** (a `markcfg7` imported) or Run is blocked — see
   [First-run setup](getting-started/first-run.md).
 - If an axis that needs homing isn't homed, a prompt offers to **home + run** or **run anyway** (see below).
+- A **safety confirmation** is the last step before the laser fires. Click **Run Sequence** to go ahead, or
+  press **Esc** (or close the window) to cancel. It deliberately doesn't accept **Enter** — starting a job
+  takes a click, so a stray keypress can't fire the laser.
 
 ### Galvo + FocuZ:grbl coordination
 
