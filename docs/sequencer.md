@@ -67,11 +67,15 @@ Adding an action opens a picker grouped by purpose:
 
 **Calibration**
 
+Listed in the order you'd normally work through them:
+
+- **Test Grid** — mark a parameter-sweep grid to dial in settings (see [The Test Grid](test-grid.md)).
 - **WCS Offset** — align the mark to the part by dragging a target on the canvas (see
   [Lenses, Corrections & Calibration](lenses-corrections.md)).
-- **Z Focus Test** — find the optimal focal height by marking a stepped-Z test pattern (see
-  [Finding focus](lenses-corrections.md#finding-focus-the-z-focus-test)).
-- **Test Grid** — mark a parameter-sweep grid to dial in settings (see [The Test Grid](test-grid.md)).
+- **Z Focal Distance** — find the optimal focal height by marking a stepped-Z test pattern (see
+  [Finding focus](lenses-corrections.md#finding-focus-the-z-focal-distance-test)).
+- **Red Light** — mark a centered reference square, then align the red guide beam to it (see
+  [Lenses, Corrections & Calibration](lenses-corrections.md)).
 
 ## Adding, copying & removing actions
 
