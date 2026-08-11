@@ -45,7 +45,7 @@ on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured
 The three defaults only pre-fill a new 2D Rotary action's fields; a blank default leaves the
 action's field blank until you enter it there.
 
-### Split
+### Rotary Behavior
 - **Overlap fills only (outlines marked once)** — with an overlap set, fills keep the overlap
   but outlines are trimmed to the exact seam, so outline strokes are never double-marked. Use
   this when overlap helps your fills but doubles up your outlines.
@@ -57,11 +57,23 @@ action's field blank until you enter it there.
   the strip edges. Arc compensation pre-corrects for the curvature so design distances land as
   true on-surface distances. The effect grows quickly with split size — it's what keeps
   geometry true when you use large splits, and it lets you size splits by focus alone.
+- **Backlash compensation (lash taken up before the first split)** — on by default. Before the
+  first strip the rotary overshoots slightly and comes back onto the position from the marking
+  direction, so the first strip is approached from the same side as every later advance and gear
+  or chuck play can't land in the first seam. Turn it off on a backlash-free direct drive, where
+  it only costs an extra move.
 
 Splits are always distributed evenly across the artwork, so the last strip is the same size as
-the rest — no thin leftover strip at the end. Before the first strip, the rotary takes up gear
-backlash by overshooting slightly and approaching from the marking direction, so the first seam
-lands exactly where it should.
+the rest — no thin leftover strip at the end.
+
+!!! note "How repeats work on a rotary job"
+    **Passes** and **Group repeat** happen *within each strip*: a group repeat of 3 marks strip 1
+    three times, advances, marks strip 2 three times, and so on. The rotary does **not** make a
+    second full lap — so there is no mid-job return to zero, and the backlash take-up is done once
+    at the start rather than per pass. Repeating the whole rotation is a different thing: loop the
+    **2D Rotary action itself** with a [Goto](sequencer.md#action-types), and each time round the
+    action re-plans and takes up backlash again. Whether it returns to zero between those rounds
+    is up to **Return to 0** in Settings.
 
 ### Motor
 
