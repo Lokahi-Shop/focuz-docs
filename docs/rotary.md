@@ -66,14 +66,31 @@ action's field blank until you enter it there.
 Splits are always distributed evenly across the artwork, so the last strip is the same size as
 the rest — no thin leftover strip at the end.
 
-!!! note "How repeats work on a rotary job"
-    **Passes** and **Group repeat** happen *within each strip*: a group repeat of 3 marks strip 1
-    three times, advances, marks strip 2 three times, and so on. The rotary does **not** make a
-    second full lap — so there is no mid-job return to zero, and the backlash take-up is done once
-    at the start rather than per pass. Repeating the whole rotation is a different thing: loop the
-    **2D Rotary action itself** with a [Goto](sequencer.md#action-types), and each time round the
-    action re-plans and takes up backlash again. Whether it returns to zero between those rounds
-    is up to **Return to 0** in Settings.
+## Multi-pass rotary jobs: Per lap
+
+A layer set to more than one **pass** shows a **Per lap** checkbox in its header, next to Repeat.
+It decides the *order* those passes run in — the number of marks is the same either way.
+
+- **Per lap ticked (default)** — one pass on every split, then back to zero and round again. Each
+  strip gets a full revolution to cool before its next pass, and seam artifacts are spread across
+  the job rather than concentrated. This is how most laser software sequences a rotary job, and it
+  generally gives the better mark.
+- **Per lap unticked** — all of a split's passes run back to back before the rotary advances, so
+  each strip is taken to depth in one go. Fewer rotary moves, so the job finishes sooner.
+
+With 5 passes over 4 splits, ticked runs 5 laps of 4 splits; unticked marks split 1 five times,
+then split 2 five times, and so on. Backlash is taken up again at the start of **every** lap, so
+each lap's first strip is entered from the marking side just like the job's first strip.
+
+**Sublayers follow their parent layer** — they have no checkbox of their own, so a layer and its
+sublayers can't disagree about lap order. **Group repeat** always stays inside the strip.
+
+The box is hidden at 1 pass, where there's nothing to order.
+
+!!! tip "Repeating the whole rotation as a job step"
+    Per lap repeats a *layer*. To repeat the entire 2D Rotary action, loop it with a
+    [Goto](sequencer.md#action-types) — each time round it re-plans and takes up backlash again,
+    and whether it returns to zero between rounds is up to **Return to 0** in Settings.
 
 ### Motor
 
