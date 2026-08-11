@@ -45,7 +45,7 @@ on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured
 The three defaults only pre-fill a new 2D Rotary action's fields; a blank default leaves the
 action's field blank until you enter it there.
 
-### Split
+### Rotary Behavior
 - **Overlap fills only (outlines marked once)** — with an overlap set, fills keep the overlap
   but outlines are trimmed to the exact seam, so outline strokes are never double-marked. Use
   this when overlap helps your fills but doubles up your outlines.
@@ -57,11 +57,40 @@ action's field blank until you enter it there.
   the strip edges. Arc compensation pre-corrects for the curvature so design distances land as
   true on-surface distances. The effect grows quickly with split size — it's what keeps
   geometry true when you use large splits, and it lets you size splits by focus alone.
+- **Backlash compensation (lash taken up before the first split)** — on by default. Before the
+  first strip the rotary overshoots slightly and comes back onto the position from the marking
+  direction, so the first strip is approached from the same side as every later advance and gear
+  or chuck play can't land in the first seam. Turn it off on a backlash-free direct drive, where
+  it only costs an extra move.
 
 Splits are always distributed evenly across the artwork, so the last strip is the same size as
-the rest — no thin leftover strip at the end. Before the first strip, the rotary takes up gear
-backlash by overshooting slightly and approaching from the marking direction, so the first seam
-lands exactly where it should.
+the rest — no thin leftover strip at the end.
+
+## Multi-pass rotary jobs: Per lap
+
+A layer set to more than one **pass** shows a **Per lap** checkbox in its header, next to Repeat.
+It decides the *order* those passes run in — the number of marks is the same either way.
+
+- **Per lap ticked (default)** — one pass on every split, then back to zero and round again. Each
+  strip gets a full revolution to cool before its next pass, and seam artifacts are spread across
+  the job rather than concentrated. This is how most laser software sequences a rotary job, and it
+  generally gives the better mark.
+- **Per lap unticked** — all of a split's passes run back to back before the rotary advances, so
+  each strip is taken to depth in one go. Fewer rotary moves, so the job finishes sooner.
+
+With 5 passes over 4 splits, ticked runs 5 laps of 4 splits; unticked marks split 1 five times,
+then split 2 five times, and so on. Backlash is taken up again at the start of **every** lap, so
+each lap's first strip is entered from the marking side just like the job's first strip.
+
+**Sublayers follow their parent layer** — they have no checkbox of their own, so a layer and its
+sublayers can't disagree about lap order. **Group repeat** always stays inside the strip.
+
+The box is hidden at 1 pass, where there's nothing to order.
+
+!!! tip "Repeating the whole rotation as a job step"
+    Per lap repeats a *layer*. To repeat the entire 2D Rotary action, loop it with a
+    [Goto](sequencer.md#action-types) — each time round it re-plans and takes up backlash again,
+    and whether it returns to zero between rounds is up to **Return to 0** in Settings.
 
 ### Motor
 
