@@ -84,5 +84,5 @@ off the engraved labels.
 ## See also
 
 - [The Sequencer](sequencer.md) — parameters, fills, variation, and sublayers in depth.
-- [Finding focus (Z Focus Test)](lenses-corrections.md#finding-focus-the-z-focus-test) — dial in the
+- [Finding focus (Z Focal Distance)](lenses-corrections.md#finding-focus-the-z-focal-distance-test) — dial in the
   focal height before dialing in settings.
