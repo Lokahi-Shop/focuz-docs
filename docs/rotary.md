@@ -52,7 +52,9 @@ action's field blank until you enter it there.
   this when overlap helps your fills but doubles up your outlines.
 - **Seam-aware splits (seams avoid geometry)** — lets each seam shift a little (up to about a
   quarter of the split size) to land in the widest nearby gap in the artwork, so seams fall
-  *between* letters and shapes instead of through them.
+  *between* letters and shapes instead of through them. The **Gap** field beside it sets the
+  narrowest empty band that counts as a seam home (default 0.1 mm) — lower it to let seams use
+  very fine gaps, such as the grid lines of a checkerboard pattern.
 - **Arc compensation (correct curvature per split)** — the laser projects each strip onto a
   flat plane, but the part surface curves away from it, so marks land slightly stretched near
   the strip edges. Arc compensation pre-corrects for the curvature so design distances land as
