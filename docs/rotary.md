@@ -5,7 +5,7 @@ passes. The galvo can only mark a flat window at a time, so FocuZ wraps your art
 part in **splits**: it marks one strip, rotates the part, marks the next strip, and so on until
 the whole design is on the surface.
 
-Rotary marking always runs through the [**2.5D Rotary** action](#the-25d-rotary-action) in the
+Rotary marking always runs through the [**2D Rotary** action](#the-2d-rotary-action) in the
 Sequencer — the action carries the job's part and split values, so nothing has to be switched
 on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured once under
 **Device ▸ Rotary Setup**.
@@ -34,16 +34,16 @@ on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured
 
 ### Default Values
 
-- **Diameter (default)** — a *default* part diameter for new 2.5D Rotary actions. Leave it blank
+- **Diameter (default)** — a *default* part diameter for new 2D Rotary actions. Leave it blank
   if every job is a different part — each action carries its own diameter either way.
-- **Size (default)** — a *default* strip width for new 2.5D Rotary actions, in mm of part
+- **Size (default)** — a *default* strip width for new 2D Rotary actions, in mm of part
   surface. Smaller splits stay closer to the laser's focus and the field's sweet spot; larger
   splits mean fewer seams and faster jobs. Keep the strip shallow enough that its edges are
   still within your focus tolerance.
 - **Overlap (default)** — a *default* overlap between neighboring strips, in mm. A little
   overlap can hide seam lines in fills.
 
-The three defaults only pre-fill a new 2.5D Rotary action's fields; a blank default leaves the
+The three defaults only pre-fill a new 2D Rotary action's fields; a blank default leaves the
 action's field blank until you enter it there.
 
 ### Rotary Behavior
@@ -91,7 +91,7 @@ sublayers can't disagree about lap order. **Group repeat** always stays inside t
 The box is hidden at 1 pass, where there's nothing to order.
 
 !!! tip "Repeating the whole rotation as a job step"
-    Per lap repeats a *layer*. To repeat the entire 2.5D Rotary action, loop it with a
+    Per lap repeats a *layer*. To repeat the entire 2D Rotary action, loop it with a
     [Goto](sequencer.md#action-types) — each time round it re-plans and takes up backlash again,
     and whether it returns to zero between rounds is up to **Return to 0** in Settings.
 
@@ -117,17 +117,16 @@ same way as the main [device import](hardware-setup.md). The Device Setup window
 section — including reusing the device's own `markcfg7` — so a rotary can be configured during
 first run.
 
-## The 2.5D Rotary action
+## The 2D Rotary action
 
-The **2.5D Rotary** action (in the Sequencer's Marking group) is a 2D Import that marks through
+The **2D Rotary** action (in the Sequencer's Marking group) is a 2D Import that marks through
 the rotary engine — it's the one and only way a job runs on the rotary. It carries its own
 **Rotary** section above its content:
 
-- **Part Diameter / Split Size / Overlap** — the job's own values, saved with the project.
-  They belong to **each layer**, so one action can mark sections of different diameters — a
-  Ø60 base band and a Ø80 upper band in the same run. Layers whose values all match (and sit
-  next to each other) mark together in a single revolution. Values pre-fill from the Rotary
-  Setup defaults when a layer is created; fields with no default start blank. **All three are
+- **Part Diameter / Split Size / Overlap** — the job's own values, saved with the project and
+  set **once for the whole action** in the Rotary section that sits above the layers: one part
+  per action, shared by everything the action marks. Values pre-fill from the Rotary Setup
+  defaults when the action is created; fields with no default start blank. **All three are
   required** — the run and trace are blocked, with a message naming the missing field, until
   they're entered (an overlap of 0 counts as entered). Different actions (or different
   projects) can target different parts without touching the device setup.
@@ -148,9 +147,9 @@ piece of art along the wrap axis moves it *around the part*; moving it along the
 moves it along the part's length. That means two pieces of art always land in the same places
 on the part no matter how you organize them — but *how* they mark differs:
 
-| | Same layer | Two layers, one action | Two 2.5D Rotary actions |
+| | Same layer | Two layers, one action | Two 2D Rotary actions |
 |---|---|---|---|
-| **Revolutions** | One | One — layers with matching rotary values that sit next to each other share the revolution | Two — each action runs all of its splits before the next begins |
+| **Revolutions** | One | One — all of an action's layers share the same part values, so they share the revolution | Two — each action runs all of its splits before the next begins |
 | **Splits & seams** | One split plan across the combined artwork | Same combined plan — seams line up for both pieces | Each action plans around its own artwork — seams fall in different places |
 | **Position on the part** | Absolute — identical in all three arrangements | Same | Same |
 | **Where filled shapes overlap** | Overlapping areas cancel to unfilled (with the default Even / Odd fill grouping) | Each layer fills independently — the overlap is **marked twice** | Marked twice |
@@ -172,7 +171,7 @@ The preview shows the true result either way.
 
 ## Previewing splits
 
-In the [Preview](marking-tracing.md) of a 2.5D Rotary action, a vertical **split slider** appears
+In the [Preview](marking-tracing.md) of a 2D Rotary action, a vertical **split slider** appears
 beside the playback slider, with one stop per split:
 
 - By default the preview shows **one split at a time**, centered in the canvas — exactly the
