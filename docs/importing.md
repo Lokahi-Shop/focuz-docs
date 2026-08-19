@@ -31,6 +31,59 @@ Add a **2D Import** action (or drag a file onto the canvas) and choose your file
     probably isn't closed — check it in your design tool, or adjust the closed-path tolerance in
     [Hardware & Device Setup](hardware-setup.md).
 
+## Preparing AI and SVG files
+
+A little preparation in your design tool makes vector imports land exactly as designed.
+
+### Convert text to outlines
+
+**FocuZ imports vector paths, not fonts.** Live text in an AI or SVG file — text still bound to a
+font — is not imported, and there are no plans to render fonts inside FocuZ: substituting an
+installed font for the designer's font would mark the *wrong* shapes with full confidence, which
+is worse than leaving them out. Convert text to paths before exporting:
+
+- **Illustrator:** select the text → **Type ▸ Create Outlines** (Ctrl/Cmd+Shift+O).
+- **Inkscape:** select the text → **Path ▸ Object to Path**.
+
+If imported art is missing its lettering, this is almost always why.
+
+### Flatten before export
+
+Flattening (Illustrator: **Object ▸ Flatten Transparency**, or **Object ▸ Expand / Expand
+Appearance**) bakes advanced constructs down to plain paths — which is exactly what a laser
+needs:
+
+- **Clipping masks** are applied: geometry is genuinely cropped to the mask, so hidden portions
+  can't come back on import.
+- **Symbols, brushes, patterns and effects** become real geometry at their placed positions.
+
+Files saved as **Illustrator 8** (the version EZCad2 requires) are largely flattened by the
+save-down itself, which is why EZCad2-era art usually imports cleanly.
+
+### Artboards
+
+FocuZ imports the **artboard's art**: paths entirely outside the artboard are skipped, and the
+count is recorded in the log ("*N paths beyond the artboard were not imported*") so a missing
+element is never a mystery. Artists commonly park scratch material on the pasteboard — that
+material stays out of your job.
+
+- Art **crossing** the artboard edge imports whole by default. The Preferences ▸ Import option
+  **"clip art crossing the artboard closed at its edge"** cuts it at the boundary instead,
+  resealing closed shapes along the edge (note the sealed edge marks as a line).
+- A file with **several artboards** asks which one to import.
+- A file with no artboard declaration imports in full.
+
+### Sizes and units
+
+AI files import at true size (Illustrator's points convert to millimeters). SVG files with real
+units (mm/cm/in/pt) import exactly; pixel-based SVGs use **Preferences ▸ Import ▸ SVG px
+scale** — *Auto* reads 96 dpi (the web standard) unless the file identifies itself as an
+Illustrator export (72 dpi), or force either value.
+
+!!! tip "Hidden layers stay hidden"
+    Layers or objects hidden in the file (`display: none` / hidden visibility in SVG) are not
+    imported — a layer you switched off in your design tool can't silently mark the part.
+
 ## Importing 3D models (slicing)
 
 Add a **3D Slice** action and import a STEP/STP or mesh file. FocuZ switches to the 3D canvas and slices the
