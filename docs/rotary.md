@@ -22,8 +22,9 @@ on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured
   rotary to zero so the part is never left at an arbitrary angle.
 - **Mode** — **Chuck** grips the part and turns it directly; **Roller** turns the part by
   spinning drive rollers underneath it (see [Chuck vs. Roller](#chuck-vs-roller)).
-- **Axis** — which axis of the artwork wraps around the part (X or Y). Match it to how the
-  rotary sits under the laser.
+- **Axis** — the axis the part **rotates around**. The artwork wraps *around* that axis: with
+  X selected, the art's vertical (Y) direction wraps around the part; with Y selected, the
+  art's horizontal (X) direction wraps. Match it to how the rotary sits under the laser.
 - **Gear Ratio** — the drive ratio between motor and part, as *n* : 1. At 1 : 1 the motor's
   Steps/Rot is the part's steps per rotation; a 2 : 1 reduction means the motor turns twice
   per part rotation.
@@ -51,17 +52,19 @@ action's field blank until you enter it there.
   this when overlap helps your fills but doubles up your outlines.
 - **Seam-aware splits (seams avoid geometry)** — lets each seam shift a little (up to about a
   quarter of the split size) to land in the widest nearby gap in the artwork, so seams fall
-  *between* letters and shapes instead of through them.
+  *between* letters and shapes instead of through them. The **Gap** field beside it sets the
+  narrowest empty band that counts as a seam home (default 0.1 mm) — lower it to let seams use
+  very fine gaps, such as the grid lines of a checkerboard pattern.
 - **Arc compensation (correct curvature per split)** — the laser projects each strip onto a
   flat plane, but the part surface curves away from it, so marks land slightly stretched near
   the strip edges. Arc compensation pre-corrects for the curvature so design distances land as
   true on-surface distances. The effect grows quickly with split size — it's what keeps
   geometry true when you use large splits, and it lets you size splits by focus alone.
-- **Backlash compensation (lash taken up before the first split)** — on by default. Before the
-  first strip the rotary overshoots slightly and comes back onto the position from the marking
-  direction, so the first strip is approached from the same side as every later advance and gear
-  or chuck play can't land in the first seam. Turn it off on a backlash-free direct drive, where
-  it only costs an extra move.
+- **Backlash compensation (lash taken up before the first split)** — off by default. When on,
+  the rotary overshoots the first strip slightly and comes back onto the position from the
+  marking direction, so the first strip is approached from the same side as every later advance
+  and gear or chuck play can't land in the first seam. Turn it on for geared or chuck drives
+  with measurable play.
 
 Splits are always distributed evenly across the artwork, so the last strip is the same size as
 the rest — no thin leftover strip at the end.
@@ -120,12 +123,13 @@ The **2D Rotary** action (in the Sequencer's Marking group) is a 2D Import that 
 the rotary engine — it's the one and only way a job runs on the rotary. It carries its own
 **Rotary** section above its content:
 
-- **Part Diameter / Split Size / Overlap** — the job's own values, saved with the project.
-  They pre-fill from the Rotary Setup defaults when the action is created; fields with no
-  default start blank. **All three are required** — the run and trace are blocked, with a
-  message naming the missing field, until they're entered (an overlap of 0 counts as entered).
-  Different actions (or different projects) can target different parts without touching the
-  device setup.
+- **Part Diameter / Split Size / Overlap** — the job's own values, saved with the project and
+  set **once for the whole action** in the Rotary section that sits above the layers: one part
+  per action, shared by everything the action marks. Values pre-fill from the Rotary Setup
+  defaults when the action is created; fields with no default start blank. **All three are
+  required** — the run and trace are blocked, with a message naming the missing field, until
+  they're entered (an overlap of 0 counts as entered). Different actions (or different
+  projects) can target different parts without touching the device setup.
 - **Start Offset** — optional, in part degrees: rotates the whole job's starting orientation
   on the part without changing the rotary's Set Zero position. Handy for marking at a specific
   clock position, or spacing repeat jobs around the same part. 0 (or blank) = none; Return to
@@ -134,6 +138,36 @@ the rotary engine — it's the one and only way a job runs on the rotary. It car
 Axis, mode, motor settings, and the split-quality options still come from Rotary Setup — the
 action carries only the job values. Because rotary is per-action, nothing is left switched on
 afterward — other actions and later jobs are unaffected.
+
+## Placing more than one piece of art
+
+Position along the wrap direction is **absolute**: where art sits on the canvas is where it
+lands on the part, measured around the circumference from the rotary's zero position. Moving a
+piece of art along the wrap axis moves it *around the part*; moving it along the other axis
+moves it along the part's length. That means two pieces of art always land in the same places
+on the part no matter how you organize them — but *how* they mark differs:
+
+| | Same layer | Two layers, one action | Two 2D Rotary actions |
+|---|---|---|---|
+| **Revolutions** | One | One — all of an action's layers share the same part values, so they share the revolution | Two — each action runs all of its splits before the next begins |
+| **Splits & seams** | One split plan across the combined artwork | Same combined plan — seams line up for both pieces | Each action plans around its own artwork — seams fall in different places |
+| **Position on the part** | Absolute — identical in all three arrangements | Same | Same |
+| **Where filled shapes overlap** | Overlapping areas cancel to unfilled (with the default Even / Odd fill grouping) | Each layer fills independently — the overlap is **marked twice** | Marked twice |
+| **Where outlines overlap** | Both mark, on top of each other | Same | Same |
+| **Marking settings** | One set shared by everything in the layer | Independent per layer | Independent per layer |
+| **Marking order** | All content together, split by split | Layer order *within* each split, then the part rotates | The first action completes entirely, then the second runs |
+| **Fit circumference** | Fits the combined width of all the layer's art | Fits each layer's own art | Fits each layer's own art |
+
+!!! tip "Which arrangement to use"
+    Use the **same layer** when the pieces share settings and you want one revolution.
+    Use **separate layers** for per-piece settings while keeping one revolution and aligned
+    seams. Use **separate actions** only when the jobs must be sequenced independently — for
+    example with a jog or an operator prompt between them — at the cost of a second revolution
+    and seams that don't line up between the two.
+
+Nothing warns about overlap: overlapping art simply marks as the table describes, and art
+placed more than a full circumference apart wraps onto whatever already occupies that angle.
+The preview shows the true result either way.
 
 ## Previewing splits
 
@@ -151,7 +185,9 @@ Seam-aware splits and arc compensation show up in the preview exactly as they wi
 ## Sublayers in rotary jobs
 
 Sublayers run inside each split, just as they do in flat marking — jog sublayers fire between
-passes, and cut sublayers mark their bands clipped to the current strip.
+passes, and **Groove** sublayers (the rotary name for the Cut mode) mark their offset bands
+clipped to the current strip. A groove is for grooving and deep engraving around the part — it
+is sectioned by splits like all rotary content, and is not a tube through-cutting mode.
 
 ## Chuck vs. Roller
 
