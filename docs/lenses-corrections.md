@@ -62,7 +62,7 @@ tracing — changing it never moves artwork on the canvas.
 
 ## Focal height (Z) per lens
 
-Each lens has a focal working distance. Set it on **Jog ▸ Lens Offset**:
+Each lens has a focal working distance. Set it on the **Lens** screen (top menu):
 
 1. **Jog Z** to the optimum focal distance.
 2. Enter an **Offset** (the distance between the baseboard and the top of your test material).
@@ -94,7 +94,7 @@ focal height.
     will mark, one line at a time.
 3. **Run**, then inspect the part for the sharpest, cleanest line.
 4. **Auto** — enter that mark's number when prompted and FocuZ jogs straight down to its focal height;
-   save it to the active lens via **Lens Offset**. **Manual** — move Z down by that many of your steps,
+   save it to the active lens via the **Lens** screen. **Manual** — move Z down by that many of your steps,
    then save the same way.
 
 ## Aligning the mark to the part
