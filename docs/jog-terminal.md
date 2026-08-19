@@ -40,9 +40,9 @@ reopen it from the menu at any time.
 
 ### Motorized axes (Enable X / Y / Z)
 
-Tell FocuZ which axes it drives with the **Enable X / Y / Z** checkboxes in the
-**Motorized Axis (FocuZ controlled)** section — found in **Device ▸ Device Setup** and in
-**Device ▸ Laser Setup** (both show the same setting). Enabling an axis includes it in operations
+Tell FocuZ which axes it drives with the **Enable X / Y / Z** checkboxes — found on
+**Device ▸ Connection** (below the FocuZ:grbl port selector) and in **Device ▸ Laser Setup**'s
+**Motorized Axis (FocuZ controlled)** section (both show the same setting). Enabling an axis includes it in operations
 that need confident absolute positioning and shows its jog controls and Home button here on the Jog
 tab; a disabled axis is hidden. Whether a run requires a given axis to be homed depends on which axes
 are enabled and what the job does.
