@@ -63,9 +63,14 @@ All three axes are **off by default**. Your choices persist until you change the
 
 ### Manual jogging
 
-The **FocuZ Jog** section is a directional pad: **Y+ / Y− / X− / X+** arranged as a cross, with
+The **FocuZ (custom GRBL)** section is a directional pad: **Y+ / Y− / X− / X+** arranged as a cross, with
 **Z+ / Z−** beside it. Set the **Step** (mm) and **Feed** for XY and for Z beneath their buttons,
 then click to move by that step. Axes that aren't enabled in Device/Laser Setup show grayed out.
+
+These controls appear only while a FocuZ compatible controller is connected — every one of them
+sends a jog, so without the controller the section shows a note asking you to connect one and the
+window closes up around it. The **BJJCZ Rotary** strip below is never hidden: it runs on the laser
+controller and simply grays out when the laser isn't connected.
 
 - **Home & Jog to Lens 0** homes Z and moves to the active lens's saved focal height in one step — handy
   for getting straight to focus (see [Lenses, Corrections & Calibration](lenses-corrections.md)).
