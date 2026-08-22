@@ -62,13 +62,23 @@ tracing — changing it never moves artwork on the canvas.
 
 ## Focal height (Z) per lens
 
-Each lens has a focal working distance. Set it on **Jog ▸ Lens Offset**:
+Each lens has a focal working distance. Set it on the **Lens** screen (top menu), in the
+**Motorized Positional Z** section:
 
 1. **Jog Z** to the optimum focal distance.
 2. Enter an **Offset** (the distance between the baseboard and the top of your test material).
-3. Click **Save Z** to commit the focal distance + offset to the active lens.
+3. Click **Save Current Z** to commit the focal distance + offset to the active lens.
 
-> The Offset can be updated later without re-finding the focal distance.
+> The Offset can be updated later without re-finding the focal distance. The section's
+> **Instructions** button repeats these three steps in the app.
+
+> **Motorized Positional Z** shows its controls only when a FocuZ compatible controller is connected
+> **and** the **Z** axis is enabled (Device ▸ Connection). Until both are true the section says which
+> one is missing — without a motorized Z there is nothing for FocuZ to save a focal height against.
+
+The **Info** section below it lists the active lens and everything stored against it: the correction
+source, field size, angle, WCS offset, and the saved focal height + offset. The screen's title names
+the active lens too — **Lens L2**, for example.
 
 Then **Home & Jog to Lens 0** (on the Jog window) gets you straight back to focus for that lens.
 
@@ -94,7 +104,7 @@ focal height.
     will mark, one line at a time.
 3. **Run**, then inspect the part for the sharpest, cleanest line.
 4. **Auto** — enter that mark's number when prompted and FocuZ jogs straight down to its focal height;
-   save it to the active lens via **Lens Offset**. **Manual** — move Z down by that many of your steps,
+   save it to the active lens via the **Lens** screen. **Manual** — move Z down by that many of your steps,
    then save the same way.
 
 ## Aligning the mark to the part
