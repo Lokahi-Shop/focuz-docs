@@ -112,7 +112,7 @@ Pick a **fill** to engrave a filled area (leave it off to mark just the outline)
 - **Thatch** — a textured/wobble fill (set its size and phase).
 
 Common controls: **Spacing** and **Angle** for line fills, **Auto Rotate** (+ **Step**) to turn the fill
-angle each pass, and **Ctr Offset** (the ring start phase, as a % of spacing) for **Contour**.
+angle each pass, and **Center** (where the rings start, as a % of the spacing) for **Contour**.
 
 On 2D Import layers, two extra rows shape the filled area itself:
 
