@@ -106,7 +106,6 @@ Pick a **fill** to engrave a filled area (leave it off to mark just the outline)
 
 - **Unidirectional / Bidirectional / Cross** — straight line fills (one direction, back-and-forth, or
   crossed). Set **Spacing** and **Angle**.
-- **Hilbert Curve** — a space-filling curve (set its depth/size).
 - **Snake** — a continuous serpentine fill.
 - **Contour** — concentric rings that follow the shape.
 - **Thatch** — a textured/wobble fill (set its size and phase).

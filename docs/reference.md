@@ -43,8 +43,7 @@ folder — include it when contacting [Support](support.md). *(Exact filenames t
 | **`.cor`** | A lens distortion-correction file (same format as EZCad2 / LightBurn). |
 | **WCS** | Work Coordinate System — the work origin; FocuZ stores a WCS offset per lens. |
 | **MPos / LPos** | Machine (absolute) position vs. the work position FocuZ derives from it. |
-| **Fill** | The pattern used to engrave a closed area (line, Hilbert, snake, contour, thatch). |
-| **Hilbert** | A space-filling curve used as a fill pattern. |
+| **Fill** | The pattern used to engrave a closed area (line, snake, contour, thatch). |
 | **MO** | The laser's master oscillator (opened before firing). |
 | **Trace** | The red-light, laser-off preview of where a job will mark. |
 
