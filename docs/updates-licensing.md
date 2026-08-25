@@ -85,10 +85,10 @@ usage data or telemetry:
 - **License actions you start** — activating, deactivating, renewing, or redeeming a code talks
   to the license server at that moment, with the same identifiers. Starting a renewal also sends
   your license email so checkout is pre-filled.
-- **Accepting the pre-release terms** *(beta/RC builds only, once per terms version)* — records
-  that you accepted: the date, the terms version and wording, a machine identifier, and your
-  product-updates choice. No name or email is asked for. This step doesn't exist in stable
-  releases.
+- **Accepting the license terms** *(once per terms version)* — records that you accepted: the
+  date, the terms version and wording, a machine identifier, and your news-and-updates choice.
+  No name or email is asked for; on trial machines the record isn't tied to you at all (a
+  license activated later links it to your license email).
 
 That's the whole list. Logs stay on your computer unless you choose to share them with support,
 and no personal data is sold or shared for marketing. The full wording lives in the EULA's Data
