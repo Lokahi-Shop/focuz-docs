@@ -62,13 +62,23 @@ tracing — changing it never moves artwork on the canvas.
 
 ## Focal height (Z) per lens
 
-Each lens has a focal working distance. Set it on **Jog ▸ Lens Offset**:
+Each lens has a focal working distance. Set it on the **Lens** screen (top menu), in the
+**Motorized Positional Z** section:
 
 1. **Jog Z** to the optimum focal distance.
 2. Enter an **Offset** (the distance between the baseboard and the top of your test material).
-3. Click **Save Z** to commit the focal distance + offset to the active lens.
+3. Click **Save Current Z** to commit the focal distance + offset to the active lens.
 
-> The Offset can be updated later without re-finding the focal distance.
+> The Offset can be updated later without re-finding the focal distance. The section's
+> **Instructions** button repeats these three steps in the app.
+
+> **Motorized Positional Z** shows its controls only when a FocuZ compatible controller is connected
+> **and** the **Z** axis is enabled (Device ▸ Connection). Until both are true the section says which
+> one is missing — without a motorized Z there is nothing for FocuZ to save a focal height against.
+
+The **Info** section below it lists the active lens and everything stored against it: the correction
+source, field size, angle, WCS offset, and the saved focal height + offset. The screen's title names
+the active lens too — **Lens L2**, for example.
 
 Then **Home & Jog to Lens 0** (on the Jog window) gets you straight back to focus for that lens.
 
@@ -80,21 +90,21 @@ focal height.
 
 1. Add a **Z Focal Distance** action. In **Setup**, set the number of **5-Mark Groups**, **Mark Spacing**,
    **Mark Height**, and **Label Height** — the pattern on the canvas updates as you type.
-2. On the sublayer, set the Z **Distance** per mark and pick the mode: **Auto** (FocuZ jogs Z between
+2. On the sublayer, set the Z **Distance** per mark and pick the mode: **Motorized** (FocuZ jogs Z between
    marks — needs the FocuZ:grbl controller connected and Z homed) or **Manual** (FocuZ prompts you to move
    Z between marks yourself).
 
     **Stacked** (Setup checkbox) marks every line — number included — at the **same spot** (the pattern's
     Location) instead of in a row, so the material must move to a fresh spot between marks. Checking it
-    adds a second sublayer that advances the material along **X**: on **Auto** (offered when the X axis is
+    adds a second sublayer that advances the material along **X**: on **Motorized** (offered when the X axis is
     enabled) FocuZ jogs X by its **Distance** between marks — no prompts needed; on **Manual** FocuZ
     prompts you to move the material before each mark (in Manual Z mode the prompt covers moving Z and
     the material together). Useful when the surface only offers one good marking spot, e.g. a narrow or
     curved part. The canvas still shows the laid-out row; the **Preview** shows the stacked output as it
     will mark, one line at a time.
 3. **Run**, then inspect the part for the sharpest, cleanest line.
-4. **Auto** — enter that mark's number when prompted and FocuZ jogs straight down to its focal height;
-   save it to the active lens via **Lens Offset**. **Manual** — move Z down by that many of your steps,
+4. **Motorized** — enter that mark's number when prompted and FocuZ jogs straight down to its focal height;
+   save it to the active lens via the **Lens** screen. **Manual** — move Z down by that many of your steps,
    then save the same way.
 
 ## Aligning the mark to the part

@@ -43,7 +43,7 @@ optional **Rotary Setup** at the bottom.
     - enter **manual** correction values — typed in directly, imported with **From device markcfg7**
       (reuses the file you imported above, no re-picking), or imported from any file with
       **Choose markcfg7…**.
-3. *(Later)* set the lens's **focal Z height** on the **Jog ▸ Lens Offset** screen — see
+3. *(Later)* set the lens's **focal Z height** on the **Lens** screen (top menu) — see
    [Lenses, Corrections & Calibration](../lenses-corrections.md).
 
 You can configure **more than one lens** here — pick a lens, set it up, then switch to another
