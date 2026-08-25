@@ -48,8 +48,11 @@ right after renewing from another device.
 - **What's New** — after updating, FocuZ shows the changes in the new version.
 - **Check for Updates** — see whether a newer version is available and get the download. How
   often FocuZ checks (or **Never**) is up to you.
-- **Release channels** — licensed users can opt into **beta / RC** pre-releases; otherwise you
-  get stable releases only. (Versions are dated — `YY.MM.DD.xx`; see
+- **Release channels** — by default the update check offers **stable releases only**. To also
+  be offered **beta / release-candidate** builds, tick *Update checks include beta /
+  release-candidate builds* in **Preferences** (off by default). Whichever is newest for your
+  channel wins — a stable release that supersedes an RC is still what you're offered.
+  (Versions are dated — `YY.MM.DD.xx`; see
   [Installation](getting-started/installation.md).)
 - **After your update period ends**, every version released before it ended remains yours: the
   update dialog points you to the newest release you're entitled to, which you can download
@@ -69,6 +72,27 @@ A license may be transferred **as a whole** — for example together with your l
 — to a single new owner. Deactivate your own copies, hand over the license key, and email
 **info@lokahi.shop** so we can update the license record. Splitting a license between people
 isn't permitted.
+
+## When FocuZ connects to the internet
+
+FocuZ works offline. It contacts the internet only at these specific moments, and never sends
+usage data or telemetry:
+
+- **Checking for updates** — at the frequency you chose (or only when you click *Check for
+  Updates*; **Never** means never). The check retrieves the newest version for your channel and,
+  on licensed machines, also refreshes your license status and update entitlement in the same
+  breath — it sends your license key, computer name, and a non-reversible hardware identifier.
+- **License actions you start** — activating, deactivating, renewing, or redeeming a code talks
+  to the license server at that moment, with the same identifiers. Starting a renewal also sends
+  your license email so checkout is pre-filled.
+- **Accepting the pre-release terms** *(beta/RC builds only, once per terms version)* — records
+  that you accepted: the date, the terms version and wording, a machine identifier, and your
+  product-updates choice. No name or email is asked for. This step doesn't exist in stable
+  releases.
+
+That's the whole list. Logs stay on your computer unless you choose to share them with support,
+and no personal data is sold or shared for marketing. The full wording lives in the EULA's Data
+Collection section (below).
 
 ## Legal documents
 
