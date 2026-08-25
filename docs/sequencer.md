@@ -106,19 +106,21 @@ Pick a **fill** to engrave a filled area (leave it off to mark just the outline)
 
 - **Unidirectional / Bidirectional / Cross** — straight line fills (one direction, back-and-forth, or
   crossed). Set **Spacing** and **Angle**.
-- **Hilbert Curve** — a space-filling curve (set its depth/size).
 - **Snake** — a continuous serpentine fill.
-- **Contour Race Track** — fast concentric rings that follow the shape (offset insetting).
-- **Contour Max Detail** — high-fidelity concentric fill (slower).
+- **Contour** — concentric rings that follow the shape.
 - **Thatch** — a textured/wobble fill (set its size and phase).
 
 Common controls: **Spacing** and **Angle** for line fills, **Auto Rotate** (+ **Step**) to turn the fill
-angle each pass, and a contour **offset** for the contour types.
+angle each pass, and **Center** (where the rings start, as a % of the spacing) for **Contour**.
 
 On 2D Import layers, two extra rows shape the filled area itself:
 
 - **Fill Offset** — grow (+) or shrink (−) the fill past the shape's boundary.
 - **Hole Inset** — keep the fill a set distance short of the shape's interior holes.
+
+Both shape the area *after* the layer's fill grouping has decided what counts as filled, so overlapping
+shapes keep the behaviour you picked — a **Winding #** or **Union** overlap stays filled once you grow it,
+and an **Intersection** grows the shared area rather than losing it.
 
 ## 3D layers: the Perimeter
 
