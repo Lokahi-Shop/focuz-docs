@@ -13,7 +13,11 @@ This section takes you from a fresh download to your first successful mark.
 You'll need:
 
 - A PC running **Windows 10 or later (64-bit)**.
-- A **BJJCZ / JCZ fiber galvo controller** connected over USB.
+- A **BJJCZ / JCZ fiber galvo controller** connected over USB. Tested with the Lite fiber
+  boards (LMCV4-FIBER-M, FBLI-B-LV4); standard boards (FBLMCB-V4) and earlier LMCV2-FIBER (non-M)
+  boards are untested but should work - same protocol family. These
+  are the boards commonly sold as "EZCad2" or "LightBurn-compatible" galvo controllers - if
+  your machine came with EZCad2, its board is in this family.
 - Your machine's **`markcfg7`** file and any **`.cor`** lens-correction files (the same files EZCad2
   uses). If you've run EZCad2 on this machine, you already have these.
 
