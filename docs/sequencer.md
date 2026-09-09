@@ -136,10 +136,14 @@ A perimeter is a normal canvas object — select it to move it or edit it. With 
 selected, the size fields become a single **Off:** (offset) box that grows or shrinks the boundary evenly
 all the way around; setting it back to 0 restores the original outline exactly.
 
-**Respect holes** (Hull only, on by default) — the Hull follows the model's **through-holes**, so e.g. a
-ring's center stays open instead of being treated as solid. Combined with **Fill-Through**, a through-hole
-is marked at full depth — either way the hole is treated as real empty space. Uncheck it to use the outer
-outline only.
+**Respect holes** (on by default) — the model's **through-holes** are treated as real empty space with
+**any** perimeter, or none. The checkbox sits next to **Fill Through** in the slice section; with a Hull
+perimeter, the same setting also makes the Hull itself follow the holes (a ring's outline becomes a ring,
+not a disc — the Hull's own checkbox toggles the same thing). What a hole becomes depends on the setup:
+**with a perimeter**, the hole is carved at full depth along with the background; **without one**, it is
+simply left unmarked and stands at the surface. Uncheck it to fill holes solid (legacy behavior).
+Clean, watertight meshes give the truest holes. An imported multi-contour perimeter still clips with its
+outer outline only.
 
 ## 3D Shadow
 
