@@ -26,6 +26,9 @@ Each node has an **Enable** checkbox — disable a node to skip it without delet
 - **Group repeat** runs a whole group multiple times.
 - **Run every N** on a sublayer fires it only on every Nth pass or 3D slice (e.g. a jog or accessory step
   every 10th slice rather than every one).
+- **Run after all** on a Mark or Cut sublayer fires it once more after its layer's final pass and that
+  pass's sublayers — a finishing or cleaning pass. Set **Run every** to 0 to make it fire *only* at the
+  end. Not offered on rotary actions.
 
 ## Action types
 
@@ -169,7 +172,7 @@ layer/action. Defaults from your `markcfg7` import are a good starting point.
 
 A sublayer attaches an extra step to a layer. Set its **mode**:
 
-- **Mark (Sub)** — a second marking pass with its own parameters (+ Run-every-N).
+- **Mark (Sub)** — a second marking pass with its own parameters (+ Run-every-N and Run after all).
 - **Jog** — move an axis (via the FocuZ:grbl controller) between passes/slices.
 - **Terminal** — send raw GRBL command lines (e.g. switch a relay) as a step.
 - **Cut** — mark an **offset band** around the path:
