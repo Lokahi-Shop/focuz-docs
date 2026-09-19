@@ -61,7 +61,8 @@ Adding an action opens a picker grouped by purpose:
 - **GRBL - Return to Start** — return the axes you tick to the machine position they were at when
   the run started, Z first, then X, then Y, at the feedrate you set (mm/min). All three axes are
   listed with their live machine position, so you can set the action up with no controller connected;
-  a warning icon shows beside Copy while the controller is disconnected. The run-start position is
+  a warning icon shows beside Copy while the controller is disconnected or no trusted position is
+  available (axes not homed); hover it for the reason. The run-start position is
   recorded after the Run checks pass, and those checks gate a disabled axis or a missing controller,
   plus the usual homing check because these are absolute moves.
 - **GRBL - Command** — send raw G-code/M-code, **one command per line** — including switching
