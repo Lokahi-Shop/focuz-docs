@@ -66,6 +66,15 @@ Adding an action opens a picker grouped by purpose:
   available (axes not homed); hover it for the reason. The run-start position is
   recorded after the Run checks pass, and those checks gate a disabled axis or a missing controller,
   plus the usual homing check because these are absolute moves.
+- **GRBL - Return to Saved 0** — the same panel, but each ticked axis moves to its saved 0 (Z = the
+  selected lens's saved focal position; X/Y saved zeros are not available yet). Requires that axis's limit
+  switches to be enabled in both + and − (Device Setup ▸ Enable Limit Switches); the warning icon says so.
+
+!!! note "Return actions only raise Z"
+    Both Return actions may only move Z in the + direction. Before a run starts, FocuZ walks the sequence's Z
+    moves and blocks the run if a Return action would have to move Z down — or if it can't tell where Z will
+    be at that point (for example after a homing command). Fix the sequence so Z is at or below the return
+    position when the action runs. X and Y move either way.
 - **GRBL - Command** — send raw G-code/M-code, **one command per line** — including switching
   **accessory relays** (air assist, vacuum) on/off mid-job. Lines run in order, and the sequence
   doesn't advance until every line — and any motion it started — has fully completed. Arcs
