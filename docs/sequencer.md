@@ -170,7 +170,10 @@ layer/action. Defaults from your `markcfg7` import are a good starting point.
 A sublayer attaches an extra step to a layer. Set its **mode**:
 
 - **Mark (Sub)** — a second marking pass with its own parameters (+ Run-every-N).
-- **Jog** — move an axis (via the FocuZ:grbl controller) between passes/slices.
+- **Jog** — move an axis (via the FocuZ:grbl controller) between passes/slices. Right of the Distance box the
+  panel shows the **total travel** the run will produce (distance × how many times it fires, from the
+  layer's passes or the 3D slice count, Run every, and the group repeat), so a Z step of −0.025 every 6
+  passes over 580 passes reads as −2.4 mm total.
 - **Terminal** — send raw GRBL command lines (e.g. switch a relay) as a step.
 - **Cut** — mark an **offset band** around the path:
     - **Source** — an imported file, the layer **Perimeter**, or a **Border**.
