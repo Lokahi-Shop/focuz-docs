@@ -59,9 +59,11 @@ Adding an action opens a picker grouped by purpose:
 
 - **GRBL - Jog** — move an axis as a job step.
 - **GRBL - Return to Start** — return the axes you tick to the machine position they were at when
-  the run started, Z first, then X, then Y, at the feedrate you set (mm/min). The action shows each
-  enabled axis with its live machine position. The run-start position is recorded after the Run
-  checks pass, and the usual homing check applies because these are absolute moves.
+  the run started, Z first, then X, then Y, at the feedrate you set (mm/min). All three axes are
+  listed with their live machine position, so you can set the action up with no controller connected;
+  a warning icon shows beside Copy while the controller is disconnected. The run-start position is
+  recorded after the Run checks pass, and those checks gate a disabled axis or a missing controller,
+  plus the usual homing check because these are absolute moves.
 - **GRBL - Command** — send raw G-code/M-code, **one command per line** — including switching
   **accessory relays** (air assist, vacuum) on/off mid-job. Lines run in order, and the sequence
   doesn't advance until every line — and any motion it started — has fully completed. Arcs
