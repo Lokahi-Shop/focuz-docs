@@ -60,7 +60,8 @@ Adding an action opens a picker grouped by purpose:
 - **GRBL - Jog** — move an axis as a job step.
 - **GRBL - Return to Start** — return the axes you tick to the machine position they were at when
   the run started, Z first, then X, then Y, at the feedrate you set (mm/min). All three axes are
-  listed with their live machine position, so you can set the action up with no controller connected;
+  listed with their live lens (LPos) and machine (MPos) position, so you can set the action up with no
+  controller connected;
   a warning icon shows beside Copy while the controller is disconnected or no trusted position is
   available (axes not homed); hover it for the reason. The run-start position is
   recorded after the Run checks pass, and those checks gate a disabled axis or a missing controller,
