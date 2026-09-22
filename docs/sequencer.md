@@ -129,7 +129,8 @@ fill around the model's footprint (for a 3D Slice, the area between the perimete
 gets carved). Pick a source from the **Perimeter ▾** menu on the layer:
 
 - **Import…** — load a closed 2D path from a file.
-- **Hull** — the model's own flattened outline, generated for you. Re-importing the model refreshes it.
+- **Hull** — the model's outline where it meets the floor (Z 0), generated for you; move the model up or down
+  in Z and the Hull follows its cross-section there. Re-importing the model refreshes it.
 - **Circle** / **Square** — a simple shape centered on the model's footprint (set its width/length).
 
 A perimeter is a normal canvas object — select it to move it or edit it. With **Hull** or **Import**
