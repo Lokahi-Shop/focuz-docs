@@ -98,7 +98,7 @@ Per layer:
 | **Power** (%) | Laser power (0–100). |
 | **Frequency** (kHz) | Pulse frequency, clamped to the device min/max. |
 | **Q-Pulse** | Pulse-width / energy-per-pulse control. |
-| **Passes** | Number of times to repeat the layer. |
+| **# of Passes** | Repeats each fill line (or, for a contour fill, each ring) that many times before moving on — like a per-segment pass count. Hidden for Wobble and Hilbert, where it doesn't apply. The whole-layer pass count is **Repeat** in the layer header. |
 
 ## Fill types
 
