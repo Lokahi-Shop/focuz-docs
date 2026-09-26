@@ -14,7 +14,7 @@ placement and size on the part before firing. Pick a mode from the Trace dropdow
 | Mode | Previews |
 |---|---|
 | **Full** | The whole job, step by step. |
-| **Single Layer** | Just the selected layer. |
+| **Single Layer** | The whole job once: every layer and its mark and cut sublayers, with no repeats. |
 | **Perimeter** | The outline of the marked area. |
 | **Hull** | The convex hull (outer boundary) of the marked area. |
 | **Area** | A filled sweep of the marked area's extents. |
