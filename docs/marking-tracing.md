@@ -14,12 +14,28 @@ placement and size on the part before firing. Pick a mode from the Trace dropdow
 | Mode | Previews |
 |---|---|
 | **Full** | The whole job, step by step. |
-| **Single Layer** | Just the selected layer. |
+| **Single Layer** | The whole job once: every layer and its mark and cut sublayers, with no repeats. |
 | **Perimeter** | The outline of the marked area. |
 | **Hull** | The convex hull (outer boundary) of the marked area. |
 | **Area** | A filled sweep of the marked area's extents. |
 
 Start Trace, confirm on the part, then stop it. Trace needs the controller connected.
+
+### Tracing a rotary job
+
+On a rotary action the trace follows the **splits**, not the flat artwork:
+
+- **Full** traces split by split, rotating between them just like the mark, with every repeat in place:
+  passes, sublayers (including a Mark sublayer under its own settings), run-every-N, and the
+  revolution order when **Per lap** is on. It is a dry run of the job, so a long job takes as long to
+  trace as it does to mark.
+- **Single Layer** is the stripped-down version of Full: everything is there, nothing is repeated.
+- **Perimeter**, **Hull** and **Area** combine every split into one and trace it **where the part
+  already sits, without rotating**, so you can align a part and check it without losing that
+  alignment. Perimeter is the outline of everything the splits mark, Hull is the convex hull of it,
+  and Area is the split area itself.
+
+Full and Single Layer always return the rotary to zero when they finish or are stopped.
 
 ![TODO screenshot: Trace mode dropdown](assets/trace-modes.png){ .screenshot }
 
