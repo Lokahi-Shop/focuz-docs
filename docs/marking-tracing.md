@@ -19,6 +19,8 @@ placement and size on the part before firing. Pick a mode from the Trace dropdow
 | **Hull** | The convex hull (outer boundary) of the marked area. |
 | **Area** | A filled sweep of the marked area's extents. |
 
+Every mode includes **cut sublayers**: the trace draws the cut band itself, so a band that reaches past the perimeter shows its full extent. Jog sublayers move an axis and have nothing to trace.
+
 Start Trace, confirm on the part, then stop it. Trace needs the controller connected.
 
 ![TODO screenshot: Trace mode dropdown](assets/trace-modes.png){ .screenshot }
