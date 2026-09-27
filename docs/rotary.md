@@ -151,7 +151,8 @@ the rotary engine — it's the one and only way a job runs on the rotary. It car
     ceiling needs, then divides the artwork evenly between them — so there is never a narrow
     leftover strip at the end, and the width in the readout is usually a little under what you
     typed. With seam-aware splits on it reads *nominal*, since seams shift into gaps in the
-    artwork.
+    artwork. A split wider than the lens field is flagged here too, and the job is held until
+    Split Size or Overlap is reduced.
 - **Start Offset** — optional, in part degrees: rotates the whole job's starting orientation
   on the part without changing the rotary's Set Zero position. Handy for marking at a specific
   clock position, or spacing repeat jobs around the same part. 0 (or blank) = none; Return to
