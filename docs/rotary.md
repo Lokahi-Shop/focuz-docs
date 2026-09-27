@@ -59,7 +59,9 @@ action's field blank until you enter it there.
   flat plane, but the part surface curves away from it, so marks land slightly stretched near
   the strip edges. Arc compensation pre-corrects for the curvature so design distances land as
   true on-surface distances. The effect grows quickly with split size — it's what keeps
-  geometry true when you use large splits, and it lets you size splits by focus alone.
+  geometry true when you use large splits, and it lets you size splits by focus alone. Fill lines are
+  corrected the same way as outlines, and a fill pattern runs continuously from one split into
+  the next.
 - **Backlash compensation (lash taken up before the first split)** — off by default. When on,
   the rotary overshoots the first strip slightly and comes back onto the position from the
   marking direction, so the first strip is approached from the same side as every later advance
