@@ -67,6 +67,12 @@ action's field blank until you enter it there.
   marking direction, so the first strip is approached from the same side as every later advance
   and gear or chuck play can't land in the first seam. Turn it on for geared or chuck drives
   with measurable play.
+- **Settle between splits** — the rest the laser takes between one split and the next when both
+  mark the same layer settings. **None** (the default) starts the next split as soon as the part
+  is in position; **Short** adds a brief rest; **Full** rests as long as it does between separate
+  marks. Step up if marks after a split start unevenly or the run pauses between splits. The
+  first split, the first split of each wrap, and any change of layer or sublayer settings always
+  get the full rest.
 
 Splits are always distributed evenly across the artwork, so the last strip is the same size as
 the rest — no thin leftover strip at the end.
