@@ -14,23 +14,33 @@ on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured
 
 ## Rotary Setup
 
+Rotary Setup keeps **one settings profile per fixture** — **Chuck**, **Roller** and **Turntable** —
+and each rotary action is tied to one of them: **2D Rotary (Chuck)** runs the Chuck profile, **2D
+Rotary (Roller)** the Roller profile. Set each fixture up once; switching fixtures is just picking
+the matching action. The **Fixture** selector at the top of the dialog chooses which profile the
+page edits, and its **Enabled** box decides whether that fixture's action is offered in the
+action list — untick the fixtures you don't own. (All three start enabled. A project that already
+contains a hidden fixture's action still runs.) Everything below is per profile.
+
 ### Settings
 
 - **Invert Direction** — flip the rotation direction for both jogging and marking.
 - **Return to 0** — rotate back to the zero position when the job finishes (on by default).
   If a run is interrupted — cancelled or stopped for any reason — FocuZ always returns the
   rotary to zero so the part is never left at an arbitrary angle.
-- **Mode** — **Chuck** grips the part and turns it directly; **Roller** turns the part by
-  spinning drive rollers underneath it (see [Chuck vs. Roller](#chuck-vs-roller)).
 - **Rotation axis** — the axis the part **rotates around**. The artwork wraps *around* that axis: with
   X selected, the art's vertical (Y) direction wraps around the part; with Y selected, the
   art's horizontal (X) direction wraps. Match it to how the rotary sits under the laser.
 - **Gear Ratio** — the drive ratio between motor and part, as *n* : 1. At 1 : 1 the motor's
   Steps/Rot is the part's steps per rotation; a 2 : 1 reduction means the motor turns twice
   per part rotation.
-- **Roller Ø** — in Roller mode, the drive rollers' diameter. Surface travel follows the
+- **Roller Ø** — on the Roller profile, the drive rollers' diameter. Surface travel follows the
   roller, so both diameters matter: the part diameter for wrapping the artwork, the roller
   diameter for the motion math.
+
+**Import markcfg7** on this dialog imports the motor parameters (steps/rotation, direction, gear
+ratio, speeds, accel) into the profile currently shown. The Device Setup wizard's import seeds
+all three profiles at once — check each page's gear ratio afterwards.
 
 ### Default Values
 
@@ -130,9 +140,11 @@ first run.
 
 ## The 2D Rotary action
 
-The **2D Rotary** action (in the Sequencer's Marking group) is a 2D Import that marks through
-the rotary engine — it's the one and only way a job runs on the rotary. It carries its own
-**Rotary** section above its content:
+The **2D Rotary (Chuck)** and **2D Rotary (Roller)** actions (Sequencer › Marking › **Rotary**) are
+a 2D Import that marks through the rotary engine — the only way a job runs on the rotary. Pick
+the one for the fixture on the bench: each runs its own Rotary Setup profile (the chuck action
+uses chuck math, the roller action roller math), and only enabled fixtures are listed. Both carry
+the same **Rotary** section above their content:
 
 - **Part Diameter / Max Split Size / Number of Splits / Overlap** — the job's own values, saved
   with the project and set **once for the whole action** in the Rotary section that sits above
@@ -258,11 +270,23 @@ where the seams fall. Nothing restarts at a split.
 
 ## Chuck vs. Roller
 
+Each is a **fixture profile** in Rotary Setup with its own action:
+
 - **Chuck** — the part is gripped and rotated directly. One motor rotation (through the gear
-  ratio) is one part rotation, regardless of part size.
+  ratio) is one part rotation, regardless of part size. Backlash compensation lives here.
 - **Roller** — the part rests on powered rollers. The rollers move the *surface*, so surface
   travel depends on the roller diameter, and how far the part turns depends on both diameters.
   Enter the part diameter and the roller diameter and FocuZ handles the conversion.
+- **Turntable** — a profile for a part that spins about the beam axis; its motor settings drive
+  the **Rotary Jog** action today, and its marking action is on the roadmap.
+
+## Rotary Jog
+
+**Rotary Jog (BJJCZ)** (Sequencer › Motion) turns the part as a step inside a sequence — between
+marks, or to present the next face. Choose the **fixture** (its profile's motor settings apply),
+**Rotation (degrees)** or **Distance (mm)** of part surface, the direction, and the amount. A
+distance needs the part's diameter — enter it on the action, or leave it blank to use the
+profile's Part Ø default. The live jog buttons on the Jog card have the same fixture choice.
 
 ## See also
 
