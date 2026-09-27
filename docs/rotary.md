@@ -22,7 +22,7 @@ on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured
   rotary to zero so the part is never left at an arbitrary angle.
 - **Mode** — **Chuck** grips the part and turns it directly; **Roller** turns the part by
   spinning drive rollers underneath it (see [Chuck vs. Roller](#chuck-vs-roller)).
-- **Axis** — the axis the part **rotates around**. The artwork wraps *around* that axis: with
+- **Rotation axis** — the axis the part **rotates around**. The artwork wraps *around* that axis: with
   X selected, the art's vertical (Y) direction wraps around the part; with Y selected, the
   art's horizontal (X) direction wraps. Match it to how the rotary sits under the laser.
 - **Gear Ratio** — the drive ratio between motor and part, as *n* : 1. At 1 : 1 the motor's
@@ -169,7 +169,7 @@ the rotary engine — it's the one and only way a job runs on the rotary. It car
   end of that lap; otherwise the end of the job. A sublayer's Repeat is how many times it runs each
   time it fires, exactly as on a flat layer, and never adds wraps.
 
-Axis, mode, motor settings, and the split-quality options still come from Rotary Setup — the
+Rotation axis, mode, motor settings, and the split-quality options still come from Rotary Setup — the
 action carries only the job values. Because rotary is per-action, nothing is left switched on
 afterward — other actions and later jobs are unaffected.
 
