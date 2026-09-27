@@ -57,9 +57,14 @@ The three defaults only pre-fill a new 2D Rotary action's fields; a blank defaul
 action's field blank until you enter it there.
 
 ### Rotary Behavior
-- **Overlap fills only (outlines marked once)** — with an overlap set, fills keep the overlap
-  but outlines are trimmed to the exact seam, so outline strokes are never double-marked. Use
-  this when overlap helps your fills but doubles up your outlines.
+- **Outlines at seams** — how an outline or line that crosses a seam is divided between the two
+  splits. Fills always share the full Overlap; this chooses the outline's window. **Overlap** —
+  outlines share it too, so the segment inside the overlap is marked by both splits (a doubled
+  line the length of the overlap at every seam). **Stitch** (the default) — each split's outline
+  runs a small fixed distance past the seam, the **Stitch** value (0.05 mm, about one spot), which
+  covers positioning error without a visible doubled line. **Exact seam** — divided exactly at the
+  seam and marked once; a positioning error shows as a small break. Applies to layers and their
+  sublayers.
 - **Seam-aware splits (seams avoid geometry)** — lets each seam shift a little (up to about a
   quarter of the split size) to land in the widest nearby gap in the artwork, so seams fall
   *between* letters and shapes instead of through them. The **Gap** field beside it sets the
