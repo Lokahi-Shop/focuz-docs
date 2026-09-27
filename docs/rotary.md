@@ -202,6 +202,35 @@ Rotation axis, mode, motor settings, and the split-quality options still come fr
 action carries only the job values. Because rotary is per-action, nothing is left switched on
 afterward — other actions and later jobs are unaffected.
 
+## The 2D Grid action
+
+**2D Grid (Chuck)** (Sequencer › Marking › Rotary) is 2D Rotary with every split divided into a
+grid of cells shared between two layers — for checkerboard textures, comparing two settings side by
+side around a part, or simply spreading heat by marking a split cell by cell instead of all at once.
+It always has one group with two layers, and the same Rotary section and readout as 2D Rotary.
+
+- **Content is shared.** The Content section sits at the top of the group: import, size, location
+  and transform apply to both layers. Below it, **Link Layers** (on by default) keeps Layer 2
+  collapsed and gives it every setting of Layer 1. Turn it off to open Layer 2 and give its cells
+  their own power, speed, fill and so on; turn it back on and Layer 2 follows Layer 1 again.
+- **X # of Cells / Y # of Cells** divide each split. Along the wrap the cells are equal in
+  **degrees**, so the grid is even around the part; along the rotation axis they are equal in
+  **mm**, with the cell size to 5 decimals and the last row taking the remainder up to the edge of
+  the art. The readout adds a line with the cell size, and **Show splits on canvas** draws the
+  cells inside the seams.
+- **Cells alternate between the layers** in both directions — the upper-left cell of the first
+  split is Layer 1 — and the pattern carries on across the seams, so an odd cell count still
+  checkerboards. If the count around a fully wrapped part is odd the pattern cannot meet itself;
+  the readout says so.
+- **Marking order** is per split and always starts at the split's upper-left cell. **X First**
+  marks left to right, then the next row down; **Y First** marks down the column, then the next
+  column; **X Checker** and **Y Checker** mark every Layer 1 cell first in that sweep, then every
+  Layer 2 cell. Each cell is finished before the next begins, and a whole split streams as one
+  pass, so the split timing matches 2D Rotary.
+- Layer 1's **Repeat** and **Per lap** drive the grid; clearing a layer's Mark checkbox drops its
+  cells. Sublayers and Variation are not offered on the grid layers. Importing a file with several
+  layers puts all of them into Layer 1.
+
 ## Placing more than one piece of art
 
 Position along the wrap direction is **absolute**: where art sits on the canvas is where it
