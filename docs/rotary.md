@@ -216,7 +216,9 @@ It always has one group with two layers, and the same Rotary section and readout
 - **X # of Cells / Y # of Cells** divide each split. Along the wrap the cells are equal in
   **degrees**, so the grid is even around the part; along the rotation axis they are equal in
   **mm**, with the cell size to 5 decimals and the last row taking the remainder up to the edge of
-  the art. The readout adds a line with the cell size, and **Show splits on canvas** draws the
+  the art. Beside each box the cell's size on that axis is shown — mm around the part for the wrap
+  axis, mm of distance for the other — to three decimals, with a `~` when the true value has more.
+  The readout adds a line with the cell size in degrees, and **Show splits on canvas** draws the
   cells inside the seams.
 - **Cells alternate between the layers** in both directions — the upper-left cell of the first
   split is Layer 1 — and the pattern carries on across the seams, so an odd cell count still
