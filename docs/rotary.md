@@ -131,7 +131,7 @@ The **2D Rotary** action (in the Sequencer's Marking group) is a 2D Import that 
 the rotary engine — it's the one and only way a job runs on the rotary. It carries its own
 **Rotary** section above its content:
 
-- **Part Diameter / Split Size / Overlap** — the job's own values, saved with the project and
+- **Part Diameter / Max Split Size / Overlap** — the job's own values, saved with the project and
   set **once for the whole action** in the Rotary section that sits above the layers: one part
   per action, shared by everything the action marks. Values pre-fill from the Rotary Setup
   defaults when the action is created; fields with no default start blank. **All three are
@@ -153,12 +153,12 @@ the rotary engine — it's the one and only way a job runs on the rotary. It car
     **degrees** of the part each one covers, how wide each is, and how many motor steps the part
     turns between them.
 
-    **Split Size is a maximum, not the exact width.** FocuZ works out how many strips that
+    **Max Split Size is a maximum, not the exact width.** FocuZ works out how many strips that
     ceiling needs, then divides the artwork evenly between them — so there is never a narrow
     leftover strip at the end, and the width in the readout is usually a little under what you
     typed. With seam-aware splits on it reads *nominal*, since seams shift into gaps in the
     artwork. A split wider than the lens field is flagged here too, and the job is held until
-    Split Size or Overlap is reduced.
+    Max Split Size or Overlap is reduced.
 - **Start Offset** — optional, in part degrees: rotates the whole job's starting orientation
   on the part without changing the rotary's Set Zero position. Handy for marking at a specific
   clock position, or spacing repeat jobs around the same part. 0 (or blank) = none; Return to
