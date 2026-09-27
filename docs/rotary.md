@@ -229,7 +229,8 @@ It always has one group with two layers, and the same Rotary section and readout
   pass, so the split timing matches 2D Rotary.
 - Layer 1's **Repeat** and **Per lap** drive the grid; clearing a layer's Mark checkbox drops its
   cells. Sublayers and Variation are not offered on the grid layers. Importing a file with several
-  layers puts all of them into Layer 1.
+  layers asks which of them to bring in — all by default — and puts the chosen ones together into
+  Layer 1.
 
 ## Placing more than one piece of art
 
