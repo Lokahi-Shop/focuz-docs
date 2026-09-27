@@ -93,8 +93,12 @@ With 5 passes over 4 splits, ticked runs 5 laps of 4 splits; unticked marks spli
 then split 2 five times, and so on. Backlash is taken up again at the start of **every** lap, so
 each lap's first strip is entered from the marking side just like the job's first strip.
 
-**Sublayers follow their parent layer** — they have no checkbox of their own, so a layer and its
-sublayers can't disagree about lap order. **Group repeat** always stays inside the strip.
+**Layers take turns around the part.** When an action has more than one layer on the same part,
+each layer finishes all of its revolutions before the next layer starts — the rotary never
+switches between layers on the same split. That keeps consecutive splits on the same settings,
+which is what lets them follow one another without a rest (see *Settle between splits* above);
+switching settings on every split would cost a full rest each time. **Group repeat** repeats the
+whole sequence of a group's layers, each repeat a fresh set of revolutions.
 
 The box is hidden at 1 pass, where there's nothing to order.
 
@@ -228,10 +232,20 @@ Seam-aware splits and arc compensation show up in the preview exactly as they wi
 
 ## Sublayers in rotary jobs
 
-Sublayers run inside each split, just as they do in flat marking — jog sublayers fire between
-passes, and **Groove** sublayers (the rotary name for the Cut mode) mark their offset bands
-clipped to the current strip. A groove is for grooving and deep engraving around the part — it
-is sectioned by splits like all rotary content, and is not a tube through-cutting mode.
+Sublayers fire at the same points as in flat marking — after the parent pass that **Run every**
+names — but on the rotary each firing is a whole trip around the part rather than something that
+happens on every split:
+
+- A **Mark** or **Groove** sublayer takes its own revolution: once the parent's pass has gone all
+  the way round, the sublayer goes all the way round, marking its **Repeat** passes back to back on
+  each split. **Groove** (the rotary name for the Cut mode) marks its offset band clipped to each
+  split — it is for grooving and deep engraving around the part, sectioned by splits like all
+  rotary content, and is not a tube through-cutting mode.
+- A **Jog** or **Terminal** sublayer fires once per wrap, between revolutions — a Z step is a
+  whole-part event, so it never repeats on every split.
+
+A layer without Per lap runs all of its passes in one revolution, so its sublayers follow that
+revolution in pass order — the same number of firings Run every would give pass by pass.
 
 ## Variation in rotary jobs
 
