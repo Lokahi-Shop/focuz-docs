@@ -26,6 +26,9 @@ Each node has an **Enable** checkbox — disable a node to skip it without delet
 - **Group repeat** runs a whole group multiple times.
 - **Run every N** on a sublayer fires it only on every Nth pass or 3D slice (e.g. a jog or accessory step
   every 10th slice rather than every one).
+- **Run once after all** on a Mark or Cut sublayer fires it once more after its layer's final pass and that
+  pass's sublayers — a finishing or cleaning pass. Set **Run every** to 0 to make it fire *only* at the
+  end. Not offered on rotary actions.
 
 ## Action types
 
@@ -58,6 +61,23 @@ Adding an action opens a picker grouped by purpose:
 **GRBL (FocuZ)** (the [FocuZ:grbl controller](jog-terminal.md))
 
 - **GRBL - Jog** — move an axis as a job step.
+- **GRBL - Return to Start** — return the axes you tick to the machine position they were at when
+  the run started, Z first, then X, then Y, at the feedrate you set (mm/min). All three axes are
+  listed with their live lens (LPos) and machine (MPos) position, so you can set the action up with no
+  controller connected;
+  a warning icon shows beside Copy while the controller is disconnected or no trusted position is
+  available (axes not homed); hover it for the reason. The run-start position is
+  recorded after the Run checks pass, and those checks gate a disabled axis or a missing controller,
+  plus the usual homing check because these are absolute moves.
+- **GRBL - Return to Saved 0** — the same panel, but each ticked axis moves to its saved 0 (Z = the
+  selected lens's saved focal position; X/Y saved zeros are not available yet). Requires that axis's limit
+  switches to be enabled in both + and − (Device Setup ▸ Enable Limit Switches); the warning icon says so.
+
+!!! note "Return actions only raise Z"
+    Both Return actions may only move Z in the + direction. Before a run starts, FocuZ walks the sequence's Z
+    moves and blocks the run if a Return action would have to move Z down — or if it can't tell where Z will
+    be at that point (for example after a homing command). Fix the sequence so Z is at or below the return
+    position when the action runs. X and Y move either way.
 - **GRBL - Command** — send raw G-code/M-code, **one command per line** — including switching
   **accessory relays** (air assist, vacuum) on/off mid-job. Lines run in order, and the sequence
   doesn't advance until every line — and any motion it started — has fully completed. Arcs
@@ -98,7 +118,7 @@ Per layer:
 | **Power** (%) | Laser power (0–100). |
 | **Frequency** (kHz) | Pulse frequency, clamped to the device min/max. |
 | **Q-Pulse** | Pulse-width / energy-per-pulse control. |
-| **Passes** | Number of times to repeat the layer. |
+| **# of Passes** | Repeats each fill line (or, for a contour fill, each ring) that many times before moving on — like a per-segment pass count. Hidden for Wobble and Hilbert, where it doesn't apply. The whole-layer pass count is **Repeat** in the layer header. |
 
 ## Fill types
 
@@ -129,17 +149,23 @@ fill around the model's footprint (for a 3D Slice, the area between the perimete
 gets carved). Pick a source from the **Perimeter ▾** menu on the layer:
 
 - **Import…** — load a closed 2D path from a file.
-- **Hull** — the model's own flattened outline, generated for you. Re-importing the model refreshes it.
+- **Hull** — the model's outline where it meets the floor (Z 0), plus everything Fill Through carves above it,
+  generated for you, so an overhanging model still gets a perimeter around its whole footprint; move the model up or down
+  in Z and the Hull follows its cross-section there. Re-importing the model refreshes it.
 - **Circle** / **Square** — a simple shape centered on the model's footprint (set its width/length).
 
 A perimeter is a normal canvas object — select it to move it or edit it. With **Hull** or **Import**
 selected, the size fields become a single **Off:** (offset) box that grows or shrinks the boundary evenly
 all the way around; setting it back to 0 restores the original outline exactly.
 
-**Respect holes** (Hull only, on by default) — the Hull follows the model's **through-holes**, so e.g. a
-ring's center stays open instead of being treated as solid. Combined with **Fill-Through**, a through-hole
-is marked at full depth — either way the hole is treated as real empty space. Uncheck it to use the outer
-outline only.
+**Respect holes** (on by default) — the model's **through-holes** are treated as real empty space with
+**any** perimeter, or none. The checkbox sits next to **Fill Through** in the slice section; with a Hull
+perimeter, the same setting also makes the Hull itself follow the holes (a ring's outline becomes a ring,
+not a disc — the Hull's own checkbox toggles the same thing). What a hole becomes depends on the setup:
+**with a perimeter**, the hole is carved at full depth along with the background; **without one**, it is
+simply left unmarked and stands at the surface. Uncheck it to fill holes solid (legacy behavior).
+Clean, watertight meshes give the truest holes. An imported multi-contour perimeter still clips with its
+outer outline only.
 
 ## 3D Shadow
 
@@ -169,7 +195,7 @@ layer/action. Defaults from your `markcfg7` import are a good starting point.
 
 A sublayer attaches an extra step to a layer. Set its **mode**:
 
-- **Mark (Sub)** — a second marking pass with its own parameters (+ Run-every-N).
+- **Mark (Sub)** — a second marking pass with its own parameters (+ Run-every-N and Run once after all).
 - **Jog** — move an axis (via the FocuZ:grbl controller) between passes/slices. Right of the Distance box the
   panel shows the **total travel** the run will produce (distance × how many times it fires, from the
   layer's passes or the 3D slice count, Run every, and the group repeat), so a Z step of −0.025 every 6

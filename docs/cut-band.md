@@ -82,9 +82,10 @@ more.
   positions — so the bridges are only as tall as that last portion of the cut.
 
 !!! note "Tabs need more than one pass"
-    Start Depth divides the layer's **# of Passes** between full passes and tabbed passes. With a
-    single pass there is nothing to divide, so raise **# of Passes** in the Parameters section
-    before expecting tabs to hold.
+    Start Depth divides the layer's **Repeat** (the pass count in the layer header) between full passes
+    and tabbed passes. With a single pass there is nothing to divide, so raise **Repeat** before
+    expecting tabs to hold. (**# of Passes** in the Parameters section is a different setting — see
+    the parameters table on the Sequencer page.)
 
 ## Cut sublayers
 
