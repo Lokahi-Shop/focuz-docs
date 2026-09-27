@@ -224,6 +224,13 @@ passes, and **Groove** sublayers (the rotary name for the Cut mode) mark their o
 clipped to the current strip. A groove is for grooving and deep engraving around the part — it
 is sectioned by splits like all rotary content, and is not a tube through-cutting mode.
 
+## Variation in rotary jobs
+
+[Variation](sequencer.md#variation) is worked out on the whole design, not per split: a Layer or
+Fill ramp runs once across the entire wrap, a Segment or Chord ramp continues through a seam on
+the far side exactly where it left off, and Quadrant tiles are the design's tiles regardless of
+where the seams fall. Nothing restarts at a split.
+
 ## Chuck vs. Roller
 
 - **Chuck** — the part is gripped and rotated directly. One motor rotation (through the gear
