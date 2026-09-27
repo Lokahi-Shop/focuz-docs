@@ -165,12 +165,13 @@ the same **Rotary** section above their content:
     closes on a seam. Strips that hold no artwork are simply skipped: a 90° logo on 24 splits marks
     6 of them. Numbers that divide 360 (24, 36, 12…) give whole-degree strips.
 
-    **The two fields are linked.** Type a Max Split Size and FocuZ works out the fewest splits per
-    revolution whose band (strip plus overlap) fits inside it; type a Number of Splits and Max
-    Split Size updates to the width that number gives. Changing the diameter or the overlap never
-    changes a number you've chosen — the size follows it. Projects made before this field carry
-    only a size and keep marking exactly as they did; enter a number (or retype the size) to move
-    them onto the per-revolution grid.
+    **One box, two ways to fill it.** The dropdown beside the box chooses whether you are entering
+    a **Max Split Size** or a **# of Splits**; switching it just shows the other value. Type a Max
+    Split Size and FocuZ works out the fewest splits per revolution whose band (strip plus overlap)
+    fits inside it; type a # of Splits and the size becomes the width that number gives. Changing
+    the diameter or the overlap never changes a number you've chosen — the size follows it.
+    Projects made before the count existed carry only a size and keep marking exactly as they did;
+    enter a number (or retype the size) to move them onto the per-revolution grid.
 
     Below the fields, a readout shows what those values actually produce:
 
