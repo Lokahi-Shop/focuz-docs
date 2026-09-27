@@ -156,6 +156,11 @@ the rotary engine — it's the one and only way a job runs on the rotary. It car
   on the part without changing the rotary's Set Zero position. Handy for marking at a specific
   clock position, or spacing repeat jobs around the same part. 0 (or blank) = none; Return to
   0 still returns to the true zero.
+- **Sublayers on the rotary** — a **Mark** or **Groove** sublayer runs on every split, right after
+  its parent's pass on that split. A **Jog** or **Terminal** sublayer runs once per **wrap**, after
+  the pass it is attached to has completed all the way round the part — with Per lap on, that is the
+  end of that lap; otherwise the end of the job. A sublayer's Repeat is how many times it runs each
+  time it fires, exactly as on a flat layer, and never adds wraps.
 
 Axis, mode, motor settings, and the split-quality options still come from Rotary Setup — the
 action carries only the job values. Because rotary is per-action, nothing is left switched on
