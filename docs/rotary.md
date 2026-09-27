@@ -177,18 +177,18 @@ the same **Rotary** section above their content:
 
     ```
     C 40.527 mm · 1 step 2.53 µm · art wraps 337.6°
-    24 per revolution · 15° · 1.6886 mm nominal · 23 marked · 666–667 steps (±1)
+    15° per split · 23 of 24 marked · 666–667 steps (±1)
     ```
 
     **C** is the part's circumference, and **1 step** is how far the surface moves per motor
     step — the finest seam placement the rotary can manage on this part. **art wraps** is how
     far your artwork reaches around the part: `360.0° ✓` means it closes exactly, and anything
-    past a full turn is flagged. The second line is the split itself — the splits per revolution,
-    how many **degrees** of the part each one covers, how wide each is, how many of them actually
-    mark, and how many motor steps the part turns between them. With seam-aware splits on the
-    width reads *nominal*, since seams shift into gaps in the artwork. A band wider than the lens
-    field, or wider than your Max Split Size, is flagged here too — the job is held until the
-    field limit is met.
+    past a full turn is flagged. The second line is the split itself — how many **degrees** of
+    the part each split covers, how many of the splits actually mark, and how many motor steps
+    the part turns between them (a range marked *seam-aware* means seams have shifted into gaps
+    in the artwork). The count and size themselves sit in the split row above, so they are not
+    repeated here. A band wider than the lens field, or wider than your Max Split Size, is
+    flagged here too — the job is held until the field limit is met.
 - **Start Offset** — optional, in part degrees: rotates the whole job's starting orientation
   on the part without changing the rotary's Set Zero position. Handy for marking at a specific
   clock position, or spacing repeat jobs around the same part. 0 (or blank) = none; Return to
