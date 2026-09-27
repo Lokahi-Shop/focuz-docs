@@ -131,34 +131,43 @@ The **2D Rotary** action (in the Sequencer's Marking group) is a 2D Import that 
 the rotary engine — it's the one and only way a job runs on the rotary. It carries its own
 **Rotary** section above its content:
 
-- **Part Diameter / Max Split Size / Overlap** — the job's own values, saved with the project and
-  set **once for the whole action** in the Rotary section that sits above the layers: one part
-  per action, shared by everything the action marks. Values pre-fill from the Rotary Setup
-  defaults when the action is created; fields with no default start blank. **All three are
-  required** — the run and trace are blocked, with a message naming the missing field, until
-  they're entered (an overlap of 0 counts as entered). Different actions (or different
-  projects) can target different parts without touching the device setup.
+- **Part Diameter / Max Split Size / Number of Splits / Overlap** — the job's own values, saved
+  with the project and set **once for the whole action** in the Rotary section that sits above
+  the layers: one part per action, shared by everything the action marks. Values pre-fill from
+  the Rotary Setup defaults when the action is created; fields with no default start blank.
+  **Diameter, a split, and overlap are required** — the run and trace are blocked, with a message
+  naming the missing field, until they're entered (an overlap of 0 counts as entered). Different
+  actions (or different projects) can target different parts without touching the device setup.
+
+    **Number of Splits is per revolution.** The part is divided into exactly that many strips —
+    24 splits is 15° each on any diameter — with the grid starting at your artwork, so nudging the
+    art moves the whole result round the part without re-cutting a single seam, and a full wrap
+    closes on a seam. Strips that hold no artwork are simply skipped: a 90° logo on 24 splits marks
+    6 of them. Numbers that divide 360 (24, 36, 12…) give whole-degree strips.
+
+    **Max Split Size is the ceiling, and the two are linked.** Type a maximum width and FocuZ works
+    out the fewest splits per revolution whose band (strip plus overlap) fits inside it; type a
+    number of splits directly and the ceiling is left as your limit. Changing the diameter or the
+    overlap never changes a number you've chosen — if the band outgrows the ceiling, the readout
+    says so. Projects made before this field carry only a size and keep marking exactly as they
+    did; enter a number (or retype the size) to move them onto the per-revolution grid.
 
     Below the fields, a readout shows what those values actually produce:
 
     ```
     C 40.527 mm · 1 step 2.53 µm · art wraps 337.6°
-    23 strips · 14.68° · 1.6522 mm nominal · 652.3 steps (±1)
+    24 per revolution · 15° · 1.6886 mm nominal · 23 marked · 666–667 steps (±1)
     ```
 
     **C** is the part's circumference, and **1 step** is how far the surface moves per motor
     step — the finest seam placement the rotary can manage on this part. **art wraps** is how
     far your artwork reaches around the part: `360.0° ✓` means it closes exactly, and anything
-    past a full turn is flagged. The second line is the split itself — how many strips, how many
-    **degrees** of the part each one covers, how wide each is, and how many motor steps the part
-    turns between them.
-
-    **Max Split Size is a maximum, not the exact width.** FocuZ works out how many strips that
-    ceiling needs, then divides the artwork evenly between them — so there is never a narrow
-    leftover strip at the end, and the width in the readout is usually a little under what you
-    typed. With seam-aware splits on it reads *nominal*, since seams shift into gaps in the
-    artwork. A split wider than the lens field is flagged here too, and the job is held until
-    Max Split Size or Overlap is reduced.
+    past a full turn is flagged. The second line is the split itself — the splits per revolution,
+    how many **degrees** of the part each one covers, how wide each is, how many of them actually
+    mark, and how many motor steps the part turns between them. With seam-aware splits on the
+    width reads *nominal*, since seams shift into gaps in the artwork. A band wider than the lens
+    field, or wider than your Max Split Size, is flagged here too — the job is held until the
+    field limit is met.
 - **Start Offset** — optional, in part degrees: rotates the whole job's starting orientation
   on the part without changing the rotary's Set Zero position. Handy for marking at a specific
   clock position, or spacing repeat jobs around the same part. 0 (or blank) = none; Return to
