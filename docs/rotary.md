@@ -67,12 +67,11 @@ action's field blank until you enter it there.
   marking direction, so the first strip is approached from the same side as every later advance
   and gear or chuck play can't land in the first seam. Turn it on for geared or chuck drives
   with measurable play.
-- **Settle between splits** — the rest the laser takes between one split and the next when both
-  mark the same layer settings. **None** (the default) starts the next split as soon as the part
-  is in position; **Short** adds a brief rest; **Full** rests as long as it does between separate
-  marks. Step up if marks after a split start unevenly or the run pauses between splits. The
-  first split, the first split of each wrap, and any change of layer or sublayer settings always
-  get the full rest.
+- **Settle between splits** — the rest the laser takes between one mark and the next inside a
+  rotary job: between splits, between layers and sublayers, and between revolutions. **None** (the
+  default) starts the next mark as soon as the part is in position; **Short** adds a brief rest;
+  **Full** rests as long as it does between separate marks. Step up if marks after a split start
+  unevenly or the run pauses between splits. The job's very first mark always gets the full rest.
 
 Splits are always distributed evenly across the artwork, so the last strip is the same size as
 the rest — no thin leftover strip at the end.
@@ -238,9 +237,12 @@ happens on every split:
 
 - A **Mark** or **Groove** sublayer takes its own revolution: once the parent's pass has gone all
   the way round, the sublayer goes all the way round, marking its **Repeat** passes back to back on
-  each split. **Groove** (the rotary name for the Cut mode) marks its offset band clipped to each
-  split — it is for grooving and deep engraving around the part, sectioned by splits like all
-  rotary content, and is not a tube through-cutting mode.
+  each split. Tick **Per split** in the sublayer's header to weave it into the parent's revolution
+  instead — on each split, right after the parent pass that fired it, while that strip is still
+  under the lens (for a groove or cleanup pass that should follow the parent immediately).
+  **Groove** (the rotary name for the Cut mode) marks its offset band clipped to each split — it is
+  for grooving and deep engraving around the part, sectioned by splits like all rotary content, and
+  is not a tube through-cutting mode.
 - A **Jog** or **Terminal** sublayer fires once per wrap, between revolutions — a Z step is a
   whole-part event, so it never repeats on every split.
 
