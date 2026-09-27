@@ -130,6 +130,26 @@ the rotary engine — it's the one and only way a job runs on the rotary. It car
   required** — the run and trace are blocked, with a message naming the missing field, until
   they're entered (an overlap of 0 counts as entered). Different actions (or different
   projects) can target different parts without touching the device setup.
+
+    Below the fields, a readout shows what those values actually produce:
+
+    ```
+    C 40.527 mm · 1 step 2.53 µm · art wraps 337.6°
+    23 strips · 14.68° · 1.6522 mm nominal · 652.3 steps (±1)
+    ```
+
+    **C** is the part's circumference, and **1 step** is how far the surface moves per motor
+    step — the finest seam placement the rotary can manage on this part. **art wraps** is how
+    far your artwork reaches around the part: `360.0° ✓` means it closes exactly, and anything
+    past a full turn is flagged. The second line is the split itself — how many strips, how many
+    **degrees** of the part each one covers, how wide each is, and how many motor steps the part
+    turns between them.
+
+    **Split Size is a maximum, not the exact width.** FocuZ works out how many strips that
+    ceiling needs, then divides the artwork evenly between them — so there is never a narrow
+    leftover strip at the end, and the width in the readout is usually a little under what you
+    typed. With seam-aware splits on it reads *nominal*, since seams shift into gaps in the
+    artwork.
 - **Start Offset** — optional, in part degrees: rotates the whole job's starting orientation
   on the part without changing the rotary's Set Zero position. Handy for marking at a specific
   clock position, or spacing repeat jobs around the same part. 0 (or blank) = none; Return to
@@ -165,9 +185,10 @@ on the part no matter how you organize them — but *how* they mark differs:
     example with a jog or an operator prompt between them — at the cost of a second revolution
     and seams that don't line up between the two.
 
-Nothing warns about overlap: overlapping art simply marks as the table describes, and art
-placed more than a full circumference apart wraps onto whatever already occupies that angle.
-The preview shows the true result either way.
+Nothing warns about overlap: overlapping art simply marks as the table describes. Artwork that
+reaches more than a full circumference **is** flagged in the Rotary readout
+(`art wraps 395.9° ⚠ over 360°`) and still marks — everything past a full turn wraps onto
+whatever already occupies that angle. The preview shows the true result either way.
 
 ## Previewing splits
 
