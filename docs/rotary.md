@@ -234,6 +234,10 @@ It always has one group with two layers, and the same Rotary section and readout
   cells. Sublayers and Variation are not offered on the grid layers. Importing a file with several
   layers asks which of them to bring in — all by default — and puts the chosen ones together into
   Layer 1.
+- **Each layer's eye shows its own cells.** With both eyes on the canvas shows the whole art as
+  imported; hide one layer and only the other layer's cells of the art remain, so you can see the
+  checkerboard each layer will mark. Each layer's fill preview is clipped to its own cells the
+  same way.
 
 ## Placing more than one piece of art
 
