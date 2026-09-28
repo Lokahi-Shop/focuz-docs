@@ -32,10 +32,12 @@ On a rotary action the trace follows the **splits**, not the flat artwork:
   revolution order when **Per lap** is on. It is a dry run of the job, so a long job takes as long to
   trace as it does to mark.
 - **Single Layer** is the stripped-down version of Full: everything is there, nothing is repeated.
-- **Perimeter**, **Hull** and **Area** combine every split into one and trace it **where the part
-  already sits, without rotating**, so you can align a part and check it without losing that
-  alignment. Perimeter is the outline of everything the splits mark, Hull is the convex hull of it,
-  and Area is the split area itself.
+- **Perimeter** and **Hull** combine every split into one and trace it **where the part already
+  sits, without rotating**, so you can align a part and check it without losing that alignment.
+  Perimeter is the outline of everything the splits mark, Hull is the convex hull of it.
+- **Area** ignores the splits altogether: it traces the whole design's footprint as one flat
+  rectangle, exactly as on a flat job, without rotating. A design that wraps further than the lens
+  field reaches is clipped to the field.
 
 Full and Single Layer always return the rotary to zero when they finish or are stopped.
 
