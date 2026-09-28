@@ -221,6 +221,12 @@ It always has one group with two layers, and the same Rotary section and readout
   axis, mm of distance for the other — to three decimals, with a `~` when the true value has more.
   The readout adds a line with the cell size in degrees, and **Show splits on canvas** draws the
   cells inside the seams.
+- **Cell padding** leaves an unmarked gap between cells — for melt pools or any breathing room you
+  want. Every cell edge pulls in by half the padding, seams and the outer edges of the art
+  included, so the gap is the same everywhere around the part, including where the wrap closes at
+  360°. With a padding set, the seam Overlap and Stitch options do not apply to that grid (the
+  padding is the gap); the Overlap box grays to say so. The canvas draws each padded cell as its
+  own rectangle, and the cell-size labels add how much of each cell is marked.
 - **Cells alternate between the layers** in both directions — the upper-left cell of the first
   split is Layer 1 — and the pattern carries on across the seams, so an odd cell count still
   checkerboards. If the count around a fully wrapped part is odd the pattern cannot meet itself;
