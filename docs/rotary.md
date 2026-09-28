@@ -46,10 +46,11 @@ all three profiles at once — check each page's gear ratio afterwards.
 
 - **Diameter (default)** — a *default* part diameter for new 2D Rotary actions. Leave it blank
   if every job is a different part — each action carries its own diameter either way.
-- **Size (default)** — a *default* strip width for new 2D Rotary actions, in mm of part
-  surface. Smaller splits stay closer to the laser's focus and the field's sweet spot; larger
-  splits mean fewer seams and faster jobs. Keep the strip shallow enough that its edges are
-  still within your focus tolerance.
+- **Split (default)** — entered exactly as in an action: pick **# of Splits** or **Max Split
+  Size** from the dropdown and type the value. A new 2D Rotary action starts with the same
+  dropdown choice and value. Smaller splits stay closer to the laser's focus and the field's
+  sweet spot; larger splits mean fewer seams and faster jobs. Keep the strip shallow enough
+  that its edges are still within your focus tolerance.
 - **Overlap (default)** — a *default* overlap between neighboring strips, in mm. A little
   overlap can hide seam lines in fills.
 
