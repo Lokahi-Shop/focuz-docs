@@ -5,10 +5,6 @@ when you press Run. If you're used to the object/pen model of other galvo softwa
 [How FocuZ works](index.md#how-focuz-works) first — the sequence-of-actions idea is what everything below
 builds on.
 
-![TODO screenshot: the Sequencer with a few layers and actions](assets/sequencer-overview.png){ .screenshot }
-
-<!-- TODO screenshot: Sequencer with groups/layers/sublayers -->
-
 ## Structure: groups, layers, sublayers
 
 Your job is organized as a tree:

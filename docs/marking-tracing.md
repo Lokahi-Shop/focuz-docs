@@ -41,10 +41,6 @@ On a rotary action the trace follows the **splits**, not the flat artwork:
 
 Full and Single Layer always return the rotary to zero when they finish or are stopped.
 
-![TODO screenshot: Trace mode dropdown](assets/trace-modes.png){ .screenshot }
-
-<!-- TODO screenshot: Trace mode menu -->
-
 ## Running a job
 
 Press **Run** to execute the sequence top to bottom. While running, **Run** becomes **Pause** — you can
@@ -79,10 +75,6 @@ If the Z axis is enabled but not homed when you Run, FocuZ shows a prompt to **h
 
 While marking, a **progress bar** shows where you are — a breadcrumb of group / layer / sublayer / pass —
 plus a percentage and an estimated **time remaining**.
-
-![TODO screenshot: marking progress bar](assets/progress-bar.png){ .screenshot }
-
-<!-- TODO screenshot: progress bar mid-run -->
 
 ## 3D slice marking
 

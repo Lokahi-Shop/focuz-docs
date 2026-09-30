@@ -26,10 +26,6 @@ Open **Jog** from the menu. The Jog window gives you homing, axis control, and l
 separate window, so you can leave it open beside the canvas and keep working — close it with the ✕ or
 reopen it from the menu at any time.
 
-![TODO screenshot: Jog window](assets/jog-card.png){ .screenshot }
-
-<!-- TODO screenshot: Jog window -->
-
 ### Homing
 
 - **Home X / Home Y / Home Z** home each axis independently; **Home All** runs them in sequence.
@@ -99,10 +95,6 @@ status, or switch accessory outputs (below).
 Like Jog, the Terminal is its own window and can stay open beside the canvas. Drag its edges to resize it —
 the output area grows with the window so you can watch a long session, and the command box always stays
 in view along the bottom.
-
-![TODO screenshot: Terminal window](assets/terminal-card.png){ .screenshot }
-
-<!-- TODO screenshot: Terminal window -->
 
 ## Accessory relays — air, vacuum & more
 

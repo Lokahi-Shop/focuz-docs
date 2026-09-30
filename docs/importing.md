@@ -22,10 +22,6 @@ Add a **2D Import** action (or drag a file onto the canvas) and choose your file
   scaling.
 - **Border** — optionally load a closed path as a **clipping boundary** so marks stay within it.
 
-![TODO screenshot: 2D import on the canvas with placement controls](assets/import-2d.png){ .screenshot }
-
-<!-- TODO screenshot: 2D import + placement -->
-
 !!! tip "Fills need closed paths"
     A [fill](sequencer.md#fill-types) can only fill a **closed** shape. If a fill looks empty, the path
     probably isn't closed — check it in your design tool, or adjust the closed-path tolerance in

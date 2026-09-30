@@ -19,8 +19,6 @@ the Library does with your selection:
 | **Insert** | **Adds structure** from the template — sublayers, layers, groups, or whole actions. Nothing existing is touched. |
 | **Replace** | **Swaps one node for another**, in place — same spot, new recipe. |
 
-![TODO screenshot: the Library window with the mode selector](assets/library-overview.png){ .screenshot }
-
 Templates carry **settings only** — speeds, powers, fills, timings, structure — never artwork or
 part data. Your imported geometry always stays with the project, and anything inserted or
 replaced arrives with its rotary part values unset, so the run check reminds you to enter *your*

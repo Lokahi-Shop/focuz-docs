@@ -57,10 +57,6 @@ rotation; with both sets at 0 the model is back in its original pose.
 - A flat perimeter has no tilt, so X/Y rotation is disabled while a perimeter is selected (Z rotation
   still works).
 
-![TODO screenshot: canvas with an object selected and the view cube](assets/canvas-selection.png){ .screenshot }
-
-<!-- TODO screenshot: canvas selection + view cube -->
-
 ## What you see
 
 - A **grid** for scale reference (toggleable).

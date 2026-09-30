@@ -37,10 +37,6 @@ it with the free **Zadig** utility.
     - Click **Install Driver** and wait for *"Driver installed successfully."*
 7. Back in FocuZ, open **Device ▸ Connection** and click **Refresh**.
 
-![TODO screenshot: Zadig with USB ID 9588:9899 selected and WinUSB as target](../assets/zadig-winusb.png){ .screenshot }
-
-<!-- TODO screenshot: Zadig window, device 9588:9899 selected, target driver WinUSB -->
-
 !!! warning "Pick the right device"
     Installing a WinUSB driver onto the **wrong** USB device can disable it. Only proceed when the USB ID
     reads exactly **`9588:9899`**.
