@@ -44,8 +44,10 @@ Adding an action opens a picker grouped by purpose:
   [below](#3d-shadow)).
 - **Rotary ›** — one action per rotary fixture, each using its own Rotary Setup profile (see
   [Rotary Marking](rotary.md#the-2d-rotary-action)): **2D Rotary (Chuck)** and **2D Rotary (Roller)**
-  mark 2D art wrapped around a cylindrical part, with the job's own part and split settings. A
-  fixture whose profile is disabled in Rotary Setup isn't listed.
+  mark 2D art wrapped around a cylindrical part, with the job's own part and split settings;
+  **2D Grid (Chuck)** marks each split as a checkerboard of cells shared between two layers (see
+  [The 2D Grid action](rotary.md#the-2d-grid-action)). A fixture whose profile is disabled in
+  Rotary Setup isn't listed.
 
 **Sequencer**
 

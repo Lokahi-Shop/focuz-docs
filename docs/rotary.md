@@ -46,10 +46,11 @@ all three profiles at once — check each page's gear ratio afterwards.
 
 - **Diameter (default)** — a *default* part diameter for new 2D Rotary actions. Leave it blank
   if every job is a different part — each action carries its own diameter either way.
-- **Size (default)** — a *default* strip width for new 2D Rotary actions, in mm of part
-  surface. Smaller splits stay closer to the laser's focus and the field's sweet spot; larger
-  splits mean fewer seams and faster jobs. Keep the strip shallow enough that its edges are
-  still within your focus tolerance.
+- **Split (default)** — entered exactly as in an action: pick **# of Splits** or **Max Split
+  Size** from the dropdown and type the value. A new 2D Rotary action starts with the same
+  dropdown choice and value. Smaller splits stay closer to the laser's focus and the field's
+  sweet spot; larger splits mean fewer seams and faster jobs. Keep the strip shallow enough
+  that its edges are still within your focus tolerance.
 - **Overlap (default)** — a *default* overlap between neighboring strips, in mm. A little
   overlap can hide seam lines in fills.
 
@@ -165,29 +166,30 @@ the same **Rotary** section above their content:
     closes on a seam. Strips that hold no artwork are simply skipped: a 90° logo on 24 splits marks
     6 of them. Numbers that divide 360 (24, 36, 12…) give whole-degree strips.
 
-    **The two fields are linked.** Type a Max Split Size and FocuZ works out the fewest splits per
-    revolution whose band (strip plus overlap) fits inside it; type a Number of Splits and Max
-    Split Size updates to the width that number gives. Changing the diameter or the overlap never
-    changes a number you've chosen — the size follows it. Projects made before this field carry
-    only a size and keep marking exactly as they did; enter a number (or retype the size) to move
-    them onto the per-revolution grid.
+    **One box, two ways to fill it.** The dropdown beside the box chooses whether you are entering
+    a **Max Split Size** or a **# of Splits**; switching it just shows the other value. Type a Max
+    Split Size and FocuZ works out the fewest splits per revolution whose band (strip plus overlap)
+    fits inside it; type a # of Splits and the size becomes the width that number gives. Changing
+    the diameter or the overlap never changes a number you've chosen — the size follows it.
+    Projects made before the count existed carry only a size and keep marking exactly as they did;
+    enter a number (or retype the size) to move them onto the per-revolution grid.
 
     Below the fields, a readout shows what those values actually produce:
 
     ```
     C 40.527 mm · 1 step 2.53 µm · art wraps 337.6°
-    24 per revolution · 15° · 1.6886 mm nominal · 23 marked · 666–667 steps (±1)
+    15° per split · 23 of 24 marked · 666–667 steps (±1)
     ```
 
     **C** is the part's circumference, and **1 step** is how far the surface moves per motor
     step — the finest seam placement the rotary can manage on this part. **art wraps** is how
     far your artwork reaches around the part: `360.0° ✓` means it closes exactly, and anything
-    past a full turn is flagged. The second line is the split itself — the splits per revolution,
-    how many **degrees** of the part each one covers, how wide each is, how many of them actually
-    mark, and how many motor steps the part turns between them. With seam-aware splits on the
-    width reads *nominal*, since seams shift into gaps in the artwork. A band wider than the lens
-    field, or wider than your Max Split Size, is flagged here too — the job is held until the
-    field limit is met.
+    past a full turn is flagged. The second line is the split itself — how many **degrees** of
+    the part each split covers, how many of the splits actually mark, and how many motor steps
+    the part turns between them (a range marked *seam-aware* means seams have shifted into gaps
+    in the artwork). The count and size themselves sit in the split row above, so they are not
+    repeated here. A band wider than the lens field, or wider than your Max Split Size, is
+    flagged here too — the job is held until the field limit is met.
 - **Start Offset** — optional, in part degrees: rotates the whole job's starting orientation
   on the part without changing the rotary's Set Zero position. Handy for marking at a specific
   clock position, or spacing repeat jobs around the same part. 0 (or blank) = none; Return to
@@ -201,6 +203,49 @@ the same **Rotary** section above their content:
 Rotation axis, mode, motor settings, and the split-quality options still come from Rotary Setup — the
 action carries only the job values. Because rotary is per-action, nothing is left switched on
 afterward — other actions and later jobs are unaffected.
+
+## The 2D Grid action
+
+**2D Grid (Chuck)** (Sequencer › Marking › Rotary) is 2D Rotary with every split divided into a
+grid of cells shared between two layers — for checkerboard textures, comparing two settings side by
+side around a part, or simply spreading heat by marking a split cell by cell instead of all at once.
+It always has one group with two layers, and the same Rotary section and readout as 2D Rotary.
+
+- **Content is shared.** The Content section sits at the top of the group: import, size, location
+  and transform apply to both layers. Below it, **Link Layers** (on by default) keeps Layer 2
+  collapsed and gives it every setting of Layer 1. Turn it off to open Layer 2 and give its cells
+  their own power, speed, fill and so on; turn it back on and Layer 2 follows Layer 1 again.
+- **X # of Cells / Y # of Cells** divide each split. Along the wrap the cells are equal in
+  **degrees**, so the grid is even around the part; along the rotation axis they are equal in
+  **mm**, with the cell size to 5 decimals and the last row taking the remainder up to the edge of
+  the art. Beside each box the cell's size on that axis is shown — mm around the part for the wrap
+  axis, mm of distance for the other — to three decimals, with a `~` when the true value has more.
+  The readout adds a line with the cell size in degrees, and **Show splits on canvas** draws the
+  cells inside the seams.
+- **Cell padding** leaves an unmarked gap between cells — for melt pools or any breathing room you
+  want. Every cell edge pulls in by half the padding, seams and the outer edges of the art
+  included, so the gap is the same everywhere around the part, including where the wrap closes at
+  360°. With a padding set, the seam Overlap and Stitch options do not apply to that grid (the
+  padding is the gap); the Overlap box grays to say so. The canvas draws each padded cell as its
+  own rectangle, and the cell-size labels add how much of each cell is marked.
+- **Cells alternate between the layers** in both directions — the upper-left cell of the first
+  split is Layer 1 — and the pattern carries on across the seams, so an odd cell count still
+  checkerboards. If the count around a fully wrapped part is odd the pattern cannot meet itself;
+  the readout says so.
+- **Marking order** is per split and always starts at the split's upper-left cell. **X First**
+  marks left to right, then the next row down; **Y First** marks down the column, then the next
+  column; **X Checker** and **Y Checker** mark every Layer 1 cell first in that sweep, then every
+  Layer 2 cell. Each cell is finished before the next begins, and a whole split streams as one
+  pass, so the split timing matches 2D Rotary.
+- Layer 1's **Repeat** and **Per lap** drive the grid; clearing a layer's Mark checkbox drops its
+  cells. Sublayers and Variation are not offered on the grid layers. Importing a file with several
+  layers asks which of them to bring in — all by default — and puts the chosen ones together into
+  Layer 1.
+- **Each layer's eye shows its own cells.** With both eyes on the canvas shows the whole art as
+  imported; hide one layer and only the other layer's cells of the art remain, so you can see the
+  checkerboard each layer will mark. Each layer's fill preview is clipped to its own cells the
+  same way. In the layer tree the shared art is listed after the two layers rather than under
+  Layer 1, since both layers mark it.
 
 ## Placing more than one piece of art
 
