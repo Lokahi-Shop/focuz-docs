@@ -23,10 +23,6 @@ FocuZ jobs are an ordered **sequence of actions**. For a first mark you need one
 3. The art appears on the **[canvas](../canvas.md)**. Drag to position it, and use the **Position / Size /
    Rotation** controls to place it where the part sits in the work area.
 
-![TODO screenshot: a 2D Import action with simple art placed on the canvas](../assets/first-mark-canvas.png){ .screenshot }
-
-<!-- TODO screenshot: 2D import action, simple art on the canvas -->
-
 !!! tip "Just want to test the beam?"
     Use the **Calibration ▸ Offset** action's quick **Square** / **Circle** buttons to drop a simple test
     shape without importing a file.

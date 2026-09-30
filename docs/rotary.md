@@ -10,8 +10,6 @@ Sequencer — the action carries the job's part and split values, so nothing has
 on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured once under
 **Device ▸ Rotary Setup**.
 
-![TODO screenshot: the Rotary Setup dialog](assets/rotary-setup.png){ .screenshot }
-
 ## Rotary Setup
 
 Rotary Setup keeps **one settings profile per fixture** — **Chuck**, **Roller** and **Turntable** —

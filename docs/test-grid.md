@@ -7,8 +7,6 @@ combination at once. Engraved labels record which value produced which square.
 
 Add it from the Sequencer: **Add Action → Calibration → Test Grid**.
 
-![TODO screenshot: a Test Grid action with a swept layer and labels](assets/test-grid-overview.png){ .screenshot }
-
 ## The grid
 
 The **Grid** section defines the coupon:

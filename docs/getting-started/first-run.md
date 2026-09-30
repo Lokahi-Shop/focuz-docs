@@ -8,10 +8,6 @@ Setup**.
     FocuZ won't let you **Run** or **Trace** until you've imported a `markcfg7`. This prevents marking
     with an unconfigured axis mapping.
 
-![TODO screenshot: the Device Setup window](../assets/device-setup.png){ .screenshot }
-
-<!-- TODO screenshot: Device Setup single page -->
-
 Everything is on one page: a **Device Setup** section on top, **Lens Setup** below it, and an
 optional **Rotary Setup** at the bottom.
 

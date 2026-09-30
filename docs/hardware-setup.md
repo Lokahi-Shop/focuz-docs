@@ -11,10 +11,6 @@ is the deeper reference.
 
 ## Connecting (Device ▸ Connection)
 
-![TODO screenshot: Device ▸ Connection card](assets/device-connection.png){ .screenshot }
-
-<!-- TODO screenshot: Connection overlay card -->
-
 1. Open **Device ▸ Connection**.
 2. Pick your controller from the device list and click **Connect**.
 3. When connected, FocuZ shows the **firmware version** and **serial number** and a green status
@@ -105,10 +101,6 @@ timing override them per layer (see [Timings](sequencer.md#timings)). Values fro
 are a good starting point; tune for mark quality.
 
 ## Power Map (Device ▸ Power Map)
-
-![TODO screenshot: Power Map dialog](assets/power-map.png){ .screenshot }
-
-<!-- TODO screenshot: Power Map 11-point curve -->
 
 A curve that maps **requested power → actual output power** at 0 %, 10 %, … 100 %. Use it to linearize a
 laser whose output isn't proportional to the set percentage, or to cap output. **Linear** resets to a 1:1
