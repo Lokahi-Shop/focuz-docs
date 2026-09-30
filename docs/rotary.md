@@ -10,6 +10,13 @@ Sequencer — the action carries the job's part and split values, so nothing has
 on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured once under
 **Device ▸ Rotary Setup**.
 
+!!! info "Which controller drives the rotary"
+    The rotary runs from your BJJCZ laser controller's expansion axis — no extra hardware. It has been
+    tested on the Lite boards (**LMCV4-FIBER-M**, **FBLI-B-LV4**), which have a single expansion axis.
+    Standard boards with two expansion axes are untested, and FocuZ uses only the first axis. A motorized
+    **Z** for focus is not driven from the laser controller; it needs the FocuZ:grbl controller (coming
+    soon).
+
 ## Rotary Setup
 
 Rotary Setup keeps **one settings profile per fixture** — **Chuck**, **Roller** and **Turntable** —
