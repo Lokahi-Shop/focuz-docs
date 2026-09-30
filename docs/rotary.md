@@ -14,23 +14,33 @@ on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured
 
 ## Rotary Setup
 
+Rotary Setup keeps **one settings profile per fixture** — **Chuck**, **Roller** and **Turntable** —
+and each rotary action is tied to one of them: **2D Rotary (Chuck)** runs the Chuck profile, **2D
+Rotary (Roller)** the Roller profile. Set each fixture up once; switching fixtures is just picking
+the matching action. The **Fixture** selector at the top of the dialog chooses which profile the
+page edits, and its **Enabled** box decides whether that fixture's action is offered in the
+action list — untick the fixtures you don't own. (All three start enabled. A project that already
+contains a hidden fixture's action still runs.) Everything below is per profile.
+
 ### Settings
 
 - **Invert Direction** — flip the rotation direction for both jogging and marking.
 - **Return to 0** — rotate back to the zero position when the job finishes (on by default).
   If a run is interrupted — cancelled or stopped for any reason — FocuZ always returns the
   rotary to zero so the part is never left at an arbitrary angle.
-- **Mode** — **Chuck** grips the part and turns it directly; **Roller** turns the part by
-  spinning drive rollers underneath it (see [Chuck vs. Roller](#chuck-vs-roller)).
-- **Axis** — the axis the part **rotates around**. The artwork wraps *around* that axis: with
+- **Rotation axis** — the axis the part **rotates around**. The artwork wraps *around* that axis: with
   X selected, the art's vertical (Y) direction wraps around the part; with Y selected, the
   art's horizontal (X) direction wraps. Match it to how the rotary sits under the laser.
 - **Gear Ratio** — the drive ratio between motor and part, as *n* : 1. At 1 : 1 the motor's
   Steps/Rot is the part's steps per rotation; a 2 : 1 reduction means the motor turns twice
   per part rotation.
-- **Roller Ø** — in Roller mode, the drive rollers' diameter. Surface travel follows the
+- **Roller Ø** — on the Roller profile, the drive rollers' diameter. Surface travel follows the
   roller, so both diameters matter: the part diameter for wrapping the artwork, the roller
   diameter for the motion math.
+
+**Import markcfg7** on this dialog imports the motor parameters (steps/rotation, direction, gear
+ratio, speeds, accel) into the profile currently shown. The Device Setup wizard's import seeds
+all three profiles at once — check each page's gear ratio afterwards.
 
 ### Default Values
 
@@ -47,9 +57,14 @@ The three defaults only pre-fill a new 2D Rotary action's fields; a blank defaul
 action's field blank until you enter it there.
 
 ### Rotary Behavior
-- **Overlap fills only (outlines marked once)** — with an overlap set, fills keep the overlap
-  but outlines are trimmed to the exact seam, so outline strokes are never double-marked. Use
-  this when overlap helps your fills but doubles up your outlines.
+- **Outlines at seams** — how an outline or line that crosses a seam is divided between the two
+  splits. Fills always share the full Overlap; this chooses the outline's window. **Exact seam**
+  (the default) — divided exactly at the seam and marked once, nothing extended or doubled; a
+  positioning error shows as a small break. **Stitch** — each split's outline runs a small fixed
+  distance past the seam, the **Stitch** value (0.05 mm, about one spot), which covers positioning
+  error without a visible doubled line. **Overlap** — outlines share the fill overlap too, so the
+  segment inside it is marked by both splits (a doubled line the length of the overlap at every
+  seam). Applies to layers and their sublayers.
 - **Seam-aware splits (seams avoid geometry)** — lets each seam shift a little (up to about a
   quarter of the split size) to land in the widest nearby gap in the artwork, so seams fall
   *between* letters and shapes instead of through them. The **Gap** field beside it sets the
@@ -59,12 +74,19 @@ action's field blank until you enter it there.
   flat plane, but the part surface curves away from it, so marks land slightly stretched near
   the strip edges. Arc compensation pre-corrects for the curvature so design distances land as
   true on-surface distances. The effect grows quickly with split size — it's what keeps
-  geometry true when you use large splits, and it lets you size splits by focus alone.
+  geometry true when you use large splits, and it lets you size splits by focus alone. Fill lines are
+  corrected the same way as outlines, and a fill pattern runs continuously from one split into
+  the next.
 - **Backlash compensation (lash taken up before the first split)** — off by default. When on,
   the rotary overshoots the first strip slightly and comes back onto the position from the
   marking direction, so the first strip is approached from the same side as every later advance
   and gear or chuck play can't land in the first seam. Turn it on for geared or chuck drives
   with measurable play.
+- **Settle between splits** — the rest the laser takes between one mark and the next inside a
+  rotary job: between splits, between layers and sublayers, and between revolutions. **None** (the
+  default) starts the next mark as soon as the part is in position; **Short** adds a brief rest;
+  **Full** rests as long as it does between separate marks. Step up if marks after a split start
+  unevenly or the run pauses between splits. The job's very first mark always gets the full rest.
 
 Splits are always distributed evenly across the artwork, so the last strip is the same size as
 the rest — no thin leftover strip at the end.
@@ -85,8 +107,12 @@ With 5 passes over 4 splits, ticked runs 5 laps of 4 splits; unticked marks spli
 then split 2 five times, and so on. Backlash is taken up again at the start of **every** lap, so
 each lap's first strip is entered from the marking side just like the job's first strip.
 
-**Sublayers follow their parent layer** — they have no checkbox of their own, so a layer and its
-sublayers can't disagree about lap order. **Group repeat** always stays inside the strip.
+**Layers take turns around the part.** When an action has more than one layer on the same part,
+each layer finishes all of its revolutions before the next layer starts — the rotary never
+switches between layers on the same split. That keeps consecutive splits on the same settings,
+which is what lets them follow one another without a rest (see *Settle between splits* above);
+switching settings on every split would cost a full rest each time. **Group repeat** repeats the
+whole sequence of a group's layers, each repeat a fresh set of revolutions.
 
 The box is hidden at 1 pass, where there's nothing to order.
 
@@ -119,43 +145,60 @@ first run.
 
 ## The 2D Rotary action
 
-The **2D Rotary** action (in the Sequencer's Marking group) is a 2D Import that marks through
-the rotary engine — it's the one and only way a job runs on the rotary. It carries its own
-**Rotary** section above its content:
+The **2D Rotary (Chuck)** and **2D Rotary (Roller)** actions (Sequencer › Marking › **Rotary**) are
+a 2D Import that marks through the rotary engine — the only way a job runs on the rotary. Pick
+the one for the fixture on the bench: each runs its own Rotary Setup profile (the chuck action
+uses chuck math, the roller action roller math), and only enabled fixtures are listed. Both carry
+the same **Rotary** section above their content:
 
-- **Part Diameter / Split Size / Overlap** — the job's own values, saved with the project and
-  set **once for the whole action** in the Rotary section that sits above the layers: one part
-  per action, shared by everything the action marks. Values pre-fill from the Rotary Setup
-  defaults when the action is created; fields with no default start blank. **All three are
-  required** — the run and trace are blocked, with a message naming the missing field, until
-  they're entered (an overlap of 0 counts as entered). Different actions (or different
-  projects) can target different parts without touching the device setup.
+- **Part Diameter / Max Split Size / Number of Splits / Overlap** — the job's own values, saved
+  with the project and set **once for the whole action** in the Rotary section that sits above
+  the layers: one part per action, shared by everything the action marks. Values pre-fill from
+  the Rotary Setup defaults when the action is created; fields with no default start blank.
+  **Diameter, a split, and overlap are required** — the run and trace are blocked, with a message
+  naming the missing field, until they're entered (an overlap of 0 counts as entered). Different
+  actions (or different projects) can target different parts without touching the device setup.
+
+    **Number of Splits is per revolution.** The part is divided into exactly that many strips —
+    24 splits is 15° each on any diameter — with the grid starting at your artwork, so nudging the
+    art moves the whole result round the part without re-cutting a single seam, and a full wrap
+    closes on a seam. Strips that hold no artwork are simply skipped: a 90° logo on 24 splits marks
+    6 of them. Numbers that divide 360 (24, 36, 12…) give whole-degree strips.
+
+    **The two fields are linked.** Type a Max Split Size and FocuZ works out the fewest splits per
+    revolution whose band (strip plus overlap) fits inside it; type a Number of Splits and Max
+    Split Size updates to the width that number gives. Changing the diameter or the overlap never
+    changes a number you've chosen — the size follows it. Projects made before this field carry
+    only a size and keep marking exactly as they did; enter a number (or retype the size) to move
+    them onto the per-revolution grid.
 
     Below the fields, a readout shows what those values actually produce:
 
     ```
     C 40.527 mm · 1 step 2.53 µm · art wraps 337.6°
-    23 strips · 14.68° · 1.6522 mm nominal · 652.3 steps (±1)
+    24 per revolution · 15° · 1.6886 mm nominal · 23 marked · 666–667 steps (±1)
     ```
 
     **C** is the part's circumference, and **1 step** is how far the surface moves per motor
     step — the finest seam placement the rotary can manage on this part. **art wraps** is how
     far your artwork reaches around the part: `360.0° ✓` means it closes exactly, and anything
-    past a full turn is flagged. The second line is the split itself — how many strips, how many
-    **degrees** of the part each one covers, how wide each is, and how many motor steps the part
-    turns between them.
-
-    **Split Size is a maximum, not the exact width.** FocuZ works out how many strips that
-    ceiling needs, then divides the artwork evenly between them — so there is never a narrow
-    leftover strip at the end, and the width in the readout is usually a little under what you
-    typed. With seam-aware splits on it reads *nominal*, since seams shift into gaps in the
-    artwork.
+    past a full turn is flagged. The second line is the split itself — the splits per revolution,
+    how many **degrees** of the part each one covers, how wide each is, how many of them actually
+    mark, and how many motor steps the part turns between them. With seam-aware splits on the
+    width reads *nominal*, since seams shift into gaps in the artwork. A band wider than the lens
+    field, or wider than your Max Split Size, is flagged here too — the job is held until the
+    field limit is met.
 - **Start Offset** — optional, in part degrees: rotates the whole job's starting orientation
   on the part without changing the rotary's Set Zero position. Handy for marking at a specific
   clock position, or spacing repeat jobs around the same part. 0 (or blank) = none; Return to
   0 still returns to the true zero.
+- **Sublayers on the rotary** — a **Mark** or **Groove** sublayer runs on every split, right after
+  its parent's pass on that split. A **Jog** or **Terminal** sublayer runs once per **wrap**, after
+  the pass it is attached to has completed all the way round the part — with Per lap on, that is the
+  end of that lap; otherwise the end of the job. A sublayer's Repeat is how many times it runs each
+  time it fires, exactly as on a flat layer, and never adds wraps.
 
-Axis, mode, motor settings, and the split-quality options still come from Rotary Setup — the
+Rotation axis, mode, motor settings, and the split-quality options still come from Rotary Setup — the
 action carries only the job values. Because rotary is per-action, nothing is left switched on
 afterward — other actions and later jobs are unaffected.
 
@@ -205,18 +248,50 @@ Seam-aware splits and arc compensation show up in the preview exactly as they wi
 
 ## Sublayers in rotary jobs
 
-Sublayers run inside each split, just as they do in flat marking — jog sublayers fire between
-passes, and **Groove** sublayers (the rotary name for the Cut mode) mark their offset bands
-clipped to the current strip. A groove is for grooving and deep engraving around the part — it
-is sectioned by splits like all rotary content, and is not a tube through-cutting mode.
+Sublayers fire at the same points as in flat marking — after the parent pass that **Run every**
+names — but on the rotary each firing is a whole trip around the part rather than something that
+happens on every split:
+
+- A **Mark** or **Groove** sublayer takes its own revolution: once the parent's pass has gone all
+  the way round, the sublayer goes all the way round, marking its **Repeat** passes back to back on
+  each split. Tick **Per split** in the sublayer's header to weave it into the parent's revolution
+  instead — on each split, right after the parent pass that fired it, while that strip is still
+  under the lens (for a groove or cleanup pass that should follow the parent immediately).
+  **Groove** (the rotary name for the Cut mode) marks its offset band clipped to each split — it is
+  for grooving and deep engraving around the part, sectioned by splits like all rotary content, and
+  is not a tube through-cutting mode.
+- A **Jog** or **Terminal** sublayer fires once per wrap, between revolutions — a Z step is a
+  whole-part event, so it never repeats on every split.
+
+A layer without Per lap runs all of its passes in one revolution, so its sublayers follow that
+revolution in pass order — the same number of firings Run every would give pass by pass.
+
+## Variation in rotary jobs
+
+[Variation](sequencer.md#variation) is worked out on the whole design, not per split: a Layer or
+Fill ramp runs once across the entire wrap, a Segment or Chord ramp continues through a seam on
+the far side exactly where it left off, and Quadrant tiles are the design's tiles regardless of
+where the seams fall. Nothing restarts at a split.
 
 ## Chuck vs. Roller
 
+Each is a **fixture profile** in Rotary Setup with its own action:
+
 - **Chuck** — the part is gripped and rotated directly. One motor rotation (through the gear
-  ratio) is one part rotation, regardless of part size.
+  ratio) is one part rotation, regardless of part size. Backlash compensation lives here.
 - **Roller** — the part rests on powered rollers. The rollers move the *surface*, so surface
   travel depends on the roller diameter, and how far the part turns depends on both diameters.
   Enter the part diameter and the roller diameter and FocuZ handles the conversion.
+- **Turntable** — a profile for a part that spins about the beam axis; its motor settings drive
+  the **Rotary Jog** action today, and its marking action is on the roadmap.
+
+## Rotary Jog
+
+**Rotary Jog (BJJCZ)** (Sequencer › Motion) turns the part as a step inside a sequence — between
+marks, or to present the next face. Choose the **fixture** (its profile's motor settings apply),
+**Rotation (degrees)** or **Distance (mm)** of part surface, the direction, and the amount. A
+distance needs the part's diameter — enter it on the action, or leave it blank to use the
+profile's Part Ø default. The live jog buttons on the Jog card have the same fixture choice.
 
 ## See also
 

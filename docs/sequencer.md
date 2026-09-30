@@ -38,12 +38,14 @@ Adding an action opens a picker grouped by purpose:
 
 - **2D Import** — mark imported 2D art (see [Importing Geometry](importing.md)).
 - **2D Cut** — mark an offset **cut band** around imported 2D art (see [The Cut Band](cut-band.md)).
-- **2D Rotary** — mark 2D art wrapped around a cylindrical part, with its own part and split
-  settings (see [Rotary Marking](rotary.md#the-2d-rotary-action)).
 - **3D Slice** — slice a 3D model and mark it layer by layer.
 - **3D Cut** — mark an offset cut band around a 3D model's outline (see [The Cut Band](cut-band.md)).
 - **3D Shadow** — flatten a 3D model to its floor outline and **fill** it like 2D art (see
   [below](#3d-shadow)).
+- **Rotary ›** — one action per rotary fixture, each using its own Rotary Setup profile (see
+  [Rotary Marking](rotary.md#the-2d-rotary-action)): **2D Rotary (Chuck)** and **2D Rotary (Roller)**
+  mark 2D art wrapped around a cylindrical part, with the job's own part and split settings. A
+  fixture whose profile is disabled in Rotary Setup isn't listed.
 
 **Sequencer**
 
@@ -58,10 +60,16 @@ Adding an action opens a picker grouped by purpose:
   outer loop comes back around.
 - **Select Action** — a no-op placeholder (skipped at marking); useful while building.
 
-**GRBL (FocuZ)** (the [FocuZ:grbl controller](jog-terminal.md))
+**Motion** — every action that moves an axis, whichever controller drives it. Items marked
+*(FocuZ)* run on the [FocuZ:grbl controller](jog-terminal.md); *(BJJCZ)* items run on the laser
+board's rotary port.
 
-- **GRBL - Jog** — move an axis as a job step.
-- **GRBL - Return to Start** — return the axes you tick to the machine position they were at when
+- **Linear Axis Jog (FocuZ)** — move an axis as a job step.
+- **Rotary Jog (BJJCZ)** — turn the rotary as a job step: pick the fixture (its Rotary Setup
+  profile applies), **Rotation (degrees)** or **Distance (mm)** of part surface, the direction and
+  the amount. A distance needs the part diameter — on the action, or blank for the profile's
+  default (see [Rotary Jog](rotary.md#rotary-jog)).
+- **Return to Start (FocuZ)** — return the axes you tick to the machine position they were at when
   the run started, Z first, then X, then Y, at the feedrate you set (mm/min). All three axes are
   listed with their live lens (LPos) and machine (MPos) position, so you can set the action up with no
   controller connected;
@@ -69,7 +77,7 @@ Adding an action opens a picker grouped by purpose:
   available (axes not homed); hover it for the reason. The run-start position is
   recorded after the Run checks pass, and those checks gate a disabled axis or a missing controller,
   plus the usual homing check because these are absolute moves.
-- **GRBL - Return to Saved 0** — the same panel, but each ticked axis moves to its saved 0 (Z = the
+- **Return to Saved 0 (FocuZ)** — the same panel, but each ticked axis moves to its saved 0 (Z = the
   selected lens's saved focal position; X/Y saved zeros are not available yet). Requires that axis's limit
   switches to be enabled in both + and − (Device Setup ▸ Enable Limit Switches); the warning icon says so.
 
@@ -78,7 +86,7 @@ Adding an action opens a picker grouped by purpose:
     moves and blocks the run if a Return action would have to move Z down — or if it can't tell where Z will
     be at that point (for example after a homing command). Fix the sequence so Z is at or below the return
     position when the action runs. X and Y move either way.
-- **GRBL - Command** — send raw G-code/M-code, **one command per line** — including switching
+- **Command (FocuZ)** — send raw G-code/M-code, **one command per line** — including switching
   **accessory relays** (air assist, vacuum) on/off mid-job. Lines run in order, and the sequence
   doesn't advance until every line — and any motion it started — has fully completed. Arcs
   (`G2`/`G3`) and probing (`G38`) aren't supported on the motion controller — FocuZ flags those
