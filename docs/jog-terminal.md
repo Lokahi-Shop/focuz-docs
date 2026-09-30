@@ -1,7 +1,13 @@
 # Jog, Homing & Terminal
 
-This section covers the **FocuZ:grbl controller** — the motion-and-accessory controller FocuZ pairs with
-your galvo controller — and the **Jog** and **Terminal** screens that drive it.
+This section covers the **Jog** and **Terminal** screens and the **FocuZ:grbl controller** — the
+motion-and-accessory controller FocuZ pairs with your galvo controller.
+
+!!! info "What works today"
+    **Rotary jogging works now** — it runs on your BJJCZ laser controller, so the Jog window's
+    [BJJCZ Rotary](#bjjcz-rotary) strip and the **Rotary Jog (BJJCZ)** sequencer action need nothing
+    extra. The **FocuZ:grbl controller is coming soon**: X / Y / Z motion, homing, the Terminal and the
+    accessory relays described below light up once it's available and connected.
 
 ## The FocuZ:grbl controller
 
@@ -76,7 +82,8 @@ controller and simply grays out when the laser isn't connected.
 The Jog window's **BJJCZ Rotary** strip jogs the rotary axis (it runs on the laser controller, so
 it's live whenever the laser is connected): jog **CCW / CW** by the set angle, **Set Zero** to
 define the current position as zero, and **Go to Zero** to rotate back to it — with a live
-position readout. See [Rotary Marking](rotary.md).
+position readout. To turn the rotary as a step inside a job, use the **Rotary Jog (BJJCZ)** action in
+the Sequencer (see [Rotary Jog](rotary.md#rotary-jog)). See [Rotary Marking](rotary.md).
 
 !!! warning "How jogging really behaves (open-loop)"
     The FocuZ:grbl controller is **open-loop** and **queues** moves:
