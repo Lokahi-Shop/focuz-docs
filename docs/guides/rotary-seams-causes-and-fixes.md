@@ -25,8 +25,12 @@ end there, so the effect doubles into a visible bead.
 - **Change the fill angle.** A fill running straight into the seam ends every line at the same place. At
   **45°** the ends are spread along the seam and the bead usually disappears.
 - **Check the laser off delay.** Too long a delay burns every line end; seams show it first.
-- **Use overlap sparingly.** Overlap marks a thin band from both sides to hide small errors; too much
-  overlap adds material exactly where the ridge forms.
+- **You may not need overlap at all.** Overlap marks a thin band from both sides to hide small errors,
+  and too much of it adds material exactly where the ridge forms. With an accurate Z height and part
+  diameter on a true cylinder held in a chuck, the splits meet exactly and overlap should be **0**. Keep
+  a small overlap only where the part itself isn't perfect: a **tapered** part (the diameter changes along
+  its length, so one diameter is exact at only one height), a part that **runs out** of true in the chuck,
+  or a **roller** fixture where the part can slip slightly.
 
 ## How FocuZ keeps seams consistent
 
@@ -35,11 +39,13 @@ end there, so the effect doubles into a visible bead.
 - **Seams placed to the motor step.** Every split is commanded to the nearest motor step, so a seam is
   never more than one step from ideal. When the split count divides the motor's steps per revolution,
   every advance is identical and the readout says **exact**.
-- **Backlash-safe approach.** Each revolution approaches its first split from the same side as every
-  later advance, so lash never lands in a seam.
+- **Backlash-safe approach** (optional, recommended). With **Backlash compensation** on, each revolution
+  approaches its first split from the same side as every later advance, so lash never lands in a seam.
+  It adds only a short move per revolution, so there's little reason to leave it off.
 - **Seam-aware splits** (optional) move seams into gaps in the artwork where there are any.
 - **Outlines at seams** — choose **Exact seam**, a small **Stitch** past the seam, or share the **Overlap**.
-- **Arc compensation** (optional) corrects the curvature across each split.
+- **Arc compensation** (on by default — keep it on) corrects the curvature across each split, so
+  distances on the part match the design right up to the seam.
 
 Or use the seams on purpose: the **[2D Grid action](../rotary.md#the-2d-grid-action)** divides every split
 into a checkerboard of cells, so the seams become lines of the pattern.
