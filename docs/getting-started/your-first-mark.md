@@ -10,8 +10,9 @@ This walks through a simple 2D mark end to end. It assumes you've
 
 ## 1. Connect
 
-Open **Device ▸ Connection** and click **Connect**. The status indicator should turn green and show your
-controller's version and serial number.
+FocuZ **connects to your controller automatically** when it starts — the status indicator turns green and
+shows the controller's version and serial number. If it doesn't (for example, the laser was switched on
+after FocuZ started), open **Device ▸ Connection**, click **Refresh**, then **Connect**.
 
 ## 2. Add a marking action
 
@@ -38,7 +39,7 @@ begin conservative and adjust:
 | **Power** (%) | Laser power. |
 | **Frequency** (kHz) | Pulse frequency (clamped to your device's min/max). |
 | **Q-Pulse** | Pulse width / energy-per-pulse control. |
-| **Passes** | How many times to repeat the mark. |
+| **# of Passes** | How many times each marked segment is repeated in place before moving on (each ring, for contour fills). To repeat the whole layer instead, use the **Repeat** box in the layer header. |
 
 For a filled (engraved) shape, also pick a **fill type** (e.g. bidirectional) and a **fill
 spacing**. To mark just the outline, leave the fill off. See [The Sequencer](../sequencer.md) for all
@@ -46,9 +47,10 @@ parameters and fill types.
 
 ## 4. Focus the laser
 
-Set the working distance so the beam is in focus on the part — jog **Z** to the lens's focal height (see
-**[Jog, Homing & Terminal](../jog-terminal.md)** and the per-lens **Z focal height** in
-[Lenses, Corrections & Calibration](../lenses-corrections.md)).
+Set the working distance so the beam is in focus on the part. With a manual Z, adjust the height until the
+part sits at the lens's focal distance. A **motorized Z axis** (through a FocuZ-compatible Z controller) makes this simple and extremely repeatable:
+home it once, and it moves to each lens's saved **focal Z height** for you (see
+[Jog, Homing & Terminal](../jog-terminal.md) and [Lenses, Corrections & Calibration](../lenses-corrections.md)).
 
 ## 5. Trace it (laser off)
 
@@ -61,12 +63,10 @@ Area).
 ## 6. Run
 
 1. Press **Run**.
-2. If a homing/lens prompt appears (when the Z axis is enabled but not homed), choose to home + run, or run
-   anyway — see [Marking & Tracing](../marking-tracing.md).
-3. The **progress bar** shows the current group / layer / pass and an estimated time remaining.
-4. **Run** becomes **Pause** while marking — you can pause/resume or cancel.
+2. The **progress bar** shows the current group / layer / pass and an estimated time remaining.
+3. **Run** becomes **Pause** while marking — you can pause/resume or cancel.
 
-That's a complete job: *connect → add action → set parameters → focus → trace → run.*
+That's a complete job: *connect → add action → set parameters → focus (as needed) → trace → run.*
 
 ## Next steps
 

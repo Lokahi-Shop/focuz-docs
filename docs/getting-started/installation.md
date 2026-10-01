@@ -23,6 +23,16 @@ it with the free **Zadig** utility.
     If FocuZ already lists your device under **Device ▸ Connection**, the driver is fine — skip this step.
     Only install a driver if the controller is plugged in but FocuZ can't see it.
 
+!!! tip "Already using LightBurn? No driver change needed."
+    FocuZ uses the **same WinUSB driver as LightBurn**, so a laser that runs from LightBurn runs from
+    FocuZ as-is — and you can move between the two without ever touching the driver. Just close one
+    program before connecting from the other.
+
+    That also makes them a good pair. If you like LightBurn's drawing tools, keep using them: design in
+    LightBurn, **export** the artwork (SVG or DXF), **import** it into FocuZ, and mark it with FocuZ's
+    marking tools — 3D slicing, fill variation, the job sequencer, rotary splits and per-lens profiles.
+    See [Switching from EZCad2 or LightBurn](../guides/switching-from-ezcad2-or-lightburn.md).
+
 ### Using Zadig
 
 1. Download Zadig from **<https://zadig.akeo.ie/>**.
@@ -32,7 +42,6 @@ it with the free **Zadig** utility.
 5. In the dropdown, select the device with **USB ID `9588:9899`**
    (it may show as *USBLMCV2*, *jczMod2*, or *Unknown Device*).
 6. With that device selected (double-check it reads **`9588:9899`**):
-    - *(Optional)* edit the name field to `USBLMCV4 (FocuZ)`.
     - Set the target driver to **WinUSB**.
     - Click **Install Driver** and wait for *"Driver installed successfully."*
 7. Back in FocuZ, open **Device ▸ Connection** and click **Refresh**.
@@ -43,9 +52,12 @@ it with the free **Zadig** utility.
 
 ## 3. Confirm the connection
 
-1. Open **Device ▸ Connection**.
-2. Your controller should appear in the device list. Click **Connect**.
-3. When connected, FocuZ shows the firmware **version** and **serial number**, and the status indicator
-   turns green.
+FocuZ **connects automatically** when it starts and finds your controller — there's nothing to click.
+When connected, the status indicator turns green and FocuZ shows the controller's firmware **version**
+and **serial number**.
+
+If it doesn't connect on its own (for example, the controller was switched on after FocuZ started), or
+you have more than one controller plugged in and want a different one than it picked, open
+**Device ▸ Connection**, click **Refresh**, select your controller and click **Connect**.
 
 Next: **[First-run setup](first-run.md)**.
