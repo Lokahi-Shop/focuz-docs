@@ -14,14 +14,24 @@ software updates. Everything lives under the **License** menu.
   example, a design laptop, a shop PC, and a spare. Moving to a new computer is self-service:
   deactivate on one machine and activate on the other.
 - **Connects only when you ask.** FocuZ contacts the internet only for licensing actions you
-  start — activating, deactivating, renewing, or redeeming a code — and for update checks,
-  which are under your control. It never phones home on its own.
+  start — activating, deactivating, renewing, or redeeming a code — for update checks, which
+  are under your control, and for a one-time verification of your trial or license. It never
+  phones home on its own after that.
 
 ## Trial
 
 FocuZ runs as a **30-day trial** with full functionality so you can evaluate it before
-activating. No internet connection or license key is needed for the trial. When it ends,
-activate a license to keep going.
+activating. No license key is needed. The trial is registered **once** the first time FocuZ
+can reach the internet — after that it runs offline. A trial is available once per computer;
+reinstalling doesn't restart it.
+
+When the trial ends, **marking and tracing turn off** until you activate a license. Everything
+else keeps working: your projects still open, edit and save, so nothing you built during the
+trial is lost. Activating a license turns marking and tracing back on immediately — no restart.
+
+!!! tip "Run or Trace says it's locked?"
+    The message tells you why. If it asks you to connect, make sure the computer is online and
+    click Run or Trace again — verification happens automatically and is only needed once.
 
 ## Activating a license
 
@@ -41,7 +51,9 @@ them, contact **info@lokahi.shop** and we'll free it for you.
 
 **Deactivate License** releases this computer's activation (for example, before selling or
 retiring a PC). **Refresh License Info** re-reads your license details from the server — handy
-right after renewing from another device.
+right after renewing from another device. If the License panel says your license is **not
+verified yet** (for example after a hardware change), Refresh License Info offers to re-activate
+it with your saved key.
 
 ## Updates
 
@@ -85,6 +97,11 @@ usage data or telemetry:
 - **License actions you start** — activating, deactivating, renewing, or redeeming a code talks
   to the license server at that moment, with the same identifiers. Starting a renewal also sends
   your license email so checkout is pre-filled.
+- **One-time verification** — registering your trial sends only the non-reversible hardware
+  identifier (and the date your trial began on this computer, if known). Verifying a license on
+  a computer where it isn't verified yet sends the same identifiers as activation. Until it
+  succeeds, FocuZ retries at start-up and when you click Run or Trace; once verified, it never
+  repeats.
 - **Accepting the license terms** *(once per terms version)* — records that you accepted: the
   date, the terms version and wording, a machine identifier, and your news-and-updates choice.
   No name or email is asked for; on trial machines the record isn't tied to you at all (a
