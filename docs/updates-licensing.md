@@ -34,7 +34,11 @@ When the trial ends, **marking and tracing turn off** until you activate a licen
   license is activated. Your project files are untouched — everything you built during the
   trial opens normally once you're licensed.
 
-Activating a license unlocks FocuZ immediately — no restart.
+Activating a license unlocks FocuZ immediately — no restart. So does a trial-extension code.
+
+If FocuZ finds that its record of the date has been tampered with during a trial (or your PC's
+clock was once set far ahead), it asks to confirm the trial with the license server: connect to
+the internet and click Run or Trace again, or use **Check for Updates** on the License panel.
 
 !!! tip "Run or Trace says it's locked?"
     The message tells you why. If it asks you to connect, make sure the computer is online and
@@ -109,7 +113,12 @@ usage data or telemetry:
   update check also confirms the trial with that same identifier. Verifying a license on a
   computer where it isn't verified yet sends the same identifiers as activation. Until it
   succeeds, FocuZ retries at start-up and when you click Run or Trace; once verified, it never
-  repeats.
+  repeats. Moving an activation to new hardware also sends the identifier earlier FocuZ versions
+  used and your previous license record, so the activation moves instead of using another seat.
+- **Update-period dates** *(licensed computers only, when needed)* — if your license's
+  update-period dates weren't available yet, FocuZ retries fetching them at start-up; and when a
+  version newer than your confirmed update period starts, it confirms the dates first. Same
+  identifiers as activation.
 - **Accepting the license terms** *(once per terms version)* — records that you accepted: the
   date, the terms version and wording, a machine identifier, and your news-and-updates choice.
   No name or email is asked for; on trial machines the record isn't tied to you at all (a
