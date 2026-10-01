@@ -1,3 +1,8 @@
+---
+title: "FocuZ — 3D-first laser marking software for BJJCZ fiber lasers"
+description: "FocuZ is 3D-first laser marking software for Windows that runs BJJCZ (EZCad2-type) fiber galvo controllers: slice STL and STEP models directly, rotary marking with even splits, fill variation and a job sequencer. Free 30-day trial."
+---
+
 # FocuZ
 
 **FocuZ** is 3D-first laser marking software for Windows that runs **BJJCZ (JCZ) fiber galvo

@@ -1,3 +1,7 @@
+---
+description: "Fix visible seams on fiber laser rotary engraving: match the symptom to the cause — direction, diameter, alignment, backlash, line-end ridges — and how FocuZ keeps seams consistent."
+---
+
 # Rotary seams on a fiber laser: causes and fixes
 
 A galvo lens can only mark a small window of a cylinder at a time, so rotary jobs are marked in

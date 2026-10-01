@@ -1,3 +1,7 @@
+---
+description: "Why fiber laser relief engravings show staircase lines with grayscale depth maps, and how slicing the 3D model directly gives true outlines and a step size you choose."
+---
+
 # Staircase lines in fiber laser relief engraving: slicing vs depth maps
 
 **Short answer:** visible steps in a fiber laser relief usually come from how depth is *encoded* before the
