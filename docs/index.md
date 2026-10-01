@@ -16,7 +16,7 @@ parameters.
 |---|---|
 | **What it is** | Laser marking and engraving software for fiber lasers with galvo heads |
 | **Platform** | Windows |
-| **Controllers** | BJJCZ / JCZ galvo controllers (the EZCad2 family), over USB — tested on the Lite boards LMCV4-FIBER-M and FBLI-B-LV4; other boards in the family should work but are untested |
+| **Controllers** | BJJCZ / JCZ galvo controllers (the EZCad2 family), over USB — tested on the Lite boards LMCV4-FIBER-M and FBLI-B-LV4; the less common Standard boards are untested but should work, with a motorized Z through a FocuZ-compatible Z controller rather than the board's own Z axis |
 | **3D formats** | STL, OBJ, 3MF, STEP — sliced directly into marking layers |
 | **2D formats** | SVG, DXF, AI, EPS, PDF (vector) |
 | **Highlights** | 3D slicing, fill variation, rotary marking with even splits, a job sequencer, lens profiles and correction files, a settings library |

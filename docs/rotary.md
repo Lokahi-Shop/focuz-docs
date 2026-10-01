@@ -13,9 +13,9 @@ on or off app-wide. The rotary hardware itself (motor, mode, axis) is configured
 !!! info "Which controller drives the rotary"
     The rotary runs from your BJJCZ laser controller's expansion axis — no extra hardware. It has been
     tested on the Lite boards (**LMCV4-FIBER-M**, **FBLI-B-LV4**), which have a single expansion axis.
-    Standard boards with two expansion axes are untested, and FocuZ uses only the first axis. A motorized
-    **Z** for focus is not driven from the laser controller; it needs the FocuZ:grbl controller (coming
-    soon).
+    The less common Standard boards, which have two expansion axes, are untested but should work; FocuZ
+    uses only the first axis. A motorized **Z** for focus works through a FocuZ-compatible Z controller
+    (FocuZ:grbl, coming soon), not through the laser board's own Z axis.
 
 ## Rotary Setup
 
