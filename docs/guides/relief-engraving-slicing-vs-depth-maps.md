@@ -42,13 +42,12 @@ What that gives you:
 
 ## Getting smooth results
 
-1. **Start from a clean model.** A closed STEP solid slices most predictably; repair open meshes first.
+1. **Start from a good model.** A STEP solid needs no watertight checks; an STL needs enough polygons to
+   avoid micro-faceting on curves.
 2. **Pick a slice count for your material.** Measure how deep one slice removes on your material, then
    set enough slices to reach the depth you want — more, thinner slices give smoother slopes.
 3. **Turn the fill between slices** with **Auto Rotate** (and a **Step** angle), so line patterns don't
    stack into ridges.
-4. **Mind focus on deep work.** As material comes off, the surface drops away from focus; refocus between
-   runs for deep reliefs.
 
 ## See it for yourself
 

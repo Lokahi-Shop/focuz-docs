@@ -2,8 +2,7 @@
 
 **Short answer:** FocuZ runs the same BJJCZ (JCZ) galvo controller you already have — no new board. If
 the laser currently runs from LightBurn, the USB driver is already the right kind; if it runs from EZCad2,
-you switch the driver to WinUSB once with the free Zadig tool. Then import your EZCad2 `markcfg7` file
-and your lens correction, and FocuZ is set up.
+you switch the driver to WinUSB once with the free Zadig tool.
 
 ## 1. The USB driver
 
@@ -16,17 +15,22 @@ FocuZ talks to the controller through a **WinUSB** driver.
   [Installation & driver](../getting-started/installation.md#2-install-the-bjjcz-usb-driver).
 
 !!! note "Going back to EZCad2"
-    EZCad2 needs its own driver. To use EZCad2 again on the same PC, reinstall its vendor driver in place
-    of WinUSB.
+    EZCad2 needs its own vendor driver, so the WinUSB driver (the one FocuZ and LightBurn share) has to be
+    removed first:
 
-## 2. Bring your settings across
+    1. With the controller plugged in, open **Device Manager** and find the controller (look under
+       *Universal Serial Bus devices* — it may show as *USBLMCV2*, *USBLMCV4* or *jczMod2*).
+    2. Right-click it › **Uninstall device**, tick **Attempt to remove the driver for this device**
+       (*Delete the driver software for this device* on older Windows), and confirm.
+    3. Choose **Action › Scan for hardware changes**, or unplug and replug the controller.
+    4. Install EZCad2's own driver (from its driver folder), then start EZCad2.
 
-- **Device settings:** import your EZCad2 **`markcfg7`** file (it lives in EZCad2's `plug` folder). One
-  import sets up the device-wide values — see
-  [Hardware & Device Setup](../hardware-setup.md).
-- **Lens correction:** import your existing **`.cor`** correction file for each lens — see
-  [Lenses, Corrections & Calibration](../lenses-corrections.md).
-- **Rotary:** if you use a rotary, its motor settings come from the same `markcfg7` import.
+    Coming back to FocuZ later is just the Zadig step again.
+
+## 2. First-time setup
+
+If this is the first time FocuZ has run on this PC, the **Device Setup** window opens on launch and walks you
+through importing your EZCad2 `markcfg7` and lens correction — see [First-run setup](../getting-started/first-run.md).
 
 ## 3. The main difference: jobs are a sequence
 
