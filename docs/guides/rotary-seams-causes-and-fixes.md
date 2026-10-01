@@ -25,12 +25,12 @@ end there, so the effect doubles into a visible bead.
 - **Change the fill angle.** A fill running straight into the seam ends every line at the same place. At
   **45°** the ends are spread along the seam and the bead usually disappears.
 - **Check the laser off delay.** Too long a delay burns every line end; seams show it first.
-- **You may not need overlap at all.** Overlap marks a thin band from both sides to hide small errors,
-  and too much of it adds material exactly where the ridge forms. With an accurate Z height and part
-  diameter on a true cylinder held in a chuck, the splits meet exactly and overlap should be **0**. Keep
-  a small overlap only where the part itself isn't perfect: a **tapered** part (the diameter changes along
-  its length, so one diameter is exact at only one height), a part that **runs out** of true in the chuck,
-  or a **roller** fixture where the part can slip slightly.
+- **Measure the diameter with calipers.** The part diameter sets how far the part turns between splits,
+  so an error shows at every seam and adds up around the part: the wrap closes short or long by π × the
+  diameter error — 0.1 mm off on the diameter leaves about 0.31 mm at the closing seam. Measure with
+  calipers where the art will be marked, at a few points around the part, and enter what you measure
+  rather than the nominal size. With an accurate diameter and Z height, the splits meet exactly and no
+  overlap is needed.
 
 ## How FocuZ keeps seams consistent
 
