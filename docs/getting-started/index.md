@@ -14,7 +14,7 @@ You'll need:
 
 - A PC running **Windows 10 or later (64-bit)**.
 - A **BJJCZ / JCZ fiber galvo controller** connected over USB. Tested with the Lite fiber
-  boards (LMCV4-FIBER-M, FBLI-B-LV4); the less common Standard boards (FBLMCB-V4) and earlier
+  boards (LMCV4-FIBER-M, FBLI-B-LV4); the less common Standard boards (LMCV4-FIBER, without the -M, and FBLMCB-V4) and earlier
   LMCV2-FIBER (non-M) boards are untested but should work - same protocol family. On a Standard
   board, a motorized Z works through a FocuZ-compatible Z controller, not the board's own Z axis. These
   are the boards commonly sold as "EZCad2" or "LightBurn-compatible" galvo controllers - if
