@@ -82,12 +82,12 @@ action's field blank until you enter it there.
   true on-surface distances. The effect grows quickly with split size — it's what keeps
   geometry true when you use large splits, and it lets you size splits by focus alone. Fill lines are
   corrected the same way as outlines, and a fill pattern runs continuously from one split into
-  the next.
+  the next. **On by default — keep it on.**
 - **Backlash compensation (lash taken up before the first split)** — off by default. When on,
   the rotary overshoots the first strip slightly and comes back onto the position from the
   marking direction, so the first strip is approached from the same side as every later advance
-  and gear or chuck play can't land in the first seam. Turn it on for geared or chuck drives
-  with measurable play.
+  and gear or chuck play can't land in the first seam. Turn it on for any rotary that shows lash,
+  however small — it only adds a short move per revolution.
 - **Settle between splits** — the rest the laser takes between one mark and the next inside a
   rotary job: between splits, between layers and sublayers, and between revolutions. **None** (the
   default) starts the next mark as soon as the part is in position; **Short** adds a brief rest;
