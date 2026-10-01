@@ -4,13 +4,6 @@
 place it, choose how many slices, and run. FocuZ cuts the model into horizontal layers and marks them
 one after another, so the laser removes material in the shape of the model — no depth map to prepare.
 
-## What you need
-
-- A fiber laser with a **BJJCZ (JCZ) galvo controller** — the EZCad2 family, including boards sold as
-  "LightBurn-compatible".
-- A 3D model: **STEP/STP** (true solids, always closed) or a mesh — **STL**, **OBJ** or **3MF**.
-- FocuZ on Windows ([free 30-day trial](https://lokahi.shop)).
-
 ## Step by step
 
 1. **Add a 3D Slice action** in the Sequencer and **import** the model. FocuZ switches to the 3D canvas.
@@ -29,13 +22,12 @@ one after another, so the laser removes material in the shape of the model — n
 
 ## Tips for clean results
 
-- **Prefer STEP for solids.** STEP models are always closed. Meshes are checked on import, and FocuZ warns
-  you when a mesh isn't watertight — repair those before slicing, because an open mesh can slice
-  unpredictably.
-- **Fill Through** decides whether the bottom slice is marked; **Respect holes** keeps through-holes empty.
-- **Z+ Offset** adds depth below the model, in mm or in slices.
-- **Deep reliefs drift out of focus** as material comes off. Refocus between runs, or split the job into
-  depth ranges.
+- **STEP or STL?** With a STEP file there's no need to worry about the model being watertight — it's a
+  true solid. An STL (or other mesh) can show **micro-faceting** if the model doesn't have enough polygons;
+  export it with a finer mesh for smooth curves.
+- **Fill Through** fills the mesh or solid down to the workspace, eliminating any undercuts.
+  **Respect holes** keeps through-holes empty.
+- **Z+ Offset** includes space above the model, in mm or in slices.
 
 ## Why slice instead of using a depth map?
 
