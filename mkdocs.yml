@@ -1,5 +1,5 @@
 site_name: FocuZ Documentation
-site_description: User guide for FocuZ — laser-control software for BJJCZ galvo controllers.
+site_description: "FocuZ user guide — 3D-first laser marking software for BJJCZ (EZCad2-type) fiber galvo lasers: STL and STEP slicing, rotary, fill variation."
 site_url: https://wiki.lokahi.shop/
 copyright: © 2026 Lokahi Innovation. All rights reserved.
 

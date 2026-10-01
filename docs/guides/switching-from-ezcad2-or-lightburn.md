@@ -1,3 +1,7 @@
+---
+description: "How to run a BJJCZ fiber laser from FocuZ instead of EZCad2 or LightBurn: the WinUSB driver (no change from LightBurn), switching back to EZCad2, and how FocuZ jobs differ."
+---
+
 # Switching a BJJCZ fiber laser from EZCad2 or LightBurn to FocuZ
 
 **Short answer:** FocuZ runs the same BJJCZ (JCZ) galvo controller you already have — no new board. If
