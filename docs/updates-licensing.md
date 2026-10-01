@@ -21,9 +21,10 @@ software updates. Everything lives under the **License** menu.
 ## Trial
 
 FocuZ runs as a **30-day trial** with full functionality so you can evaluate it before
-activating. No license key is needed. The trial is registered **once**, the first time FocuZ
-can reach the internet — after that it runs offline. A trial is available once per computer;
-reinstalling doesn't restart it.
+activating. No license key is needed. The 30 days count from the first time you start FocuZ on
+that computer; marking and tracing become available once the trial is registered, which happens
+**once**, the first time FocuZ can reach the internet — after that it runs offline. A trial is
+available once per computer; reinstalling doesn't restart it.
 
 When the trial ends, **marking and tracing turn off** until you activate a license:
 
