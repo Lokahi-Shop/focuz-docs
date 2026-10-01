@@ -9,9 +9,12 @@ one after another, so the laser removes material in the shape of the model — n
 1. **Add a 3D Slice action** in the Sequencer and **import** the model. FocuZ switches to the 3D canvas.
 2. **Size and position it.** Scale the model to the finished size and set its registration point in the
    work area. The top of the model is the surface you start marking from.
-3. **Choose the slice count.** Each slice removes one layer of material. Find out how deep one slice cuts
-   on your material and settings, then set enough slices to reach the depth you want. More, thinner
-   slices give smoother slopes.
+3. **Choose the slice count from your material removal rate.** Each slice removes one layer of material.
+   To find how deep that is, run a test area with your settings for many passes (say 50 or 100), measure
+   the depth and divide it by the number of passes — that's your **depth per pass** (0.50 mm after 50
+   passes = 0.01 mm per pass). With one pass per slice, set **Slices/mm** to 1 ÷ that depth (100 in the
+   example) and the **# of Slices** follows the model's height. More, thinner slices give smoother
+   slopes.
 4. **Add a perimeter if the model sits inside a pocket.** A perimeter bounds the area carved around the
    model — for example a circle for a coin background. Choose **Hull** to follow the model's own
    footprint.

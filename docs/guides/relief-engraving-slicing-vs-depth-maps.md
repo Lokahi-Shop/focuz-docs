@@ -44,8 +44,12 @@ What that gives you:
 
 1. **Start from a good model.** A STEP solid needs no watertight checks; an STL needs enough polygons to
    avoid micro-faceting on curves.
-2. **Pick a slice count for your material.** Measure how deep one slice removes on your material, then
-   set enough slices to reach the depth you want — more, thinner slices give smoother slopes.
+2. **Measure your material removal rate, then set the slices from it.** One pass rarely removes enough to
+   measure accurately, so run a test area with your settings for many passes (say 50 or 100), measure the
+   depth, and divide it by the number of passes. That's your **depth per pass**. For example, 0.50 mm deep
+   after 50 passes is 0.01 mm per pass. With one pass per slice, set **Slices/mm** to 1 ÷ that depth —
+   100 in the example — and FocuZ sets the **# of Slices** to match the model's height. More, thinner
+   slices give smoother slopes.
 3. **Turn the fill between slices** with **Auto Rotate** (and a **Step** angle), so line patterns don't
    stack into ridges.
 
