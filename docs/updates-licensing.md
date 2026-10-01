@@ -14,14 +14,35 @@ software updates. Everything lives under the **License** menu.
   example, a design laptop, a shop PC, and a spare. Moving to a new computer is self-service:
   deactivate on one machine and activate on the other.
 - **Connects only when you ask.** FocuZ contacts the internet only for licensing actions you
-  start — activating, deactivating, renewing, or redeeming a code — and for update checks,
-  which are under your control. It never phones home on its own.
+  start — activating, deactivating, renewing, or redeeming a code — for update checks, which
+  are under your control, and for a one-time verification of your trial or license. It never
+  phones home on its own after that.
 
 ## Trial
 
 FocuZ runs as a **30-day trial** with full functionality so you can evaluate it before
-activating. No internet connection or license key is needed for the trial. When it ends,
-activate a license to keep going.
+activating. No license key is needed. The 30 days count from the first time you start FocuZ on
+that computer; marking and tracing become available once the trial is registered, which happens
+**once**, the first time FocuZ can reach the internet — after that it runs offline. A trial is
+available once per computer; reinstalling doesn't restart it.
+
+When the trial ends, **marking and tracing turn off** until you activate a license:
+
+- **If FocuZ is open when it happens**, a job that's already running is allowed to finish; it's
+  the next Run or Trace that's turned off. You can keep editing and save your work.
+- **The next time FocuZ starts**, it opens to the **License** panel and stays there until a
+  license is activated. Your project files are untouched — everything you built during the
+  trial opens normally once you're licensed.
+
+Activating a license unlocks FocuZ immediately — no restart. So does a trial-extension code.
+
+If FocuZ finds that its record of the date has been tampered with during a trial (or your PC's
+clock was once set far ahead), it asks to confirm the trial with the license server: connect to
+the internet and click Run or Trace again, or use **Check for Updates** on the License panel.
+
+!!! tip "Run or Trace says it's locked?"
+    The message tells you why. If it asks you to connect, make sure the computer is online and
+    click Run or Trace again — verification happens automatically and is only needed once.
 
 ## Activating a license
 
@@ -41,7 +62,9 @@ them, contact **info@lokahi.shop** and we'll free it for you.
 
 **Deactivate License** releases this computer's activation (for example, before selling or
 retiring a PC). **Refresh License Info** re-reads your license details from the server — handy
-right after renewing from another device.
+right after renewing from another device. If the License panel says your license is **not
+verified yet** (for example after a hardware change), Refresh License Info offers to re-activate
+it with your saved key.
 
 ## Updates
 
@@ -85,6 +108,17 @@ usage data or telemetry:
 - **License actions you start** — activating, deactivating, renewing, or redeeming a code talks
   to the license server at that moment, with the same identifiers. Starting a renewal also sends
   your license email so checkout is pre-filled.
+- **One-time verification** — registering your trial sends only the non-reversible hardware
+  identifier (and the date your trial began on this computer, if known); during the trial, an
+  update check also confirms the trial with that same identifier. Verifying a license on a
+  computer where it isn't verified yet sends the same identifiers as activation. Until it
+  succeeds, FocuZ retries at start-up and when you click Run or Trace; once verified, it never
+  repeats. Moving an activation to new hardware also sends the identifier earlier FocuZ versions
+  used and your previous license record, so the activation moves instead of using another seat.
+- **Update-period dates** *(licensed computers only, when needed)* — if your license's
+  update-period dates weren't available yet, FocuZ retries fetching them at start-up; and when a
+  version newer than your confirmed update period starts, it confirms the dates first. Same
+  identifiers as activation.
 - **Accepting the license terms** *(once per terms version)* — records that you accepted: the
   date, the terms version and wording, a machine identifier, and your news-and-updates choice.
   No name or email is asked for; on trial machines the record isn't tied to you at all (a
