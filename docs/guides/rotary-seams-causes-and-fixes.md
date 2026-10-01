@@ -12,7 +12,7 @@ Each of those has a different cause.
 | The pieces on either side don't belong together — the art looks scrambled | The part turns the **wrong way** | Toggle **Invert direction** in Rotary Setup |
 | A small step along the circumference at every seam, all the same way, and a gap or overlap where the wrap closes | **Part diameter** (or steps per revolution / gear ratio) doesn't match the real part | Measure the part and correct **Part Diameter**; check the motor settings |
 | A sideways shift along the part's length that grows from one end | The rotary axis isn't parallel to the field | Re-square the rotary on the table |
-| The first seam is off but the rest are fine | Gear or chuck backlash | Keep **Backlash compensation** on |
+| The first seam is off but the rest are fine | Gear or chuck backlash | Turn on **Backlash compensation** |
 | A raised ridge of material on both sides of each seam, even with perfect alignment | Fill **line ends** stacking at the seam | Change the fill angle — see below |
 | Doubled, darker outlines at seams | Outlines marked by both splits | Set **Outlines at seams** to **Exact seam** |
 
@@ -39,9 +39,9 @@ end there, so the effect doubles into a visible bead.
 - **Seams placed to the motor step.** Every split is commanded to the nearest motor step, so a seam is
   never more than one step from ideal. When the split count divides the motor's steps per revolution,
   every advance is identical and the readout says **exact**.
-- **Backlash-safe approach** (optional, recommended). With **Backlash compensation** on, each revolution
-  approaches its first split from the same side as every later advance, so lash never lands in a seam.
-  It adds only a short move per revolution, so there's little reason to leave it off.
+- **Backlash-safe approach.** With **Backlash compensation** on, each revolution approaches its first split
+  from the same side as every later advance, so lash never lands in a seam. Turn it on for any rotary that
+  shows lash, however small — it adds only a short move per revolution.
 - **Seam-aware splits** (optional) move seams into gaps in the artwork where there are any.
 - **Outlines at seams** — choose **Exact seam**, a small **Stitch** past the seam, or share the **Overlap**.
 - **Arc compensation** (on by default — keep it on) corrects the curvature across each split, so
