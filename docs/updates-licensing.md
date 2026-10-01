@@ -25,11 +25,15 @@ activating. No license key is needed. The trial is registered **once**, the firs
 can reach the internet — after that it runs offline. A trial is available once per computer;
 reinstalling doesn't restart it.
 
-When the trial ends, **marking and tracing turn off** until you activate a license. Everything
-else keeps working: your projects still open, edit and save, so nothing you built during the
-trial is lost. A job that's already running when the trial ends is allowed to finish; it's the
-next Run or Trace that's turned off. Activating a license turns marking and tracing back on
-immediately — no restart.
+When the trial ends, **marking and tracing turn off** until you activate a license:
+
+- **If FocuZ is open when it happens**, a job that's already running is allowed to finish; it's
+  the next Run or Trace that's turned off. You can keep editing and save your work.
+- **The next time FocuZ starts**, it opens to the **License** panel and stays there until a
+  license is activated. Your project files are untouched — everything you built during the
+  trial opens normally once you're licensed.
+
+Activating a license unlocks FocuZ immediately — no restart.
 
 !!! tip "Run or Trace says it's locked?"
     The message tells you why. If it asks you to connect, make sure the computer is online and
