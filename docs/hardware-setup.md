@@ -9,6 +9,12 @@ is the deeper reference.
     frequency range. **Lens** settings (field size, correction, focal Z) are per-lens and live in
     [Lenses, Corrections & Calibration](lenses-corrections.md).
 
+!!! note "Locked while a sequence runs"
+    Everything under the **Device** menu is grayed out while a sequence is running or paused, and
+    comes back when it finishes or is cancelled. If the Connection or BJJCZ IO card is open when you
+    press **Run**, it closes first (unsaved BJJCZ IO changes stop the run until you save or discard
+    them).
+
 ## Connecting (Device ▸ Connection)
 
 1. Open **Device ▸ Connection**.
