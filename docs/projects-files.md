@@ -44,6 +44,12 @@ If Windows is set to a different regional format, FocuZ tells you once at start-
 keypad's decimal key types a dot automatically. To ask for your region to be supported, email
 [info@lokahi.shop](mailto:info@lokahi.shop).
 
+If an earlier version saved values with a decimal comma (for example a lens height of `12,5`),
+FocuZ converts them to the dot form. Before it changes anything it makes a copy — of your settings,
+or of the project you opened — in `%AppData%\FocuZ\backups`, and it shows you a list of every value
+**before → after** together with where that copy is. Check the list; a project file keeps its old
+values until you save it.
+
 ## See also
 
 - [The Sequencer](sequencer.md) · [Importing Geometry](importing.md) · [Reference](reference.md)
