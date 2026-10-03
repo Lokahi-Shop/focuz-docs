@@ -32,6 +32,17 @@ deleting actions/layers/sublayers, parameter changes, object transforms, and arr
 - **Nudge step sizes** — the arrow-key move distances (with modifier variants).
 - **Log** — the rolling log line cap, and a button to clear the log.
 - **Layout** — layer-panel docked vs. overlay.
+- **Motion controller — After a run, distance mode** — which mode (`G90` absolute / `G91`
+  incremental) the motion controller is left in when a sequence finishes: **As it was before the
+  run** (default), **Absolute (G90)** or **Incremental (G91)**. Every run *starts* in `G90`
+  regardless — see [Distance mode](jog-terminal.md#distance-mode-g90-g91).
+
+## Number format
+
+FocuZ uses **US number format** on every PC: decimals are entered and shown with a **dot** (`12.5`).
+If Windows is set to a different regional format, FocuZ tells you once at start-up; the numeric
+keypad's decimal key types a dot automatically. To ask for your region to be supported, email
+[info@lokahi.shop](mailto:info@lokahi.shop).
 
 ## See also
 
