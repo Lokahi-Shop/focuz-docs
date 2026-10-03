@@ -44,6 +44,11 @@ If Windows is set to a different regional format, FocuZ tells you once at start-
 keypad's decimal key types a dot automatically. To ask for your region to be supported, email
 [info@lokahi.shop](mailto:info@lokahi.shop).
 
+Number fields in sequencer actions and the Test Grid (delay, feedrate, rotary angle and part
+diameter, grid size and spacing…) take **digits and a decimal point only** — other characters are
+ignored as you type, and a paste that isn't a plain number is refused. Text fields such as names,
+labels and command boxes accept anything.
+
 If an earlier version saved values with a decimal comma (for example a lens height of `12,5`),
 FocuZ converts them to the dot form. Before it changes anything it makes a copy — of your settings,
 or of the project you opened — in `%AppData%\FocuZ\backups`, and it shows you a list of every value
