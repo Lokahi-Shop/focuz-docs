@@ -96,6 +96,10 @@ define the current position as zero, and **Go to Zero** to rotate back to it —
 position readout. To turn the rotary as a step inside a job, use the **Rotary Jog (BJJCZ)** action in
 the Sequencer (see [Rotary Jog](rotary.md#rotary-jog)). See [Rotary Marking](rotary.md).
 
+Like the Jog and Home buttons, **CCW / CW, Set Zero and Go to Zero are grayed out while a sequence
+runs or is paused** — the strip drives the same laser controller that is marking. The position
+readout updates again when the run ends.
+
 !!! warning "How jogging really behaves (open-loop)"
     The FocuZ:grbl controller is **open-loop** and **queues** moves:
 
