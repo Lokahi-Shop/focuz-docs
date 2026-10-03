@@ -47,8 +47,8 @@ reopen it from the menu at any time.
   always refer to the same place — whichever Home button or command you used.
 
 !!! note "While a sequence is running"
-    The **Jog** and **Home** buttons are locked while a sequence runs or is paused — a manual move in
-    the middle of a run would change positions the run was checked against. They work again as soon
+    The **Jog** and **Home** buttons are grayed out while a sequence runs or is paused — a manual move
+    in the middle of a run would change positions the run was checked against. They come back as soon
     as the run finishes or is cancelled.
 
 ### Motorized axes (Enable X / Y / Z)
