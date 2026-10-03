@@ -97,8 +97,8 @@ position readout. To turn the rotary as a step inside a job, use the **Rotary Jo
 the Sequencer (see [Rotary Jog](rotary.md#rotary-jog)). See [Rotary Marking](rotary.md).
 
 Like the Jog and Home buttons, **CCW / CW, Set Zero and Go to Zero are grayed out while a sequence
-runs or is paused** — the strip drives the same laser controller that is marking. The position
-readout updates again when the run ends.
+runs or is paused, and while a red-light trace is running** — the strip drives the same laser
+controller that is marking or tracing. The position readout updates again when the run or trace ends.
 
 !!! warning "How jogging really behaves (open-loop)"
     The FocuZ:grbl controller is **open-loop** and **queues** moves:
