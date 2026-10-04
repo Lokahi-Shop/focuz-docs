@@ -26,7 +26,7 @@ Diameter and Radius use the **largest part diameter** in the sequence. With **Cu
 beside the dropdown for the distance; it starts at 0, which leaves the workspace at the surface. The
 2D view and the Preview always show the workspace at the surface.
 
-Whenever the workspace is offset, a **height scale** stands at its front-right corner, from the
+Whenever the workspace is offset, a **height scale** stands at its back-left corner, from the
 workspace up to the marked surface: a tick every 5 mm, a longer one every 10, and a white mark at the
 surface. On a rotary job it also marks the axis height and each part surface.
 
