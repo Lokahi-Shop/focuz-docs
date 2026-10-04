@@ -207,10 +207,11 @@ the same **Rotary** section above their content:
   on the part without changing the rotary's Set Zero position. Handy for marking at a specific
   clock position, or spacing repeat jobs around the same part. 0 (or blank) = none; Return to
   0 still returns to the true zero.
-- **Sublayers on the rotary** — a **Mark** or **Groove** sublayer runs on every split, right after
-  its parent's pass on that split. A **Jog** or **Terminal** sublayer runs once per **wrap**, after
-  the pass it is attached to has completed all the way round the part. A sublayer's Repeat is how many times it runs each
-  time it fires, exactly as on a flat layer, and never adds wraps.
+- **Sublayers on the rotary** — where a sublayer is attached decides when it runs. On a **layer**
+  it is a **Mark** or **Groove** that runs on every split, right after the layer's pass on that
+  split. On the **group** it runs per revolution, after the group's layers — a Mark that goes round
+  on its own, or a **Jog** / **Terminal** that fires once between revolutions. See
+  [Sublayers in rotary jobs](#sublayers-in-rotary-jobs).
 
 Rotation axis, mode, motor settings, and the split-quality options still come from Rotary Setup — the
 action carries only the job values. Because rotary is per-action, nothing is left switched on
@@ -268,8 +269,9 @@ It reads like 2D Rotary:
 - **Repeats.** The halves have no Repeat of their own. A **Layer's Repeat** marks that grid again
   on each split; the **Group's Repeat** sends the grids round again and the **Rotary** panel's Repeat
   runs the whole action again — the same rule as every rotary action (see *Multi-pass rotary jobs* above). Clearing a half's Mark checkbox drops
-  its cells. A grid's halves take no sublayers and Variation is not offered on a grid; the **Group**
-  can carry [group sublayers](#group-sublayers). Importing a file with several
+  its cells. Variation is not offered on a grid. Sublayers are: **+ Sub** on a layer's header adds
+  one to that grid (see [Sublayers on a grid](#sublayers-on-a-grid)), and the **Group** can carry
+  [group sublayers](#group-sublayers). Importing a file with several
   layers asks which of them to bring in — all by default — and puts the chosen ones together into
   that grid.
 - **Each half's eye shows its own cells.** With both eyes on the canvas shows the whole art as
@@ -323,23 +325,46 @@ Seam-aware splits and arc compensation show up in the preview exactly as they wi
 
 ## Sublayers in rotary jobs
 
-Sublayers fire at the same points as in flat marking — after the parent pass that **Run every**
-names — but on the rotary each firing is a whole trip around the part rather than something that
-happens on every split:
+On **2D Rotary**, **2D Rotary (Roller)** and **2D Grid**, where a sublayer is attached decides when
+it runs:
 
-- A **Mark** or **Groove** sublayer takes its own revolution: once the parent's pass has gone all
-  the way round, the sublayer goes all the way round, marking its **Repeat** passes back to back on
-  each split. Tick **Per split** in the sublayer's header to weave it into the parent's revolution
-  instead — on each split, right after the parent pass that fired it, while that strip is still
-  under the lens (for a groove or cleanup pass that should follow the parent immediately).
-  **Groove** (the rotary name for the Cut mode) marks its offset band clipped to each split — it is
+| Attached to | Added with | Runs | Can be |
+|---|---|---|---|
+| a **layer** | **+ Sub** on the layer's header | **on the split** — right after the layer's pass on that split, while the strip is still under the lens | Mark, Groove |
+| the **group** | **+ Sublayer** on the group's header | **per revolution** — after the group's layers have gone round | Mark, Jog, Terminal |
+
+### Layer sublayers
+
+A layer's sublayer fires after the layer's pass that **Run every** names, on every split, and marks
+its **Repeat** passes back to back there before the part turns. It adds no revolution of its own.
+
+- **Mark** re-marks the layer's artwork with the sublayer's own settings — a cleanup or colour pass
+  that should follow the layer immediately.
+- **Groove** (the rotary name for the Cut mode) marks its offset band clipped to each split — it is
   for grooving and deep engraving around the part, sectioned by splits like all rotary content, and
   is not a tube through-cutting mode.
-- A **Jog** or **Terminal** sublayer fires once per wrap, between revolutions — a Z step is a
-  whole-part event, so it never repeats on every split.
+- A move between revolutions — a Z step — is a **group** sublayer: **Jog** and **Terminal** are
+  offered there, not on a layer.
 
-A layer runs all of its own passes in one revolution, so its sublayers follow that
-revolution in pass order — the same number of firings Run every would give pass by pass.
+!!! note "Jobs saved before this rule"
+    A layer sublayer saved with **Per split** off still takes a revolution of its own, exactly as it
+    did, and shows a **Per split** box in its header. Tick it to put the sublayer on the split — the
+    box then goes away. A layer **Jog** or **Terminal** sublayer from an older job keeps firing once
+    per wrap, between revolutions. Nothing in an existing job changes until you change it.
+
+### Sublayers on a grid
+
+On a **2D Grid** action a layer is a grid, so its sublayer is a small grid too. Press **+ Sub** on
+the layer's header; the sublayer is listed at the bottom of that layer, under both of its halves.
+
+- It marks on each split right after the grid's pass that **Run every** names — its **Repeat**
+  passes back to back — and then the part turns.
+- It has its own **Link halves**, **X # of Cells**, **Y # of Cells**, **Cell padding** and
+  **Marking order**, so it is marked as a checkerboard like everything else on a grid. Its cells
+  do not have to match the grid's.
+- With **Link halves** off, a second panel under the sublayer holds the second half's settings.
+- **Mark** re-marks the grid's artwork; **Groove** marks a band along it, and each half's settings
+  build that half's band.
 
 ### Group sublayers
 

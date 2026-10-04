@@ -199,7 +199,9 @@ layer/action. Defaults from your `markcfg7` import are a good starting point.
 
 ## Sublayers
 
-A sublayer attaches an extra step to a layer. Set its **mode**:
+A sublayer attaches an extra step to a layer. On rotary actions a sublayer can also be attached to
+the **group**, and where it is attached decides when it runs — see
+[Sublayers in rotary jobs](rotary.md#sublayers-in-rotary-jobs). Set its **mode**:
 
 - **Mark (Sub)** — a second marking pass with its own parameters (+ Run-every-N and Run once after all).
 - **Jog** — move an axis (via the FocuZ:grbl controller) between passes/slices. Right of the Distance box the
