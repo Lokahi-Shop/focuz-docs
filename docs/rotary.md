@@ -107,6 +107,9 @@ A rotary job can repeat in three places, and each one means something different:
 | a **group** | Sends the group's layers **round the part again** — a fresh set of revolutions, with a return to zero between. |
 | the **Rotary panel** (the box beside the *Rotary* title) | Runs **everything in the panel again**, a full turn of the part between. |
 
+On a **2D Grid** action the same rule reads one level up: the panel on top is titled **Group**, each grid
+is a **Layer**, so a layer's Repeat is still "on the split" and the Group's Repeat is still "round again".
+
 For passes that let each strip cool — one pass on every split, then round again — put the count on
 the **group** or on the **Rotary panel**, not on the layer. Seam artifacts are then spread across the
 job rather than concentrated, which generally gives the better mark.
@@ -215,47 +218,61 @@ afterward — other actions and later jobs are unaffected.
 ## The 2D Grid action
 
 **2D Grid (Chuck)** (Sequencer › Marking › Rotary) is 2D Rotary with every split divided into a
-grid of cells shared between two layers — for checkerboard textures, comparing two settings side by
-side around a part, or simply spreading heat by marking a split cell by cell instead of all at once.
-It always has one group with two layers, and the same Rotary section and readout as 2D Rotary.
+grid of cells shared between two sets of settings — for checkerboard textures, comparing two
+settings side by side around a part, or simply spreading heat by marking a split cell by cell
+instead of all at once.
 
-- **Content is shared.** The Content section sits at the top of the group: import, size, location
-  and transform apply to both layers. Below it, **Link Layers** (on by default) keeps Layer 2
-  collapsed and gives it every setting of Layer 1. Turn it off to open Layer 2 and give its cells
-  their own power, speed, fill and so on; turn it back on and Layer 2 follows Layer 1 again.
+It reads like any other marking action:
+
+| Shown as | What it is |
+|---|---|
+| **Group** (the panel on top) | The part: Part Diameter, splits, Overlap, Start Offset — and a **Repeat** that sends everything round the part again. |
+| **Layer 1**, **Layer 2**, … | One grid each: its artwork, its cells, and a **Repeat** that marks it again on the split. |
+| **Grid 1.1** and **Grid 1.2** | The two halves of Layer 1's checkerboard, each with its own settings. A renamed half reads **1.1 Logo**. |
+
+- **Several grids in one action.** **+ Layer** on a grid's header adds another grid — Layer 2 with
+  Grid 2.1 and 2.2 — with its own artwork and its own cells, order, link and padding. They all
+  share the part values at the top. On each split every grid marks in turn — Layer 1, then Layer
+  2 — before the part turns. To finish one grid all the way round before the next starts, put
+  them in separate actions.
+- **Content belongs to the grid.** The Content section sits at the top of each layer: import, size,
+  location and transform apply to both of its halves. Below it, **Link Layers** (on by default)
+  keeps the second half collapsed and gives it every setting of the first. Turn it off to open the
+  second half and give its cells their own power, speed, fill and so on; turn it back on and it
+  follows the first half again.
 - **X # of Cells / Y # of Cells** divide each split. Along the wrap the cells are equal in
   **degrees**, so the grid is even around the part; along the rotation axis they are equal in
   **mm**, with the cell size to 5 decimals and the last row taking the remainder up to the edge of
-  the art. Beside each box the cell's size on that axis is shown — mm around the part for the wrap
-  axis, mm of distance for the other — to three decimals, with a `~` when the true value has more.
-  The readout adds a line with the cell size in degrees, and **Show splits on canvas** draws the
-  cells inside the seams.
+  that grid's art. Beside each box the cell's size on that axis is shown — mm around the part for
+  the wrap axis, mm of distance for the other — to three decimals, with a `~` when the true value
+  has more. The readout adds a line with the cell size in degrees, and **Show splits on canvas**
+  draws the cells inside the seams.
 - **Cell padding** leaves an unmarked gap between cells — for melt pools or any breathing room you
   want. Every cell edge pulls in by half the padding, seams and the outer edges of the art
   included, so the gap is the same everywhere around the part, including where the wrap closes at
   360°. With a padding set, the seam Overlap and Stitch options do not apply to that grid (the
-  padding is the gap); the Overlap box grays to say so. The canvas draws each padded cell as its
-  own rectangle, and the cell-size labels add how much of each cell is marked.
-- **Cells alternate between the layers** in both directions — the upper-left cell of the first
-  split is Layer 1 — and the pattern carries on across the seams, so an odd cell count still
+  padding is the gap); the Overlap box grays once every grid in the action has a padding. The
+  canvas draws each padded cell as its own rectangle, and the cell-size labels add how much of
+  each cell is marked.
+- **Cells alternate between the two halves** in both directions — the upper-left cell of the first
+  split is Grid 1.1 — and the pattern carries on across the seams, so an odd cell count still
   checkerboards. If the count around a fully wrapped part is odd the pattern cannot meet itself;
   the readout says so.
 - **Marking order** is per split and always starts at the split's upper-left cell. **X First**
   marks left to right, then the next row down; **Y First** marks down the column, then the next
-  column; **X Checker** and **Y Checker** mark every Layer 1 cell first in that sweep, then every
-  Layer 2 cell. Each cell is finished before the next begins, and a whole split streams as one
-  pass, so the split timing matches 2D Rotary.
-- The grid's two layers have no Repeat of their own: the **group's Repeat** marks the grid again on each
-  split, and the **Rotary panel's Repeat** sends the whole action round again. The layers are shown
-  numbered by grid — **Layer 1.1** and **Layer 1.2** (a renamed layer reads **1.1 Logo**). Clearing a
-  layer's Mark checkbox drops its cells. Sublayers and Variation are not offered on the grid layers. Importing a file with several
+  column; **X Checker** and **Y Checker** mark every cell of the first half in that sweep, then
+  every cell of the second. Each cell is finished before the next begins, and a grid's whole split
+  streams as one pass, so the split timing matches 2D Rotary.
+- **Repeats.** The halves have no Repeat of their own. A **Layer's Repeat** marks that grid again
+  on each split; the **Group's Repeat** sends the whole action round again — the same rule as
+  every rotary action (see *Multi-pass rotary jobs* above). Clearing a half's Mark checkbox drops
+  its cells. Sublayers and Variation are not offered on a grid. Importing a file with several
   layers asks which of them to bring in — all by default — and puts the chosen ones together into
-  Layer 1.
-- **Each layer's eye shows its own cells.** With both eyes on the canvas shows the whole art as
-  imported; hide one layer and only the other layer's cells of the art remain, so you can see the
-  checkerboard each layer will mark. Each layer's fill preview is clipped to its own cells the
-  same way. In the layer tree the shared art is listed after the two layers rather than under
-  Layer 1, since both layers mark it.
+  that grid.
+- **Each half's eye shows its own cells.** With both eyes on the canvas shows the whole art as
+  imported; hide one half and only the other's cells of the art remain, so you can see the
+  checkerboard each will mark. Each half's fill preview is clipped to its own cells the same way.
+  In the layer tree the shared art is listed after the two halves, since both mark it.
 
 ## Placing more than one piece of art
 
