@@ -340,6 +340,31 @@ happens on every split:
 A layer runs all of its own passes in one revolution, so its sublayers follow that
 revolution in pass order — the same number of firings Run every would give pass by pass.
 
+### Group sublayers
+
+On **2D Rotary** and **2D Rotary (Roller)** a sublayer can also be attached to a **group**: press
+**+ Sublayer** on the group's header. A group sublayer is listed at the bottom of the group, below
+its layers, and runs **after** them — per revolution, never on each split:
+
+- **Mark** takes its own trip round the part with its own settings. It has no artwork of its own;
+  its **Source** says what it marks:
+
+    | Source | What it marks |
+    |---|---|
+    | **Each layer** | every layer of the group in turn, each inside its own border |
+    | **Boundary** | one region around all of the group's artwork — overlapping art is marked once, and enclosed areas that are not artwork stay clear |
+    | *a layer's name* | that layer's artwork; it follows the layer if you move, resize or rename it |
+
+- **Jog** or **Terminal** fires once, between revolutions — the place for a Z step.
+- **Run every** counts runs of the **group**, and keeps counting across the group's Repeat and the
+  Rotary panel's Repeat: with Run every 2 it runs after the 2nd, 4th, 6th time the group goes round.
+- **Repeat** is how many passes it marks on each split during its revolution.
+
+If the layer a group sublayer points at is deleted, the Source shows it as missing and Run and Trace
+stop until you pick another — it is never switched to a different layer for you.
+
+**+ Group** sits on the Rotary panel's header on these actions.
+
 ## Variation in rotary jobs
 
 [Variation](sequencer.md#variation) is worked out on the whole design, not per split: a Layer or
