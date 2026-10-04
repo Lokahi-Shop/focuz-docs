@@ -93,6 +93,11 @@ action's field blank until you enter it there.
   default) starts the next mark as soon as the part is in position; **Short** adds a brief rest;
   **Full** rests as long as it does between separate marks. Step up if marks after a split start
   unevenly or the run pauses between splits. The job's very first mark always gets the full rest.
+- **Enable sublayers on layers** — off by default. Enabling it shows **+ Sub** on the layers of
+  this fixture's rotary actions, so a sublayer can run on each split right after its layer's pass.
+  If a pass per revolution is what you want, use a [group sublayer](#group-sublayers) instead —
+  group sublayers are always available and are not affected by this setting. Sublayers that are
+  already on a layer stay listed and keep running whether the box is ticked or not.
 
 Splits are always distributed evenly across the artwork, so the last strip is the same size as
 the rest — no thin leftover strip at the end.
@@ -339,6 +344,9 @@ it runs:
 |---|---|---|---|
 | a **layer** | **+ Sub** on the layer's header | **on the split** — right after the layer's pass on that split, while the strip is still under the lens | Mark, Groove |
 | the **group** | **+ Sublayer** on the group's header | **per revolution** — after the group's layers have gone round | Mark, Jog, Terminal |
+
+**+ Sub** on a layer is shown once **Enable sublayers on layers** is ticked in
+[Rotary Setup](#rotary-behavior) (it is off by default); **+ Sublayer** on the group is always there.
 
 ### Layer sublayers
 
