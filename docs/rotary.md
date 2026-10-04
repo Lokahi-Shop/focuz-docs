@@ -320,18 +320,25 @@ whatever already occupies that angle. The preview shows the true result either w
 ## Previewing splits
 
 In the [Preview](marking-tracing.md) of a 2D Rotary action, a vertical **split slider** appears
-beside the playback slider, with one stop per split:
+beside the playback slider. Playback follows the job **in the order it marks**: each layer goes
+all the way round the part before the next one starts, every repeat plays as often as it marks,
+and a sublayer appears on the passes that run it.
 
-- By default the preview shows **one split at a time**, centered in the canvas — exactly the
-  strip the galvo will see. Move the slider to step through the splits.
+- The split slider has one stop for each time the part sits on a split. A job that goes round
+  once has one stop per split; with several layers or repeats the readout also names the trip —
+  **Rev 2/5**, **Split 3/24**.
+- By default the preview shows **one stop at a time**, centered in the canvas — exactly the
+  strip the galvo will see. Move the slider to step through them.
 - The horizontal playback slider and the split slider follow each other: scrubbing playback
-  advances the split; picking a split jumps playback to that split's beginning.
-- The **All** button shows every split at once at its true position instead.
-- **Sublayers** show on each split with the content they follow, and each has a row of its own in
-  the preview's outline — a layer's sublayers under their layer, a
-  [group sublayer](#group-sublayers) after its group's layers. Select a row to preview that
-  sublayer alone. On a 2D Grid, a layer's own sublayers are listed after its two halves and show
-  cut to their own cells, a Groove's band in red.
+  advances the stop; picking a stop jumps playback to its beginning. While you scrub, the
+  readout beside the slider names what is marking — the layer or sublayer, and its pass.
+- A layer that repeats shows **×N** on its row, and all of its passes are in the playback, each
+  with its own fill angle when the angle steps between passes.
+- The **All** button shows the whole job at its true position instead.
+- **Sublayers** have a row of their own in the preview's outline — a layer's sublayers under
+  their layer, a [group sublayer](#group-sublayers) after its group's layers. Select a row to
+  preview that sublayer alone. On a 2D Grid, a layer's own sublayers are listed after its two
+  halves and show cut to their own cells, a Groove's band in red.
 
 Seam-aware splits and arc compensation show up in the preview exactly as they will mark.
 
