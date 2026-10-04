@@ -20,9 +20,11 @@ the Library does with your selection:
 | **Replace** | **Swaps one node for another**, in place — same spot, new recipe. |
 
 Templates carry **settings only** — speeds, powers, fills, timings, structure — never artwork or
-part data. Your imported geometry always stays with the project, and anything inserted or
-replaced arrives with its rotary part values unset, so the run check reminds you to enter *your*
-part before marking.
+part data. Your imported geometry always stays with the project, and the rotary part values
+(diameter, splits, overlap, start offset) always describe **your** part: layers and groups that
+are inserted or replaced take the values the action already has. See
+[Replace](#replace-swap-a-node-keep-its-place) for what happens when a whole rotary action is
+swapped.
 
 ## Editing the current file here
 
@@ -120,6 +122,12 @@ Replace exchanges one node for another, exactly where it stands:
   is the one place mode conversion lives), as long as the target action supports that mode.
 - **Replace ▸** performs the swap behind a preview, as a single undo step — undo restores the
   old node *and* any canvas art it owned.
+- **Rotary part values.** Replacing a layer or a group never changes the action's part diameter,
+  splits, overlap or start offset. Replacing a **whole rotary action** compares the values the
+  template was saved with to the ones in your action: if they are the same (or the template has
+  none), yours stay. If they differ, the preview says so and shows both sets, and the swap
+  **clears** them — Run and Trace wait until you enter the values for the part that is in the
+  chuck.
 
 ## Removing several things at once
 
