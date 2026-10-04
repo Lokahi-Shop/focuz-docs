@@ -9,11 +9,12 @@ between the **Sequencer** layout and the **Preview**.
 - **3D** — a perspective view for 3D imports and 3D-slice previews. Switching to a 3D Slice action puts the
   canvas in 3D mode.
 
-### 3D View Offset
+### Workspace Offset
 
-At the right end of the canvas toolbar, **3D View Offset** sets how far the workspace grid sits below
-the marked surface in the 3D view. The marked surface always stays at Z0; only the grid moves. It is a
-view setting — it never changes what marks — and it is saved with the project.
+In the 3D view, **Workspace Offset** at the right end of the canvas toolbar sets how far the workspace
+grid sits below the marked surface. The marked surface always stays at Z0; only the grid moves. It is a
+view setting — it never changes what marks, and slicing and every other calculation still work from
+Z0 — and it is saved with the project.
 
 | Option | The workspace sits… | Offered |
 |---|---|---|
@@ -24,7 +25,7 @@ view setting — it never changes what marks — and it is saved with the projec
 
 Diameter and Radius use the **largest part diameter** in the sequence. With **Custom**, a box appears
 beside the dropdown for the distance; it starts at 0, which leaves the workspace at the surface. The
-2D view and the Preview always show the workspace at the surface.
+2D view and the Preview always show the workspace at the surface, so the control is not shown there.
 
 Whenever the workspace is offset, a **height scale** stands at its back-left corner, from the
 workspace up to the marked surface: a tick every 5 mm, a longer one every 10, and a white mark at the
