@@ -320,8 +320,15 @@ beside the playback slider, with one stop per split:
 - The horizontal playback slider and the split slider follow each other: scrubbing playback
   advances the split; picking a split jumps playback to that split's beginning.
 - The **All** button shows every split at once at its true position instead.
+- **Sublayers** show on each split with the content they follow. A
+  [group sublayer](#group-sublayers) also has a row of its own in the preview's outline, after its
+  group's layers: select it to preview that sublayer alone. On a 2D Grid, a layer's own sublayers
+  show with that layer — a Groove's band in red — each cut to its own cells.
 
 Seam-aware splits and arc compensation show up in the preview exactly as they will mark.
+
+Group sublayers and a grid's sublayers are also listed in the layer tree beside the canvas, after
+the layers they follow, and their fill preview on the canvas shows what they will mark.
 
 ## Sublayers in rotary jobs
 
