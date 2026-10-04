@@ -155,6 +155,20 @@ configuration.
 Rotary-axis configuration lives under **Device ▸ Rotary Setup** and is covered in
 [Rotary Marking](rotary.md).
 
+## Backing up and moving your setup (Device ▸ Export / Import All Settings)
+
+**Export All Settings…** saves every device setting and preference into one `.focuzsettings` file —
+Laser Setup, timings, lens corrections, lens names and focal heights, Rotary Setup, Trace Settings,
+BJJCZ IO, Power Map, Test Grid defaults and your Preferences — plus a copy of each lens's `.cor` file.
+Your license, recent files, the Library and your projects are not included.
+
+**Import All Settings…** replaces all of those with the ones in a file. FocuZ shows where and when the
+file was made, warns that everything will be overwritten, and that a **restart is required**. On
+**OK** it backs up your current settings first (`%AppData%\FocuZ\backups`, a file you can import
+to go back), then closes and reopens with the imported settings. Each lens is linked to its `.cor`
+at the same path as before; if a `.cor` file isn't there on this PC, FocuZ asks whether to put the
+saved copy back at that location.
+
 ## See also
 
 - [Lenses, Corrections & Calibration](lenses-corrections.md) — per-lens field size, correction, focal Z.

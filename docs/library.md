@@ -24,6 +24,15 @@ part data. Your imported geometry always stays with the project, and anything in
 replaced arrives with its rotary part values unset, so the run check reminds you to enter *your*
 part before marking.
 
+## Editing the current file here
+
+The **Current file** column is editable: expand an action, group, layer or sublayer and change any
+value directly — a speed, a power, a fill setting, a checkbox. The box turns **red** while you type
+and the change is applied when you leave it (Tab, click elsewhere, or Enter); **Esc** puts the old
+value back. The change shows in the Sequencer straight away and is one **Undo** step, exactly as if
+you had typed it there. Clicking a setting's **name** still selects it for **Update** as before.
+(Rotary part values and a linked grid layer are shown but edited in the Sequencer.)
+
 ## Saving templates
 
 - **Save as Template…** (under the Current file column) captures the selected action's whole
