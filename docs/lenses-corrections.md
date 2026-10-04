@@ -41,6 +41,15 @@ distortion, and remembers settings per lens:
     every mark, so a wrong one makes everything the wrong *size*. **From device markcfg7** is the
     quickest way to get it right, because it brings in the field size and the scale together.
 
+!!! tip "See your changes live, then Save or Cancel"
+    Start a red-light **Trace** before opening Corrections and it keeps running while you edit. Each
+    value you change turns the box **red** until you leave it (Tab, click elsewhere, or Enter); then
+    the trace redraws with the new value — change **Angle** to 45 and the trace rotates 45°. Changes
+    to the distortion values, field size or `.cor` file make the trace pause for a moment while the
+    new correction is sent to the controller. Nothing is kept until you press **Save**; **Cancel** (or
+    Esc, or ✕) puts the trace and the controller back to the saved values. Esc inside a red box only
+    undoes that box. The live view applies to the currently selected lens.
+
 !!! tip "Round at center, distorted at the edges?"
     That's a distortion-correction issue — load the correct `.cor` for the lens, or tune the manual values.
     See [Troubleshooting](troubleshooting.md).
@@ -116,8 +125,8 @@ focal height.
   the target back to the design origin after applying — with the drag absorbed into the offset, that's
   where it now marks, so a re-trace lands on the same spot on the material. Untick it to keep the target
   where you dragged it instead.
-- **Red Light Trace** (Device menu, or the **Red Light** button at the bottom of the Corrections
-  dialog) helps align the red pointer to where the IR beam fires (they have a small fixed parallax).
+- **Trace Settings** (Device menu — formerly *Red Light Trace* — or the **Lx Trace Settings**
+  button at the bottom of the Corrections dialog) helps align the red pointer to where the IR beam fires (they have a small fixed parallax).
   The red-light **offset, scale, and trace speed are stored per lens** — like the other corrections
   here, they apply to the lens named when you open it — while repeats and durations are
   device-wide. The window is organized into **Calibration** (red light toggle, per-lens offset and

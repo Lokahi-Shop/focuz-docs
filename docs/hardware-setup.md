@@ -9,6 +9,17 @@ is the deeper reference.
     frequency range. **Lens** settings (field size, correction, focal Z) are per-lens and live in
     [Lenses, Corrections & Calibration](lenses-corrections.md).
 
+!!! note "Locked while a sequence runs"
+    Everything under the **Device** menu is grayed out while a sequence is running or paused, and
+    comes back when it finishes or is cancelled. If the Connection or BJJCZ IO card is open when you
+    press **Run**, it closes first (unsaved BJJCZ IO changes stop the run until you save or discard
+    them).
+
+    If a red-light **trace** is running (no sequence), opening a Device item stops the trace first —
+    except **Lens Corrections**, which opens with the trace still showing so you can watch your
+    changes in it (see [Lenses, Corrections & Calibration](lenses-corrections.md)). Press **Trace**
+    again afterwards to restart it.
+
 ## Connecting (Device ▸ Connection)
 
 1. Open **Device ▸ Connection**.
@@ -143,6 +154,20 @@ configuration.
 
 Rotary-axis configuration lives under **Device ▸ Rotary Setup** and is covered in
 [Rotary Marking](rotary.md).
+
+## Backing up and moving your setup (Device ▸ Export / Import All Settings)
+
+**Export All Settings…** saves every device setting and preference into one `.focuzsettings` file —
+Laser Setup, timings, lens corrections, lens names and focal heights, Rotary Setup, Trace Settings,
+BJJCZ IO, Power Map, Test Grid defaults and your Preferences — plus a copy of each lens's `.cor` file.
+Your license, recent files, the Library and your projects are not included.
+
+**Import All Settings…** replaces all of those with the ones in a file. FocuZ shows where and when the
+file was made, warns that everything will be overwritten, and that a **restart is required**. On
+**OK** it backs up your current settings first (`%AppData%\FocuZ\backups`, a file you can import
+to go back), then closes and reopens with the imported settings. Each lens is linked to its `.cor`
+at the same path as before; if a `.cor` file isn't there on this PC, FocuZ asks whether to put the
+saved copy back at that location.
 
 ## See also
 

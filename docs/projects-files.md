@@ -32,6 +32,28 @@ deleting actions/layers/sublayers, parameter changes, object transforms, and arr
 - **Nudge step sizes** — the arrow-key move distances (with modifier variants).
 - **Log** — the rolling log line cap, and a button to clear the log.
 - **Layout** — layer-panel docked vs. overlay.
+- **Motion controller — After a run, distance mode** — which mode (`G90` absolute / `G91`
+  incremental) the motion controller is left in when a sequence finishes: **As it was before the
+  run** (default), **Absolute (G90)** or **Incremental (G91)**. Every run *starts* in `G90`
+  regardless — see [Distance mode](jog-terminal.md#distance-mode-g90-g91).
+
+## Number format
+
+FocuZ uses **US number format** on every PC: decimals are entered and shown with a **dot** (`12.5`).
+If Windows is set to a different regional format, FocuZ tells you once at start-up; the numeric
+keypad's decimal key types a dot automatically. To ask for your region to be supported, email
+[info@lokahi.shop](mailto:info@lokahi.shop).
+
+Number fields in sequencer actions and the Test Grid (delay, feedrate, rotary angle and part
+diameter, grid size and spacing…) take **digits and a decimal point only** — other characters are
+ignored as you type, and a paste that isn't a plain number is refused. Text fields such as names,
+labels and command boxes accept anything.
+
+If an earlier version saved values with a decimal comma (for example a lens height of `12,5`),
+FocuZ converts them to the dot form. Before it changes anything it makes a copy — of your settings,
+or of the project you opened — in `%AppData%\FocuZ\backups`, and it shows you a list of every value
+**before → after** together with where that copy is. Check the list; a project file keeps its old
+values until you save it.
 
 ## See also
 

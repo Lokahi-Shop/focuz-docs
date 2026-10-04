@@ -52,6 +52,23 @@ see the [open-loop note](jog-terminal.md#manual-jogging).
 **Air assist / vacuum won't switch.** These run off the controller's [accessory relays](jog-terminal.md#accessory-relays-air-vacuum-more).
 Test the output from the **Terminal** first, and confirm the M-code matches how that relay is wired.
 
+**The Terminal says "Command not sent".** FocuZ works in G54, in mm, and manages work offsets itself,
+so commands that would change that are not sent — the line shows the reason. See
+[Commands FocuZ doesn't send](jog-terminal.md#commands-focuz-doesnt-send). While a sequence is running
+only `?` and `$G` are sent.
+
+**"Z Homing Locked".** FocuZ requires Z to home **upward**, toward a limit switch mounted at the top
+of travel. If the controller is set to home Z downward, type `$23Z=0` in the Terminal and home again.
+Right after connecting, wait a moment — the controller's settings are still being read.
+
+**"Controller Settings" warning on connect.** The controller has a setting FocuZ can't work with (Z
+homing direction, or status reports without machine position / in inches). The message lists the
+setting and the value to type in the Terminal.
+
+**"Z work offset is not zero".** Home Z — every Z homing resets it.
+
+**Jog or Home says "Sequence Running".** Both are locked while a sequence runs or is paused.
+
 ## Licensing
 
 Activation or renewal trouble: see [Updates & Licensing](updates-licensing.md). For offline machines, use
