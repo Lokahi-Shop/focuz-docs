@@ -13,8 +13,10 @@ Your job is organized as a tree:
 - **Layers** carry an action and its marking parameters.
 - **Sublayers** are extra passes attached to a layer (a second marking pass, a jog, a cut, etc.).
 
-Each node has an **Enable** checkbox — disable a node to skip it without deleting it. Groups can be
-**collapsed** to keep a big job tidy. (Drag-to-reorder isn't available yet — build the order as you add.)
+To skip a node without deleting it, **right-click** it in the canvas [layer tree](canvas.md#the-layer-tree)
+and choose **Disable marking** (**Enable marking** turns it back on). A disabled node is gray in the tree
+and in its header, isn't drawn on the canvas, and doesn't mark. Groups can be **collapsed** to keep a big
+job tidy. (Drag-to-reorder isn't available yet — build the order as you add.)
 
 ### Repeats & run-every-Nth
 

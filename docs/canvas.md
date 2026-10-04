@@ -63,6 +63,27 @@ rotation; with both sets at 0 the model is back in its original pose.
 - Imported geometry colored by layer.
 - **Fill** and **cut** previews drawn over the shapes so you can see the marking pattern before you run.
 
+## The layer tree
+
+The panel on the left edge of the canvas lists every action's groups, layers, sublayers and imported
+objects. Two things decide what you see and what marks:
+
+- **Marking on or off** — right-click a group, layer or sublayer and choose **Disable marking** or
+  **Enable marking**. A disabled line is **gray**: it is not drawn on the canvas and it does not mark,
+  whatever its eye says. Everything under a disabled group or layer is off with it.
+- **The eye** — click it to show or hide an object, an import, or a whole layer on the canvas. The eye
+  is for viewing only: something hidden with marking still on **still marks**. A line like that carries
+  a **warning triangle**, so a hidden object never marks by surprise.
+
+| Marking | Eye | On the canvas | Marks |
+|---|---|---|---|
+| Enabled | Open | Shown | Yes |
+| Enabled | Closed | Hidden — warning triangle in the tree | Yes |
+| Disabled | Either | Hidden — gray in the tree | No |
+
+The small square beside a layer or sublayer shows or hides its **fill** preview, and right-clicking an
+object, an import or a border offers **Delete**.
+
 ## See also
 
 - [Importing Geometry](importing.md) · [The Sequencer](sequencer.md) · [Marking & Tracing](marking-tracing.md)
