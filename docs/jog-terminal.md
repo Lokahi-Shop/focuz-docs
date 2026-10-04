@@ -60,6 +60,9 @@ that need confident absolute positioning and shows its jog controls and Home but
 tab; a disabled axis is hidden. Whether a run requires a given axis to be homed depends on which axes
 are enabled and what the job does.
 
+The same Laser Setup section holds **After a run, distance mode** — which mode the controller is left
+in when a sequence finishes; see [Distance mode](#distance-mode-g90-g91).
+
 !!! important "These axes move through the FocuZ:grbl controller"
     "Motorized Axis (FocuZ controlled)" means an axis FocuZ *itself* drives through the
     **FocuZ:grbl controller** (see [above](#the-focuzgrbl-controller)). Enable an axis only if that
@@ -151,7 +154,9 @@ absolute (`G90`) or incremental (`G91`) mode; it shows **—** while disconnecte
   itself (on the line, or earlier in the same Terminal block) — a `G91` typed before the run is not
   carried into it.
 - After a run, the mode goes back to what it was before the run. To always finish in `G90` or `G91`
-  instead, see [Preferences](projects-files.md#preferences-edit-preferences).
+  instead, set **After a run, distance mode** in **Device ▸ Laser Setup**'s **Motorized Axis (FocuZ
+  controlled)** section: **As it was before the run** (default), **Absolute (G90)** or
+  **Incremental (G91)**. The change applies as soon as you pick it.
 
 ### While a sequence is running
 
