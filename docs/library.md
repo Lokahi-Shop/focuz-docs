@@ -91,6 +91,8 @@ right, and the two selections must line up perfectly before the button arms.
   match, and sublayers pair with sublayers of the same mode.
 - Settings can also pair **across kinds** by name — select `Power` on a sublayer and `Power` on
   a layer, and the value flows across.
+- A [group sublayer](rotary.md#group-sublayers)'s **Source** copies by position: `Layer 2` on the
+  left sets the second layer of the group on the right, whatever the two layers are called.
 - The comparison lights up while you work: **✓** on a heading when everything selected matches,
   **≠ N** counting differences, and hovering a ≠ row shows the incoming value. The markers show
   only while exactly one clean pairing exists.
@@ -121,6 +123,13 @@ Insert copies **whole nodes** into the job:
   any other action cannot go into a 2D Grid action, a grid cannot go into any other action, and a
   grid's half never travels on its own. This keeps *structure* apart only: with **Update**, matching
   settings still copy both ways between a grid and any other layer.
+- **Group sublayers go on groups.** A rotary [group sublayer](rotary.md#group-sublayers) is listed
+  after its group's layers, tagged **[Group · Mark]** or **[Group · Jog]**. To insert one, select it
+  on the left and a **group** of a 2D Rotary action on the right — on a 2D Grid action, select the
+  **action** itself, since the Group belongs to it. A group sublayer never goes onto a layer, a
+  layer's sublayer never onto a group, and the 2D Grid kind stays with 2D Grid actions. If its
+  Source names a layer the new group doesn't have, the preview says so and Run waits until you
+  pick a Source. A whole group brings its group sublayers along with their Source intact.
 
 ## Replace — swap a node, keep its place
 
@@ -131,6 +140,8 @@ Replace exchanges one node for another, exactly where it stands:
 - Actions swap type-free — this is how a slot is re-made from a template of a different type.
   Groups and layers need matching action types. Sublayers may change mode through Replace (this
   is the one place mode conversion lives), as long as the target action supports that mode.
+  A group sublayer swaps only with another group sublayer, and a layer's sublayer only with a
+  layer's — where a sublayer is attached decides when it runs.
 - **Replace ▸** performs the swap behind a preview, as a single undo step — undo restores the
   old node *and* any canvas art it owned.
 - **Rotary part values.** Replacing a layer or a group never changes the action's part diameter,
@@ -146,7 +157,9 @@ Select any mix of actions, groups, layers, and sublayers in the Current file col
 **Del** — everything selected goes in one batch, and one Ctrl+Z brings it all back. The Library
 keeps at least one group per action and one layer per group; a batch that would empty one is
 blocked before anything happens. The **+ Act ▾ / + Grp / + Lyr / + Sub** buttons still add
-structure to the live job, all undoable.
+structure to the live job, all undoable. **+ Sub** follows what is selected: a layer gets a
+sublayer; on a 2D Rotary action a selected **group** gets a group sublayer, and on a 2D Grid
+action it always adds one to the Group.
 
 ## Timings and the delay/jump toggle
 
