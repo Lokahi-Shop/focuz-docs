@@ -107,8 +107,9 @@ A rotary job can repeat in three places, and each one means something different:
 | a **group** | Sends the group's layers **round the part again** — a fresh set of revolutions, with a return to zero between. |
 | the **Rotary panel** (the box beside the *Rotary* title) | Runs **everything in the panel again**, a full turn of the part between. |
 
-On a **2D Grid** action the same rule reads one level up: the panel on top is titled **Group**, each grid
-is a **Layer**, so a layer's Repeat is still "on the split" and the Group's Repeat is still "round again".
+A **2D Grid** action has the same three places: its **Rotary** panel, the **Group** inside it, and each grid as
+a **Layer** — so a layer's Repeat is still "on the split", the Group's is "round again", and the Rotary
+panel's repeats the whole action. With its one Group the last two simply multiply.
 
 For passes that let each strip cool — one pass on every split, then round again — put the count on
 the **group** or on the **Rotary panel**, not on the layer. Seam artifacts are then spread across the
@@ -222,15 +223,16 @@ grid of cells shared between two sets of settings — for checkerboard textures,
 settings side by side around a part, or simply spreading heat by marking a split cell by cell
 instead of all at once.
 
-It reads like any other marking action:
+It reads like 2D Rotary:
 
 | Shown as | What it is |
 |---|---|
-| **Group** (the panel on top) | The part: Part Diameter, splits, Overlap, Start Offset — and a **Repeat** that sends everything round the part again. |
+| **Rotary** (the panel on top) | The part: Part Diameter, splits, Overlap, Start Offset — and a **Repeat** that runs the whole action again. |
+| **Group** (inside it) | Holds the grids. Its **Repeat** sends them round the part again; **+ Layer** adds another grid. |
 | **Layer 1**, **Layer 2**, … | One grid each: its artwork, its cells, and a **Repeat** that marks it again on the split. |
 | **Grid 1.1** and **Grid 1.2** | The two halves of Layer 1's checkerboard, each with its own settings. A renamed half reads **1.1 Logo**. |
 
-- **Several grids in one action.** **+ Layer** on a grid's header adds another grid — Layer 2 with
+- **Several grids in one action.** **+ Layer** on the Group's header adds another grid — Layer 2 with
   Grid 2.1 and 2.2 — with its own artwork and its own cells, order, link and padding. They all
   share the part values at the top. On each split every grid marks in turn — Layer 1, then Layer
   2 — before the part turns. To finish one grid all the way round before the next starts, put
@@ -264,8 +266,8 @@ It reads like any other marking action:
   every cell of the second. Each cell is finished before the next begins, and a grid's whole split
   streams as one pass, so the split timing matches 2D Rotary.
 - **Repeats.** The halves have no Repeat of their own. A **Layer's Repeat** marks that grid again
-  on each split; the **Group's Repeat** sends the whole action round again — the same rule as
-  every rotary action (see *Multi-pass rotary jobs* above). Clearing a half's Mark checkbox drops
+  on each split; the **Group's Repeat** sends the grids round again and the **Rotary** panel's Repeat
+  runs the whole action again — the same rule as every rotary action (see *Multi-pass rotary jobs* above). Clearing a half's Mark checkbox drops
   its cells. Sublayers and Variation are not offered on a grid. Importing a file with several
   layers asks which of them to bring in — all by default — and puts the chosen ones together into
   that grid.

@@ -37,8 +37,9 @@ On a rotary action the part values sit in a **Rotary** section on top of the act
 just as in the Sequencer — Part Diameter, Max Split Size, Number of Splits, Overlap and Start Offset —
 and are edited here the same way; typing one of the split pair fills in the other. In a template the
 section is shown for reference only: part values stay with the job. The action's **Repeat** sits just
-above it and is an ordinary setting — it can be edited here and carried by **Update**. (On a 2D Grid
-action the section is titled **Group**, and a linked grid half is shown but follows its partner.)
+above it and is an ordinary setting — it can be edited here and carried by **Update**. On a 2D Grid action the
+Group's own Repeat is listed beside it as **Group Repeat**. (A linked grid half is shown but follows its
+partner.)
 
 ## Saving templates
 
