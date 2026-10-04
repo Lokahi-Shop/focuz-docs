@@ -268,7 +268,8 @@ It reads like 2D Rotary:
 - **Repeats.** The halves have no Repeat of their own. A **Layer's Repeat** marks that grid again
   on each split; the **Group's Repeat** sends the grids round again and the **Rotary** panel's Repeat
   runs the whole action again — the same rule as every rotary action (see *Multi-pass rotary jobs* above). Clearing a half's Mark checkbox drops
-  its cells. Sublayers and Variation are not offered on a grid. Importing a file with several
+  its cells. A grid's halves take no sublayers and Variation is not offered on a grid; the **Group**
+  can carry [group sublayers](#group-sublayers). Importing a file with several
   layers asks which of them to bring in — all by default — and puts the chosen ones together into
   that grid.
 - **Each half's eye shows its own cells.** With both eyes on the canvas shows the whole art as
@@ -364,6 +365,24 @@ If the layer a group sublayer points at is deleted, the Source shows it as missi
 stop until you pick another — it is never switched to a different layer for you.
 
 **+ Group** sits on the Rotary panel's header on these actions.
+
+#### On the 2D Grid action
+
+The **Group** header of a [2D Grid](#the-2d-grid-action) action carries **+ Sublayer** as well. A
+group sublayer sits at the bottom of the Group, under the last grid, and runs after the grids have
+gone round — every **Run every** revolutions of the Group. Its **Source** lists the grids by the
+names you see on screen (**Layer 1**, **Layer 2**, …) in place of layers.
+
+A **Mark** group sublayer here is a small grid of its own. Under the Source it has its own
+**Link halves**, **X # of Cells**, **Y # of Cells**, **Cell padding** and **Marking order**, and it
+marks its source as its own checkerboard, split by split:
+
+- With **Link halves** on, both halves of its checkerboard use the sublayer's settings.
+- With it off, a second panel appears directly under the sublayer holding the second half's
+  settings, starting as a copy of the first.
+- Its cells do not have to match the cells of the grids it marks over.
+
+**Jog** and **Terminal** work as above: once, between revolutions.
 
 ## Variation in rotary jobs
 
