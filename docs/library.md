@@ -34,10 +34,11 @@ and the change is applied when you leave it (Tab, click elsewhere, or Enter); **
 value back. The change shows in the Sequencer straight away and is one **Undo** step, exactly as if
 you had typed it there. Clicking a setting's **name** still selects it for **Update** as before.
 On a rotary action the part values sit in a **Rotary** section on top of the action, above its groups,
-just as in the Sequencer — Repeat, Part Diameter, Max Split Size, Number of Splits, Overlap and Start
-Offset — and are edited here the same way; typing one of the split pair fills in the other. In a
-template the section is shown for reference only: part values stay with the job. (A linked grid
-layer is shown but follows its partner.)
+just as in the Sequencer — Part Diameter, Max Split Size, Number of Splits, Overlap and Start Offset —
+and are edited here the same way; typing one of the split pair fills in the other. In a template the
+section is shown for reference only: part values stay with the job. The action's **Repeat** sits just
+above it and is an ordinary setting — it can be edited here and carried by **Update**. (On a 2D Grid
+action the section is titled **Group**, and a linked grid half is shown but follows its partner.)
 
 ## Saving templates
 
@@ -114,6 +115,11 @@ Insert copies **whole nodes** into the job:
   a grayed row is exactly the error you'd otherwise hit on apply.
 - If a value lands outside what the target machine allows, it's clamped — and the confirmation
   preview says so before you commit.
+- **Grids stay with 2D Grid actions.** A whole grid (shown as a layer, with its two halves) can be
+  inserted into — or replace one in — a 2D Grid action, where it becomes the next layer. A group from
+  any other action cannot go into a 2D Grid action, a grid cannot go into any other action, and a
+  grid's half never travels on its own. This keeps *structure* apart only: with **Update**, matching
+  settings still copy both ways between a grid and any other layer.
 
 ## Replace — swap a node, keep its place
 
