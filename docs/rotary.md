@@ -97,7 +97,9 @@ action's field blank until you enter it there.
   this fixture's rotary actions, so a sublayer can run on each split right after its layer's pass.
   If a pass per revolution is what you want, use a [group sublayer](#group-sublayers) instead —
   group sublayers are always available and are not affected by this setting. Sublayers that are
-  already on a layer stay listed and keep running whether the box is ticked or not.
+  already on a layer stay listed and keep running whether the box is ticked or not. When a job
+  holds such sublayers while the box is off, **Run** names them first and asks whether to
+  **Continue** or **Cancel**.
 
 Splits are always distributed evenly across the artwork, so the last strip is the same size as
 the rest — no thin leftover strip at the end.
@@ -325,10 +327,11 @@ beside the playback slider, with one stop per split:
 - The horizontal playback slider and the split slider follow each other: scrubbing playback
   advances the split; picking a split jumps playback to that split's beginning.
 - The **All** button shows every split at once at its true position instead.
-- **Sublayers** show on each split with the content they follow. A
-  [group sublayer](#group-sublayers) also has a row of its own in the preview's outline, after its
-  group's layers: select it to preview that sublayer alone. On a 2D Grid, a layer's own sublayers
-  show with that layer — a Groove's band in red — each cut to its own cells.
+- **Sublayers** show on each split with the content they follow, and each has a row of its own in
+  the preview's outline — a layer's sublayers under their layer, a
+  [group sublayer](#group-sublayers) after its group's layers. Select a row to preview that
+  sublayer alone. On a 2D Grid, a layer's own sublayers are listed after its two halves and show
+  cut to their own cells, a Groove's band in red.
 
 Seam-aware splits and arc compensation show up in the preview exactly as they will mark.
 
