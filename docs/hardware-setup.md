@@ -16,8 +16,9 @@ is the deeper reference.
     them).
 
     If a red-light **trace** is running (no sequence), opening a Device item stops the trace first —
-    except **Red Light Trace** and **Lens Corrections**, which open with the trace still showing so
-    you can adjust against it. Press **Trace** again afterwards to restart it.
+    except **Lens Corrections**, which opens with the trace still showing so you can watch your
+    changes in it (see [Lenses, Corrections & Calibration](lenses-corrections.md)). Press **Trace**
+    again afterwards to restart it.
 
 ## Connecting (Device ▸ Connection)
 
