@@ -97,35 +97,39 @@ action's field blank until you enter it there.
 Splits are always distributed evenly across the artwork, so the last strip is the same size as
 the rest — no thin leftover strip at the end.
 
-## Multi-pass rotary jobs: Per lap
+## Multi-pass rotary jobs: where to put the Repeat
 
-A layer set to more than one **pass** shows a **Per lap** checkbox in its header, next to Repeat.
-It decides the *order* those passes run in — the number of marks is the same either way.
+A rotary job can repeat in three places, and each one means something different:
 
-- **Per lap ticked (default)** — one pass on every split, then back to zero and round again. Each
-  strip gets a full revolution to cool before its next pass, and seam artifacts are spread across
-  the job rather than concentrated. This is how most laser software sequences a rotary job, and it
-  generally gives the better mark.
-- **Per lap unticked** — all of a split's passes run back to back before the rotary advances, so
-  each strip is taken to depth in one go. Fewer rotary moves, so the job finishes sooner.
+| Repeat on… | What it does |
+|---|---|
+| a **layer** | Marks that layer again **on the split**, back to back, before the part turns. Each strip is taken to depth in one go — fewer rotary moves, so the job finishes sooner. |
+| a **group** | Sends the group's layers **round the part again** — a fresh set of revolutions, with a return to zero between. |
+| the **Rotary panel** (the box beside the *Rotary* title) | Runs **everything in the panel again**, a full turn of the part between. |
 
-With 5 passes over 4 splits, ticked runs 5 laps of 4 splits; unticked marks split 1 five times,
-then split 2 five times, and so on. Backlash is taken up again at the start of **every** lap, so
-each lap's first strip is entered from the marking side just like the job's first strip.
+For passes that let each strip cool — one pass on every split, then round again — put the count on
+the **group** or on the **Rotary panel**, not on the layer. Seam artifacts are then spread across the
+job rather than concentrated, which generally gives the better mark.
+
+With 5 passes over 4 splits: a layer Repeat of 5 marks split 1 five times, then split 2 five times,
+and so on; a Rotary-panel Repeat of 5 runs 5 laps of 4 splits. Backlash is taken up again at the
+start of **every** lap, so each lap's first strip is entered from the marking side just like the
+job's first strip.
+
+**The pass count keeps running.** A fill that rotates its angle on each pass keeps stepping, and a
+sublayer's **Run every** keeps counting, across group and Rotary-panel repeats — lap 4 is pass 4.
 
 **Layers take turns around the part.** When an action has more than one layer on the same part,
-each layer finishes all of its revolutions before the next layer starts — the rotary never
-switches between layers on the same split. That keeps consecutive splits on the same settings,
-which is what lets them follow one another without a rest (see *Settle between splits* above);
-switching settings on every split would cost a full rest each time. **Group repeat** repeats the
-whole sequence of a group's layers, each repeat a fresh set of revolutions.
+each layer finishes its revolution before the next layer starts — the rotary never switches
+between layers on the same split. That keeps consecutive splits on the same settings, which is
+what lets them follow one another without a rest (see *Settle between splits* above); switching
+settings on every split would cost a full rest each time.
 
-The box is hidden at 1 pass, where there's nothing to order.
-
-!!! tip "Repeating the whole rotation as a job step"
-    Per lap repeats a *layer*. To repeat the entire 2D Rotary action, loop it with a
-    [Goto](sequencer.md#action-types) — each time round it re-plans and takes up backlash again,
-    and whether it returns to zero between rounds is up to **Return to 0** in Settings.
+!!! note "Per lap, in projects from earlier versions"
+    Earlier versions had a **Per lap** checkbox on the layer. A layer saved with it ticked and more
+    than one pass keeps the box and marks exactly as it did — one pass per revolution. Untick it and
+    the layer's passes run on the split instead; the box then goes away. For new work, use the group
+    or Rotary-panel Repeat.
 
 ### Motor
 
@@ -201,8 +205,7 @@ the same **Rotary** section above their content:
   0 still returns to the true zero.
 - **Sublayers on the rotary** — a **Mark** or **Groove** sublayer runs on every split, right after
   its parent's pass on that split. A **Jog** or **Terminal** sublayer runs once per **wrap**, after
-  the pass it is attached to has completed all the way round the part — with Per lap on, that is the
-  end of that lap; otherwise the end of the job. A sublayer's Repeat is how many times it runs each
+  the pass it is attached to has completed all the way round the part. A sublayer's Repeat is how many times it runs each
   time it fires, exactly as on a flat layer, and never adds wraps.
 
 Rotation axis, mode, motor settings, and the split-quality options still come from Rotary Setup — the
@@ -242,8 +245,10 @@ It always has one group with two layers, and the same Rotary section and readout
   column; **X Checker** and **Y Checker** mark every Layer 1 cell first in that sweep, then every
   Layer 2 cell. Each cell is finished before the next begins, and a whole split streams as one
   pass, so the split timing matches 2D Rotary.
-- Layer 1's **Repeat** and **Per lap** drive the grid; clearing a layer's Mark checkbox drops its
-  cells. Sublayers and Variation are not offered on the grid layers. Importing a file with several
+- The grid's two layers have no Repeat of their own: the **group's Repeat** marks the grid again on each
+  split, and the **Rotary panel's Repeat** sends the whole action round again. The layers are shown
+  numbered by grid — **Layer 1.1** and **Layer 1.2** (a renamed layer reads **1.1 Logo**). Clearing a
+  layer's Mark checkbox drops its cells. Sublayers and Variation are not offered on the grid layers. Importing a file with several
   layers asks which of them to bring in — all by default — and puts the chosen ones together into
   Layer 1.
 - **Each layer's eye shows its own cells.** With both eyes on the canvas shows the whole art as
@@ -313,7 +318,7 @@ happens on every split:
 - A **Jog** or **Terminal** sublayer fires once per wrap, between revolutions — a Z step is a
   whole-part event, so it never repeats on every split.
 
-A layer without Per lap runs all of its passes in one revolution, so its sublayers follow that
+A layer runs all of its own passes in one revolution, so its sublayers follow that
 revolution in pass order — the same number of firings Run every would give pass by pass.
 
 ## Variation in rotary jobs

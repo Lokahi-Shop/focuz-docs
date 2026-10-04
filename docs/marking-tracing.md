@@ -28,8 +28,8 @@ Start Trace, confirm on the part, then stop it. Trace needs the controller conne
 On a rotary action the trace follows the **splits**, not the flat artwork:
 
 - **Full** traces split by split, rotating between them just like the mark, with every repeat in place:
-  passes, sublayers (including a Mark sublayer under its own settings), run-every-N, and the
-  revolution order when **Per lap** is on. It is a dry run of the job, so a long job takes as long to
+  passes, sublayers (including a Mark sublayer under its own settings), run-every-N, and every
+  group and Rotary-panel repeat in revolution order. It is a dry run of the job, so a long job takes as long to
   trace as it does to mark.
 - **Single Layer** is the stripped-down version of Full: everything is there, nothing is repeated.
 - **Perimeter** and **Hull** combine every split into one and trace it **where the part already

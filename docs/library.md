@@ -33,7 +33,11 @@ value directly — a speed, a power, a fill setting, a checkbox. The box turns *
 and the change is applied when you leave it (Tab, click elsewhere, or Enter); **Esc** puts the old
 value back. The change shows in the Sequencer straight away and is one **Undo** step, exactly as if
 you had typed it there. Clicking a setting's **name** still selects it for **Update** as before.
-(Rotary part values and a linked grid layer are shown but edited in the Sequencer.)
+On a rotary action the part values sit in a **Rotary** section on top of the action, above its groups,
+just as in the Sequencer — Repeat, Part Diameter, Max Split Size, Number of Splits, Overlap and Start
+Offset — and are edited here the same way; typing one of the split pair fills in the other. In a
+template the section is shown for reference only: part values stay with the job. (A linked grid
+layer is shown but follows its partner.)
 
 ## Saving templates
 
