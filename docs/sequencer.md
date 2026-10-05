@@ -190,6 +190,8 @@ The **Group** setting controls how the outline's through-holes fill: **Even / Od
 **Variation** changes a parameter as the mark progresses — from the layer's own value (the *first*
 value) to a *second* value you enter. Tick **Speed**, **Power**, **Freq** and/or **Q-Pulse** and give
 each its second value. The section heading reads **Variation (active)** while any parameter is varied.
+The second-value boxes work like the main parameter boxes: a box turns red while what you typed has not
+been entered yet, and **Enter** or clicking away enters it.
 
 **Scope** — what one ramp runs across:
 
