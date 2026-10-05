@@ -35,7 +35,7 @@ deleting actions/layers/sublayers, parameter changes, object transforms, and arr
 - **Log** — the rolling log line cap, and a button to clear the log.
 - **Layout** — layer-panel docked vs. overlay.
 
-The motion controller's **After a run, distance mode** setting is in **Device ▸ Laser Setup**, under
+The motion controller's **After a run, set positioning mode (G90/G91)** setting is in **Device ▸ Laser Setup**, under
 **Motorized Axis (FocuZ controlled)** — see [Distance mode](jog-terminal.md#distance-mode-g90-g91).
 
 ## Number format
