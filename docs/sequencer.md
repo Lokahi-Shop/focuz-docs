@@ -72,7 +72,9 @@ board's rotary port.
   is still not right. (A homing line in a Command action homes too, but Run doesn't count it.) X and Y
   can return to 0 too, with their own offset: after homing Z, X and Y, the action returns Y, then X,
   then Z. X/Y 0 is the machine's 0 — on an axis that homes toward +, that is right at the limit switch,
-  so use an offset that moves away from it (for example −5).
+  so use an offset that moves away from it (for example −5). A Home action further down the job is
+  refused at Run if one of its axes isn't homed yet — move it to action #1. With it as action #1, Return
+  to Start goes back to where the Home action left the machine.
 - **Linear Axis Jog (FocuZ)** — move an axis as a job step.
 - **Rotary Jog (BJJCZ)** — turn the rotary as a job step: pick the fixture (its Rotary Setup
   profile applies), **Rotation (degrees)** or **Distance (mm)** of part surface, the direction and
