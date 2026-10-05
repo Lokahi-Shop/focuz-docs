@@ -39,7 +39,8 @@ in a single mark. Q-Pulse and Passes sweep in whole numbers.
 
 Every value a sweep uses, start and end, is held to the same limits as the parameter itself: Power to
 0 – 100 %, Frequency to the limits in [Laser Setup](hardware-setup.md#frequency-limits), Passes to 1 or
-more, and Speed to at least 1 mm/s. An end-value box turns red while you type and takes the value on
+more, and Speed to the minimum and maximum speed of your device profile (they come from the `markcfg7`
+you imported). An end-value box turns red while you type and takes the value on
 **Enter** or when you click away; if what you typed is not a number it goes back to the value it had.
 
 [Variation](sequencer.md#variation) works inside a Test Grid too: with a variation parameter enabled,
