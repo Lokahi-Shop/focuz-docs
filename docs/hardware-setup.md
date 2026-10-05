@@ -83,11 +83,20 @@ The full device configuration screen, in two sections: **Configuration** (what t
     The fix is almost always the galvo X/Y assignment or a mirror toggle here. A re-import of the correct
     `markcfg7` usually sets these for you.
 
-#### Frequency limits
+#### Speed, frequency and Q-Pulse limits
 
+- **Speed (mm/s) Min / Max** — the slowest and fastest marking speed for your machine. Filled in from the
+  `markcfg7` (its minimum and maximum speed) when you import; you can change them here.
 - **Min / Max frequency (kHz)** — the allowed pulse-frequency range for your laser (1–9999). FocuZ clamps
   per-layer frequency to this range so you can't drive the laser outside spec. This is a capability
   range for the machine, which is why it lives in Configuration rather than Timing Defaults.
+- **Q-Pulse (ns) Min / Max** — the pulse-width range of your laser. Shown only while **Enable pulse width**
+  is on. A `markcfg7` has no pulse-width limits, so these are yours to set (1–1000 ns to start) and an
+  import keeps them.
+
+These are global limits: a layer's Speed, Frequency and Q-Pulse, the second values in
+[Variation](sequencer.md#variation), the Settings Library and the [Test Grid](test-grid.md) are all held to
+them as you enter values. A value outside them is changed to the nearest limit.
 
 #### Path tolerances
 
