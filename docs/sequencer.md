@@ -189,7 +189,7 @@ The **Group** setting controls how the outline's through-holes fill: **Even / Od
 
 **Variation** changes a parameter as the mark progresses — from the layer's own value (the *first*
 value) to a *second* value you enter. Tick **Speed**, **Power**, **Freq** and/or **Q-Pulse** and give
-each its second value.
+each its second value. The section heading reads **Variation (active)** while any parameter is varied.
 
 **Scope** — what one ramp runs across:
 
@@ -198,7 +198,7 @@ each its second value.
 | **Segment** | along each stroke: one fill line, one contour ring, the whole curve of a Hilbert or Snake fill, one outline |
 | **Chord** *(Hilbert, Snake)* | along each straight run of the curve |
 | **Quadrant** *(Thatch)* | across the lines of each thatch quadrant |
-| **Fill** | across each shape's fill, starting again for the next shape — line by line (or ring by ring); on a **Hilbert** or **Snake** fill, along the full length of the curve |
+| **Fill** | across each shape's fill, 0 → 100 % over that fill's own lines, starting again for the next shape — line by line (or ring by ring); on a **Hilbert** or **Snake** fill, along the full length of the curve. Anything that is not fill (an outline, an open line) marks at the first value; a layer with no fill at all behaves as Layer |
 | **Layer** | across everything the layer marks in one pass — stroke by stroke; on a **Hilbert** or **Snake** fill, along the full length of everything marked |
 
 On a Hilbert or Snake fill, Fill and Layer run 0 → 100 % over the whole fill even when the curve is in
@@ -206,7 +206,8 @@ several sections; Segment starts again on each section. Chord needs straight run
 to show — on a Hilbert fill that means cells that size or larger (a low depth, or a large shape).
 
 **Type** — **1 → 2** ramps from the first value to the second; **1 → 2 → 1** goes to the second and
-back; **Random** picks a value between the two.
+back — the middle line of a group (both middle lines of an even count), or the middle step of a stroke,
+is exactly the second value; **Random** picks a value between the two.
 
 **Width** is how much of the ramp the change takes (the rest holds the second value). **Slope** bends
 the ramp: above 50 % it stays near the first value longer, below 50 % it reaches for the second sooner.
