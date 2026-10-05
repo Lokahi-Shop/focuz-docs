@@ -11,6 +11,8 @@ From the **File** menu:
 - FocuZ prompts you to save **unsaved changes** before closing or opening another project.
 
 A `.focuz` project stores your sequence — groups, layers, sublayers, actions, and their parameters.
+Each saved project also records the FocuZ version that wrote it, as do Library entries and settings
+exports — useful when you send a file in for support.
 
 ### Embedding imported art
 
