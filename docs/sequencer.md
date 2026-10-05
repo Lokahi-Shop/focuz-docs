@@ -198,8 +198,12 @@ each its second value.
 | **Segment** | along each stroke: one fill line, one contour ring, the whole curve of a Hilbert or Snake fill, one outline |
 | **Chord** *(Hilbert, Snake)* | along each straight run of the curve |
 | **Quadrant** *(Thatch)* | across the lines of each thatch quadrant |
-| **Fill** | across each shape's fill, starting again for the next shape |
-| **Layer** | across everything the layer marks in one pass |
+| **Fill** | across each shape's fill, starting again for the next shape — line by line (or ring by ring); on a **Hilbert** or **Snake** fill, along the full length of the curve |
+| **Layer** | across everything the layer marks in one pass — stroke by stroke; on a **Hilbert** or **Snake** fill, along the full length of everything marked |
+
+On a Hilbert or Snake fill, Fill and Layer run 0 → 100 % over the whole fill even when the curve is in
+several sections; Segment starts again on each section. Chord needs straight runs of at least 0.5 mm
+to show — on a Hilbert fill that means cells that size or larger (a low depth, or a large shape).
 
 **Type** — **1 → 2** ramps from the first value to the second; **1 → 2 → 1** goes to the second and
 back; **Random** picks a value between the two.
@@ -207,10 +211,11 @@ back; **Random** picks a value between the two.
 **Width** is how much of the ramp the change takes (the rest holds the second value). **Slope** bends
 the ramp: above 50 % it stays near the first value longer, below 50 % it reaches for the second sooner.
 
-### How Segment and Chord step
+### How the ramp steps along a stroke
 
-The stroke is divided into equal steps of **1 % of its length** — never shorter than 0.5 mm, so a
-10 mm line gets 20 steps and a 1 mm line gets two. The first step marks at exactly the first value and
+The stroke (for Fill and Layer on a Hilbert or Snake fill: the whole fill) is divided into equal steps
+of **1 % of its length** — never shorter than 0.5 mm, so a 10 mm line gets 20 steps and a 1 mm line
+gets two. A default thatch (1 mm tiles) has 0.5 mm lines, so Segment gives each of them two steps. The first step marks at exactly the first value and
 the last at exactly the second (with 1 → 2 → 1, the middle step is the second value), so every stroke
 completes the ramp whatever its length. A stroke shorter than 0.5 mm is too short to ramp and marks at
 the first value.
@@ -221,13 +226,16 @@ two values in mm/s, %, kHz or ns, and power still goes through your
 
 ### Variation with # of Passes
 
-Under the Quadrant, Fill and Layer scopes, every pass of a line carries that line's value. Under
-Segment and Chord, a **Unidirectional** or **Thatch** line repeats the same ramp on each pass, and
-every pass of a **Snake** run marks with the same values at the same place (under Segment the ramp
-still runs along the whole curve). On **Bidirectional** and **Cross** fills the passes of a line are one continuous
-out-and-back stroke and a Segment ramp is spread across all of it — out on the first part of the ramp,
-back on the next — so for an even gradient along a line use one pass, or a fill that repeats in one
-direction.
+**Every pass carries the whole ramp** — with 4 passes each one runs 0 → 100 %, never a quarter each.
+
+- Under the Quadrant, Fill and Layer scopes, every pass of a line carries that line's value.
+- A **Unidirectional** or **Thatch** line, and each lap of a **contour ring** or an outline, repeats
+  the same ramp on every pass.
+- Every pass of a **Snake** run marks with the same values at the same place.
+- On **Bidirectional** and **Cross** fills the passes of a line go out and back, and each ramps
+  0 → 100 % along its own travel — so the return pass runs the ramp the other way along the line,
+  just as neighbouring lines of a bidirectional fill do. For a gradient that builds the same way on
+  every pass, use a fill that repeats in one direction.
 
 The time estimate allows for a varied speed. Use variation for gradients, test ramps, or texture
 effects: in a [Test Grid](test-grid.md) the second value gets its own axis, and on a rotary job the ramp
