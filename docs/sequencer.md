@@ -126,7 +126,7 @@ Per layer:
 | **Power** (%) | Laser power (0–100). |
 | **Frequency** (kHz) | Pulse frequency, clamped to the device min/max. |
 | **Q-Pulse** | Pulse-width / energy-per-pulse control. |
-| **# of Passes** | Repeats each fill line (or, for a contour fill, each ring) that many times before moving on — like a per-segment pass count. Hidden for Wobble and Hilbert, where it doesn't apply. The whole-layer pass count is **Repeat** in the layer header. |
+| **# of Passes** | Repeats each fill line (or, for a contour fill, each ring) that many times before moving on — like a per-segment pass count. **Unidirectional** and **Thatch** repeat a line in the same direction every time; the other line fills go back and forth along it. Hidden for Wobble and Hilbert, where it doesn't apply. The whole-layer pass count is **Repeat** in the layer header. |
 
 ## Fill types
 
@@ -136,7 +136,9 @@ Pick a **fill** to engrave a filled area (leave it off to mark just the outline)
   crossed). Set **Spacing** and **Angle**.
 - **Snake** — a continuous serpentine fill.
 - **Contour** — concentric rings that follow the shape.
-- **Thatch** — a textured/wobble fill (set its size and phase).
+- **Thatch** — a tiled weave: each tile has four quadrants of short parallel lines, alternating upright
+  and across (set the tile size and phase). It marks one quadrant at a time, every line of a quadrant in
+  the same direction.
 
 Common controls: **Spacing** and **Angle** for line fills, **Auto Rotate** (+ **Step**) to turn the fill
 angle each pass, and **Center** (where the rings start, as a % of the spacing) for **Contour**.
@@ -185,13 +187,50 @@ The **Group** setting controls how the outline's through-holes fill: **Even / Od
 
 ## Variation
 
-**Variation** sweeps a parameter across a fill so it changes as the mark progresses:
+**Variation** changes a parameter as the mark progresses — from the layer's own value (the *first*
+value) to a *second* value you enter. Tick **Speed**, **Power**, **Freq** and/or **Q-Pulse** and give
+each its second value.
 
-- **Scope** — Layer, Action, or Sublayer.
-- **Type** — Linear, Sine, or Random.
-- **Per-parameter** — enable variation on Speed, Power, Frequency, and/or Q-Pulse, each with a value range.
+**Scope** — what one ramp runs across:
 
-Use it for gradients, test ramps, or texture effects.
+| Scope | The ramp runs… |
+|---|---|
+| **Segment** | along each stroke: one fill line, one contour ring, the whole curve of a Hilbert or Snake fill, one outline |
+| **Chord** *(Hilbert, Snake)* | along each straight run of the curve |
+| **Quadrant** *(Thatch)* | across the lines of each thatch quadrant |
+| **Fill** | across each shape's fill, starting again for the next shape |
+| **Layer** | across everything the layer marks in one pass |
+
+**Type** — **1 → 2** ramps from the first value to the second; **1 → 2 → 1** goes to the second and
+back; **Random** picks a value between the two.
+
+**Width** is how much of the ramp the change takes (the rest holds the second value). **Slope** bends
+the ramp: above 50 % it stays near the first value longer, below 50 % it reaches for the second sooner.
+
+### How Segment and Chord step
+
+The stroke is divided into equal steps of **1 % of its length** — never shorter than 0.5 mm, so a
+10 mm line gets 20 steps and a 1 mm line gets two. The first step marks at exactly the first value and
+the last at exactly the second (with 1 → 2 → 1, the middle step is the second value), so every stroke
+completes the ramp whatever its length. A stroke shorter than 0.5 mm is too short to ramp and marks at
+the first value.
+
+The values in between come from the numbers as you typed them: halfway along is halfway between the
+two values in mm/s, %, kHz or ns, and power still goes through your
+[Power Map](hardware-setup.md#power-map-device-power-map).
+
+### Variation with # of Passes
+
+Under the Quadrant, Fill and Layer scopes, every pass of a line carries that line's value. Under
+Segment and Chord, a **Unidirectional** or **Thatch** line repeats the same ramp on each pass. On the
+back-and-forth fills the passes of a line are one continuous stroke and a Segment ramp is spread across
+all of it — out on the first part of the ramp, back on the next — so for an even gradient along a line
+use one pass or a Unidirectional fill.
+
+The time estimate allows for a varied speed. Use variation for gradients, test ramps, or texture
+effects: in a [Test Grid](test-grid.md) the second value gets its own axis, and on a rotary job the ramp
+is worked out on the whole design ([Variation in rotary jobs](rotary.md#variation-in-rotary-jobs)).
+Variation is not offered on 2D Grid layers.
 
 ## Timings
 
