@@ -35,6 +35,8 @@ reopen it from the menu at any time.
 ### Homing
 
 - **Home X / Home Y / Home Z** home each axis independently; **Home All** runs them in sequence.
+- **Home + X0 / Home + Y0** (under Home X / Home Y) home that axis and then move it to 0. X/Y 0 is the
+  machine's 0: on an axis that homes toward +, that is right at the limit switch and can trip it.
 - Each axis tracks its own **homing status**. An axis must be homed for its absolute position to be
   trustworthy; homing is what establishes a known origin (by touching the limit switch).
 - After an **alarm** (e.g. a limit hit) an axis loses its homed status and must be re-homed before its

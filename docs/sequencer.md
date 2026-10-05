@@ -70,7 +70,9 @@ board's rotary port.
   the ticked axes as homed — no homing prompt, and with Z ticked no lens-activation prompt either — and
   as soon as the homing is done FocuZ repeats Run's checks on the rest of the job, stopping if anything
   is still not right. (A homing line in a Command action homes too, but Run doesn't count it.) X and Y
-  return to 0 isn't available yet.
+  can return to 0 too, with their own offset: after homing Z, X and Y, the action returns Y, then X,
+  then Z. X/Y 0 is the machine's 0 — on an axis that homes toward +, that is right at the limit switch,
+  so use an offset that moves away from it (for example −5).
 - **Linear Axis Jog (FocuZ)** — move an axis as a job step.
 - **Rotary Jog (BJJCZ)** — turn the rotary as a job step: pick the fixture (its Rotary Setup
   profile applies), **Rotation (degrees)** or **Distance (mm)** of part surface, the direction and
