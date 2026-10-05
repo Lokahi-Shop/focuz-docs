@@ -126,7 +126,7 @@ Per layer:
 | **Power** (%) | Laser power (0–100). |
 | **Frequency** (kHz) | Pulse frequency, clamped to the device min/max. |
 | **Q-Pulse** | Pulse-width / energy-per-pulse control. |
-| **# of Passes** | Repeats each fill line (or, for a contour fill, each ring) that many times before moving on — like a per-segment pass count. **Unidirectional** and **Thatch** repeat a line in the same direction every time; the other line fills go back and forth along it. Hidden for Wobble and Hilbert, where it doesn't apply. The whole-layer pass count is **Repeat** in the layer header. |
+| **# of Passes** | Repeats each fill line (or, for a contour fill, each ring) that many times before moving on — like a per-segment pass count. **Unidirectional**, **Thatch** and **Snake** repeat in the same direction every time (a Snake fill traces its whole curve again from the start); **Bidirectional** and **Cross** go back and forth along the line. Hidden for Wobble and Hilbert, where it doesn't apply. The whole-layer pass count is **Repeat** in the layer header. |
 
 ## Fill types
 
@@ -222,10 +222,11 @@ two values in mm/s, %, kHz or ns, and power still goes through your
 ### Variation with # of Passes
 
 Under the Quadrant, Fill and Layer scopes, every pass of a line carries that line's value. Under
-Segment and Chord, a **Unidirectional** or **Thatch** line repeats the same ramp on each pass. On the
-back-and-forth fills the passes of a line are one continuous stroke and a Segment ramp is spread across
-all of it — out on the first part of the ramp, back on the next — so for an even gradient along a line
-use one pass or a Unidirectional fill.
+Segment and Chord, a **Unidirectional** or **Thatch** line — and a **Snake** curve — repeats the same
+ramp on each pass. On **Bidirectional** and **Cross** fills the passes of a line are one continuous
+out-and-back stroke and a Segment ramp is spread across all of it — out on the first part of the ramp,
+back on the next — so for an even gradient along a line use one pass, or a fill that repeats in one
+direction.
 
 The time estimate allows for a varied speed. Use variation for gradients, test ramps, or texture
 effects: in a [Test Grid](test-grid.md) the second value gets its own axis, and on a rotary job the ramp
