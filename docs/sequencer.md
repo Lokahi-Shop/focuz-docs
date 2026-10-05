@@ -64,12 +64,13 @@ Adding an action opens a picker grouped by purpose:
 *(FocuZ)* run on the [FocuZ:grbl controller](jog-terminal.md); *(BJJCZ)* items run on the laser
 board's rotary port.
 
-- **Home (FocuZ)** — home the axes you tick, Z first, then X, then Y, at the controller's own homing
+- **Home (FocuZ)** — homes the axes you tick, Z first, then X, then Y, at the controller's own homing
   speeds. For Z you can tick **then return to 0 (lens focus)**: after homing, Z moves to the selected
-  lens's focus, plus the **Offset** you enter (mm, **+ is up**). Put it first in a job: when it is the
-  first action that moves an axis, Run counts that axis as homed — no homing prompt, and with Z ticked
-  no lens-activation prompt either. (A homing line in a Command action homes too, but Run doesn't count
-  it.) X and Y return to 0 isn't available yet.
+  lens's focus, plus the **Offset** you enter (mm, **+ is up**). Make it **action #1**: then Run counts
+  the ticked axes as homed — no homing prompt, and with Z ticked no lens-activation prompt either — and
+  as soon as the homing is done FocuZ repeats Run's checks on the rest of the job, stopping if anything
+  is still not right. (A homing line in a Command action homes too, but Run doesn't count it.) X and Y
+  return to 0 isn't available yet.
 - **Linear Axis Jog (FocuZ)** — move an axis as a job step.
 - **Rotary Jog (BJJCZ)** — turn the rotary as a job step: pick the fixture (its Rotary Setup
   profile applies), **Rotation (degrees)** or **Distance (mm)** of part surface, the direction and
