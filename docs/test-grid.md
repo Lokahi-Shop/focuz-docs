@@ -37,9 +37,9 @@ Next to **Speed**, **Power**, **Frequency**, **Q-Pulse**, and **Passes** sits an
 Sweep as many parameters as you like — put one on X and another on Y to cover a two-dimensional space
 in a single mark. Q-Pulse and Passes sweep in whole numbers.
 
-Every value a sweep uses, start and end, is held to the same limits as the parameter itself: Speed, Frequency and
-Q-Pulse to the [limits in Laser Setup](hardware-setup.md#speed-frequency-and-q-pulse-limits), Power to
-0 – 100 %, and Passes to 1 or more. An end-value box turns red while you type and takes the value on
+Every value a sweep uses, start and end, is held to the same limits as the parameter itself: Speed and Frequency to
+the [limits in Laser Setup](hardware-setup.md#speed-and-frequency-limits), Q-Pulse to 1 – 1000 ns, Power
+to 0 – 100 %, and Passes to 1 or more. An end-value box turns red while you type and takes the value on
 **Enter** or when you click away; if what you typed is not a number it goes back to the value it had.
 
 [Variation](sequencer.md#variation) works inside a Test Grid too: with a variation parameter enabled,
