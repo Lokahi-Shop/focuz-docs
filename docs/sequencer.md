@@ -75,7 +75,8 @@ board's rotary port.
   so use an offset that moves away from it (for example −5). A Home action further down the job is
   refused at Run if one of its axes isn't homed yet — move it to action #1. With it as action #1, Return
   to Start goes back to where the Home action left the machine.
-- **Linear Axis Jog (FocuZ)** — move an axis as a job step.
+- **Linear Axis Jog (FocuZ)** — move an axis as a job step. Pausing the run holds the move and Continue
+  finishes it; FocuZ checks the axis arrived before going on.
 - **Rotary Jog (BJJCZ)** — turn the rotary as a job step: pick the fixture (its Rotary Setup
   profile applies), **Rotation (degrees)** or **Distance (mm)** of part surface, the direction and
   the amount. A distance needs the part diameter — on the action, or blank for the profile's
@@ -84,10 +85,13 @@ board's rotary port.
   the run started, Z first, then X, then Y, at the feedrate you set (mm/min). All three axes are
   listed with their live lens (LPos) and machine (MPos) position, so you can set the action up with no
   controller connected;
-  a warning icon shows beside Copy while the controller is disconnected or no trusted position is
-  available (axes not homed); hover it for the reason. The run-start position is
-  recorded after the Run checks pass, and those checks gate a disabled axis or a missing controller,
-  plus the usual homing check because these are absolute moves.
+  a warning icon shows beside Copy while the controller is disconnected; hover it for the reason. The
+  Z readout names the lens its LPos is measured from. The run-start position is recorded after the Run
+  checks pass (or, with a Home action as action #1, once that action is done). The return is a move
+  *back by the distance* from where the machine is, so it works on axes that aren't homed (Run only
+  warns), and pausing the run holds it rather than cutting it short. Run refuses the job if a homing
+  line in a Command action would home an axis that isn't homed yet before a Return to Start brings it
+  back — the start would no longer match. After every return FocuZ checks the axis arrived.
 - **Return to Saved 0 (FocuZ)** — the same panel, but each ticked axis moves to its saved 0 (Z = the
   selected lens's saved focal position; X/Y saved zeros are not available yet). Requires that axis's limit
   switches to be enabled in both + and − (Device Setup ▸ Enable Limit Switches); the warning icon says so.
