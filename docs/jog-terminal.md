@@ -55,6 +55,11 @@ reopen it from the menu at any time.
     in the middle of a run would change positions the run was checked against. They come back as soon
     as the run finishes or is cancelled.
 
+!!! note "While an axis is homing"
+    The **Run / Pause** button becomes **Cancel All** (red). A homing cycle can't be paused, so Cancel All
+    resets the controller — that stops all motion and ends the sequence. FocuZ then unlocks the controller
+    and asks you to home again before the next absolute move.
+
 ### Motorized axes (Enable X / Y / Z)
 
 Tell FocuZ which axes it drives with the **Enable X / Y / Z** checkboxes — found on
@@ -149,7 +154,8 @@ else — moves, `G53`, `G90` / `G91`, `$J=` jogs, M-codes, queries — is sent a
 homing and the other settings are sent as typed.
 
 Moves FocuZ makes itself (a Linear Axis Jog, a Jog sublayer, Home + X0 / Y0, Home + Jog Lens 0, a Home action's
-return to 0) run at your controller's **homing seek rate** (`$25`), so they suit your machine.
+return to 0) run at your controller's **homing seek rate** (`$25`), so they suit your machine. They leave the
+controller's G0/G1, feed and G90/G91 exactly as they found them.
 
 ### Distance mode (G90 / G91)
 

@@ -11,7 +11,9 @@ Your job is organized as a tree:
 
 - **Groups** hold layers and can **repeat** as a unit.
 - **Layers** carry an action and its marking parameters.
-- **Sublayers** are extra passes attached to a layer (a second marking pass, a jog, a cut, etc.).
+- **Sublayers** are extra passes attached to a layer (a second marking pass, a jog, a cut, etc.). A **Jog**
+  sublayer moves an axis by a distance each time it fires; moving to a set position is planned as an action of
+  its own.
 
 To skip a node without deleting it, **right-click** it in the canvas [layer tree](canvas.md#the-layer-tree)
 and choose **Disable marking** (**Enable marking** turns it back on). A disabled node is gray in the tree
@@ -69,7 +71,8 @@ board's rotary port.
   lens's focus, plus the **Offset** you enter (mm, **+ is up**). Make it **action #1**: then Run counts
   the ticked axes as homed — no homing prompt, and with Z ticked no lens-activation prompt either — and
   as soon as the homing is done FocuZ repeats Run's checks on the rest of the job, stopping if anything
-  is still not right. (Homing lines aren't allowed in a Command action — use this action.) X and Y
+  is still not right. (Homing lines aren't allowed in a Command action — use this action.) While an axis homes, the Run button
+  reads **Cancel All** — see [Jog & Terminal](jog-terminal.md#homing). X and Y
   can return to 0 too, with their own offset: after homing Z, X and Y, the action returns Y, then X,
   then Z. X/Y 0 is the machine's 0 — on an axis that homes toward +, that is right at the limit switch,
   so use an offset that moves away from it (for example −5). A Home action further down the job is
