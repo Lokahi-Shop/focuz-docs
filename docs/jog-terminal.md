@@ -144,8 +144,12 @@ up, so the Terminal answers with a one-line reason and **does not send** it:
 
 The same rules apply to **GRBL - Command** actions and **Terminal** sublayers: a job containing one of
 these lines is stopped at **Run** with the line and the reason listed, so you can correct it.
-Everything else — moves, `G53`, `G90` / `G91`, `$J=` jogs, `$H…` homing, M-codes, other `$` settings —
-is sent as typed.
+In a job, homing (`$H…`) and controller settings are refused too — use a **Home** action to home. Everything
+else — moves, `G53`, `G90` / `G91`, `$J=` jogs, M-codes, queries — is sent as typed. In the Terminal itself,
+homing and the other settings are sent as typed.
+
+Moves FocuZ makes itself (a Linear Axis Jog, a Jog sublayer, Home + X0 / Y0, Home + Jog Lens 0, a Home action's
+return to 0) run at your controller's **homing seek rate** (`$25`), so they suit your machine.
 
 ### Distance mode (G90 / G91)
 
