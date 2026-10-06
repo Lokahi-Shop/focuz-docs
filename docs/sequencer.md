@@ -112,7 +112,8 @@ board's rotary port.
   **accessory relays** (air assist, vacuum) on/off mid-job. Lines run in order, and the sequence
   doesn't advance until every line — and any motion it started — has fully completed. Arcs
   (`G2`/`G3`) and probing (`G38`) aren't supported on the motion controller — FocuZ flags those
-  lines before the run so you can correct them. See
+  lines before the run so you can correct them. Give `G1` lines an **F** (feed) — see
+  [Feed rate on G1 lines](jog-terminal.md#feed-rate-on-g1-lines). See
   [the relay section](jog-terminal.md#accessory-relays-air-vacuum-more).
 
 **Calibration**

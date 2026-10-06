@@ -157,6 +157,17 @@ Moves FocuZ makes itself (an Axis Jog, a Jog sublayer, Home + X0 / Y0, Home + Jo
 return to 0) run at your controller's **homing seek rate** (`$25`), so they suit your machine. They leave the
 controller's G0/G1, feed and G90/G91 exactly as they found them.
 
+### Feed rate on G1 lines
+
+With a **FocuZ compatible controller**, the controller starts with **no feed rate** (F0) after connecting and after
+every reset. Until you set one, a `G1` line without an **F** word is refused (`error:22`, undefined feed rate) — a
+safety stop, so a slow cut never runs at a feed you didn't choose. Put an **F** on your `G1` lines (for example
+`G1 X10 F500`) in the Terminal, in **Command** actions and in **Terminal** sublayers. `G0` rapids don't need one.
+
+FocuZ's own moves (the Jog panel, Axis Jog, Jog sublayers, the Return and Home actions) always carry their own
+feed, and they put the controller's G0/G1, feed and G90/G91 back the way they found them — so they never set a feed
+for you, and never remove one you set.
+
 ### Distance mode (G90 / G91)
 
 The small **G90 / G91** label beside the command box shows whether the controller is currently in
