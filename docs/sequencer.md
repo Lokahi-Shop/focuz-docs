@@ -88,8 +88,8 @@ board's rotary port.
   a warning icon shows beside Copy while the controller is disconnected; hover it for the reason. The
   rows show the **start each axis will return to**, worked out from the sequence as you build it: an
   axis a Home action #1 homes shows where that action leaves it (marked *Action 1*); every other axis
-  shows its live position, which becomes the start when you press Run. The note under the rows says
-  which is which and names the lens. The run-start position is recorded after the Run
+  shows its live position, which becomes the start when you press Run. The lens the Z position is
+  measured from is shown under the rows. The run-start position is recorded after the Run
   checks pass (or, with a Home action as action #1, once that action is done). The return is a move
   *back by the distance* from where the machine is, so it works on axes that aren't homed (Run only
   warns), and pausing the run holds it rather than cutting it short. Run refuses the job if a homing
