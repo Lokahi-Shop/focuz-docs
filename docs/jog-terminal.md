@@ -153,7 +153,7 @@ In a job, homing (`$H…`) and controller settings are refused too — use a **H
 else — moves, `G53`, `G90` / `G91`, `$J=` jogs, M-codes, queries — is sent as typed. In the Terminal itself,
 homing and the other settings are sent as typed.
 
-Moves FocuZ makes itself (a Linear Axis Jog, a Jog sublayer, Home + X0 / Y0, Home + Jog Lens 0, a Home action's
+Moves FocuZ makes itself (an Axis Jog, a Jog sublayer, Home + X0 / Y0, Home + Jog Lens 0, a Home action's
 return to 0) run at your controller's **homing seek rate** (`$25`), so they suit your machine. They leave the
 controller's G0/G1, feed and G90/G91 exactly as they found them.
 

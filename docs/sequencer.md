@@ -67,8 +67,9 @@ Adding an action opens a picker grouped by purpose:
 board's rotary port.
 
 - **Home (FocuZ)** — homes the axes you tick, Z first, then X, then Y, at the controller's own homing
-  speeds. For Z you can tick **then return to 0 (lens focus)**: after homing, Z moves to the selected
-  lens's focus, plus the **Offset** you enter (mm, **+ is up**). Make it **action #1**: then Run counts
+  speeds. For Z you can tick **then return to 0**: after homing, Z moves to the selected lens's
+  focus, plus the **Offset** you enter (mm; + is up). The note under the rows shows the order for what
+  you've ticked, e.g. *Order: Home Z > Home X > Return X > Return Z*. Make it **action #1**: then Run counts
   the ticked axes as homed — no homing prompt, and with Z ticked no lens-activation prompt either — and
   as soon as the homing is done FocuZ repeats Run's checks on the rest of the job, stopping if anything
   is still not right. (Homing lines aren't allowed in a Command action — use this action.) While an axis homes, the Run button
@@ -78,7 +79,7 @@ board's rotary port.
   so use an offset that moves away from it (for example −5). A Home action further down the job is
   refused at Run if one of its axes isn't homed yet — move it to action #1. With it as action #1, Return
   to Start goes back to where the Home action left the machine.
-- **Linear Axis Jog (FocuZ)** — move an axis as a job step. Pausing the run holds the move and Continue
+- **Axis Jog (FocuZ)** — move an axis as a job step. Pausing the run holds the move and Continue
   finishes it; FocuZ checks the axis arrived before going on.
 - **Rotary Jog (BJJCZ)** — turn the rotary as a job step: pick the fixture (its Rotary Setup
   profile applies), **Rotation (degrees)** or **Distance (mm)** of part surface, the direction and
