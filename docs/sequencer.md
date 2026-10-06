@@ -130,7 +130,7 @@ Listed in the order you'd normally work through them:
 
 ## Adding, copying & removing actions
 
-- **Add Action** (top of the Sequencer) appends a new action slot. Beside it is the sequence's **marking time**,
+- **Add Action** (top of the Sequencer) appends a new action slot. At the right end of that bar is the sequence's **marking time** (e.g. **≈ 12m 30s**),
   worked out as you build: a thin line under it runs while it's being worked out after a change and goes when the
   time is ready. A **+** means part of the job can't be timed yet (rotary actions, the Test Grid and Z Focus Test,
   pauses, homing, returns, commands, Goto loops) — hover the time to see which.
