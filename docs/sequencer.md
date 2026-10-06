@@ -224,7 +224,7 @@ been entered yet, and **Enter** or clicking away enters it.
 | **Chord** *(Hilbert, Snake)* | along each straight run of the curve |
 | **Quadrant** *(Thatch)* | across the lines of each thatch quadrant |
 | **Fill** | across each shape's fill, 0 → 100 % over that fill's own lines, starting again for the next shape — line by line (or ring by ring); on a **Hilbert** or **Snake** fill, along the full length of the curve. Anything that is not fill (an outline, an open line) marks at the first value; a layer with no fill at all behaves as Layer |
-| **Layer** | across everything the layer marks in one pass — stroke by stroke; on a **Hilbert** or **Snake** fill, along the full length of everything marked |
+| **Layer** | across everything the layer marks in one pass — stroke by stroke, fill first and the outline after it; on a **Hilbert** or **Snake** fill, along the full length of everything marked |
 
 On a Hilbert or Snake fill, Fill and Layer run 0 → 100 % over the whole fill even when the curve is in
 several sections; Segment starts again on each section. Chord needs straight runs of at least 0.5 mm
@@ -233,6 +233,14 @@ to show — on a Hilbert fill that means cells that size or larger (a low depth,
 **Type** — **1 → 2** ramps from the first value to the second; **1 → 2 → 1** goes to the second and
 back — the middle line of a group (both middle lines of an even count), or the middle step of a stroke,
 is exactly the second value; **Random** picks a value between the two.
+
+With a **Cross** (crosshatch) fill, each direction ramps on its own under Fill and Layer: the lines along the
+fill angle run 0 → 100 %, then the lines across it do — so a 1 → 2 → 1 peak lands on the middle line of each
+direction.
+
+A layer always marks its **fill first and its outline after it**, with or without Variation, on flat and
+rotary jobs alike. Speed, Frequency and Q-Pulse — and their second values — are always held to your laser's
+range when the job marks, even if a value was saved before the range changed.
 
 **Width** is how much of the ramp the change takes (the rest holds the second value). **Slope** bends
 the ramp: above 50 % it stays near the first value longer, below 50 % it reaches for the second sooner.
