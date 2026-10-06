@@ -58,7 +58,9 @@ reopen it from the menu at any time.
 !!! note "While an axis is homing"
     The **Run / Pause** button becomes **Cancel All** (red). A homing cycle can't be paused, so Cancel All
     resets the controller — that stops all motion and ends the sequence. FocuZ then unlocks the controller
-    and asks you to home again before the next absolute move.
+    and asks you to home again before the next absolute move. While any axis homes — from a Home button, a
+    Home action, or `$H` typed in the Terminal — the jog pad and the lens dropdown are grayed out, and the
+    Terminal only sends real-time keys, `$G` and `$X`.
 
 ### Motorized axes (Enable X / Y / Z)
 
@@ -91,6 +93,9 @@ All three axes are **off by default**. Your choices persist until you change the
 The **FocuZ (custom GRBL)** section is a directional pad: **Y+ / Y− / X− / X+** arranged as a cross, with
 **Z+ / Z−** beside it. Set the **Step** (mm) and **Feed** for XY and for Z beneath their buttons,
 then click to move by that step. Axes that aren't enabled in Device/Laser Setup show grayed out.
+The **Feed** boxes take 100–3000 mm/min; a value outside that (or an empty box) is set to the nearest
+limit when you leave the box, and jogs use the value shown. Your controller may cap it lower at its own maximum
+rate (`$110`–`$112`).
 
 These controls appear only while a FocuZ compatible controller is connected — every one of them
 sends a jog, so without the controller the section shows a note asking you to connect one and the
@@ -163,6 +168,8 @@ With a **FocuZ compatible controller**, the controller starts with **no feed rat
 every reset. Until you set one, a `G1` line without an **F** word is refused (`error:22`, undefined feed rate) — a
 safety stop, so a slow cut never runs at a feed you didn't choose. Put an **F** on your `G1` lines (for example
 `G1 X10 F500`) in the Terminal, in **Command** actions and in **Terminal** sublayers. `G0` rapids don't need one.
+When you press **Run**, FocuZ checks the job's Command and Terminal-sublayer lines and lists any `G1` that would
+be refused, so it's caught before the job starts rather than halfway through.
 
 FocuZ's own moves (the Jog panel, Axis Jog, Jog sublayers, the Return and Home actions) always carry their own
 feed, and they put the controller's G0/G1, feed and G90/G91 back the way they found them — so they never set a feed
