@@ -76,7 +76,9 @@ If the Z axis is enabled but not homed when you Run, FocuZ shows a prompt to **h
 While marking, a **progress bar** shows where you are — a breadcrumb of group / layer / sublayer / pass —
 plus a percentage and an estimated **time remaining**. The bar is split: its **top half** fills
 with the action marking now, its **bottom half** with the **whole job**. The percentage and the time cover the
-whole job. The time starts from the same estimate the Sequencer
+whole job. FocuZ **learns your machine**: each job that finishes compares how long the marking really took with
+the estimate, and later estimates — the bar's and the Sequencer's — are adjusted to match. Time spent waiting
+for you (a manual focus prompt, a pause) never counts. The time starts from the same estimate the Sequencer
 shows beside Add Action and counts down the **whole job**, correcting itself as each action runs (time spent
 paused doesn't count against it; the Sequencer's time is hidden while a job runs). When the job ends the bar stays, showing **Complete · 0:00/17:46** — time remaining / how long it
 actually took — or where it was stopped. Click the **×** at its right end to close it.
