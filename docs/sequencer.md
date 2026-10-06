@@ -130,7 +130,10 @@ Listed in the order you'd normally work through them:
 
 ## Adding, copying & removing actions
 
-- **Add Action** (top of the Sequencer) appends a new action slot.
+- **Add Action** (top of the Sequencer) appends a new action slot. Beside it is the sequence's **marking time**,
+  worked out as you build: a thin line under it runs while it's being worked out after a change and goes when the
+  time is ready. A **+** means part of the job can't be timed yet (rotary actions, the Test Grid and Z Focus Test,
+  pauses, homing, returns, commands, Goto loops) — hover the time to see which.
 - Each slot starts on the **Select Action** chooser — pick a type from the picker to configure it.
 - Once a real type is picked, the slot shows **Delete** and **Copy**: Copy duplicates the action (its
   type and settings) as a new slot; Delete removes it. An empty chooser slot shows **Delete** only —
