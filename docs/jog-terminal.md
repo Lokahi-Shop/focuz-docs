@@ -93,9 +93,9 @@ All three axes are **off by default**. Your choices persist until you change the
 The **FocuZ (custom GRBL)** section is a directional pad: **Y+ / Y− / X− / X+** arranged as a cross, with
 **Z+ / Z−** beside it. Set the **Step** (mm) and **Feed** for XY and for Z beneath their buttons,
 then click to move by that step. Axes that aren't enabled in Device/Laser Setup show grayed out.
-The **Feed** boxes take 100–3000 mm/min; a value outside that (or an empty box) is set to the nearest
-limit when you leave the box, and jogs use the value shown. Your controller may cap it lower at its own maximum
-rate (`$110`–`$112`).
+The **Feed** boxes take 100 mm/min up to your controller's **maximum rate** for that axis (`$110` X, `$111` Y,
+`$112` Z; the XY box uses the lower of X and Y). A value outside that, or an empty box, is set to the nearest
+limit when you leave the box, and jogs use the value shown.
 
 These controls appear only while a FocuZ compatible controller is connected — every one of them
 sends a jog, so without the controller the section shows a note asking you to connect one and the
