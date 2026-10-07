@@ -24,6 +24,41 @@ When saving, you can **embed** imported files in the project so it's self-contai
     If a project was made with a different lens than the one currently active, FocuZ warns you — the project
     still opens, but double-check the correction/field size match your setup before marking.
 
+### Projects from earlier versions
+
+When you open a project saved by an earlier FocuZ, it is brought up to date for you:
+
+1. FocuZ converts it to the current format and **checks** it: nothing has moved, every layer will stay
+   where it is on its next edit, and everything it refers to still exists. Anything with a known right
+   answer is corrected (for example *"Layer 1 (model.stl): placement updated"*).
+2. The **original is backed up**, and the converted project is saved under its own name. A message says
+   *"Older FocuZ format detected. Conversion to the new format complete. The original was backed up."*
+3. If the project's folder can't be written to, **Save As** opens so you can save it somewhere else. Run
+   and Trace stay locked until it is saved.
+4. If something can't be corrected automatically, the original is left untouched, the message lists what
+   needs your attention, and **Run and Trace stay locked** until it is fixed and saved.
+
+Every open is checked this way, so a damaged file (for example a cloud-sync conflict copy) is caught too.
+
+**Where the backups are**
+
+- **Projects:** the `converted` folder inside the FocuZ install folder (normally
+  `%LocalAppData%\FocuZ\converted`; if the install folder can't be written to,
+  `%LocalAppData%\FocuZ\converted` is used).
+- **Library templates:** `%AppData%\FocuZ\library\converted`.
+
+Each backup is named after the original with the old format number and the date and time, for example
+`Coaster.focuz.s2.20261007-153012.conv_bak`. Backups are never overwritten and never appear in Recent
+Files. To use one, copy it out and rename it back to `.focuz` (or `.focuzlib` for a template); an older
+FocuZ will open it as it was.
+
+**Library templates** from an earlier version are converted the same way the first time the Library
+opens, with one summary message. A template that needs attention is marked and can't be inserted or
+used for Replace until you review it.
+
+> Projects saved by this version should not be opened in FocuZ 26.10.01.01-rc or earlier: those versions
+> read 3D model placement differently.
+
 ## Undo / Redo
 
 **Undo** (`Ctrl+Z`) and **Redo** (`Ctrl+Y` / `Ctrl+Shift+Z`) cover sequence and parameter edits — adding and
