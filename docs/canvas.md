@@ -47,6 +47,8 @@ surface. On a rotary job it also marks the axis height and each part surface.
 
 - **Click** an object to select it (a new pick replaces any earlier selection, in every layer);
   **Ctrl+click** on the canvas adds to / removes from the same selection as the layer tree.
+- **Right-click ▸ Delete** on an item of a multi-selection deletes every selected object, file and border
+  (after a confirmation with the count); one Undo brings them all back.
 - Selecting in the **layer tree** highlights the object on the canvas, and vice-versa.
 - **Nudge** the selection with the arrow keys (step sizes are set in [Preferences](projects-files.md)).
 - **Ctrl+click** several items in the layer tree (objects, files, borders, layers) to select them together
