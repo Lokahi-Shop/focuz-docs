@@ -32,6 +32,9 @@ deleting actions/layers/sublayers, parameter changes, object transforms, and arr
 ## Preferences (Edit ▸ Preferences)
 
 - **Nudge step sizes** — the arrow-key move distances (with modifier variants).
+- **Allow multiple layer selection and manipulation** — off by default (one layer at a time; typing into a
+  layer's fields selects that layer). On: the layer tree is the main selection tool — select across layers,
+  edit their combined Size / Location, and typing into a layer's fields leaves the tree selection as it is.
 - **Log** — the rolling log line cap, and a button to clear the log.
 - **Layout** — layer-panel docked vs. overlay.
 
