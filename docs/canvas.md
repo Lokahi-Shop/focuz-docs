@@ -48,7 +48,8 @@ surface. On a rotary job it also marks the axis height and each part surface.
 - **Click** an object to select it; multi-select within a layer.
 - Selecting in the **layer tree** highlights the object on the canvas, and vice-versa.
 - **Nudge** the selection with the arrow keys (step sizes are set in [Preferences](projects-files.md)).
-- **Ctrl+click** several items in the layer tree (objects, files, borders, layers) to select them together —
+- **Ctrl+click** several items in the layer tree (objects, files, borders, layers) to select them together
+  (within one layer, or across layers with **Allow multiple layer selection** on in Preferences) —
   the arrow keys then nudge them all by the same step. Ctrl+click toggles exactly what you click: a layer or
   file with everything in it, or a single segment inside a selected file or layer (the rest stays selected).
 - **Shift+click** selects a range: file to file selects every file in between, layer to layer every layer,
