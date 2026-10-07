@@ -133,7 +133,7 @@ Listed in the order you'd normally work through them:
 - **Add Action** (top of the Sequencer) appends a new action slot. At the right end of that bar is the sequence's **marking time** (e.g. **≈ 12m 30s**),
   worked out as you build: a thin line under it runs while it's being worked out after a change and goes when the
   time is ready. A **+** after the time means the job also has steps of unknown length (GRBL commands, returns, homing,
-  pauses, delays). A **?** means part of the job couldn't be worked out. No time shows when the sequence has a
+  pauses, delays, or a Terminal sublayer that runs). A **?** means part of the job couldn't be worked out. No time shows when the sequence has a
   rotary action, a Z Focal Distance test, a Goto loop or an Axis Jog. A Test Grid is timed from its cells as
   shown on the canvas.
 - Each slot starts on the **Select Action** chooser — pick a type from the picker to configure it.
