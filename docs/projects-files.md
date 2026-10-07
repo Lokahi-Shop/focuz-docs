@@ -42,9 +42,9 @@ Every open is checked this way, so a damaged file (for example a cloud-sync conf
 
 **Where the backups are**
 
-- **Projects:** the `converted` folder inside the FocuZ install folder (normally
-  `%LocalAppData%\FocuZ\converted`; if the install folder can't be written to,
-  `%LocalAppData%\FocuZ\converted` is used).
+- **Projects:** the `converted` folder inside the FocuZ install folder, normally
+  `%LocalAppData%\FocuZ\converted`. If FocuZ was installed for all users (under Program Files, which
+  can't be written to), they go to `%LocalAppData%\FocuZ\converted` instead.
 - **Library templates:** `%AppData%\FocuZ\library\converted`.
 
 Each backup is named after the original with the old format number and the date and time, for example
