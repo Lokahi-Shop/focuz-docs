@@ -63,9 +63,13 @@ open it as it was.
 
 **Library templates** from an earlier version are converted the same way the first time the Library
 opens, with one summary message. A template that needs attention is marked and can't be inserted or used
-for Replace until you review it; rotary templates from before 2026-08-13 are marked for a Start Offset check
-(edit and save the template once you've checked it). Templates from a newer FocuZ are marked too, and can't
-be used or changed until FocuZ is updated.
+for Replace until you review it. Templates from a newer FocuZ are marked too, and can't be used or changed
+until FocuZ is updated.
+
+**Rotary templates from before 2026-08-13** measured Start Offset from the art's centre, which FocuZ no
+longer does — and a template carries no art to convert it from. Their **Start Offset is left blank** (the
+old value is shown as a hint on the box). You can still insert them; **Run and Trace ask for the Start
+Offset** until you type it.
 
 > Projects saved by this version should not be opened in FocuZ 26.10.01.01-rc or earlier: those versions
 > read 3D model placement differently.
