@@ -49,7 +49,8 @@ surface. On a rotary job it also marks the axis height and each part surface.
 - Selecting in the **layer tree** highlights the object on the canvas, and vice-versa.
 - **Nudge** the selection with the arrow keys (step sizes are set in [Preferences](projects-files.md)).
 - **Ctrl+click** several items in the layer tree (objects, files, borders, layers) to select them together —
-  the arrow keys then nudge them all by the same step. Ctrl+click a selected item again to drop it.
+  the arrow keys then nudge them all by the same step. Ctrl+click toggles exactly what you click: a layer or
+  file with everything in it, or a single segment inside a selected file or layer (the rest stays selected).
 - **Shift+click** selects a range: file to file selects every file in between, layer to layer every layer,
   object to object every object (across layers); mixed ends select just the objects in between.
 - Use the **Position / Size / Rotation** controls (and link/unlink X/Y scaling) to place objects precisely —
