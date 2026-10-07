@@ -51,6 +51,9 @@ surface. On a rotary job it also marks the axis height and each part surface.
   (after a confirmation with the count); one Undo brings them all back.
 - **Right-clicking** a group, layer or sublayer (Enable / Disable marking) outlines that row while the menu
   is open and leaves the selection as it is.
+- Selecting a **layer** (tree row, sequencer header or a field) selects its **artwork only**. A **border** is
+  selected on its own, from its own row: Ctrl+click skips borders, and a Shift range selects everything
+  between its ends except borders.
 - Selecting in the **layer tree** highlights the object on the canvas, and vice-versa.
 - **Nudge** the selection with the arrow keys (step sizes are set in [Preferences](projects-files.md)).
 - **Ctrl+click** several items in the layer tree (objects, files, borders, layers) to select them together
