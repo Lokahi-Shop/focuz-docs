@@ -53,6 +53,9 @@ surface. On a rotary job it also marks the axis height and each part surface.
   file with everything in it, or a single segment inside a selected file or layer (the rest stays selected).
 - **Shift+click** selects a range: file to file selects every file in between, layer to layer every layer,
   object to object every object (across layers); mixed ends select just the objects in between.
+- When a selection spans **several layers**, each of those layers shows the **combined** Size and Location;
+  typing a Location moves the whole selection, typing a Size scales it about its registration point.
+  Rotation is unavailable until the selection is back to one layer.
 - Use the **Position / Size / Rotation** controls (and link/unlink X/Y scaling) to place objects precisely —
   see [Importing Geometry](importing.md).
 
