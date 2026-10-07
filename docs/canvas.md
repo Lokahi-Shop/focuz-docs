@@ -50,6 +50,8 @@ surface. On a rotary job it also marks the axis height and each part surface.
 - **Nudge** the selection with the arrow keys (step sizes are set in [Preferences](projects-files.md)).
 - **Ctrl+click** several items in the layer tree (objects, files, borders, layers) to select them together —
   the arrow keys then nudge them all by the same step. Ctrl+click a selected item again to drop it.
+- **Shift+click** selects a range: from an object to an object selects every object in between (across
+  layers); from a layer to a layer selects every layer in between, with all their objects.
 - Use the **Position / Size / Rotation** controls (and link/unlink X/Y scaling) to place objects precisely —
   see [Importing Geometry](importing.md).
 
