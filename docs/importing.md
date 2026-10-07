@@ -18,6 +18,8 @@ Add a **2D Import** action (or drag a file onto the canvas) and choose your file
 - **Multi-layer files** — if the file has multiple layers, FocuZ asks whether to **flatten** them into one
   or keep them **separate**. Separate layers land exactly where they sit in the file — the whole file is placed by
   the registration point, so the layers stay lined up on top of each other.
+  Pick **which layers** come in: all are selected at first; click picks one, `Ctrl`+click toggles,
+  `Shift`+click picks a range, `Ctrl+A` picks all.
 - **Registration point** — choose the reference point used to position the art (a 9-point grid for 2D).
 - **Position / Size / Rotation** — place and scale the art on the [canvas](canvas.md); link or unlink X/Y
   scaling.
