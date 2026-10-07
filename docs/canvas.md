@@ -70,6 +70,26 @@ surface. On a rotary job it also marks the axis height and each part surface.
 - Use the **Position / Size / Rotation** controls (and link/unlink X/Y scaling) to place objects precisely —
   see [Importing Geometry](importing.md).
 
+### Registration point
+
+The **registration point** is the point of the art that its **Location** numbers describe: a corner, an edge
+middle or the centre. It is also the point that stays put when you **resize**, and the point a model spins about
+in **Model Registration** rotation.
+
+- **One point for everything.** The 2D chooser (9 points) and the 3D registration cube (27 points) set **one**
+  shared point for every layer in every action. Every layer's Location always reads for that point.
+- **Only you change it.** Selecting a different layer, switching between 2D and 3D, importing, or adding an
+  action never changes it. **Opening a project** keeps the point you are working with; the project's layers
+  are read for it.
+- **Z-up, like the view cube.** X = left / right, Y = **back** (top of the screen in top view) / front,
+  Z = **bottom** / middle / top (3D only; 2D art is flat). The chooser's top row is the cube's back row.
+- **Changing it never moves art.** Only the Location numbers change to describe the new point.
+- **3D imports** always land as if bottom-centre were chosen: centred on X / Y 0, sitting on Z = 0. Their
+  Location then reads for your point.
+
+Example: with **top-left** (back-left) chosen, a 20 × 10 mm part at X 0–20, Y 0–10 reads Location X 0, Y 10;
+doubling its width keeps that back-left corner where it is.
+
 ### Rotating 3D models
 
 A 3D model carries **two independent rotations** that combine:
