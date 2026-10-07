@@ -36,9 +36,15 @@ When you open a project saved by an earlier FocuZ, it is brought up to date for 
 3. If the project's folder can't be written to, **Save As** opens so you can save it somewhere else. Run
    and Trace stay locked until it is saved.
 4. If something can't be corrected automatically, the original is left untouched, the message lists what
-   needs your attention, and **Run and Trace stay locked** until it is fixed and saved.
+   needs your attention, and **Run and Trace stay locked** until it is fixed and saved. (The first save
+   backs the original up before it is replaced.) If you have checked the listed items yourself, answer
+   **Yes** to *"Allow marking anyway?"*.
+5. Items on **rotated** layers are shown as *"Please check"* notes and don't lock marking.
 
 Every open is checked this way, so a damaged file (for example a cloud-sync conflict copy) is caught too.
+
+**Projects from a newer FocuZ** are not opened: you're asked to update FocuZ first. Keep every computer you
+use with FocuZ on the same (current) version.
 
 **Where the backups are**
 
@@ -47,14 +53,18 @@ Every open is checked this way, so a damaged file (for example a cloud-sync conf
   can't be written to), they go to `%LocalAppData%\FocuZ\converted` instead.
 - **Library templates:** `%AppData%\FocuZ\library\converted`.
 
-Each backup is named after the original with the old format number and the date and time, for example
-`Coaster.focuz.s2.20261007-153012.conv_bak`. Backups are never overwritten and never appear in Recent
-Files. To use one, copy it out and rename it back to `.focuz` (or `.focuzlib` for a template); an older
-FocuZ will open it as it was.
+Each backup is named after the original with the old format number, the date and time, and a short code
+for the folder it came from, for example `Coaster.focuz.s2.20261007-153012.3f9a.conv_bak` (so two
+`Coaster.focuz` files from different folders are told apart). `index.txt` in the same folder lists each
+backup with the full path of the original. Backups are never overwritten and never appear in Recent Files.
+To use one, copy it out and rename it back to `.focuz` (or `.focuzlib` for a template); an older FocuZ will
+open it as it was.
 
 **Library templates** from an earlier version are converted the same way the first time the Library
-opens, with one summary message. A template that needs attention is marked and can't be inserted or
-used for Replace until you review it.
+opens, with one summary message. A template that needs attention is marked and can't be inserted or used
+for Replace until you review it; rotary templates from before 2026-08-13 are marked for a Start Offset check
+(edit and save the template once you've checked it). Templates from a newer FocuZ are marked too, and can't
+be used or changed until FocuZ is updated.
 
 > Projects saved by this version should not be opened in FocuZ 26.10.01.01-rc or earlier: those versions
 > read 3D model placement differently.
