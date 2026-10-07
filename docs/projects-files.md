@@ -43,8 +43,8 @@ When you open a project saved by an earlier FocuZ, it is brought up to date for 
 
 Every open is checked this way, so a damaged file (for example a cloud-sync conflict copy) is caught too.
 
-**Projects from a newer FocuZ** are not opened: you're asked to update FocuZ first. Keep every computer you
-use with FocuZ on the same (current) version.
+**Projects from a newer FocuZ** are not opened: you're asked to update FocuZ first — the message has a
+**Check for updates** button. Keep every computer you use with FocuZ on the same (current) version.
 
 **Where the backups are**
 
@@ -57,6 +57,7 @@ Each backup is named after the original with the old format number, the date and
 for the folder it came from, for example `Coaster.focuz.s2.20261007-153012.3f9a.conv_bak` (so two
 `Coaster.focuz` files from different folders are told apart). `index.txt` in the same folder lists each
 backup with the full path of the original. Backups are never overwritten and never appear in Recent Files.
+Uninstalling keeps them, unless you choose to remove your settings and data.
 To use one, copy it out and rename it back to `.focuz` (or `.focuzlib` for a template); an older FocuZ will
 open it as it was.
 
