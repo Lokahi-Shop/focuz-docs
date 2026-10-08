@@ -169,7 +169,9 @@ every reset. Until you set one, a `G1` line without an **F** word is refused (`e
 safety stop, so a slow cut never runs at a feed you didn't choose. Put an **F** on your `G1` lines (for example
 `G1 X10 F500`) in the Terminal, in **Command** actions and in **Terminal** sublayers. `G0` rapids don't need one.
 When you press **Run**, FocuZ checks the job's Command and Terminal-sublayer lines and lists any `G1` that would
-be refused, so it's caught before the job starts rather than halfway through.
+be refused, so it's caught before the job starts rather than halfway through. It also lists any line with a
+letter that has no number after it (for example the `X` in `G1 X F500`) — the controller would refuse that
+whole line. A **Command** action left blank is fine: it sends nothing and the job carries on.
 
 FocuZ's own moves (the Jog panel, Axis Jog, Jog sublayers, the Return and Home actions) always carry their own
 feed, and they put the controller's G0/G1, feed and G90/G91 back the way they found them — so they never set a feed

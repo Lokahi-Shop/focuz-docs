@@ -151,7 +151,7 @@ Per layer:
 | Parameter | What it does |
 |---|---|
 | **Speed** (mm/s) | Galvo speed while marking. |
-| **Power** (%) | Laser power (0–100). |
+| **Power** (%) | Laser power (0.001–100). |
 | **Frequency** (kHz) | Pulse frequency, clamped to the device min/max. |
 | **Q-Pulse** | Pulse-width / energy-per-pulse control. |
 | **# of Passes** | Repeats each fill line (or, for a contour fill, each ring) that many times before moving on — like a per-segment pass count. **Unidirectional** and **Thatch** repeat a line in the same direction every time. **Snake** does the same for each straight run of its curve — run 1, run 1 again, round the turn, run 2, run 2 again — and marks each turn once. **Bidirectional** and **Cross** go back and forth along the line. Hidden for Wobble and Hilbert, where it doesn't apply. The whole-layer pass count is **Repeat** in the layer header. |
@@ -281,11 +281,25 @@ effects: in a [Test Grid](test-grid.md) the second value gets its own axis, and 
 is worked out on the whole design ([Variation in rotary jobs](rotary.md#variation-in-rotary-jobs)).
 Variation is not offered on 2D Grid layers.
 
+### Ranges and empty boxes
+
+Every number box has a range — hover over the box to see it. A value outside the range is set to the nearest
+end when you press **Enter** or leave the box (with a range of 1–1000, typing 0.5 gives 1 and 2000 gives
+1000).
+
+An **empty box never runs**: it turns red, keeps the value it had, and **Run** and **Trace** list every empty
+box (action, group, layer and field) until you type a value — 0 included, where 0 is a real setting (an
+offset, a delay). Disabled groups, layers and sublayers are not checked. A blank **GRBL Command** is fine: it
+sends nothing and the run carries on.
+
+While a job runs, the boxes on the action panels (Delay, Goto, feedrates…) can't be edited.
+
 ## Timings
 
 Per-layer or per-action overrides for laser/jump timing (laser on/off, polygon corner, end delays; jump
 speed and ramp). Choose **Device** to use the global device defaults, or **Custom** to override for that
-layer/action. Defaults from your `markcfg7` import are a good starting point.
+layer/action. Defaults from your `markcfg7` import are a good starting point. A value you type is saved when
+you press **Enter** or leave the box.
 
 ## Sublayers
 
