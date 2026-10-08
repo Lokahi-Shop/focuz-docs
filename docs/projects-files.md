@@ -43,7 +43,8 @@ When you open a project saved by an earlier FocuZ, it is brought up to date for 
 6. If a layer's **Size and Location** can't be converted, they're cleared: the boxes are empty and red. Type the
    correct values again — Run and Trace wait for them (the empty boxes are saved with the project).
 
-**Rotary projects from before 2026-08-13** can't be opened — rebuild the job in the current version.
+**Rotary projects saved before 2026-08-13** can't be opened — rebuild the job in the current version. Rotary projects
+saved since then open as usual.
 
 Every open is checked this way, so a damaged file (for example a cloud-sync conflict copy) is caught too.
 

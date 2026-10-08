@@ -11,6 +11,10 @@ FocuZ imports both 2D art and full 3D models. 3D models are sliced into layers f
 | 3D mesh | **STL, OBJ, 3MF** | Triangle meshes. |
 | Images | common raster formats | For reference/placement. |
 
+A layer takes the files that match its action: 2D actions import 2D art, 3D actions (3D Slice, 3D Cut, 3D Shadow)
+import 3D models. Picking the other kind (for example with **All Files** in the file dialog) shows a message and
+imports nothing.
+
 ## Importing 2D art
 
 Add a **2D Import** action (or drag a file onto the canvas) and choose your file.
