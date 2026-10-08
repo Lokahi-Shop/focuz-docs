@@ -40,6 +40,10 @@ When you open a project saved by an earlier FocuZ, it is brought up to date for 
    backs the original up before it is replaced.) If you have checked the listed items yourself, answer
    **Yes** to *"Allow marking anyway?"*.
 5. Items on **rotated** layers are shown as *"Please check"* notes and don't lock marking.
+6. If a layer's **Size and Location** can't be converted, they're cleared: the boxes are empty and red. Type the
+   correct values again — Run and Trace wait for them (the empty boxes are saved with the project).
+
+**Rotary projects from before 2026-08-13** can't be opened — rebuild the job in the current version.
 
 Every open is checked this way, so a damaged file (for example a cloud-sync conflict copy) is caught too.
 
@@ -64,12 +68,7 @@ open it as it was.
 **Library templates** from an earlier version are converted the same way the first time the Library
 opens, with one summary message. A template that needs attention is marked and can't be inserted or used
 for Replace until you review it. Templates from a newer FocuZ are marked too, and can't be used or changed
-until FocuZ is updated.
-
-**Rotary templates from before 2026-08-13** measured Start Offset from the art's centre, which FocuZ no
-longer does — and a template carries no art to convert it from. Their **Start Offset is left blank** (the
-old value is shown as a hint on the box). You can still insert them; **Run and Trace ask for the Start
-Offset** until you type it.
+until FocuZ is updated. **Rotary templates from before 2026-08-13** are marked and can't be used — rebuild them.
 
 > Projects saved by this version should not be opened in FocuZ 26.10.01.01-rc or earlier: those versions
 > read 3D model placement differently.
