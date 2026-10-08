@@ -79,6 +79,14 @@ values are never selectable: they describe your physical part, not the recipe. A
 **Mode** row isn't individually selectable either — changing what a sublayer *is* belongs to
 Replace.
 
+### Empty boxes
+
+A setting that was left empty in the sequencer shows **blank** in red in the Library. Templates keep their empty
+boxes: inserting or replacing with one gives you the same empty (red) box in the sequencer, and Run and Trace ask
+for a value. Updating with an empty setting empties that box on the target too — deselect the setting
+(**Ctrl**+click) to keep the target's value instead. Values you type in the Library keep to the same ranges as the
+sequencer.
+
 ## Update — copy values onto matching settings
 
 Update is deliberate: you select **what's on offer** on the left and **what will change** on the

@@ -70,7 +70,8 @@ action's field blank until you enter it there.
   distance past the seam, the **Stitch** value (0.05 mm, about one spot), which covers positioning
   error without a visible doubled line. **Overlap** — outlines share the fill overlap too, so the
   segment inside it is marked by both splits (a doubled line the length of the overlap at every
-  seam). Applies to layers and their sublayers.
+  seam). Applies to layers and their sublayers. Open lines in the art always mark, as on a flat job — the
+  **Outline** switch only turns closed shapes' outlines on or off.
 - **Seam-aware splits (seams avoid geometry)** — lets each seam shift a little (up to about a
   quarter of the split size) to land in the widest nearby gap in the artwork, so seams fall
   *between* letters and shapes instead of through them. The **Gap** field beside it sets the
