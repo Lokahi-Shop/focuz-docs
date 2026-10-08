@@ -123,6 +123,11 @@ rotation; with both sets at 0 the model is back in its original pose.
 - A **grid** for scale reference (toggleable).
 - Imported geometry colored by layer.
 - **Fill** and **cut** previews drawn over the shapes so you can see the marking pattern before you run.
+- **Very fine fills drawn solid.** A fill whose line spacing is below the **Solid fill below spacing** setting
+  ([Preferences](projects-files.md#preferences-edit-preferences), default **0.05 mm**) shows as one solid area in the
+  layer's colour instead of its lines — at that spacing the lines blend into a solid area anyway, and the canvas stays
+  quick. Holes in the art stay empty. Only the screen changes: the job marks every line, and the time estimate
+  counts them. Set it to **0** to always see the lines.
 
 ## The layer tree
 
