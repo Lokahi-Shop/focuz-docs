@@ -287,9 +287,10 @@ Every number box has a range — hover over the box to see it. A value outside t
 end when you press **Enter** or leave the box (with a range of 1–1000, typing 0.5 gives 1 and 2000 gives
 1000).
 
-An **empty box never runs**: it turns red, keeps the value it had, and **Run** and **Trace** list every empty
-box (action, group, layer and field) until you type a value — 0 included, where 0 is a real setting (an
-offset, a delay). Disabled groups, layers and sublayers are not checked. A blank **GRBL Command** is fine: it
+An **empty box never runs**: it turns red and stays empty until you type a value — 0 included, where 0 is a
+real setting (an offset, a delay). **Run** and **Trace** list every empty box (action, group, layer and field).
+Empty boxes are saved with the project, and clearing a box can be undone (**Undo** brings the number back,
+**Redo** empties it again). Disabled groups, layers and sublayers are not checked. A blank **GRBL Command** is fine: it
 sends nothing and the run carries on.
 
 While a job runs, the boxes on the action panels (Delay, Goto, feedrates…) can't be edited.
