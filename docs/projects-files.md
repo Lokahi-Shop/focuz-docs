@@ -39,8 +39,7 @@ When you open a project saved by an earlier FocuZ, it is brought up to date for 
    needs your attention, and **Run and Trace stay locked** until it is fixed and saved. (The first save
    backs the original up before it is replaced.) If you have checked the listed items yourself, answer
    **Yes** to *"Allow marking anyway?"*.
-5. Items on **rotated** layers are shown as *"Please check"* notes and don't lock marking.
-6. If a layer's **Size and Location** can't be converted, they're cleared: the boxes are empty and red. Type the
+5. If a layer's **Size and Location** can't be converted, they're cleared: the boxes are empty and red. Type the
    correct values again — Run and Trace wait for them (the empty boxes are saved with the project).
 
 **Rotary projects saved before 2026-08-13** can't be opened — rebuild the job in the current version. Rotary projects
