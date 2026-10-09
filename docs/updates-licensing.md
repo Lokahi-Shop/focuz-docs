@@ -70,7 +70,9 @@ it with your saved key.
 
 - **What's New** — after updating, FocuZ shows the changes in the new version.
 - **Check for Updates** — see whether a newer version is available and get the download. How
-  often FocuZ checks (or **Never**) is up to you.
+  often FocuZ checks is up to you, under **License ▸ Software Updates**: **When FocuZ starts** (the default
+  on new installs), **Daily**, **Weekly**, **Monthly**, or **None (Manual only)**. A start-up check is quiet —
+  it only speaks up when there is an update, and a version you dismissed stays quiet until a newer one comes.
 - **Release channels** — by default the update check offers **stable releases only**. To also
   be offered **beta / release-candidate** builds, tick *Update checks include beta /
   release-candidate builds* under **License ▸ Software Updates** (off by default). Whichever is newest for your
@@ -101,10 +103,11 @@ isn't permitted.
 FocuZ works offline. It contacts the internet only at these specific moments, and never sends
 usage data or telemetry:
 
-- **Checking for updates** — at the frequency you chose (or only when you click *Check for
-  Updates*; **Never** means never). The check retrieves the newest version for your channel and,
-  on licensed machines, also refreshes your license status and update entitlement in the same
-  breath — it sends your license key, computer name, and a non-reversible hardware identifier.
+- **Checking for updates** — by default each time FocuZ starts, or at the frequency you chose (or only
+  when you click *Check for Updates* with **None (Manual only)**). Every check — automatic or manual — retrieves
+  the newest version for your channel and, on licensed machines, also refreshes your license status and update
+  entitlement in the same breath — it sends your license key, computer name, and a non-reversible hardware
+  identifier. During a trial it confirms the trial.
 - **License actions you start** — activating, deactivating, renewing, or redeeming a code talks
   to the license server at that moment, with the same identifiers. Starting a renewal also sends
   your license email so checkout is pre-filled.
