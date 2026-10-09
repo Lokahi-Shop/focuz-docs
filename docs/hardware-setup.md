@@ -77,9 +77,9 @@ The full device configuration screen, in two sections: **Configuration** (what t
     | Open MO Delay | 0 – 10000 ms |
     | Delay On / Off / End / Polygon | 0 – 65535 µs |
     | Jump Speed / Min / Max | 1 – 20000 mm/s |
+    | Jump Limit | 0 – 1000 mm |
 
     The delay and jump boxes use the same ranges as a layer's **Custom** timings.
-    | Jump Limit | 0 – 1000 mm |
 
 ### Configuration
 
