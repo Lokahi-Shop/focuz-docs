@@ -227,9 +227,13 @@ been entered yet, and **Enter** or clicking away enters it.
 |---|---|
 | **Segment** | along each stroke: one fill line, one contour ring, the whole curve of a Hilbert or Snake fill, one outline |
 | **Chord** *(Hilbert, Snake)* | along each straight run of the curve |
-| **Quadrant** *(Thatch)* | across the lines of each thatch quadrant |
+| **Quadrant** *(Thatch)* | across the lines of each thatch quadrant. Outlines and lines in the artwork mark at the first value |
 | **Fill** | across each shape's fill, 0 → 100 % over that fill's own lines, starting again for the next shape — line by line (or ring by ring); on a **Hilbert** or **Snake** fill, along the full length of the curve. Anything that is not fill (an outline, an open line) marks at the first value; a layer with no fill at all behaves as Layer |
 | **Layer** | across everything the layer marks in one pass — stroke by stroke, fill first and the outline after it; on a **Hilbert** or **Snake** fill, along the full length of everything marked |
+
+A ticked value whose second value is the same as the first doesn't vary: if every ticked value matches, the
+layer marks as a plain fill. In the Settings Library, ticking a Vary box starts its second value at the
+layer's own first value, as in the sequencer.
 
 On a Hilbert or Snake fill, Fill and Layer run 0 → 100 % over the whole fill even when the curve is in
 several sections; Segment starts again on each section. Chord needs straight runs of at least 0.5 mm
@@ -252,9 +256,11 @@ the ramp: above 50 % it stays near the first value longer, below 50 % it reaches
 
 ### How the ramp steps along a stroke
 
-The stroke (for Fill and Layer on a Hilbert or Snake fill: the whole fill) is divided into equal steps
-of **1 % of its length** — never shorter than 0.5 mm, so a 10 mm line gets 20 steps and a 1 mm line
-gets two. A default thatch (1 mm tiles) has 0.5 mm lines, so Segment gives each of them two steps. The first step marks at exactly the first value and
+The stroke (for Fill and Layer on a Hilbert or Snake fill: the whole fill) is divided into equal steps:
+as many **0.5 mm** steps as fit, up to **100** (1 % of its length each). Every stroke of 0.5 mm or more
+gets at least **two** steps (three with 1 → 2 → 1), so on a stroke shorter than 1 mm the steps are shorter
+than 0.5 mm. A 10 mm line gets 20 steps, a 100 mm line 100 (1 mm each), a 1 mm line two, and a default
+thatch's 0.5 mm lines (1 mm tiles) two steps of 0.25 mm each with Segment. The first step marks at exactly the first value and
 the last at exactly the second (with 1 → 2 → 1, the middle step is the second value), so every stroke
 completes the ramp whatever its length. A stroke shorter than 0.5 mm is too short to ramp and marks at
 the first value.
