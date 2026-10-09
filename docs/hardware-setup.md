@@ -152,7 +152,8 @@ which it counts as active.
 
 Nothing here takes effect until you tick **Enable I/O** and press **Save**, so a machine with no
 external wiring is unaffected. **Import markcfg7** copies the assignments out of an existing EZCad2
-configuration.
+configuration. **Cancel** closes the card without keeping any change (the next time you open it, it shows the
+saved settings).
 
 **Outputs** FocuZ drives:
 
