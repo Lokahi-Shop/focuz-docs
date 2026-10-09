@@ -73,7 +73,7 @@ it with your saved key.
   often FocuZ checks (or **Never**) is up to you.
 - **Release channels** — by default the update check offers **stable releases only**. To also
   be offered **beta / release-candidate** builds, tick *Update checks include beta /
-  release-candidate builds* in **Preferences** (off by default). Whichever is newest for your
+  release-candidate builds* under **License ▸ Software Updates** (off by default). Whichever is newest for your
   channel wins — a stable release that supersedes an RC is still what you're offered.
   (Versions are dated — `YY.MM.DD.xx`; see
   [Installation](getting-started/installation.md).)
