@@ -72,6 +72,8 @@ surface. On a rotary job it also marks the axis height and each part surface.
 - **Rotation turns the whole layer.** While only part of a layer is selected (some of its objects, one model,
   the perimeter), the rotation boxes are greyed — select the layer, or all of its art, to rotate it. Art that
   needs its own angle goes on its own layer. Moving or resizing part of a layer never changes its angle.
+  With part of a rotated layer selected, its Location is where it sits on the workspace, so typed moves and
+  nudges follow the workspace axes; changing the registration point never moves a rotated layer.
 
 ### Registration point
 
