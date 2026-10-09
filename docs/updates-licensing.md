@@ -111,7 +111,7 @@ usage data or telemetry:
   the newest version for your channel and, on licensed machines, also refreshes your license status and update
   entitlement in the same breath — it sends your license key, computer name, and a non-reversible hardware
   identifier. During a trial it confirms the trial.
-- **License actions you start** — activating, deactivating, renewing, or redeeming a code talks
+- **License actions you start** — activating, deactivating, renewing, refreshing your license info, or redeeming a code talks
   to the license server at that moment, with the same identifiers. Starting a renewal also sends
   your license email so checkout is pre-filled.
 - **One-time verification** — registering your trial sends only the non-reversible hardware
@@ -126,7 +126,7 @@ usage data or telemetry:
   version newer than your confirmed update period starts, it confirms the dates first. Same
   identifiers as activation.
 - **Accepting the license terms** *(once per terms version)* — records that you accepted: the
-  date, the terms version and wording, a machine identifier, and your news-and-updates choice.
+  date, the terms version and wording, the FocuZ version, a machine identifier, and your news-and-offers choice.
   (The first time you accept on a computer, the same screen also asks whether to check for updates
   each time FocuZ starts — that choice stays on your computer and isn't sent.)
   No name or email is asked for; on trial machines the record isn't tied to you at all (a
