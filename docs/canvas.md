@@ -65,21 +65,18 @@ surface. On a rotary job it also marks the axis height and each part surface.
 - With **Allow multiple layer selection** on ([Preferences](projects-files.md)), when a selection spans
   **several layers** (layers, or objects from different layers), each of those layers
   marks its Content section *(multiple layers selected)* and shows the **combined** Size and Location;
-  typing a Location moves the whole selection, typing a Size scales it about its registration point.
-  Rotation is unavailable until the selection is back to one layer.
+  typing a Location moves the whole selection, typing a Size scales it about its registration point, and
+  **Turn By / Set Angle** turn the whole selection (see [Rotating](#rotating)).
 - Use the **Position / Size / Rotation** controls (and link/unlink X/Y scaling) to place objects precisely —
   see [Importing Geometry](importing.md).
-- **Rotation turns the whole layer.** While only part of a layer is selected (some of its objects, one model,
-  the perimeter), the rotation boxes are greyed — select the layer, or all of its art, to rotate it. Art that
-  needs its own angle goes on its own layer. Moving or resizing part of a layer never changes its angle.
-  With part of a rotated layer selected, its Location is where it sits on the workspace, so typed moves and
-  nudges follow the workspace axes; changing the registration point never moves a rotated layer.
+- Every object keeps **its own angle** — turn one object, a few, a whole layer or several layers; see
+  [Rotating](#rotating).
 
 ### Registration point
 
 The **registration point** is the point of the art that its **Location** numbers describe: a corner, an edge
-middle or the centre. It is also the point that stays put when you **resize**, and the point a model spins about
-in **Model Registration** rotation.
+middle or the centre. It is also the point that stays put when you **resize**, and the point the selection turns about
+with **Turn about: Registration point**.
 
 - **One point for everything.** The 2D chooser (9 points) and the 3D registration cube (27 points) set **one**
   shared point for every layer in every action. Every layer's Location always reads for that point.
@@ -95,33 +92,47 @@ in **Model Registration** rotation.
 Example: with **top-left** (back-left) chosen, a 20 × 10 mm part at X 0–20, Y 0–10 reads Location X 0, Y 10;
 doubling its width keeps that back-left corner where it is.
 
-### Rotating 3D models
+### Rotating
 
-A 3D model carries **two independent rotations** that combine:
+Every object — a piece of 2D art or a 3D model — keeps its **own** angle. Rotating is something you do to the
+**current selection** in the layer panel's **Transform** section:
 
-- **Model Registration** — spins the model about its registration-cube point. A center point spins it
-  in place; a corner or edge point tilts it about that point. The model's location doesn't change.
-- **Workspace Center** — rotates the model about the workspace origin (0,0,0). A model away from the
-  origin **swings around it** as the angle changes, turning as it goes; a model sitting at the origin
-  spins in place.
+- The **Selection** line says what is selected and at what angle(s). **RX / RY / RZ** show the selection's angle,
+  or **—** when the selected items are at different angles.
+- Type an angle, then press a button. The line under the buttons previews the result before anything moves.
+  - **Turn By** turns the selection **together** by the amount you typed (a layout stays a layout): items at 30°
+    and 0°, turned by 20, end at 50° and 20°. Only the boxes you typed in count.
+  - **Set Angle** sets the angle. **As a group** (the default) turns the selection together to that angle — it
+    needs the items to share one angle, and says so otherwise. **Each item** turns every item **in place** to
+    that angle ("straighten these all to 0°").
+  - **Enter** in an angle box = Set Angle.
+- **Turn about**: the selection's **registration point**, or the **workspace origin** (the selection swings around
+  0, 0). Both options are remembered and apply to every layer.
+- Angles show as **0.000 – 359.999**: typing 400 gives 40, −30 gives 330. Turn By takes −359.999 – 359.999.
+- **2D art** turns about Z. Typing **180** in **RX** or **RY** mirrors it (top ↔ bottom, left ↔ right).
+- **3D models** turn about all three axes. Turn By turns about the **workspace** X, then Y, then Z axes; the boxes
+  then show the model's resulting X / Y / Z angles.
+- With **Allow multiple layer selection** on, Turn By / Set Angle act on every selected layer; with it off, on
+  the selected layer.
+- **Size** shows the selection's **own** size (along its sides) when its items share one angle, labelled
+  *Size (own)*; when they differ, the **outline** on the workspace (*Size (outline)*) and resizing is proportional
+  only (the lock turns on). For 3D, **Location Z** is the lowest point on the bed (with a bottom registration point).
+- Fill lines keep their direction when the art turns.
+- Perimeters never turn: they keep their own Size and Location. A **Hull** perimeter is rebuilt around the art
+  after every move, turn or flip (it keeps its Offset).
 
-The **Origin:** dropdown picks **which of the two sets the RX/RY/RZ fields show and edit** — switching
-it never moves the model, and each set remembers its values. Returning a set to 0 undoes exactly that
-rotation; with both sets at 0 the model is back in its original pose.
+### Flip and Mirror
 
-- **Size** and **Location** always describe the **current rotated footprint** — the box the model
-  actually occupies in the workspace, which is what marking uses (slice height, where it lands). This
-  holds whether or not the model is selected, and the values stay consistent across reselects, mode
-  switches, and project reloads.
-- Typed Location edits and arrow-key nudges move the model along plain **workspace axes** by exactly
-  the amount entered, whatever the rotations are.
-- Size editing follows the **combined** rotation: at **right angles** (0/90/180/270°) each axis can be
-  stretched independently (or proportionally with the link on); at **other angles** scaling is uniform —
-  the proportional link locks on (a gold indicator appears beside it) and one value scales all three
-  axes. To stretch a single axis at an odd angle, bake the rotation into the model in your CAD tool and
-  re-import at 0°.
-- A flat perimeter has no tilt, so X/Y rotation is disabled while a perimeter is selected (Z rotation
-  still works).
+Right-click a row in the layer tree — an action, a group, a layer, a file or an object (or a multi-selection):
+
+- **Flip X / Flip Y** (when 3D models are in it) turn everything under that row 180° about the workspace X or Y
+  axis — **other side up**. The part keeps its height: a part whose top sat at Z 0 still has its top at Z 0, so
+  you can engrave one side, flip, and engrave the other at the same focus. 2D layers in it mirror.
+- **Mirror horizontal / Mirror vertical** (2D only) mirror left ↔ right or top ↔ bottom.
+- Always about the **workspace origin**, always on the row you clicked and everything under it (the multiple
+  layer selection setting doesn't matter), and one **Ctrl+Z** undoes it. A part off-centre lands on the
+  mirrored side — FocuZ tells you if any of it leaves the lens field.
+- Perimeters stay where they are (a Hull is rebuilt); calibration actions and the Test Grid don't flip.
 
 ## What you see
 

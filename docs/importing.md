@@ -95,7 +95,7 @@ model into layers for marking.
 
 - **Registration** — position the model in the work area (a 27-point grid for 3D).
 - **Sizing & Z position** — scale the model and set where it sits along Z (for rotated models see
-  [Rotating 3D models](canvas.md#rotating-3d-models)).
+  [Rotating](canvas.md#rotating)).
 - **Perimeter** — an optional boundary around the model's footprint (Import / Hull / Circle / Square) —
   see [3D perimeters](sequencer.md#3d-layers-the-perimeter).
 - **Fill-Through** — whether the bottom slice is marked.
