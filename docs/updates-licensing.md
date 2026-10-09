@@ -13,18 +13,20 @@ software updates. Everything lives under the **License** menu.
 - **Three computers.** A license can be active on up to **3 computers** at a time — for
   example, a design laptop, a shop PC, and a spare. Moving to a new computer is self-service:
   deactivate on one machine and activate on the other.
-- **Connects only when you ask.** FocuZ contacts the internet only for licensing actions you
-  start — activating, deactivating, renewing, or redeeming a code — for update checks, which
-  are under your control, and for a one-time verification of your trial or license. It never
-  phones home on its own after that.
+- **Connects only for a few clear reasons.** FocuZ contacts the internet for licensing actions you
+  start — activating, deactivating, renewing, or redeeming a code — for **update checks** (by
+  default each time FocuZ starts; every check also confirms your license — change it under
+  **License ▸ Software Updates**), and for a one-time verification of your trial or license. Apart
+  from these, it never contacts us on its own. See [When FocuZ connects](#when-focuz-connects-to-the-internet).
 
 ## Trial
 
 FocuZ runs as a **30-day trial** with full functionality so you can evaluate it before
 activating. No license key is needed. The 30 days count from the first time you start FocuZ on
 that computer; marking and tracing become available once the trial is registered, which happens
-**once**, the first time FocuZ can reach the internet — after that it runs offline. A trial is
-available once per computer; reinstalling doesn't restart it.
+**once**, the first time FocuZ can reach the internet — after that it needs no connection to run
+(update checks, when on, also confirm the trial). A trial is available once per computer;
+reinstalling doesn't restart it.
 
 When the trial ends, **marking and tracing turn off** until you activate a license:
 
@@ -49,8 +51,8 @@ the internet and click Run or Trace again, or use **Check for Updates** on the L
 Open the **License** panel:
 
 1. Enter the **license key** from your purchase email and your email address, then click
-   **Activate**. Activation needs a one-time internet connection; after that, FocuZ runs
-   offline.
+   **Activate**. Activation needs a one-time internet connection; after that, FocuZ needs no
+   connection to run (update checks, when on, also refresh your license).
 2. Reinstalling FocuZ — or using a second Windows account on the same computer — **reuses**
    that computer's activation; it does not consume another one.
 3. Activating a different license key on a computer automatically releases that computer's
@@ -125,6 +127,8 @@ usage data or telemetry:
   identifiers as activation.
 - **Accepting the license terms** *(once per terms version)* — records that you accepted: the
   date, the terms version and wording, a machine identifier, and your news-and-updates choice.
+  (The first time you accept on a computer, the same screen also asks whether to check for updates
+  each time FocuZ starts — that choice stays on your computer and isn't sent.)
   No name or email is asked for; on trial machines the record isn't tied to you at all (a
   license activated later links it to your license email).
 
@@ -132,11 +136,21 @@ That's the whole list. Logs stay on your computer unless you choose to share the
 and no personal data is sold or shared for marketing. The full wording lives in the EULA's Data
 Collection section (below).
 
+## Offline licensing and custom solutions
+
+FocuZ needs an internet connection **once** — to register your trial or verify your license — and
+otherwise only for the update checks described above. If your setup can't connect at all (an
+air-gapped shop, a strict security policy), you need licensing without any online contact, or you
+have another need FocuZ doesn't cover out of the box, email **info@lokahi.shop**. These are handled
+**case by case**: offline licensing and further customization are possible, and we'll work out what
+fits your situation.
+
 ## Legal documents
 
 The bottom of the License panel opens the two documents that ship with FocuZ:
 
-- **End User License Agreement** — the terms you accepted on first run. You can re-read it any
+- **End User License Agreement** — the terms you accepted on first run (that first screen also
+  has the *Check for updates each time FocuZ starts* box). You can re-read it any
   time, **Save** a copy, or tick **Show this on next application start** to see the acceptance
   screen again.
 - **Third-Party Licenses** — attribution and license text for the open-source components FocuZ

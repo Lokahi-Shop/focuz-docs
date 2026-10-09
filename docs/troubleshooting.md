@@ -71,8 +71,9 @@ setting and the value to type in the Terminal.
 
 ## Licensing
 
-Activation or renewal trouble: see [Updates & Licensing](updates-licensing.md). For offline machines, use
-offline activation.
+Activation or renewal trouble: see [Updates & Licensing](updates-licensing.md). A computer that can never
+connect to the internet: see [Offline licensing and custom solutions](updates-licensing.md#offline-licensing-and-custom-solutions)
+— email **info@lokahi.shop**.
 
 ## Getting more detail
 
