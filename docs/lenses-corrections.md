@@ -50,6 +50,11 @@ distortion, and remembers settings per lens:
     Esc, or â) puts the trace and the controller back to the saved values. Esc inside a red box only
     undoes that box. The live view applies to the currently selected lens.
 
+Every Corrections box keeps to its range: a value past it changes to the nearest limit when you press Enter
+or leave the box (WCS ±2000 mm, Scale 0.001 – 200 %, Angle ±360°, Field size 1 – 2000 mm, Bulge / Parallel /
+Trapezoidal 0.001 – 2). An **empty box** shows a **red** background and **Save** stays unavailable until it is
+filled — except Field size, where leaving **both** X and Y empty means "use the device value".
+
 !!! tip "Round at center, distorted at the edges?"
     That's a distortion-correction issue â load the correct `.cor` for the lens, or tune the manual values.
     See [Troubleshooting](troubleshooting.md).
@@ -133,7 +138,9 @@ focal height.
   here, they apply to the lens named when you open it â while repeats and durations are
   device-wide. The window is organized into **Calibration** (red light toggle, per-lens offset and
   scale), **Locate** (move the pointer to a position or the field center), and **Timing** (per-lens
-  speed, plus repeats and durations). An **Import markcfg7** button at the top loads a file's
+  speed, plus repeats and durations). The **Offset** X / Y stays inside this lens's field (up to half its
+  width / height either way) and the **Speed** is 1 – 10000 mm/s — a value past either changes to the nearest
+  limit on Enter or when you leave the box, and the jog pad stops at the field edge. An **Import markcfg7** button at the top loads a file's
   red-light offset, scale, and speed into the boxes â nothing commits until **Save**.
 
     To dial the alignment in, the easiest route is the **Calibration â¸ Red Light** sequencer

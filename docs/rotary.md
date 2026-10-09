@@ -143,6 +143,26 @@ settings on every split would cost a full rest each time.
     the layer's passes run on the split instead; the box then goes away. For new work, use the group
     or Rotary-panel Repeat.
 
+!!! note "Save or Cancel, and the ranges"
+    Rotary Setup keeps your changes only when you press **Save**; **Cancel** (or Esc, or ✕) leaves every
+    profile as it was. Each box keeps to its range — a value past it changes to the nearest limit on Enter
+    or when you leave the box. An **empty box turns red** and **Save** stays unavailable until it is
+    filled (the **Default Values** boxes may stay empty — that means no default). **Ramp Min** may not be
+    above **Max Speed**.
+
+    | Box | Range |
+    |---|---|
+    | Gear Ratio | 0.001 – 1000 : 1 |
+    | Roller Ø | 0.1 – 1000 mm |
+    | Default Diameter | 0.001 – 1000 mm (or empty) |
+    | Default # of Splits / Max Split Size | 1 – 720 per revolution / 0.001 – 10000 mm (or empty) |
+    | Default Overlap | 0 mm or more (or empty) |
+    | Stitch | 0 – 5 mm |
+    | Gap (seam-aware) | 0.01 – 100 mm |
+    | Steps/Rot | 1 – 1 000 000 (whole steps) |
+    | Ramp Min / Max Speed / Return Spd | 1 – 65535 pulses/sec |
+    | Accel | 0 – 65535 ms |
+
 ### Motor
 
 - **Steps/Rot** — motor steps per motor rotation (combine with Gear Ratio for the part).

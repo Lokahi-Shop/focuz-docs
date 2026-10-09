@@ -61,6 +61,24 @@ lens you're configuring.
 The full device configuration screen, in two sections: **Configuration** (what the machine is) and
 **Timing Defaults** (the delay/jump values layers fall back to).
 
+!!! note "Save or Cancel"
+    Nothing you change here is kept until you press **Save** — not the boxes, the galvo and mirror choices,
+    the checkboxes, the Motorized Axis settings or a markcfg7 import. **Cancel** (or Esc, or ✕) leaves
+    everything as it was. Each box keeps to its range: type a value past it and it changes to the nearest
+    limit when you press Enter or leave the box. An **empty box turns red**, and **Save** stays unavailable
+    until it is filled — as it does while a **Max** is not above its **Min**.
+
+    | Box | Range |
+    |---|---|
+    | Speed Min / Max | 0.1 – 100000 mm/s |
+    | Freq Min / Max | 1 – 9999 kHz |
+    | Curve Tolerance | 0.001 – 1 mm |
+    | Closed Path Tolerance | 0 – 1 mm |
+    | Open MO Delay | 0 – 10000 ms |
+    | Delay On / Off / End / Polygon | 0 – 65535 µs |
+    | Jump Speed / Min / Max | 1 – 20000 mm/s |
+    | Jump Limit | 0.001 – 1000 mm |
+
 ### Configuration
 
 #### Importing the device profile
