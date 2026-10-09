@@ -1,12 +1,12 @@
 # Lenses, Corrections & Calibration
 
-FocuZ keeps correction and focus settings **per lens** (L1âL8), so swapping lenses doesn't mean re-tuning.
+FocuZ keeps correction and focus settings **per lens** (L1–L8), so swapping lenses doesn't mean re-tuning.
 This section covers selecting a lens, distortion correction, the work-coordinate offset, focal height, and
 aligning the mark to the part.
 
 ## Lens management
 
-- Pick the active lens (**L1âL8**) from the lens selector. Each lens carries its own field size, correction,
+- Pick the active lens (**L1–L8**) from the lens selector. Each lens carries its own field size, correction,
   work offset, and focal Z.
 - Selecting a lens shows a short summary of its settings.
 - When the lens needs a known Z reference, FocuZ may prompt to home / jog before marking (see the
@@ -14,13 +14,13 @@ aligning the mark to the part.
 
 ## Distortion correction (the Corrections dialog)
 
-Open **Corrections** from **Device â¸ Lens Corrections** (it applies to the currently selected lens),
+Open **Corrections** from **Device ▸ Lens Corrections** (it applies to the currently selected lens),
 or during [Device Setup](getting-started/first-run.md). It has two modes for correcting galvo/lens
 distortion, and remembers settings per lens:
 
 === "`.cor` file (recommended)"
 
-    Load the **`.cor`** correction file your lens uses â the same file format EZCad2 and LightBurn use. The
+    Load the **`.cor`** correction file your lens uses — the same file format EZCad2 and LightBurn use. The
     file supplies the distortion map and field size. You can optionally fine-tune **Scale** and **Angle** on
     top of it. (Manual-only fields are greyed out while a `.cor` is loaded.)
 
@@ -33,10 +33,10 @@ distortion, and remembers settings per lens:
     - **Bulge**, **Parallel**, and **Trapezoidal** correction (X/Y)
 
     Or import them from a `markcfg7`: **From device markcfg7** reuses the file the device was
-    configured with (no file picking needed), and **Choose markcfg7â¦** imports from any file. Either
+    configured with (no file picking needed), and **Choose markcfg7…** imports from any file. Either
     way, if the file carries a different work offset, FocuZ asks whether to bring that in too.
 
-    **Field size** may be left **empty** â that means "not set for this lens", and the grayed number in
+    **Field size** may be left **empty** — that means "not set for this lens", and the grayed number in
     the box is the device value FocuZ will use instead. Setting it correctly matters: field size scales
     every mark, so a wrong one makes everything the wrong *size*. **From device markcfg7** is the
     quickest way to get it right, because it brings in the field size and the scale together.
@@ -44,10 +44,10 @@ distortion, and remembers settings per lens:
 !!! tip "See your changes live, then Save or Cancel"
     Start a red-light **Trace** before opening Corrections and it keeps running while you edit. Each
     value you change turns the box **red** until you leave it (Tab, click elsewhere, or Enter); then
-    the trace redraws with the new value â change **Angle** to 45 and the trace rotates 45Â°. Changes
+    the trace redraws with the new value — change **Angle** to 45 and the trace rotates 45°. Changes
     to the distortion values, field size or `.cor` file make the trace pause for a moment while the
     new correction is sent to the controller. Nothing is kept until you press **Save**; **Cancel** (or
-    Esc, or â) puts the trace and the controller back to the saved values. Esc inside a red box only
+    Esc, or ✕) puts the trace and the controller back to the saved values. Esc inside a red box only
     undoes that box. The live view applies to the currently selected lens.
 
 Every Corrections box keeps to its range: a value past it changes to the nearest limit when you press Enter
@@ -56,11 +56,11 @@ Trapezoidal 0.001 – 2). An **empty box** shows a **red** background and **Save
 filled — except Field size, where leaving **both** X and Y empty means "use the device value".
 
 !!! tip "Round at center, distorted at the edges?"
-    That's a distortion-correction issue â load the correct `.cor` for the lens, or tune the manual values.
+    That's a distortion-correction issue — load the correct `.cor` for the lens, or tune the manual values.
     See [Troubleshooting](troubleshooting.md).
 
 !!! tip "Marks come out the right shape but the wrong size?"
-    That's field size, not distortion. Check the **Field size** on the lens card â it shows the value in
+    That's field size, not distortion. Check the **Field size** on the lens card — it shows the value in
     use and where it came from (`.cor` file, set for this lens, or the device default). With a `.cor`
     loaded you can trim the remaining error with the **Scale** boxes, which fine-tune on top of the file:
     multiply the current scale by `target / measured`.
@@ -72,7 +72,7 @@ The **WCS offset** shifts the work origin so the mark lands where the part actua
 
 The canvas origin (0,0) **is** the WCS reference point: artwork placed at 0,0 marks at the work origin,
 and moving art +20 in X marks +20 from that origin. The offset itself applies only when marking and
-tracing â changing it never moves artwork on the canvas.
+tracing — changing it never moves artwork on the canvas.
 
 ## Focal height (Z) per lens
 
@@ -89,64 +89,64 @@ Each lens has a focal working distance. Set it on the **Lens** screen (top menu)
 > Z positions.
 
 > **Motorized Positional Z** shows its controls only when a FocuZ compatible controller is connected
-> **and** the **Z** axis is enabled (Device â¸ Connection). Until both are true the section says which
-> one is missing â without a motorized Z there is nothing for FocuZ to save a focal height against.
+> **and** the **Z** axis is enabled (Device ▸ Connection). Until both are true the section says which
+> one is missing — without a motorized Z there is nothing for FocuZ to save a focal height against.
 
 The **Info** section below it lists the active lens and everything stored against it: the correction
 source, field size, angle, WCS offset, and the saved focal height + offset. The screen's title names
-the active lens too â **Lens L2**, for example.
+the active lens too — **Lens L2**, for example.
 
 Then **Home & Jog to Lens 0** (on the Jog window) gets you straight back to focus for that lens.
 
 ### Finding focus: the Z Focal Distance
 
-The **Z Focal Distance** ([Sequencer](sequencer.md) â¸ Calibration) finds the optimum focal height empirically:
-it marks a row of numbered tick marks, stepping the Z height between marks â the sharpest mark is your
+The **Z Focal Distance** ([Sequencer](sequencer.md) ▸ Calibration) finds the optimum focal height empirically:
+it marks a row of numbered tick marks, stepping the Z height between marks — the sharpest mark is your
 focal height.
 
 1. Add a **Z Focal Distance** action. In **Setup**, set the number of **5-Mark Groups**, **Mark Spacing**,
-   **Mark Height**, and **Label Height** â the pattern on the canvas updates as you type.
+   **Mark Height**, and **Label Height** — the pattern on the canvas updates as you type.
 2. On the sublayer, set the Z **Distance** per mark and pick the mode: **Motorized** (FocuZ jogs Z between
-   marks â needs the FocuZ:grbl controller connected and Z homed) or **Manual** (FocuZ prompts you to move
+   marks — needs the FocuZ:grbl controller connected and Z homed) or **Manual** (FocuZ prompts you to move
    Z between marks yourself).
 
-    **Stacked** (Setup checkbox) marks every line â number included â at the **same spot** (the pattern's
+    **Stacked** (Setup checkbox) marks every line — number included — at the **same spot** (the pattern's
     Location) instead of in a row, so the material must move to a fresh spot between marks. Checking it
     adds a second sublayer that advances the material along **X**: on **Motorized** (offered when the X axis is
-    enabled) FocuZ jogs X by its **Distance** between marks â no prompts needed; on **Manual** FocuZ
+    enabled) FocuZ jogs X by its **Distance** between marks — no prompts needed; on **Manual** FocuZ
     prompts you to move the material before each mark (in Manual Z mode the prompt covers moving Z and
     the material together). Useful when the surface only offers one good marking spot, e.g. a narrow or
     curved part. The canvas still shows the laid-out row; the **Preview** shows the stacked output as it
     will mark, one line at a time.
 3. **Run**, then inspect the part for the sharpest, cleanest line.
-4. **Motorized** â enter that mark's number when prompted and FocuZ jogs straight down to its focal height;
-   save it to the active lens via the **Lens** screen. **Manual** â move Z down by that many of your steps,
+4. **Motorized** — enter that mark's number when prompted and FocuZ jogs straight down to its focal height;
+   save it to the active lens via the **Lens** screen. **Manual** — move Z down by that many of your steps,
    then save the same way.
 
 ## Aligning the mark to the part
 
-- **Calibration â¸ Offset** (a [Sequencer](sequencer.md) action) lets you mark or trace a target, drag it on
+- **Calibration ▸ Offset** (a [Sequencer](sequencer.md) action) lets you mark or trace a target, drag it on
   the canvas to where it actually landed, and apply the difference as the work offset. The layer header's
   **Apply Offset (Lx)** button names the currently selected lens right in its label, so you can see whose
   offset will be updated before you click. The **Return to 0,0** checkbox next to it (on by default) snaps
-  the target back to the design origin after applying â with the drag absorbed into the offset, that's
+  the target back to the design origin after applying — with the drag absorbed into the offset, that's
   where it now marks, so a re-trace lands on the same spot on the material. Untick it to keep the target
   where you dragged it instead.
-- **Trace Settings** (Device menu â formerly *Red Light Trace* â or the **Lx Trace Settings**
+- **Trace Settings** (Device menu — formerly *Red Light Trace* — or the **Lx Trace Settings**
   button at the bottom of the Corrections dialog) helps align the red pointer to where the IR beam fires (they have a small fixed parallax).
-  The red-light **offset, scale, and trace speed are stored per lens** â like the other corrections
-  here, they apply to the lens named when you open it â while repeats and durations are
+  The red-light **offset, scale, and trace speed are stored per lens** — like the other corrections
+  here, they apply to the lens named when you open it — while repeats and durations are
   device-wide. The window is organized into **Calibration** (red light toggle, per-lens offset and
   scale), **Locate** (move the pointer to a position or the field center), and **Timing** (per-lens
   speed, plus repeats and durations). The **Offset** X / Y stays inside this lens's field (up to half its
   width / height either way) and the **Speed** is 1 – 10000 mm/s — a value past either changes to the nearest
   limit on Enter or when you leave the box, and the jog pad stops at the field edge. An **Import markcfg7** button at the top loads a file's
-  red-light offset, scale, and speed into the boxes â nothing commits until **Save**.
+  red-light offset, scale, and speed into the boxes — nothing commits until **Save**.
 
-    To dial the alignment in, the easiest route is the **Calibration â¸ Red Light** sequencer
+    To dial the alignment in, the easiest route is the **Calibration ▸ Red Light** sequencer
     action: it marks a centered reference square (default 90% of the field, always a square at
     the field center, work offset ignored so it lands truly centered), then opens this window
-    ready to go â the square size preloaded and the red-light square already tracing. Walk the
+    ready to go — the square size preloaded and the red-light square already tracing. Walk the
     red square onto the burn with the jog pad (each press nudges the offset by the **Distance**
     step) or by typing offsets directly; the square moves live. When it sits exactly on the
     marked square, **Save** commits the calibration to the lens. The same **Square** button works
@@ -154,9 +154,9 @@ focal height.
 
 !!! warning "Per-lens actions confirm the target lens"
     Actions that change per-lens calibration apply to the **currently selected lens** and confirm which lens
-    before applying â double-check it's the right one to avoid mis-calibrating another lens.
+    before applying — double-check it's the right one to avoid mis-calibrating another lens.
 
 ## See also
 
-- [Hardware & Device Setup](hardware-setup.md) Â· [First-run setup](getting-started/first-run.md)
-- [Jog, Homing & Terminal](jog-terminal.md) Â· [Troubleshooting & FAQ](troubleshooting.md)
+- [Hardware & Device Setup](hardware-setup.md) · [First-run setup](getting-started/first-run.md)
+- [Jog, Homing & Terminal](jog-terminal.md) · [Troubleshooting & FAQ](troubleshooting.md)
