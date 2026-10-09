@@ -72,7 +72,8 @@ it with your saved key.
 - **Check for Updates** — see whether a newer version is available and get the download. How
   often FocuZ checks is up to you, under **License ▸ Software Updates**: **When FocuZ starts** (the default,
   turned on for everyone from 26.10), **Daily**, **Weekly**, **Monthly**, or **None (Manual only)**. A start-up check is quiet —
-  it only speaks up when there is an update, and a version you dismissed stays quiet until a newer one comes.
+  it only speaks up when there is an update, and a version you dismissed stays quiet until a newer one comes. On a new
+  install the license screen asks first: untick *Check for updates each time FocuZ starts* for manual checks only.
 - **Release channels** — by default the update check offers **stable releases only**. To also
   be offered **beta / release-candidate** builds, tick *Update checks include beta /
   release-candidate builds* under **License ▸ Software Updates** (off by default). Whichever is newest for your
