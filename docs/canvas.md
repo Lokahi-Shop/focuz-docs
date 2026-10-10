@@ -66,7 +66,7 @@ surface. On a rotary job it also marks the axis height and each part surface.
   **several layers** (layers, or objects from different layers), each of those layers
   marks its Content section *(multiple layers selected)* and shows the **combined** Size and Location;
   typing a Location moves the whole selection, typing a Size scales it about its registration point, and
-  **Turn By / Set Angle** turn the whole selection (see [Rotating](#rotating)).
+  the **Angle** and **Turn by** boxes turn the whole selection (see [Rotating](#rotating)).
 - Use the **Position / Size / Rotation** controls (and link/unlink X/Y scaling) to place objects precisely —
   see [Importing Geometry](importing.md).
 - Every object keeps **its own angle** — turn one object, a few, a whole layer or several layers; see
@@ -109,7 +109,7 @@ Every object — a piece of 2D art or a 3D model — keeps its **own** angle. Ro
   box is simply no turn.
 - **Turn about**: the selection's **registration point**, or the **workspace origin** (the selection swings around
   0, 0). Both options are remembered and apply to every layer.
-- Angles show as **0.000 – 359.999**: typing 400 gives 40, −30 gives 330. Turn By takes −359.999 – 359.999.
+- Angles show as **0.000 – 359.999**: typing 400 gives 40, −30 gives 330. Turn by takes −359.999 – 359.999.
 - **2D art** turns about Z (the rows show Z only). To mirror it, right-click it in the layer tree — see
   [Flip and Mirror](#flip-and-mirror).
 - **3D models** turn about all three axes. **Turn by** turns about the **workspace** X, Y or Z axis (each box applies
