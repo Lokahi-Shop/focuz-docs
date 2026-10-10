@@ -98,23 +98,24 @@ Every object — a piece of 2D art or a 3D model — keeps its **own** angle. Ro
 **current selection** in the layer panel's **Transform** section:
 
 - The **Selection** line says what is selected and at what angle(s).
-- **Angle (°)** shows the selection's angle — **—** when the selected items are at different angles. Type an angle
-  and press **Set Angle** (or **Enter**). **As a group** (the default) turns the selection together to that angle —
-  it needs the items to share one angle, and says so otherwise. **Each item** turns every item **in place** to that
-  angle ("straighten these all to 0°"). Click away without pressing and the box shows the real angle again.
-- **Turn by (°)** takes an amount: type it and press **Turn By** (or **Enter**). The selection turns **together**
-  (a layout stays a layout): items at 30° and 0°, turned by 20, end at 50° and 20°. The box empties once used — if a
-  turn wasn't what you wanted, **Ctrl+Z**. An empty box is simply no turn.
-- The line under the options previews the result before anything moves.
+- Both rows work like every box in FocuZ: what you type shows **red** until you press **Enter** or click / Tab out of
+  the box — then it applies. The line under the options previews the result while you type.
+- **Angle (°)** shows the selection's angle — **—** when the selected items are at different angles. Type an angle to
+  set it. **As a group** (the default) turns the selection together to that angle — it needs the items to share one
+  angle, and says so otherwise. **Each item** turns every item **in place** to that angle ("straighten these all
+  to 0°").
+- **Turn by (°)** takes an amount. The selection turns **together** (a layout stays a layout): items at 30° and 0°,
+  turned by 20, end at 50° and 20°. The box empties once used — if a turn wasn't what you wanted, **Ctrl+Z**. An empty
+  box is simply no turn.
 - **Turn about**: the selection's **registration point**, or the **workspace origin** (the selection swings around
   0, 0). Both options are remembered and apply to every layer.
 - Angles show as **0.000 – 359.999**: typing 400 gives 40, −30 gives 330. Turn By takes −359.999 – 359.999.
 - **2D art** turns about Z (the rows show Z only). To mirror it, right-click it in the layer tree — see
   [Flip and Mirror](#flip-and-mirror).
-- **3D models** turn about all three axes. Turn By turns about the **workspace** X, then Y, then Z axes; the Angle
-  boxes then show the model's resulting X / Y / Z angles.
-- With **Allow multiple layer selection** on, Turn By / Set Angle act on every selected layer; with it off, on
-  the selected layer.
+- **3D models** turn about all three axes. **Turn by** turns about the **workspace** X, Y or Z axis (each box applies
+  on its own); the Angle boxes then show the model's resulting X / Y / Z angles.
+- With **Allow multiple layer selection** on, the Angle and Turn by boxes act on every selected layer; with it off,
+  on the selected layer.
 - **Size** shows the selection's **own** size (along its sides) when its items share one angle, labelled
   *Size (own)*; when they differ, the **outline** on the workspace (*Size (outline)*) and resizing is proportional
   only (the lock turns on). Several selected layers show their combined outline. For 3D, **Location Z** is the lowest point on the bed (with a bottom registration point).
