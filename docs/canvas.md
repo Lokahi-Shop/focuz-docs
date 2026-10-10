@@ -120,6 +120,9 @@ Every object — a piece of 2D art or a 3D model — keeps its **own** angle. Ro
   *Size (own)*; when they differ, the **outline** on the workspace (*Size (outline)*) and resizing is proportional
   only (the lock turns on). Several selected layers show their combined outline. For 3D, **Location Z** is the lowest point on the bed (with a bottom registration point).
 - Fill lines keep their direction when the art turns.
+- A layer's **cut sublayer art** turns with the layer — also with **Each item** (when the layer is one item, or its
+  items share an angle). On a **3D** layer it follows turns about Z and 180° flips; a tilt (e.g. X 90) leaves the flat
+  cut art where it is, and the log says so.
 - Perimeters never turn: they keep their own Size and Location. A **Hull** perimeter is rebuilt around the art
   after every move, turn or flip (it keeps its Offset).
 
