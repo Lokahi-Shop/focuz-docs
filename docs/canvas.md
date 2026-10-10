@@ -108,17 +108,21 @@ Every object — a piece of 2D art or a 3D model — keeps its **own** angle. Ro
   turned by 20, end at 50° and 20°. The box empties once used — if a turn wasn't what you wanted, **Ctrl+Z**. An empty
   box is simply no turn.
 - **Turn about**: the selection's **registration point**, or the **workspace origin** (the selection swings around
-  0, 0). Both options are remembered and apply to every layer.
+  0, 0). Both options are remembered and apply to every layer. The registration point is the one on the art itself
+  (its Location X / Y stay put through a turn); several selected layers turn about the combined point their panels
+  show. A turn that carries art outside the lens field tells you so.
 - Angles show as **0.000 – 359.999**: typing 400 gives 40, −30 gives 330. Turn by takes −359.999 – 359.999.
 - **2D art** turns about Z (the rows show Z only). To mirror it, right-click it in the layer tree — see
   [Flip and Mirror](#flip-and-mirror).
 - **3D models** turn about all three axes. **Turn by** turns about the **workspace** X, Y or Z axis (each box applies
-  on its own); the Angle boxes then show the model's resulting X / Y / Z angles.
+  on its own); the Angle boxes then show the model's resulting X / Y / Z angles. A turn that changes a model's height
+  re-counts its **# of Slices** so each slice stays the same thickness.
 - With **Allow multiple layer selection** on, the Angle and Turn by boxes act on every selected layer; with it off,
   on the selected layer.
 - **Size** shows the selection's **own** size (along its sides) when its items share one angle, labelled
   *Size (own)*; when they differ, the **outline** on the workspace (*Size (outline)*) and resizing is proportional
-  only (the lock turns on). Several selected layers show their combined outline. For 3D, **Location Z** is the lowest point on the bed (with a bottom registration point).
+  only (the lock turns on). Several selected layers show their combined outline, and resize proportionally. For 3D,
+  **Location Z** is the lowest point on the bed (with a bottom registration point) — it changes as a part tilts.
 - Fill lines keep their direction when the art turns.
 - A layer's **cut sublayer art** turns with the layer — also with **Each item** (when the layer is one item, or its
   items share an angle). On a **3D** layer it follows turns about Z and 180° flips; a tilt (e.g. X 90) leaves the flat
@@ -135,7 +139,7 @@ Right-click a row in the layer tree — an action, a group, a layer, a file or a
   you can engrave one side, flip, and engrave the other at the same focus. 2D layers in it mirror.
 - **Mirror horizontal / Mirror vertical** (2D only) mirror left ↔ right or top ↔ bottom.
 - Always about the **workspace origin**, always on the row you clicked and everything under it (the multiple
-  layer selection setting doesn't matter), and one **Ctrl+Z** undoes it. A part off-centre lands on the
+  layer selection setting doesn't matter), and one **Ctrl+Z** undoes it — even across actions. A part off-centre lands on the
   mirrored side — FocuZ tells you if any of it leaves the lens field.
 - Perimeters stay where they are (a Hull is rebuilt); calibration actions and the Test Grid don't flip.
 
