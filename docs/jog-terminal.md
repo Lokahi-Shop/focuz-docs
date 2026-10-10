@@ -187,9 +187,9 @@ absolute (`G90`) or incremental (`G91`) mode; it shows **—** while disconnecte
 - **Every sequence run starts in `G90`.** If a job needs incremental moves, put `G91` in the job
   itself (on the line, or earlier in the same Terminal block) — a `G91` typed before the run is not
   carried into it.
-- After a run, the mode goes back to what it was before the run. To always finish in `G90` or `G91`
-  instead, set **After a run, set positioning mode (G90/G91)** in **Device ▸ Laser Setup**'s **Motorized Axis (FocuZ
-  controlled)** section: **As it was before the run** (default), **Absolute (G90)** or
+- After a run, the controller is set back to `G90` (absolute). To finish in `G91`, or in whatever mode it was in
+  before the run, set **After a run, set positioning mode (G90/G91)** in **Device ▸ Laser Setup**'s **Motorized Axis (FocuZ
+  controlled)** section: **As it was before the run**, **Absolute (G90)** (default) or
   **Incremental (G91)**. The change applies as soon as you pick it.
 
 ### While a sequence is running
