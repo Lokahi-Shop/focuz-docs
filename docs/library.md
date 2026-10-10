@@ -20,9 +20,26 @@ the Library does with your selection:
 | **Replace** | **Swaps one node for another**, in place — same spot, new recipe. |
 
 Templates carry **settings only** — speeds, powers, fills, timings, structure — never artwork or
-part data. Your imported geometry always stays with the project, and anything inserted or
-replaced arrives with its rotary part values unset, so the run check reminds you to enter *your*
-part before marking.
+part data. Your imported geometry always stays with the project, and the rotary part values
+(diameter, splits, overlap, start offset) always describe **your** part: layers and groups that
+are inserted or replaced take the values the action already has. See
+[Replace](#replace-swap-a-node-keep-its-place) for what happens when a whole rotary action is
+swapped.
+
+## Editing the current file here
+
+The **Current file** column is editable: expand an action, group, layer or sublayer and change any
+value directly — a speed, a power, a fill setting, a checkbox. The box turns **red** while you type
+and the change is applied when you leave it (Tab, click elsewhere, or Enter); **Esc** puts the old
+value back. The change shows in the Sequencer straight away and is one **Undo** step, exactly as if
+you had typed it there. Clicking a setting's **name** still selects it for **Update** as before.
+On a rotary action the part values sit in a **Rotary** section on top of the action, above its groups,
+just as in the Sequencer — Part Diameter, Max Split Size, Number of Splits, Overlap and Start Offset —
+and are edited here the same way; typing one of the split pair fills in the other. In a template the
+section is shown for reference only: part values stay with the job. The action's **Repeat** sits just
+above it and is an ordinary setting — it can be edited here and carried by **Update**. On a 2D Grid action the
+Group's own Repeat is listed beside it as **Group Repeat**. (A linked grid half is shown but follows its
+partner.)
 
 ## Saving templates
 
@@ -62,6 +79,14 @@ values are never selectable: they describe your physical part, not the recipe. A
 **Mode** row isn't individually selectable either — changing what a sublayer *is* belongs to
 Replace.
 
+### Empty boxes
+
+A setting that was left empty in the sequencer shows **blank** in red in the Library. Templates keep their empty
+boxes: inserting or replacing with one gives you the same empty (red) box in the sequencer, and Run and Trace ask
+for a value. Updating with an empty setting empties that box on the target too — deselect the setting
+(**Ctrl**+click) to keep the target's value instead. Values you type in the Library keep to the same ranges as the
+sequencer.
+
 ## Update — copy values onto matching settings
 
 Update is deliberate: you select **what's on offer** on the left and **what will change** on the
@@ -74,6 +99,8 @@ right, and the two selections must line up perfectly before the button arms.
   match, and sublayers pair with sublayers of the same mode.
 - Settings can also pair **across kinds** by name — select `Power` on a sublayer and `Power` on
   a layer, and the value flows across.
+- A [group sublayer](rotary.md#group-sublayers)'s **Source** copies by position: `Layer 2` on the
+  left sets the second layer of the group on the right, whatever the two layers are called.
 - The comparison lights up while you work: **✓** on a heading when everything selected matches,
   **≠ N** counting differences, and hovering a ≠ row shows the incoming value. The markers show
   only while exactly one clean pairing exists.
@@ -99,6 +126,18 @@ Insert copies **whole nodes** into the job:
   a grayed row is exactly the error you'd otherwise hit on apply.
 - If a value lands outside what the target machine allows, it's clamped — and the confirmation
   preview says so before you commit.
+- **Grids stay with 2D Grid actions.** A whole grid (shown as a layer, with its two halves) can be
+  inserted into — or replace one in — a 2D Grid action, where it becomes the next layer. A group from
+  any other action cannot go into a 2D Grid action, a grid cannot go into any other action, and a
+  grid's half never travels on its own. This keeps *structure* apart only: with **Update**, matching
+  settings still copy both ways between a grid and any other layer.
+- **Group sublayers go on groups.** A rotary [group sublayer](rotary.md#group-sublayers) is listed
+  after its group's layers, tagged **[Group · Mark]** or **[Group · Jog]**. To insert one, select it
+  on the left and a **group** of a 2D Rotary action on the right — on a 2D Grid action, select the
+  **action** itself, since the Group belongs to it. A group sublayer never goes onto a layer, a
+  layer's sublayer never onto a group, and the 2D Grid kind stays with 2D Grid actions. If its
+  Source names a layer the new group doesn't have, the preview says so and Run waits until you
+  pick a Source. A whole group brings its group sublayers along with their Source intact.
 
 ## Replace — swap a node, keep its place
 
@@ -109,8 +148,16 @@ Replace exchanges one node for another, exactly where it stands:
 - Actions swap type-free — this is how a slot is re-made from a template of a different type.
   Groups and layers need matching action types. Sublayers may change mode through Replace (this
   is the one place mode conversion lives), as long as the target action supports that mode.
+  A group sublayer swaps only with another group sublayer, and a layer's sublayer only with a
+  layer's — where a sublayer is attached decides when it runs.
 - **Replace ▸** performs the swap behind a preview, as a single undo step — undo restores the
   old node *and* any canvas art it owned.
+- **Rotary part values.** Replacing a layer or a group never changes the action's part diameter,
+  splits, overlap or start offset. Replacing a **whole rotary action** compares the values the
+  template was saved with to the ones in your action: if they are the same (or the template has
+  none), yours stay. If they differ, the preview says so and shows both sets, and the swap
+  **clears** them — Run and Trace wait until you enter the values for the part that is in the
+  chuck.
 
 ## Removing several things at once
 
@@ -118,7 +165,9 @@ Select any mix of actions, groups, layers, and sublayers in the Current file col
 **Del** — everything selected goes in one batch, and one Ctrl+Z brings it all back. The Library
 keeps at least one group per action and one layer per group; a batch that would empty one is
 blocked before anything happens. The **+ Act ▾ / + Grp / + Lyr / + Sub** buttons still add
-structure to the live job, all undoable.
+structure to the live job, all undoable. **+ Sub** follows what is selected: a layer gets a
+sublayer; on a 2D Rotary action a selected **group** gets a group sublayer, and on a 2D Grid
+action it always adds one to the Group.
 
 ## Timings and the delay/jump toggle
 

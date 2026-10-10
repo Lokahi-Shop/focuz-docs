@@ -11,10 +11,14 @@ Your job is organized as a tree:
 
 - **Groups** hold layers and can **repeat** as a unit.
 - **Layers** carry an action and its marking parameters.
-- **Sublayers** are extra passes attached to a layer (a second marking pass, a jog, a cut, etc.).
+- **Sublayers** are extra passes attached to a layer (a second marking pass, a jog, a cut, etc.). A **Jog**
+  sublayer moves an axis by a distance each time it fires; moving to a set position is planned as an action of
+  its own.
 
-Each node has an **Enable** checkbox — disable a node to skip it without deleting it. Groups can be
-**collapsed** to keep a big job tidy. (Drag-to-reorder isn't available yet — build the order as you add.)
+To skip a node without deleting it, **right-click** it in the canvas [layer tree](canvas.md#the-layer-tree)
+and choose **Disable marking** (**Enable marking** turns it back on). A disabled node is gray in the tree
+and in its header, isn't drawn on the canvas, and doesn't mark. Groups can be **collapsed** to keep a big
+job tidy. (Drag-to-reorder isn't available yet — build the order as you add.)
 
 ### Repeats & run-every-Nth
 
@@ -62,7 +66,21 @@ Adding an action opens a picker grouped by purpose:
 *(FocuZ)* run on the [FocuZ:grbl controller](jog-terminal.md); *(BJJCZ)* items run on the laser
 board's rotary port.
 
-- **Linear Axis Jog (FocuZ)** — move an axis as a job step.
+- **Home (FocuZ)** — homes the axes you tick, Z first, then X, then Y, at the controller's own homing
+  speeds. For Z you can tick **then return to 0**: after homing, Z moves to the selected lens's
+  focus, plus the **Offset** you enter (mm; + is up). The note under the rows shows the order for what
+  you've ticked, e.g. *Order: Home Z > Home X > Return X > Return Z*. Make it **action #1**: then Run counts
+  the ticked axes as homed — no homing prompt, and with Z ticked no lens-activation prompt either — and
+  as soon as the homing is done FocuZ repeats Run's checks on the rest of the job, stopping if anything
+  is still not right. (Homing lines aren't allowed in a Command action — use this action.) While an axis homes, the Run button
+  reads **Cancel All** — see [Jog & Terminal](jog-terminal.md#homing). X and Y
+  can return to 0 too, with their own offset: after homing Z, X and Y, the action returns Y, then X,
+  then Z. X/Y 0 is the machine's 0 — on an axis that homes toward +, that is right at the limit switch,
+  so use an offset that moves away from it (for example −5). A Home action further down the job is
+  refused at Run if one of its axes isn't homed yet — move it to action #1. With it as action #1, Return
+  to Start goes back to where the Home action left the machine.
+- **Axis Jog (FocuZ)** — move an axis as a job step. Pausing the run holds the move and Continue
+  finishes it; FocuZ checks the axis arrived before going on.
 - **Rotary Jog (BJJCZ)** — turn the rotary as a job step: pick the fixture (its Rotary Setup
   profile applies), **Rotation (degrees)** or **Distance (mm)** of part surface, the direction and
   the amount. A distance needs the part diameter — on the action, or blank for the profile's
@@ -71,10 +89,16 @@ board's rotary port.
   the run started, Z first, then X, then Y, at the feedrate you set (mm/min). All three axes are
   listed with their live lens (LPos) and machine (MPos) position, so you can set the action up with no
   controller connected;
-  a warning icon shows beside Copy while the controller is disconnected or no trusted position is
-  available (axes not homed); hover it for the reason. The run-start position is
-  recorded after the Run checks pass, and those checks gate a disabled axis or a missing controller,
-  plus the usual homing check because these are absolute moves.
+  a warning icon shows beside Copy while the controller is disconnected; hover it for the reason. The
+  rows show the **start each axis will return to**, worked out from the sequence as you build it: an
+  axis a Home action #1 homes shows where that action leaves it (marked *Action 1*); every other axis
+  shows its live position, which becomes the start when you press Run. The lens the Z position is
+  measured from is shown under the rows. The run-start position is recorded after the Run
+  checks pass (or, with a Home action as action #1, once that action is done). The return is a move
+  *back by the distance* from where the machine is, so it works on axes that aren't homed (Run only
+  warns), and pausing the run holds it rather than cutting it short. Run refuses the job if a homing
+  line in a Command action would home an axis that isn't homed yet before a Return to Start brings it
+  back — the start would no longer match. After every return FocuZ checks the axis arrived.
 - **Return to Saved 0 (FocuZ)** — the same panel, but each ticked axis moves to its saved 0 (Z = the
   selected lens's saved focal position; X/Y saved zeros are not available yet). Requires that axis's limit
   switches to be enabled in both + and − (Device Setup ▸ Enable Limit Switches); the warning icon says so.
@@ -88,7 +112,8 @@ board's rotary port.
   **accessory relays** (air assist, vacuum) on/off mid-job. Lines run in order, and the sequence
   doesn't advance until every line — and any motion it started — has fully completed. Arcs
   (`G2`/`G3`) and probing (`G38`) aren't supported on the motion controller — FocuZ flags those
-  lines before the run so you can correct them. See
+  lines before the run so you can correct them. Give `G1` lines an **F** (feed) — see
+  [Feed rate on G1 lines](jog-terminal.md#feed-rate-on-g1-lines). See
   [the relay section](jog-terminal.md#accessory-relays-air-vacuum-more).
 
 **Calibration**
@@ -105,7 +130,12 @@ Listed in the order you'd normally work through them:
 
 ## Adding, copying & removing actions
 
-- **Add Action** (top of the Sequencer) appends a new action slot.
+- **Add Action** (top of the Sequencer) appends a new action slot. At the right end of that bar is the sequence's **marking time** (e.g. **≈ 12m 30s**),
+  worked out as you build: a thin line under it runs while it's being worked out after a change and goes when the
+  time is ready. A **+** after the time means the job also has steps of unknown length (GRBL commands, returns, homing,
+  pauses, delays, or a Terminal sublayer that runs). A **?** means part of the job couldn't be worked out. No time shows when the sequence has a
+  rotary action, a Z Focal Distance test, a Goto loop or an Axis Jog. A Test Grid is timed from its cells as
+  shown on the canvas.
 - Each slot starts on the **Select Action** chooser — pick a type from the picker to configure it.
 - Once a real type is picked, the slot shows **Delete** and **Copy**: Copy duplicates the action (its
   type and settings) as a new slot; Delete removes it. An empty chooser slot shows **Delete** only —
@@ -121,10 +151,10 @@ Per layer:
 | Parameter | What it does |
 |---|---|
 | **Speed** (mm/s) | Galvo speed while marking. |
-| **Power** (%) | Laser power (0–100). |
+| **Power** (%) | Laser power (0.001–100). |
 | **Frequency** (kHz) | Pulse frequency, clamped to the device min/max. |
 | **Q-Pulse** | Pulse-width / energy-per-pulse control. |
-| **# of Passes** | Repeats each fill line (or, for a contour fill, each ring) that many times before moving on — like a per-segment pass count. Hidden for Wobble and Hilbert, where it doesn't apply. The whole-layer pass count is **Repeat** in the layer header. |
+| **# of Passes** | Repeats each fill line (or, for a contour fill, each ring) that many times before moving on — like a per-segment pass count. **Unidirectional** and **Thatch** repeat a line in the same direction every time. **Snake** does the same for each straight run of its curve — run 1, run 1 again, round the turn, run 2, run 2 again — and marks each turn once. **Bidirectional** and **Cross** go back and forth along the line. Hidden for Wobble and Hilbert, where it doesn't apply. The whole-layer pass count is **Repeat** in the layer header. |
 
 ## Fill types
 
@@ -134,7 +164,9 @@ Pick a **fill** to engrave a filled area (leave it off to mark just the outline)
   crossed). Set **Spacing** and **Angle**.
 - **Snake** — a continuous serpentine fill.
 - **Contour** — concentric rings that follow the shape.
-- **Thatch** — a textured/wobble fill (set its size and phase).
+- **Thatch** — a tiled weave: each tile has four quadrants of short parallel lines, alternating upright
+  and across (set the tile size and phase). It marks one quadrant at a time, every line of a quadrant in
+  the same direction.
 
 Common controls: **Spacing** and **Angle** for line fills, **Auto Rotate** (+ **Step**) to turn the fill
 angle each pass, and **Center** (where the rings start, as a % of the spacing) for **Contour**.
@@ -183,23 +215,104 @@ The **Group** setting controls how the outline's through-holes fill: **Even / Od
 
 ## Variation
 
-**Variation** sweeps a parameter across a fill so it changes as the mark progresses:
+**Variation** changes a parameter as the mark progresses — from the layer's own value (the *first*
+value) to a *second* value you enter. Tick **Speed**, **Power**, **Freq** and/or **Q-Pulse** and give
+each its second value. The section heading reads **Variation (active)** while any parameter is varied.
+The second-value boxes work like the main parameter boxes: a box turns red while what you typed has not
+been entered yet, and **Enter** or clicking away enters it.
 
-- **Scope** — Layer, Action, or Sublayer.
-- **Type** — Linear, Sine, or Random.
-- **Per-parameter** — enable variation on Speed, Power, Frequency, and/or Q-Pulse, each with a value range.
+**Scope** — what one ramp runs across:
 
-Use it for gradients, test ramps, or texture effects.
+| Scope | The ramp runs… |
+|---|---|
+| **Segment** | along each stroke: one fill line, one contour ring, the whole curve of a Hilbert or Snake fill, one outline |
+| **Chord** *(Hilbert, Snake)* | along each straight run of the curve |
+| **Quadrant** *(Thatch)* | across the lines of each thatch quadrant. Outlines and lines in the artwork mark at the first value |
+| **Fill** | across each shape's fill, 0 → 100 % over that fill's own lines, starting again for the next shape — line by line (or ring by ring); on a **Hilbert** or **Snake** fill, along the full length of the curve. Anything that is not fill (an outline, an open line) marks at the first value; a layer with no fill at all behaves as Layer |
+| **Layer** | across everything the layer marks in one pass — stroke by stroke, fill first and the outline after it; on a **Hilbert** or **Snake** fill, along the full length of everything marked |
+
+A ticked value whose second value is the same as the first doesn't vary: if every ticked value matches, the
+layer marks as a plain fill. In the Settings Library, ticking a Vary box starts its second value at the
+layer's own first value, as in the sequencer.
+
+On a Hilbert or Snake fill, Fill and Layer run 0 → 100 % over the whole fill even when the curve is in
+several sections; Segment starts again on each section. Chord needs straight runs of at least 0.5 mm
+to show — on a Hilbert fill that means cells that size or larger (a low depth, or a large shape).
+
+**Type** — **1 → 2** ramps from the first value to the second; **1 → 2 → 1** goes to the second and
+back — the middle line of a group (both middle lines of an even count), or the middle step of a stroke,
+is exactly the second value; **Random** picks a value between the two.
+
+With a **Cross** (crosshatch) fill, each direction ramps on its own under Fill and Layer: the lines along the
+fill angle run 0 → 100 %, then the lines across it do — so a 1 → 2 → 1 peak lands on the middle line of each
+direction.
+
+A layer always marks its **fill first and its outline after it**, with or without Variation, on flat and
+rotary jobs alike. Speed, Frequency and Q-Pulse — and their second values — are always held to your laser's
+range when the job marks, even if a value was saved before the range changed.
+
+**Width** is how much of the ramp the change takes (the rest holds the second value). **Slope** bends
+the ramp: above 50 % it stays near the first value longer, below 50 % it reaches for the second sooner.
+
+### How the ramp steps along a stroke
+
+The stroke (for Fill and Layer on a Hilbert or Snake fill: the whole fill) is divided into equal steps:
+as many **0.5 mm** steps as fit, up to **100** (1 % of its length each). Every stroke of 0.5 mm or more
+gets at least **two** steps (three with 1 → 2 → 1), so on a stroke shorter than 1 mm the steps are shorter
+than 0.5 mm. A 10 mm line gets 20 steps, a 100 mm line 100 (1 mm each), a 1 mm line two, and a default
+thatch's 0.5 mm lines (1 mm tiles) two steps of 0.25 mm each with Segment. The first step marks at exactly the first value and
+the last at exactly the second (with 1 → 2 → 1, the middle step is the second value), so every stroke
+completes the ramp whatever its length. A stroke shorter than 0.5 mm is too short to ramp and marks at
+the first value.
+
+The values in between come from the numbers as you typed them: halfway along is halfway between the
+two values in mm/s, %, kHz or ns, and power still goes through your
+[Power Map](hardware-setup.md#power-map-device-power-map).
+
+### Variation with # of Passes
+
+**Every pass carries the whole ramp** — with 4 passes each one runs 0 → 100 %, never a quarter each.
+
+- Under the Quadrant, Fill and Layer scopes, every pass of a line carries that line's value.
+- A **Unidirectional** or **Thatch** line, and each lap of a **contour ring** or an outline, repeats
+  the same ramp on every pass.
+- Every pass of a **Snake** run marks with the same values at the same place.
+- On **Bidirectional** and **Cross** fills the passes of a line go out and back, and each ramps
+  0 → 100 % along its own travel — so the return pass runs the ramp the other way along the line,
+  just as neighbouring lines of a bidirectional fill do. For a gradient that builds the same way on
+  every pass, use a fill that repeats in one direction.
+
+The time estimate allows for a varied speed. Use variation for gradients, test ramps, or texture
+effects: in a [Test Grid](test-grid.md) the second value gets its own axis, and on a rotary job the ramp
+is worked out on the whole design ([Variation in rotary jobs](rotary.md#variation-in-rotary-jobs)).
+Variation is not offered on 2D Grid layers.
+
+### Ranges and empty boxes
+
+Every number box has a range — hover over the box to see it. A value outside the range is set to the nearest
+end when you press **Enter** or leave the box (with a range of 1–1000, typing 0.5 gives 1 and 2000 gives
+1000).
+
+An **empty box never runs**: it turns red and stays empty until you type a value — 0 included, where 0 is a
+real setting (an offset, a delay). **Run** and **Trace** list every empty box (action, group, layer and field).
+Empty boxes are saved with the project, and clearing a box can be undone (**Undo** brings the number back,
+**Redo** empties it again). Disabled groups, layers and sublayers are not checked. A blank **GRBL Command** is fine: it
+sends nothing and the run carries on.
+
+While a job runs, the boxes on the action panels (Delay, Goto, feedrates…) can't be edited.
 
 ## Timings
 
 Per-layer or per-action overrides for laser/jump timing (laser on/off, polygon corner, end delays; jump
 speed and ramp). Choose **Device** to use the global device defaults, or **Custom** to override for that
-layer/action. Defaults from your `markcfg7` import are a good starting point.
+layer/action. Defaults from your `markcfg7` import are a good starting point. A value you type is saved when
+you press **Enter** or leave the box.
 
 ## Sublayers
 
-A sublayer attaches an extra step to a layer. Set its **mode**:
+A sublayer attaches an extra step to a layer. On rotary actions a sublayer can also be attached to
+the **group**, and where it is attached decides when it runs — see
+[Sublayers in rotary jobs](rotary.md#sublayers-in-rotary-jobs). Set its **mode**:
 
 - **Mark (Sub)** — a second marking pass with its own parameters (+ Run-every-N and Run once after all).
 - **Jog** — move an axis (via the FocuZ:grbl controller) between passes/slices. Right of the Distance box the

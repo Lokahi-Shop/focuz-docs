@@ -70,7 +70,8 @@ action's field blank until you enter it there.
   distance past the seam, the **Stitch** value (0.05 mm, about one spot), which covers positioning
   error without a visible doubled line. **Overlap** — outlines share the fill overlap too, so the
   segment inside it is marked by both splits (a doubled line the length of the overlap at every
-  seam). Applies to layers and their sublayers.
+  seam). Applies to layers and their sublayers. Open lines in the art always mark, as on a flat job — the
+  **Outline** switch only turns closed shapes' outlines on or off.
 - **Seam-aware splits (seams avoid geometry)** — lets each seam shift a little (up to about a
   quarter of the split size) to land in the widest nearby gap in the artwork, so seams fall
   *between* letters and shapes instead of through them. The **Gap** field beside it sets the
@@ -93,39 +94,74 @@ action's field blank until you enter it there.
   default) starts the next mark as soon as the part is in position; **Short** adds a brief rest;
   **Full** rests as long as it does between separate marks. Step up if marks after a split start
   unevenly or the run pauses between splits. The job's very first mark always gets the full rest.
+- **Enable sublayers on layers** — off by default. Enabling it shows **+ Sub** on the layers of
+  this fixture's rotary actions, so a sublayer can run on each split right after its layer's pass.
+  If a pass per revolution is what you want, use a [group sublayer](#group-sublayers) instead —
+  group sublayers are always available and are not affected by this setting. Sublayers that are
+  already on a layer stay listed and keep running whether the box is ticked or not. When a job
+  holds such sublayers while the box is off, **Run** names them first and asks whether to
+  **Continue** or **Cancel**.
 
 Splits are always distributed evenly across the artwork, so the last strip is the same size as
 the rest — no thin leftover strip at the end.
 
-## Multi-pass rotary jobs: Per lap
+## Multi-pass rotary jobs: where to put the Repeat
 
-A layer set to more than one **pass** shows a **Per lap** checkbox in its header, next to Repeat.
-It decides the *order* those passes run in — the number of marks is the same either way.
+A rotary job can repeat in three places, and each one means something different:
 
-- **Per lap ticked (default)** — one pass on every split, then back to zero and round again. Each
-  strip gets a full revolution to cool before its next pass, and seam artifacts are spread across
-  the job rather than concentrated. This is how most laser software sequences a rotary job, and it
-  generally gives the better mark.
-- **Per lap unticked** — all of a split's passes run back to back before the rotary advances, so
-  each strip is taken to depth in one go. Fewer rotary moves, so the job finishes sooner.
+| Repeat on… | What it does |
+|---|---|
+| a **layer** | Marks that layer again **on the split**, back to back, before the part turns. Each strip is taken to depth in one go — fewer rotary moves, so the job finishes sooner. |
+| a **group** | Sends the group's layers **round the part again** — a fresh set of revolutions, with a return to zero between. |
+| the **Rotary panel** (the box beside the *Rotary* title) | Runs **everything in the panel again**, a full turn of the part between. |
 
-With 5 passes over 4 splits, ticked runs 5 laps of 4 splits; unticked marks split 1 five times,
-then split 2 five times, and so on. Backlash is taken up again at the start of **every** lap, so
-each lap's first strip is entered from the marking side just like the job's first strip.
+A **2D Grid** action has the same three places: its **Rotary** panel, the **Group** inside it, and each grid as
+a **Layer** — so a layer's Repeat is still "on the split", the Group's is "round again", and the Rotary
+panel's repeats the whole action. With its one Group the last two simply multiply.
+
+For passes that let each strip cool — one pass on every split, then round again — put the count on
+the **group** or on the **Rotary panel**, not on the layer. Seam artifacts are then spread across the
+job rather than concentrated, which generally gives the better mark.
+
+With 5 passes over 4 splits: a layer Repeat of 5 marks split 1 five times, then split 2 five times,
+and so on; a Rotary-panel Repeat of 5 runs 5 laps of 4 splits. Backlash is taken up again at the
+start of **every** lap, so each lap's first strip is entered from the marking side just like the
+job's first strip.
+
+**The pass count keeps running.** A fill that rotates its angle on each pass keeps stepping, and a
+sublayer's **Run every** keeps counting, across group and Rotary-panel repeats — lap 4 is pass 4.
 
 **Layers take turns around the part.** When an action has more than one layer on the same part,
-each layer finishes all of its revolutions before the next layer starts — the rotary never
-switches between layers on the same split. That keeps consecutive splits on the same settings,
-which is what lets them follow one another without a rest (see *Settle between splits* above);
-switching settings on every split would cost a full rest each time. **Group repeat** repeats the
-whole sequence of a group's layers, each repeat a fresh set of revolutions.
+each layer finishes its revolution before the next layer starts — the rotary never switches
+between layers on the same split. That keeps consecutive splits on the same settings, which is
+what lets them follow one another without a rest (see *Settle between splits* above); switching
+settings on every split would cost a full rest each time.
 
-The box is hidden at 1 pass, where there's nothing to order.
+!!! note "Per lap, in projects from earlier versions"
+    Earlier versions had a **Per lap** checkbox on the layer. A layer saved with it ticked and more
+    than one pass keeps the box and marks exactly as it did — one pass per revolution. Untick it and
+    the layer's passes run on the split instead; the box then goes away. For new work, use the group
+    or Rotary-panel Repeat.
 
-!!! tip "Repeating the whole rotation as a job step"
-    Per lap repeats a *layer*. To repeat the entire 2D Rotary action, loop it with a
-    [Goto](sequencer.md#action-types) — each time round it re-plans and takes up backlash again,
-    and whether it returns to zero between rounds is up to **Return to 0** in Settings.
+!!! note "Save or Cancel, and the ranges"
+    Rotary Setup keeps your changes only when you press **Save**; **Cancel** (or Esc, or ✕) leaves every
+    profile as it was. Each box keeps to its range — a value past it changes to the nearest limit on Enter
+    or when you leave the box. An **empty box turns red** and **Save** stays unavailable until it is
+    filled (the **Default Values** boxes may stay empty — that means no default). **Ramp Min** may not be
+    above **Max Speed**.
+
+    | Box | Range |
+    |---|---|
+    | Gear Ratio | 0.001 – 1000 : 1 |
+    | Roller Ø | 0.1 – 1000 mm |
+    | Default Diameter | 0.001 – 1000 mm (or empty) |
+    | Default # of Splits / Max Split Size | 1 – 720 per revolution / 0.001 – 10000 mm (or empty) |
+    | Default Overlap | 0 mm or more (or empty) |
+    | Stitch | 0 – 5 mm |
+    | Gap (seam-aware) | 0.01 – 100 mm |
+    | Steps/Rot | 1 – 1 000 000 (whole steps) |
+    | Ramp Min / Max Speed / Return Spd | 1 – 65535 pulses/sec |
+    | Accel | 0 – 65535 ms |
 
 ### Motor
 
@@ -199,11 +235,11 @@ the same **Rotary** section above their content:
   on the part without changing the rotary's Set Zero position. Handy for marking at a specific
   clock position, or spacing repeat jobs around the same part. 0 (or blank) = none; Return to
   0 still returns to the true zero.
-- **Sublayers on the rotary** — a **Mark** or **Groove** sublayer runs on every split, right after
-  its parent's pass on that split. A **Jog** or **Terminal** sublayer runs once per **wrap**, after
-  the pass it is attached to has completed all the way round the part — with Per lap on, that is the
-  end of that lap; otherwise the end of the job. A sublayer's Repeat is how many times it runs each
-  time it fires, exactly as on a flat layer, and never adds wraps.
+- **Sublayers on the rotary** — where a sublayer is attached decides when it runs. On a **layer**
+  it is a **Mark** or **Groove** that runs on every split, right after the layer's pass on that
+  split. On the **group** it runs per revolution, after the group's layers — a Mark that goes round
+  on its own, or a **Jog** / **Terminal** that fires once between revolutions. See
+  [Sublayers in rotary jobs](#sublayers-in-rotary-jobs).
 
 Rotation axis, mode, motor settings, and the split-quality options still come from Rotary Setup — the
 action carries only the job values. Because rotary is per-action, nothing is left switched on
@@ -212,45 +248,64 @@ afterward — other actions and later jobs are unaffected.
 ## The 2D Grid action
 
 **2D Grid (Chuck)** (Sequencer › Marking › Rotary) is 2D Rotary with every split divided into a
-grid of cells shared between two layers — for checkerboard textures, comparing two settings side by
-side around a part, or simply spreading heat by marking a split cell by cell instead of all at once.
-It always has one group with two layers, and the same Rotary section and readout as 2D Rotary.
+grid of cells shared between two sets of settings — for checkerboard textures, comparing two
+settings side by side around a part, or simply spreading heat by marking a split cell by cell
+instead of all at once.
 
-- **Content is shared.** The Content section sits at the top of the group: import, size, location
-  and transform apply to both layers. Below it, **Link Layers** (on by default) keeps Layer 2
-  collapsed and gives it every setting of Layer 1. Turn it off to open Layer 2 and give its cells
-  their own power, speed, fill and so on; turn it back on and Layer 2 follows Layer 1 again.
+It reads like 2D Rotary:
+
+| Shown as | What it is |
+|---|---|
+| **Rotary** (the panel on top) | The part: Part Diameter, splits, Overlap, Start Offset — and a **Repeat** that runs the whole action again. |
+| **Group** (inside it) | Holds the grids. Its **Repeat** sends them round the part again; **+ Layer** adds another grid. |
+| **Layer 1**, **Layer 2**, … | One grid each: its artwork, its cells, and a **Repeat** that marks it again on the split. |
+| **Grid 1.1** and **Grid 1.2** | The two halves of Layer 1's checkerboard, each with its own settings. A renamed half reads **1.1 Logo**. |
+
+- **Several grids in one action.** **+ Layer** on the Group's header adds another grid — Layer 2 with
+  Grid 2.1 and 2.2 — with its own artwork and its own cells, order, link and padding. They all
+  share the part values at the top. On each split every grid marks in turn — Layer 1, then Layer
+  2 — before the part turns. To finish one grid all the way round before the next starts, put
+  them in separate actions.
+- **Content belongs to the grid.** The Content section sits at the top of each layer: import, size,
+  location and transform apply to both of its halves. Below it, **Link Layers** (on by default)
+  keeps the second half collapsed and gives it every setting of the first. Turn it off to open the
+  second half and give its cells their own power, speed, fill and so on; turn it back on and it
+  follows the first half again.
 - **X # of Cells / Y # of Cells** divide each split. Along the wrap the cells are equal in
   **degrees**, so the grid is even around the part; along the rotation axis they are equal in
   **mm**, with the cell size to 5 decimals and the last row taking the remainder up to the edge of
-  the art. Beside each box the cell's size on that axis is shown — mm around the part for the wrap
-  axis, mm of distance for the other — to three decimals, with a `~` when the true value has more.
-  The readout adds a line with the cell size in degrees, and **Show splits on canvas** draws the
-  cells inside the seams.
+  that grid's art. Beside each box the cell's size on that axis is shown — mm around the part for
+  the wrap axis, mm of distance for the other — to three decimals, with a `~` when the true value
+  has more. The readout adds a line with the cell size in degrees, and **Show splits on canvas**
+  draws the cells inside the seams.
 - **Cell padding** leaves an unmarked gap between cells — for melt pools or any breathing room you
   want. Every cell edge pulls in by half the padding, seams and the outer edges of the art
   included, so the gap is the same everywhere around the part, including where the wrap closes at
   360°. With a padding set, the seam Overlap and Stitch options do not apply to that grid (the
-  padding is the gap); the Overlap box grays to say so. The canvas draws each padded cell as its
-  own rectangle, and the cell-size labels add how much of each cell is marked.
-- **Cells alternate between the layers** in both directions — the upper-left cell of the first
-  split is Layer 1 — and the pattern carries on across the seams, so an odd cell count still
+  padding is the gap); the Overlap box grays once every grid in the action has a padding. The
+  canvas draws each padded cell as its own rectangle, and the cell-size labels add how much of
+  each cell is marked.
+- **Cells alternate between the two halves** in both directions — the upper-left cell of the first
+  split is Grid 1.1 — and the pattern carries on across the seams, so an odd cell count still
   checkerboards. If the count around a fully wrapped part is odd the pattern cannot meet itself;
   the readout says so.
 - **Marking order** is per split and always starts at the split's upper-left cell. **X First**
   marks left to right, then the next row down; **Y First** marks down the column, then the next
-  column; **X Checker** and **Y Checker** mark every Layer 1 cell first in that sweep, then every
-  Layer 2 cell. Each cell is finished before the next begins, and a whole split streams as one
-  pass, so the split timing matches 2D Rotary.
-- Layer 1's **Repeat** and **Per lap** drive the grid; clearing a layer's Mark checkbox drops its
-  cells. Sublayers and Variation are not offered on the grid layers. Importing a file with several
+  column; **X Checker** and **Y Checker** mark every cell of the first half in that sweep, then
+  every cell of the second. Each cell is finished before the next begins, and a grid's whole split
+  streams as one pass, so the split timing matches 2D Rotary.
+- **Repeats.** The halves have no Repeat of their own. A **Layer's Repeat** marks that grid again
+  on each split; the **Group's Repeat** sends the grids round again and the **Rotary** panel's Repeat
+  runs the whole action again — the same rule as every rotary action (see *Multi-pass rotary jobs* above). Clearing a half's Mark checkbox drops
+  its cells. Variation is not offered on a grid. Sublayers are: **+ Sub** on a layer's header adds
+  one to that grid (see [Sublayers on a grid](#sublayers-on-a-grid)), and the **Group** can carry
+  [group sublayers](#group-sublayers). Importing a file with several
   layers asks which of them to bring in — all by default — and puts the chosen ones together into
-  Layer 1.
-- **Each layer's eye shows its own cells.** With both eyes on the canvas shows the whole art as
-  imported; hide one layer and only the other layer's cells of the art remain, so you can see the
-  checkerboard each layer will mark. Each layer's fill preview is clipped to its own cells the
-  same way. In the layer tree the shared art is listed after the two layers rather than under
-  Layer 1, since both layers mark it.
+  that grid.
+- **Each half's eye shows its own cells.** With both eyes on the canvas shows the whole art as
+  imported; hide one half and only the other's cells of the art remain, so you can see the
+  checkerboard each will mark. Each half's fill preview is clipped to its own cells the same way.
+  In the layer tree the shared art is listed after the two halves, since both mark it.
 
 ## Placing more than one piece of art
 
@@ -286,35 +341,119 @@ whatever already occupies that angle. The preview shows the true result either w
 ## Previewing splits
 
 In the [Preview](marking-tracing.md) of a 2D Rotary action, a vertical **split slider** appears
-beside the playback slider, with one stop per split:
+beside the playback slider. Playback follows the job **in the order it marks**: each layer goes
+all the way round the part before the next one starts, every repeat plays as often as it marks,
+and a sublayer appears on the passes that run it.
 
-- By default the preview shows **one split at a time**, centered in the canvas — exactly the
-  strip the galvo will see. Move the slider to step through the splits.
+- The split slider has one stop for each time the part sits on a split. A job that goes round
+  once has one stop per split; with several layers or repeats the readout also names the trip —
+  **Rev 2/5**, **Split 3/24**.
+- By default the preview shows **one stop at a time**, centered in the canvas — exactly the
+  strip the galvo will see. Move the slider to step through them.
 - The horizontal playback slider and the split slider follow each other: scrubbing playback
-  advances the split; picking a split jumps playback to that split's beginning.
-- The **All** button shows every split at once at its true position instead.
+  advances the stop; picking a stop jumps playback to its beginning. While you scrub, the
+  readout beside the slider names what is marking — the layer or sublayer, and its pass.
+- A layer that repeats shows **×N** on its row, and all of its passes are in the playback, each
+  with its own fill angle when the angle steps between passes.
+- The **All** button shows the whole job at its true position instead.
+- **Sublayers** have a row of their own in the preview's outline — a layer's sublayers under
+  their layer, a [group sublayer](#group-sublayers) after its group's layers. Select a row to
+  preview that sublayer alone. On a 2D Grid, a layer's own sublayers are listed after its two
+  halves and show cut to their own cells, a Groove's band in red.
 
 Seam-aware splits and arc compensation show up in the preview exactly as they will mark.
 
+Group sublayers and a grid's sublayers are also listed in the layer tree beside the canvas, after
+the layers they follow, and their fill preview on the canvas shows what they will mark.
+
 ## Sublayers in rotary jobs
 
-Sublayers fire at the same points as in flat marking — after the parent pass that **Run every**
-names — but on the rotary each firing is a whole trip around the part rather than something that
-happens on every split:
+On **2D Rotary**, **2D Rotary (Roller)** and **2D Grid**, where a sublayer is attached decides when
+it runs:
 
-- A **Mark** or **Groove** sublayer takes its own revolution: once the parent's pass has gone all
-  the way round, the sublayer goes all the way round, marking its **Repeat** passes back to back on
-  each split. Tick **Per split** in the sublayer's header to weave it into the parent's revolution
-  instead — on each split, right after the parent pass that fired it, while that strip is still
-  under the lens (for a groove or cleanup pass that should follow the parent immediately).
-  **Groove** (the rotary name for the Cut mode) marks its offset band clipped to each split — it is
+| Attached to | Added with | Runs | Can be |
+|---|---|---|---|
+| a **layer** | **+ Sub** on the layer's header | **on the split** — right after the layer's pass on that split, while the strip is still under the lens | Mark, Groove |
+| the **group** | **+ Sublayer** on the group's header | **per revolution** — after the group's layers have gone round | Mark, Jog, Terminal |
+
+**+ Sub** on a layer is shown once **Enable sublayers on layers** is ticked in
+[Rotary Setup](#rotary-behavior) (it is off by default); **+ Sublayer** on the group is always there.
+
+### Layer sublayers
+
+A layer's sublayer fires after the layer's pass that **Run every** names, on every split, and marks
+its **Repeat** passes back to back there before the part turns. It adds no revolution of its own.
+
+- **Mark** re-marks the layer's artwork with the sublayer's own settings — a cleanup or colour pass
+  that should follow the layer immediately.
+- **Groove** (the rotary name for the Cut mode) marks its offset band clipped to each split — it is
   for grooving and deep engraving around the part, sectioned by splits like all rotary content, and
   is not a tube through-cutting mode.
-- A **Jog** or **Terminal** sublayer fires once per wrap, between revolutions — a Z step is a
-  whole-part event, so it never repeats on every split.
+- A move between revolutions — a Z step — is a **group** sublayer: **Jog** and **Terminal** are
+  offered there, not on a layer.
 
-A layer without Per lap runs all of its passes in one revolution, so its sublayers follow that
-revolution in pass order — the same number of firings Run every would give pass by pass.
+!!! note "Jobs saved before this rule"
+    A layer sublayer saved with **Per split** off still takes a revolution of its own, exactly as it
+    did, and shows a **Per split** box in its header. Tick it to put the sublayer on the split — the
+    box then goes away. A layer **Jog** or **Terminal** sublayer from an older job keeps firing once
+    per wrap, between revolutions. Nothing in an existing job changes until you change it.
+
+### Sublayers on a grid
+
+On a **2D Grid** action a layer is a grid, so its sublayer is a small grid too. Press **+ Sub** on
+the layer's header; the sublayer is listed at the bottom of that layer, under both of its halves.
+
+- It marks on each split right after the grid's pass that **Run every** names — its **Repeat**
+  passes back to back — and then the part turns.
+- It has its own **Link halves**, **X # of Cells**, **Y # of Cells**, **Cell padding** and
+  **Marking order**, so it is marked as a checkerboard like everything else on a grid. Its cells
+  do not have to match the grid's.
+- With **Link halves** off, a second panel under the sublayer holds the second half's settings.
+- **Mark** re-marks the grid's artwork; **Groove** marks a band along it, and each half's settings
+  build that half's band.
+
+### Group sublayers
+
+On **2D Rotary** and **2D Rotary (Roller)** a sublayer can also be attached to a **group**: press
+**+ Sublayer** on the group's header. A group sublayer is listed at the bottom of the group, below
+its layers, and runs **after** them — per revolution, never on each split:
+
+- **Mark** takes its own trip round the part with its own settings. It has no artwork of its own;
+  its **Source** says what it marks:
+
+    | Source | What it marks |
+    |---|---|
+    | **Each layer** | every layer of the group in turn, each inside its own border |
+    | **Boundary** | one region around all of the group's artwork — overlapping art is marked once, and enclosed areas that are not artwork stay clear |
+    | *a layer's name* | that layer's artwork; it follows the layer if you move, resize or rename it |
+
+- **Jog** or **Terminal** fires once, between revolutions — the place for a Z step.
+- **Run every** counts runs of the **group**, and keeps counting across the group's Repeat and the
+  Rotary panel's Repeat: with Run every 2 it runs after the 2nd, 4th, 6th time the group goes round.
+- **Repeat** is how many passes it marks on each split during its revolution.
+
+If the layer a group sublayer points at is deleted, the Source shows it as missing and Run and Trace
+stop until you pick another — it is never switched to a different layer for you.
+
+**+ Group** sits on the Rotary panel's header on these actions.
+
+#### On the 2D Grid action
+
+The **Group** header of a [2D Grid](#the-2d-grid-action) action carries **+ Sublayer** as well. A
+group sublayer sits at the bottom of the Group, under the last grid, and runs after the grids have
+gone round — every **Run every** revolutions of the Group. Its **Source** lists the grids by the
+names you see on screen (**Layer 1**, **Layer 2**, …) in place of layers.
+
+A **Mark** group sublayer here is a small grid of its own. Under the Source it has its own
+**Link halves**, **X # of Cells**, **Y # of Cells**, **Cell padding** and **Marking order**, and it
+marks its source as its own checkerboard, split by split:
+
+- With **Link halves** on, both halves of its checkerboard use the sublayer's settings.
+- With it off, a second panel appears directly under the sublayer holding the second half's
+  settings, starting as a copy of the first.
+- Its cells do not have to match the cells of the grids it marks over.
+
+**Jog** and **Terminal** work as above: once, between revolutions.
 
 ## Variation in rotary jobs
 
