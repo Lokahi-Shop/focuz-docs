@@ -17,12 +17,12 @@ The **Grid** section defines the coupon:
 | **Width** / **Length** (mm) | The size of each square. |
 | **Spacing** (mm) | The gap between squares. |
 
+The grid appears on the canvas immediately, centered on the active lens's work offset, and redraws live
 as you change the fields.
 
 To move the grid, select it in the layer tree and nudge it with the arrow keys (the same steps as nudging
 art). The labels move with it, it stays where you put it when you run or trace, and the position is saved
 with the project.
-as you change the fields.
 
 ## Layers and parameter sweeps
 
