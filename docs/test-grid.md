@@ -50,9 +50,7 @@ to 0 – 100 %, and Passes to 1 or more. An end-value box turns red while you ty
 its second range value gets its own axis selector, so you can sweep the variation range across the grid.
 Layers can also carry [sublayers](sequencer.md#sublayers), whose parameters get the same sweep controls.
 
-!!! note "Sweeps start fresh each session"
-    The grid setup, layer parameters, and label options are remembered between sessions, but the X/Y
-    axis selections and end values are not — set your sweeps before each run.
+The whole grid — size, position, layers, sweeps and labels — is saved with the project.
 
 ## Labels
 
@@ -73,8 +71,9 @@ section:
 With several layers or sublayers, names are prefixed so you can tell them apart — `L1:` for layer 1,
 `L1|S1:` for its first sublayer — and the static block splits into one column per source.
 
-Labels show on the canvas as you toggle them and are **engraved together with the grid**, using the
-**first layer's** Speed, Power, Frequency, and Q-Pulse in a single pass.
+Labels show on the canvas as you toggle them — if a trace is running it restarts to show the change. **Size** and
+the **Label** text turn red while you type; press Enter or click away to apply. Labels are **engraved together with
+the grid**, using the **first layer's** Speed, Power, Frequency, and Q-Pulse in a single pass.
 
 ## Running it
 
