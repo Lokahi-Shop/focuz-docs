@@ -235,6 +235,12 @@ A ticked value whose second value is the same as the first doesn't vary: if ever
 layer marks as a plain fill. In the Settings Library, ticking a Vary box starts its second value at the
 layer's own first value, as in the sequencer.
 
+**Smooth power ramp** (under the Vary rows, available while Power is varied) is for power ramps that run
+line by line — Fill, Layer and Quadrant scope on a line fill. A laser sets its power in steps, so such a
+ramp can show as bands across the fill. With the tick on, neighbouring lines mix the two nearest steps so
+the average follows the ramp and the bands go. It is off unless you tick it, and it leaves a steady power,
+Segment and Chord ramps and Random untouched. The Settings Library carries it as **Smooth Power Ramp**.
+
 On a Hilbert or Snake fill, Fill and Layer run 0 → 100 % over the whole fill even when the curve is in
 several sections; Segment starts again on each section. Chord needs straight runs of at least 0.25 mm
 to show — on a Hilbert fill that means cells that size or larger (a low depth, or a large shape).

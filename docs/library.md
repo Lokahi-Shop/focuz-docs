@@ -104,6 +104,11 @@ right, and the two selections must line up perfectly before the button arms.
 - The comparison lights up while you work: **✓** on a heading when everything selected matches,
   **≠ N** counting differences, and hovering a ≠ row shows the incoming value. The markers show
   only while exactly one clean pairing exists.
+- When a setting that switches other rows on or off differs between the two sides — a Vary tick,
+  the fill type, Custom timings — both panes list the rows only the other side uses, in *dim
+  italics* with their stored values, so you can see what a push would write or leave behind. A
+  fill-type mismatch shows every row of both fills. These rows can't be selected and are never
+  pushed on their own; push the switch and its rows travel with it.
 - **Changing a fill** through Update selects the new fill's own settings automatically and locks
   them — they travel with the fill. Settings on the target that the new fill removes show in
   *red italics*; if one of them is selected, Update stays blocked until you deselect it, so
