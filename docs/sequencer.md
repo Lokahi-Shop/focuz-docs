@@ -236,7 +236,7 @@ layer marks as a plain fill. In the Settings Library, ticking a Vary box starts 
 layer's own first value, as in the sequencer.
 
 On a Hilbert or Snake fill, Fill and Layer run 0 → 100 % over the whole fill even when the curve is in
-several sections; Segment starts again on each section. Chord needs straight runs of at least 0.5 mm
+several sections; Segment starts again on each section. Chord needs straight runs of at least 0.25 mm
 to show — on a Hilbert fill that means cells that size or larger (a low depth, or a large shape).
 
 **Type** — **1 → 2** ramps from the first value to the second; **1 → 2 → 1** goes to the second and
@@ -257,12 +257,12 @@ the ramp: above 50 % it stays near the first value longer, below 50 % it reaches
 ### How the ramp steps along a stroke
 
 The stroke (for Fill and Layer on a Hilbert or Snake fill: the whole fill) is divided into equal steps:
-as many **0.5 mm** steps as fit, up to **100** (1 % of its length each). Every stroke of 0.5 mm or more
-gets at least **two** steps (three with 1 → 2 → 1), so on a stroke shorter than 1 mm the steps are shorter
-than 0.5 mm. A 10 mm line gets 20 steps, a 100 mm line 100 (1 mm each), a 1 mm line two, and a default
+as many **0.25 mm** steps as fit, up to **200** (0.5 % of its length each). Every stroke of 0.25 mm or more
+gets at least **two** steps (three with 1 → 2 → 1), so on a stroke shorter than 0.5 mm the steps are shorter
+than 0.25 mm. A 10 mm line gets 40 steps, a 100 mm line 200 (0.5 mm each), a 1 mm line four, and a default
 thatch's 0.5 mm lines (1 mm tiles) two steps of 0.25 mm each with Segment. The first step marks at exactly the first value and
 the last at exactly the second (with 1 → 2 → 1, the middle step is the second value), so every stroke
-completes the ramp whatever its length. A stroke shorter than 0.5 mm is too short to ramp and marks at
+completes the ramp whatever its length. A stroke shorter than 0.25 mm is too short to ramp and marks at
 the first value.
 
 The values in between come from the numbers as you typed them: halfway along is halfway between the
