@@ -19,7 +19,9 @@ To skip a node without deleting it, **right-click** it in the canvas [layer tree
 and choose **Disable marking** (**Enable marking** turns it back on). A disabled node is gray in the tree
 and in its header, isn't drawn on the canvas, and doesn't mark. The same menu works on an imported file or a
 single object inside a layer, and on a multi-selection it acts on everything selected. Groups can be **collapsed** to keep a big
-job tidy. (Drag-to-reorder isn't available yet — build the order as you add.)
+job tidy. To **reorder**, right-click a layer, group or action in the layer tree and choose **Move up**, **Move down**,
+**Move to top** or **Move to bottom** — the marking order follows. The same menu **copies and pastes** layers, groups,
+actions, files and objects, also between projects (see [the layer tree](canvas.md#the-layer-tree)).
 
 ### Repeats & run-every-Nth
 

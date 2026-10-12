@@ -178,6 +178,30 @@ objects. Two things decide what you see and what marks:
 The small square beside a layer or sublayer shows or hides its **fill** preview, and right-clicking an
 object, an import or a border offers **Delete**.
 
+### Copy, paste and reorder
+
+Right-click a layer, group, action, imported file or single object and choose **Copy**. The clipboard holds one
+thing at a time and keeps it until the next copy — even after FocuZ is closed — so it can be pasted into another
+project. The same menu offers **Paste … above**, **Paste … below** or **Paste … into** wherever the copied item
+fits:
+
+| Copied | Pastes… |
+|---|---|
+| Layer(s) | above or below a layer, or into a group |
+| Group | above or below a group, or into an action |
+| Action | above or below an action |
+| File(s), object(s) | into a layer (next to a layer, file or object) |
+
+A paste is a new copy with its own art, placed exactly where the original sits — nudge it from there. One
+**Ctrl+Z** removes it again, art included. 2D and 3D never mix, Goto Actions are not copied, and the fixed
+calibration, Z Focus and 2D Grid actions are copied whole. Ctrl+click several layers, files or objects and copy
+them together (from 2D actions or from 3D actions, not both): whole layers come as layers, and a file or object
+whose layer isn't selected arrives inside a copy of its layer holding just that art. **Ctrl+C** copies the
+selection and **Ctrl+V** pastes below the selected row (into it for files and objects).
+
+**Move up / Move down / Move to top / Move to bottom** reorder a layer inside its group, a group inside its
+action, or an action in the sequence — the marking order follows, and the items gray out at the edges.
+
 ## See also
 
 - [Importing Geometry](importing.md) · [The Sequencer](sequencer.md) · [Marking & Tracing](marking-tracing.md)
