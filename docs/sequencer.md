@@ -92,7 +92,7 @@ board's rotary port.
   the run started, Z first, then X, then Y, at the feedrate you set (mm/min). All three axes are
   listed with their live lens (LPos) and machine (MPos) position, so you can set the action up with no
   controller connected;
-  a warning icon shows beside Copy while the controller is disconnected; hover it for the reason. The
+  a warning icon shows beside Duplicate while the controller is disconnected; hover it for the reason. The
   rows show the **start each axis will return to**, worked out from the sequence as you build it: an
   axis a Home action #1 homes shows where that action leaves it (marked *Action 1*); every other axis
   shows its live position, which becomes the start when you press Run. The lens the Z position is
@@ -140,9 +140,11 @@ Listed in the order you'd normally work through them:
   rotary action, a Z Focal Distance test, a Goto loop or an Axis Jog. A Test Grid is timed from its cells as
   shown on the canvas.
 - Each slot starts on the **Select Action** chooser — pick a type from the picker to configure it.
-- Once a real type is picked, the slot shows **Delete** and **Copy**: Copy duplicates the action (its
-  type and settings) as a new slot; Delete removes it. An empty chooser slot shows **Delete** only —
-  there's nothing to copy yet — and the sole remaining slot shows no buttons at all.
+- Once a real type is picked, the slot shows **Delete** and **Duplicate**: Duplicate adds a copy of the action
+  (its type, settings and art) after the last action — one **Ctrl+Z** removes it again; Delete removes the action.
+  To put a copy somewhere else, or into another project, copy and paste it from the
+  [layer tree](canvas.md#copy-paste-and-reorder). An empty chooser slot shows **Delete** only —
+  there's nothing to duplicate yet — and the sole remaining slot shows no buttons at all.
 - The list always keeps at least one slot. Deleting the **last remaining** action returns it to the
   empty chooser instead of leaving an empty list; deleting any earlier action shifts the rest up and
   renumbers them. All of this is undoable.

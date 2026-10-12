@@ -198,7 +198,9 @@ A paste is a new copy with its own art, placed exactly where the original sits â
 calibration, Z Focus and 2D Grid actions are copied whole. Ctrl+click several layers, files or objects and copy
 them together (from 2D actions or from 3D actions, not both): whole layers come as layers, and a file or object
 whose layer isn't selected arrives inside a copy of its layer holding just that art. **Ctrl+C** copies the
-selection and **Ctrl+V** pastes below the selected row (into it for files and objects).
+selection and **Ctrl+V** pastes below the selected row (into it for files and objects); with another kind of
+row selected it pastes next to that row's own action or group. A perimeter row takes a paste as part of its
+layer.
 
 **Move up / Move down / Move to top / Move to bottom** reorder a layer inside its group, a group inside its
 action, or an action in the sequence â€” the marking order follows, and the items gray out at the edges.
