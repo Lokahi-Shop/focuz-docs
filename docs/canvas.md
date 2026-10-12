@@ -175,7 +175,8 @@ objects. Two things decide what you see and what marks:
 | Enabled | Closed | Hidden — warning triangle in the tree | Yes |
 | Disabled | Either | Hidden — gray in the tree | No |
 
-The small square beside a layer or sublayer shows or hides its **fill** preview, and right-clicking an
+The small square beside a layer or sublayer shows or hides its **fill** preview — it is drawn in that fill's
+own colour, filled while the preview is shown and hollow while it is hidden — and right-clicking an
 object, an import or a border offers **Delete**.
 
 ### Copy, paste and reorder
