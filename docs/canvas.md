@@ -50,7 +50,8 @@ surface. On a rotary job it also marks the axis height and each part surface.
 - **Right-click ▸ Delete** on an item of a multi-selection deletes every selected object, file and border
   (after a confirmation with the count); one Undo brings them all back.
 - **Right-clicking** a group, layer or sublayer (Enable / Disable marking) outlines that row while the menu
-  is open and leaves the selection as it is.
+  is open and leaves the selection as it is. On an item of a multi-selection, **Disable marking** (or
+  **Enable marking**) acts on every selected layer, file and object at once; one Undo puts them all back.
 - Selecting a **layer** (tree row, sequencer header or a field) selects its **artwork only**. A **border** is
   selected on its own, from its own row: Ctrl+click skips borders, and a Shift range selects everything
   between its ends except borders.
@@ -159,9 +160,11 @@ Right-click a row in the layer tree — an action, a group, a layer, a file or a
 The panel on the left edge of the canvas lists every action's groups, layers, sublayers and imported
 objects. Two things decide what you see and what marks:
 
-- **Marking on or off** — right-click a group, layer or sublayer and choose **Disable marking** or
-  **Enable marking**. A disabled line is **gray**: it is not drawn on the canvas and it does not mark,
-  whatever its eye says. Everything under a disabled group or layer is off with it.
+- **Marking on or off** — right-click a group, layer, sublayer, imported file or single object and choose
+  **Disable marking** or **Enable marking**. A disabled line is **gray**: it is not drawn on the canvas and it
+  does not mark, whatever its eye says. Everything under a disabled group, layer or file is off with it, and
+  each line keeps its own switch: an object turned off stays off until its own line is enabled again (the
+  menu tells you when something above it is the reason it stays gray).
 - **The eye** — click it to show or hide an object, an import, or a whole layer on the canvas. The eye
   is for viewing only: something hidden with marking still on **still marks**. A line like that carries
   a **warning triangle**, so a hidden object never marks by surprise.

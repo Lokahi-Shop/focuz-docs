@@ -17,7 +17,8 @@ Your job is organized as a tree:
 
 To skip a node without deleting it, **right-click** it in the canvas [layer tree](canvas.md#the-layer-tree)
 and choose **Disable marking** (**Enable marking** turns it back on). A disabled node is gray in the tree
-and in its header, isn't drawn on the canvas, and doesn't mark. Groups can be **collapsed** to keep a big
+and in its header, isn't drawn on the canvas, and doesn't mark. The same menu works on an imported file or a
+single object inside a layer, and on a multi-selection it acts on everything selected. Groups can be **collapsed** to keep a big
 job tidy. (Drag-to-reorder isn't available yet — build the order as you add.)
 
 ### Repeats & run-every-Nth
