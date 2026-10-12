@@ -202,10 +202,13 @@ whose layer isn't selected arrives inside a copy of its layer holding just that 
 selection and **Ctrl+V** pastes below the selected row (into it for files and objects); with another kind of
 row selected it pastes next to that row's own action or group. A perimeter row takes a paste as part of its
 layer. A copied sublayer brings its settings, mode and cut art; a group sublayer that marks one layer points at
-the layer in the same position of its new group, and asks for a new choice when there is none.
+the layer in the same position of its new group, and says so when there is none. Ctrl+click or Shift+click several
+sublayers of one layer to copy them together. On a rotary action whose Rotary Setup has **Enable sublayers on
+layers** switched off, a layer's sublayer can't be pasted onto a layer — paste a group sublayer onto the group instead.
 
 **Move up / Move down / Move to top / Move to bottom** reorder a layer inside its group, a group inside its
-action, or an action in the sequence — the marking order follows, and the items gray out at the edges.
+action, an action in the sequence, or a sublayer inside its own layer — the marking order follows. Layer, group and
+action items gray out at the edges; a sublayer's moves that can't happen are not offered.
 
 ## See also
 
