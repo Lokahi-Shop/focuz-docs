@@ -182,8 +182,8 @@ as filled where shapes overlap, so nothing is marked twice in either setting. A 
 Group setting produces it, together with its holes: a letter with its counters is one shape, two overlapping
 shapes merged by **Union** are one, and the same two under **Even / Odd** are two crescents:
 
-- **Ind** (the default) — each shape on its own: its lines, then the outlines that bound it, before the next
-  shape. A **Layer**-scope variation runs the whole way on every shape.
+- **Ind** (the default) — each shape on its own, in the order the artwork lists them: its lines, then the outlines
+  that bound it, before the next shape. A **Layer**-scope variation runs the whole way on every shape.
 - **All** — the whole fill first, then every outline. A **Layer**-scope variation runs once across the whole
   fill, by position, so the gap between two shapes takes its share of the ramp.
 
