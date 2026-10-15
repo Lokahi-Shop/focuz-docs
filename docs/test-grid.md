@@ -82,6 +82,17 @@ part first — see [Marking & Tracing](marking-tracing.md). **Run** marks every 
 values, then the labels. Inspect the coupon, pick the square you like, and read its settings straight
 off the engraved labels.
 
+### A square's settings in the Library
+
+Right-click a square on the canvas and choose **Open in Library**. The [Settings Library](library.md)
+opens with that square listed in its **Current file** column as a **2D Import** action — every layer and
+sublayer of the grid with the swept values worked out for that row and column, exactly as the square was
+marked. From there, **Save as Template…** keeps it as a 2D Import recipe you can apply to real artwork,
+and a template picked on the left compares against it (the **✓** / **≠** markers). The entry is a view:
+its values can't be edited there and nothing can be added to or removed from it. It follows the grid
+while the Library is open and is cleared when the Library is closed — right-click another square to send
+that one.
+
 !!! tip "A good first sweep"
     For a new material, start wide: sweep **Power** 20→80&nbsp;% on X and **Speed** 200→2000&nbsp;mm/s
     on Y over a 5×5 grid. Mark it, pick the best-looking cell, then run a second, narrower grid around

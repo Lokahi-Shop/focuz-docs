@@ -47,6 +47,9 @@ partner.)
   configuration — every group, layer, and sublayer with all their settings — plus a name, notes,
   and an optional reference image. The template remembers which **action type** it came from
   (2D Import, 2D Cut, 3D Slice, …).
+- A **Test Grid** square can be saved too: right-click it on the canvas and choose **Open in Library** — it
+  appears in the **Current file** column as a 2D Import action carrying that square's values, and
+  **Save as Template…** captures it. See [The Test Grid](test-grid.md#a-squares-settings-in-the-library).
 - A template can hold **several actions**: with a template open, **+ Act ▾** in the middle column
   adds another action of your chosen type, so one template can describe a whole job.
 - Manage templates from the list: **Duplicate**, **Rename**, **Delete**, and **Lock** (🔒 makes a
