@@ -11,12 +11,20 @@ FocuZ imports both 2D art and full 3D models. 3D models are sliced into layers f
 | 3D mesh | **STL, OBJ, 3MF** | Triangle meshes. |
 | Images | common raster formats | For reference/placement. |
 
+A layer takes the files that match its action: 2D actions import 2D art, 3D actions (3D Slice, 3D Cut, 3D Shadow)
+import 3D models. Picking the other kind (for example with **All Files** in the file dialog) shows a message and
+imports nothing.
+
 ## Importing 2D art
 
 Add a **2D Import** action (or drag a file onto the canvas) and choose your file.
 
 - **Multi-layer files** — if the file has multiple layers, FocuZ asks whether to **flatten** them into one
-  or keep them **separate**.
+  or keep them **separate**. Separate layers land exactly where they sit in the file — the whole file is placed by
+  the registration point, so the layers stay lined up on top of each other.
+  Pick **which layers** come in: all are selected at first; click picks one, `Ctrl`+click toggles,
+  `Shift`+click picks a range, `Ctrl+A` picks all. Picked **separate** layers still land where they sit in the
+  whole file — as if every layer came in and you deleted the rest.
 - **Registration point** — choose the reference point used to position the art (a 9-point grid for 2D).
 - **Position / Size / Rotation** — place and scale the art on the [canvas](canvas.md); link or unlink X/Y
   scaling.
@@ -87,7 +95,7 @@ model into layers for marking.
 
 - **Registration** — position the model in the work area (a 27-point grid for 3D).
 - **Sizing & Z position** — scale the model and set where it sits along Z (for rotated models see
-  [Rotating 3D models](canvas.md#rotating-3d-models)).
+  [Rotating](canvas.md#rotating)).
 - **Perimeter** — an optional boundary around the model's footprint (Import / Hull / Circle / Square) —
   see [3D perimeters](sequencer.md#3d-layers-the-perimeter).
 - **Fill-Through** — whether the bottom slice is marked.

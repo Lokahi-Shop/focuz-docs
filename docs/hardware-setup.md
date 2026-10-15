@@ -9,6 +9,17 @@ is the deeper reference.
     frequency range. **Lens** settings (field size, correction, focal Z) are per-lens and live in
     [Lenses, Corrections & Calibration](lenses-corrections.md).
 
+!!! note "Locked while a sequence runs"
+    Everything under the **Device** menu is grayed out while a sequence is running or paused, and
+    comes back when it finishes or is cancelled. If the Connection or BJJCZ IO card is open when you
+    press **Run**, it closes first (unsaved BJJCZ IO changes stop the run until you save or discard
+    them).
+
+    If a red-light **trace** is running (no sequence), opening a Device item stops the trace first —
+    except **Lens Corrections**, which opens with the trace still showing so you can watch your
+    changes in it (see [Lenses, Corrections & Calibration](lenses-corrections.md)). Press **Trace**
+    again afterwards to restart it.
+
 ## Connecting (Device ▸ Connection)
 
 1. Open **Device ▸ Connection**.
@@ -50,6 +61,26 @@ lens you're configuring.
 The full device configuration screen, in two sections: **Configuration** (what the machine is) and
 **Timing Defaults** (the delay/jump values layers fall back to).
 
+!!! note "Save or Cancel"
+    Nothing you change here is kept until you press **Save** — not the boxes, the galvo and mirror choices,
+    the checkboxes, the Motorized Axis settings or a markcfg7 import. **Cancel** (or Esc, or ✕) leaves
+    everything as it was. Each box keeps to its range: type a value past it and it changes to the nearest
+    limit when you press Enter or leave the box. An **empty box turns red**, and **Save** stays unavailable
+    until it is filled — as it does while a **Max** is not above its **Min**.
+
+    | Box | Range |
+    |---|---|
+    | Speed Min / Max | 0.1 – 100000 mm/s |
+    | Freq Min / Max | 1 – 9999 kHz |
+    | Curve Tolerance | 0.001 – 1 mm |
+    | Closed Path Tolerance | 0 – 1 mm |
+    | Open MO Delay | 0 – 10000 ms |
+    | Delay On / Off / End / Polygon | 0 – 65535 µs |
+    | Jump Speed / Min / Max | 1 – 20000 mm/s |
+    | Jump Limit | 0 – 1000 mm |
+
+    The delay and jump boxes use the same ranges as a layer's **Custom** timings.
+
 ### Configuration
 
 #### Importing the device profile
@@ -72,11 +103,17 @@ The full device configuration screen, in two sections: **Configuration** (what t
     The fix is almost always the galvo X/Y assignment or a mirror toggle here. A re-import of the correct
     `markcfg7` usually sets these for you.
 
-#### Frequency limits
+#### Speed and frequency limits
 
+- **Speed (mm/s) Min / Max** — the slowest and fastest marking speed for your machine. Filled in from the
+  `markcfg7` (its minimum and maximum speed) when you import; you can change them here.
 - **Min / Max frequency (kHz)** — the allowed pulse-frequency range for your laser (1–9999). FocuZ clamps
   per-layer frequency to this range so you can't drive the laser outside spec. This is a capability
   range for the machine, which is why it lives in Configuration rather than Timing Defaults.
+These are global limits: a layer's Speed and Frequency, the second values in [Variation](sequencer.md#variation),
+the Settings Library and the [Test Grid](test-grid.md) are all held to them as you enter values. A value outside
+them is changed to the nearest limit. **Q-Pulse** has no setting here (a `markcfg7` has none either): it is
+entered from 1 to 1000 ns everywhere, and the laser source applies its own limits within that.
 
 #### Path tolerances
 
@@ -115,7 +152,8 @@ which it counts as active.
 
 Nothing here takes effect until you tick **Enable I/O** and press **Save**, so a machine with no
 external wiring is unaffected. **Import markcfg7** copies the assignments out of an existing EZCad2
-configuration.
+configuration. **Cancel** closes the card without keeping any change (the next time you open it, it shows the
+saved settings).
 
 **Outputs** FocuZ drives:
 
@@ -143,6 +181,21 @@ configuration.
 
 Rotary-axis configuration lives under **Device ▸ Rotary Setup** and is covered in
 [Rotary Marking](rotary.md).
+
+## Backing up and moving your setup (Device ▸ Export / Import All Settings)
+
+**Export All Settings…** saves every device setting and preference into one `.focuzsettings` file —
+Laser Setup, timings, lens corrections, lens names and focal heights, Rotary Setup, Trace Settings,
+BJJCZ IO, Power Map, Test Grid defaults and your Preferences — plus a copy of each lens's `.cor` file.
+Your license, recent files, the Library and your projects are not included — nor the update-check choice
+(License ▸ Software Updates), which stays as it is on each computer.
+
+**Import All Settings…** replaces all of those with the ones in a file. FocuZ shows where and when the
+file was made, warns that everything will be overwritten, and that a **restart is required**. On
+**OK** it backs up your current settings first (`%AppData%\FocuZ\backups`, a file you can import
+to go back), then closes and reopens with the imported settings. Each lens is linked to its `.cor`
+at the same path as before; if a `.cor` file isn't there on this PC, FocuZ asks whether to put the
+saved copy back at that location.
 
 ## See also
 

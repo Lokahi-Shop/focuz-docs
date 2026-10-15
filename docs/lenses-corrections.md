@@ -41,6 +41,20 @@ distortion, and remembers settings per lens:
     every mark, so a wrong one makes everything the wrong *size*. **From device markcfg7** is the
     quickest way to get it right, because it brings in the field size and the scale together.
 
+!!! tip "See your changes live, then Save or Cancel"
+    Start a red-light **Trace** before opening Corrections and it keeps running while you edit. Each
+    value you change turns the box **red** until you leave it (Tab, click elsewhere, or Enter); then
+    the trace redraws with the new value — change **Angle** to 45 and the trace rotates 45°. Changes
+    to the distortion values, field size or `.cor` file make the trace pause for a moment while the
+    new correction is sent to the controller. Nothing is kept until you press **Save**; **Cancel** (or
+    Esc, or ✕) puts the trace and the controller back to the saved values. Esc inside a red box only
+    undoes that box. The live view applies to the currently selected lens.
+
+Every Corrections box keeps to its range: a value past it changes to the nearest limit when you press Enter
+or leave the box (WCS ±2000 mm, Scale 0.001 – 200 %, Angle ±360°, Field size 1 – 2000 mm, Bulge / Parallel /
+Trapezoidal 0.001 – 2). An **empty box** shows a **red** background and **Save** stays unavailable until it is
+filled — except Field size, where leaving **both** X and Y empty means "use the device value".
+
 !!! tip "Round at center, distorted at the edges?"
     That's a distortion-correction issue — load the correct `.cor` for the lens, or tune the manual values.
     See [Troubleshooting](troubleshooting.md).
@@ -70,7 +84,9 @@ Each lens has a focal working distance. Set it on the **Lens** screen (top menu)
 3. Click **Save Current Z** to commit the focal distance + offset to the active lens.
 
 > The Offset can be updated later without re-finding the focal distance. The section's
-> **Instructions** button repeats these three steps in the app.
+> **Instructions** button repeats these three steps in the app. Saving the focal and updating the
+> Offset are locked while a sequence is running or paused — a new focal would move the job's later
+> Z positions.
 
 > **Motorized Positional Z** shows its controls only when a FocuZ compatible controller is connected
 > **and** the **Z** axis is enabled (Device ▸ Connection). Until both are true the section says which
@@ -116,13 +132,15 @@ focal height.
   the target back to the design origin after applying — with the drag absorbed into the offset, that's
   where it now marks, so a re-trace lands on the same spot on the material. Untick it to keep the target
   where you dragged it instead.
-- **Red Light Trace** (Device menu, or the **Red Light** button at the bottom of the Corrections
-  dialog) helps align the red pointer to where the IR beam fires (they have a small fixed parallax).
+- **Trace Settings** (Device menu — formerly *Red Light Trace* — or the **Lx Trace Settings**
+  button at the bottom of the Corrections dialog) helps align the red pointer to where the IR beam fires (they have a small fixed parallax).
   The red-light **offset, scale, and trace speed are stored per lens** — like the other corrections
   here, they apply to the lens named when you open it — while repeats and durations are
   device-wide. The window is organized into **Calibration** (red light toggle, per-lens offset and
   scale), **Locate** (move the pointer to a position or the field center), and **Timing** (per-lens
-  speed, plus repeats and durations). An **Import markcfg7** button at the top loads a file's
+  speed, plus repeats and durations). The **Offset** X / Y stays inside this lens's field (up to half its
+  width / height either way) and the **Speed** is 1 – 10000 mm/s — a value past either changes to the nearest
+  limit on Enter or when you leave the box, and the jog pad stops at the field edge. An **Import markcfg7** button at the top loads a file's
   red-light offset, scale, and speed into the boxes — nothing commits until **Save**.
 
     To dial the alignment in, the easiest route is the **Calibration ▸ Red Light** sequencer

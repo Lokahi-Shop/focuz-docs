@@ -20,6 +20,10 @@ The **Grid** section defines the coupon:
 The grid appears on the canvas immediately, centered on the active lens's work offset, and redraws live
 as you change the fields.
 
+To move the grid, select it in the layer tree and nudge it with the arrow keys (the same steps as nudging
+art). The labels move with it, it stays where you put it when you run or trace, and the position is saved
+with the project.
+
 ## Layers and parameter sweeps
 
 The action starts with one layer; **+ Layer** adds more. Each layer carries the usual
@@ -37,13 +41,16 @@ Next to **Speed**, **Power**, **Frequency**, **Q-Pulse**, and **Passes** sits an
 Sweep as many parameters as you like — put one on X and another on Y to cover a two-dimensional space
 in a single mark. Q-Pulse and Passes sweep in whole numbers.
 
+Every value a sweep uses, start and end, is held to the same limits as the parameter itself: Speed and Frequency to
+the [limits in Laser Setup](hardware-setup.md#speed-and-frequency-limits), Q-Pulse to 1 – 1000 ns, Power
+to 0 – 100 %, and Passes to 1 or more. An end-value box turns red while you type and takes the value on
+**Enter** or when you click away; if what you typed is not a number it goes back to the value it had.
+
 [Variation](sequencer.md#variation) works inside a Test Grid too: with a variation parameter enabled,
 its second range value gets its own axis selector, so you can sweep the variation range across the grid.
 Layers can also carry [sublayers](sequencer.md#sublayers), whose parameters get the same sweep controls.
 
-!!! note "Sweeps start fresh each session"
-    The grid setup, layer parameters, and label options are remembered between sessions, but the X/Y
-    axis selections and end values are not — set your sweeps before each run.
+The whole grid — size, position, layers, sweeps and labels — is saved with the project.
 
 ## Labels
 
@@ -64,8 +71,9 @@ section:
 With several layers or sublayers, names are prefixed so you can tell them apart — `L1:` for layer 1,
 `L1|S1:` for its first sublayer — and the static block splits into one column per source.
 
-Labels show on the canvas as you toggle them and are **engraved together with the grid**, using the
-**first layer's** Speed, Power, Frequency, and Q-Pulse in a single pass.
+Labels show on the canvas as you toggle them — if a trace is running it restarts to show the change. **Size** and
+the **Label** text turn red while you type; press Enter or click away to apply. Labels are **engraved together with
+the grid**, using the **first layer's** Speed, Power, Frequency, and Q-Pulse in a single pass.
 
 ## Running it
 
@@ -73,6 +81,17 @@ Labels show on the canvas as you toggle them and are **engraved together with th
 part first — see [Marking & Tracing](marking-tracing.md). **Run** marks every square with its swept
 values, then the labels. Inspect the coupon, pick the square you like, and read its settings straight
 off the engraved labels.
+
+### A square's settings in the Library
+
+Right-click a square on the canvas and choose **Open in Library**. The [Settings Library](library.md)
+opens with that square listed in its **Current file** column as a **2D Import** action — every layer and
+sublayer of the grid with the swept values worked out for that row and column, exactly as the square was
+marked. From there, **Save as Template…** keeps it as a 2D Import recipe you can apply to real artwork,
+and a template picked on the left compares against it (the **✓** / **≠** markers). The entry is a view:
+its values can't be edited there and nothing can be added to or removed from it. It follows the grid
+while the Library is open and is cleared when the Library is closed — right-click another square to send
+that one.
 
 !!! tip "A good first sweep"
     For a new material, start wide: sweep **Power** 20→80&nbsp;% on X and **Speed** 200→2000&nbsp;mm/s
