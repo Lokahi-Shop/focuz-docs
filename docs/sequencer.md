@@ -178,10 +178,11 @@ angle each pass, and **Center** (where the rings start, as a % of the spacing) f
 
 The small unlabelled box to the right of the fill type chooses the **order** the layer's shapes are marked in.
 The fill itself is always worked out once for the whole layer, with the **Group** setting deciding what counts
-as filled where shapes overlap, so nothing is marked twice in either setting. A shape is an outermost closed
-path together with any paths nested inside it (a letter and its holes):
+as filled where shapes overlap, so nothing is marked twice in either setting. A shape is one filled area as the
+Group setting produces it, together with its holes: a letter with its counters is one shape, two overlapping
+shapes merged by **Union** are one, and the same two under **Even / Odd** are two crescents:
 
-- **Ind** (the default) — each shape on its own: its share of the fill, then its outline, before the next
+- **Ind** (the default) — each shape on its own: its lines, then the outlines that bound it, before the next
   shape. A **Layer**-scope variation runs the whole way on every shape.
 - **All** — the whole fill first, then every outline. A **Layer**-scope variation runs once across the whole
   fill, by position, so the gap between two shapes takes its share of the ramp.
