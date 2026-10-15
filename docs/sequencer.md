@@ -176,17 +176,19 @@ Pick a **fill** to engrave a filled area (leave it off to mark just the outline)
 Common controls: **Spacing** and **Angle** for line fills, **Auto Rotate** (+ **Step**) to turn the fill
 angle each pass, and **Center** (where the rings start, as a % of the spacing) for **Contour**.
 
-The small unlabelled box to the right of the fill type chooses how the layer's shapes are marked. A shape is
-an outermost closed path together with any paths nested inside it (a letter and its holes), so holes stay holes
-in either setting:
+The small unlabelled box to the right of the fill type chooses the **order** the layer's shapes are marked in.
+The fill itself is always worked out once for the whole layer, with the **Group** setting deciding what counts
+as filled where shapes overlap, so nothing is marked twice in either setting. A shape is an outermost closed
+path together with any paths nested inside it (a letter and its holes):
 
-- **Ind** (the default) — each shape on its own: its fill, then its outline, before the next shape. Shapes
-  that only overlap are separate, so the overlap is marked twice.
-- **All** — every shape as one fill: one hatch over all of them, then every outline. Where shapes overlap,
-  the **Group** setting below decides what counts as filled.
+- **Ind** (the default) — each shape on its own: its share of the fill, then its outline, before the next
+  shape. A **Layer**-scope variation runs the whole way on every shape.
+- **All** — the whole fill first, then every outline. A **Layer**-scope variation runs once across the whole
+  fill, by position, so the gap between two shapes takes its share of the ramp.
 
-Open paths are never filled and mark one by one in either setting, and a layer with a single shape marks the
-same under both. Cut layers and cut bands do not show the box.
+Open paths are never filled and mark one by one after the shapes in either setting, and a layer with a single
+shape marks the same under both. Cut layers, cut bands and rotary actions do not show the box: a cut band is
+marked as built, and a rotary strip always marks its fill and then its outline.
 
 On 2D Import layers, two extra rows shape the filled area itself:
 
