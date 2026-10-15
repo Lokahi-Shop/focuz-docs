@@ -176,6 +176,18 @@ Pick a **fill** to engrave a filled area (leave it off to mark just the outline)
 Common controls: **Spacing** and **Angle** for line fills, **Auto Rotate** (+ **Step**) to turn the fill
 angle each pass, and **Center** (where the rings start, as a % of the spacing) for **Contour**.
 
+The small unlabelled box to the right of the fill type chooses how the layer's shapes are marked. A shape is
+an outermost closed path together with any paths nested inside it (a letter and its holes), so holes stay holes
+in either setting:
+
+- **Ind** (the default) — each shape on its own: its fill, then its outline, before the next shape. Shapes
+  that only overlap are separate, so the overlap is marked twice.
+- **All** — every shape as one fill: one hatch over all of them, then every outline. Where shapes overlap,
+  the **Group** setting below decides what counts as filled.
+
+Open paths are never filled and mark one by one in either setting, and a layer with a single shape marks the
+same under both. Cut layers and cut bands do not show the box.
+
 On 2D Import layers, two extra rows shape the filled area itself:
 
 - **Fill Offset** — grow (+) or shrink (−) the fill past the shape's boundary.
