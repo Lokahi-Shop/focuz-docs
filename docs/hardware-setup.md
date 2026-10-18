@@ -29,7 +29,10 @@ is the deeper reference.
 4. **Refresh** re-scans USB. **Install Driver** appears when a controller is plugged in but has no WinUSB
    driver — see [Installation & driver](getting-started/installation.md).
 
-FocuZ can reconnect automatically on startup. The controller must be connected to **Trace** or **Run**.
+FocuZ connects to the controller on its own: at startup, when the board is powered on or plugged in after FocuZ,
+and again after a power cycle or an unplugged cable. If the connection drops during a run or trace, the run stops
+and FocuZ reconnects when the board is back — press **Run** or **Trace** again. The controller must be connected to
+**Trace** or **Run**.
 
 ## Device Setup (Device ▸ Device Setup)
 
