@@ -98,8 +98,9 @@ right, and values flow from left to right.
 - **Whole nodes.** Click a layer, group or action heading on both sides and every setting of the
   matched nodes copies across in one step — including settings the right side doesn't show yet. A
   template layer with a Unidirectional fill updates a job layer whose fill is None: the fill
-  switches and all of its settings come along. A node with no counterpart position, or a sublayer
-  whose mode differs, is listed as skipped in the review — Update never adds, removes or converts.
+  switches and all of its settings come along. Names stay as they are. A node with no counterpart
+  position, or a sublayer whose mode differs, is listed as skipped in the review — Update never
+  adds, removes, renames or converts.
 - **Single settings.** Select rows below a heading and each selected setting needs its counterpart
   selected on the other side. A selected row with no matching selection turns **gray** — the gray
   rows are your to-do list, and the hint line names them. Select the counterpart, or deselect the
