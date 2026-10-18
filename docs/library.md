@@ -93,11 +93,17 @@ sequencer.
 ## Update — copy values onto matching settings
 
 Update is deliberate: you select **what's on offer** on the left and **what will change** on the
-right, and the two selections must line up perfectly before the button arms.
+right, and values flow from left to right.
 
-- Each selected setting needs its counterpart selected on the other side. A selected row with no
-  matching selection turns **gray** — the gray rows are your to-do list, and the hint line names
-  them. Select the counterpart, or deselect the row, and the gate opens.
+- **Whole nodes.** Click a layer, group or action heading on both sides and every setting of the
+  matched nodes copies across in one step — including settings the right side doesn't show yet. A
+  template layer with a Unidirectional fill updates a job layer whose fill is None: the fill
+  switches and all of its settings come along. A node with no counterpart position, or a sublayer
+  whose mode differs, is listed as skipped in the review — Update never adds, removes or converts.
+- **Single settings.** Select rows below a heading and each selected setting needs its counterpart
+  selected on the other side. A selected row with no matching selection turns **gray** — the gray
+  rows are your to-do list, and the hint line names them. Select the counterpart, or deselect the
+  row, and the gate opens.
 - Headings pair by position: Layer 2 on the left updates Layer 2 on the right. Action types must
   match, and sublayers pair with sublayers of the same mode.
 - Settings can also pair **across kinds** by name — select `Power` on a sublayer and `Power` on
@@ -112,8 +118,8 @@ right, and the two selections must line up perfectly before the button arms.
   italics* with their stored values, so you can see what a push would write or leave behind. A
   fill-type mismatch shows every row of both fills. These rows can't be selected and are never
   pushed on their own; push the switch and its rows travel with it.
-- **Changing a fill** through Update selects the new fill's own settings automatically and locks
-  them — they travel with the fill. Settings on the target that the new fill removes show in
+- **Changing a fill** through single-setting Update selects the new fill's own settings automatically
+  and locks them — they travel with the fill. Settings on the target that the new fill removes show in
   *red italics*; if one of them is selected, Update stays blocked until you deselect it, so
   nothing disappears without you seeing it.
 
