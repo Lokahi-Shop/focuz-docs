@@ -65,6 +65,9 @@ filled — except Field size, where leaving **both** X and Y empty means "use th
     loaded you can trim the remaining error with the **Scale** boxes, which fine-tune on top of the file:
     multiply the current scale by `target / measured`.
 
+    Speeds follow the same calibration: mark, jump and red-light speeds are converted with the lens's
+    calibrated counts per millimetre, so the mm/s you enter is what the galvo does.
+
 ## WCS (work coordinate) offset
 
 The **WCS offset** shifts the work origin so the mark lands where the part actually is. It's stored
