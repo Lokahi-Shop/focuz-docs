@@ -293,6 +293,10 @@ bands go. Each tick is off unless you tick it, and it leaves a steady value, Seg
 Random untouched. The Settings Library carries them as **Speed Dither**, **Power Dither** and **Freq
 Dither**. Q-Pulse has no dither: the source rounds it to its own list of pulse widths.
 
+With Power Dither off, a power ramp changes power only when it reaches the laser's next power step, so each
+band of the ramp marks at one steady power. On textures that react to every small change, such as a frost,
+leaving Power Dither off gives the cleanest bands.
+
 On a Hilbert or Snake fill, Fill and Layer run 0 → 100 % over the whole fill even when the curve is in
 several sections; Segment starts again on each section. Chord needs straight runs of at least 0.25 mm
 to show — on a Hilbert fill that means cells that size or larger (a low depth, or a large shape).
