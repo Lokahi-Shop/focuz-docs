@@ -79,7 +79,8 @@ The full device configuration screen, in two sections: **Configuration** (what t
     | Closed Path Tolerance | 0 – 1 mm |
     | Open MO Delay | 0 – 10000 ms |
     | Delay On / Off / End / Polygon | 0 – 65535 µs |
-    | Jump Speed / Min / Max | 1 – 20000 mm/s |
+    | Jump Speed | 1 – 20000 mm/s |
+    | Jump Min / Max | 0 – 30000 µs — the settle after a jump: Min for the shortest jumps, Max from Jump Limit up |
     | Jump Limit | 0 – 1000 mm |
 
     The delay and jump boxes use the same ranges as a layer's **Custom** timings.
