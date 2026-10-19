@@ -84,6 +84,7 @@ off the engraved labels.
 
 ### A square's settings in the Library
 
+The square under the pointer shows a thin outline on its edge, so you can see which one you are on.
 Right-click a square on the canvas and choose **Open in Library**. The [Settings Library](library.md)
 opens with that square listed in its **Current file** column as a **2D Import** action — every layer and
 sublayer of the grid with the swept values worked out for that row and column, exactly as the square was
