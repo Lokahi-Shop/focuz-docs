@@ -176,6 +176,33 @@ Pick a **fill** to engrave a filled area (leave it off to mark just the outline)
 Common controls: **Spacing** and **Angle** for line fills, **Auto Rotate** (+ **Step**) to turn the fill
 angle each pass, and **Center** (where the rings start, as a % of the spacing) for **Contour**.
 
+### Where a line fill starts
+
+The **Angle** also decides where a line fill begins and which way it travels. Each line runs in the angle's
+direction (0° = left to right), and the lines step across the shape a quarter turn anticlockwise from it — so
+the fill starts on the opposite side, at the edge a quarter turn clockwise from the angle:
+
+| Angle | Each line runs | Lines step toward | Marking starts at |
+|---|---|---|---|
+| 0° | left → right | up | the bottom edge, left end |
+| 45° | toward the upper right | the upper left | the lower-right corner |
+| 90° | bottom → top | the left | the right edge, bottom end |
+| 135° | toward the upper left | the lower left | the upper-right corner |
+| 180° | right → left | down | the top edge, right end |
+| 270° | top → bottom | the right | the left edge, top end |
+
+Add 180° to start from the other side: the lines lie the same way, but the fill begins on the opposite edge
+and each line runs the other way.
+
+- **Unidirectional** — every line runs as in the table.
+- **Bidirectional** — the first line runs as in the table, then each line comes back the other way.
+- **Cross** — the second set of lines follows the same rule at the angle + 90°.
+- **Auto Rotate** — each pass uses its own angle, so each pass starts from its own side.
+- With several shapes on a layer, the angle sets where the lines start inside each shape; which shape goes first
+  is the order setting below.
+
+The sides are as you see them on the canvas; the mark on the plate starts on the same side.
+
 The small unlabelled box to the right of the fill type chooses the **order** the layer's shapes are marked in.
 The fill itself is always worked out once for the whole layer, with the **Group** setting deciding what counts
 as filled where shapes overlap, so nothing is marked twice in either setting. A shape is one filled area as the
