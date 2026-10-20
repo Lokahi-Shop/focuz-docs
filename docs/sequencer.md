@@ -23,6 +23,10 @@ job tidy. To **reorder**, right-click a layer, group, sublayer or action in the 
 **Move to top** or **Move to bottom** — the marking order follows. The same menu **copies and pastes** layers, groups,
 actions, files, objects and sublayers, also between projects (see [the layer tree](canvas.md#the-layer-tree)).
 
+Deleting a layer, group or sublayer with the **X** on its header also removes its artwork from the canvas —
+the imported art, its border and any cut paths — unless another layer still uses it. One **Ctrl+Z** brings
+back the node and its artwork together.
+
 ### Repeats & run-every-Nth
 
 - **Passes** repeat a layer's mark N times.
