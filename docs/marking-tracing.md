@@ -44,7 +44,8 @@ Full and Single Layer always return the rotary to zero when they finish or are s
 ## Running a job
 
 Press **Run** to execute the sequence top to bottom. While running, **Run** becomes **Pause** — you can
-**Pause / Resume** or **Cancel**.
+**Pause / Resume** or **Cancel**. The button responds to a mouse click only — Space or Enter never presses it,
+so a stray key can't start a run or bring up the pause prompt.
 
 - **Device must be configured** (a `markcfg7` imported) or Run is blocked — see
   [First-run setup](getting-started/first-run.md).
