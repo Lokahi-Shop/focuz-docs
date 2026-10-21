@@ -13,6 +13,8 @@ Quick-reference material.
 | Undo | `Ctrl+Z` |
 | Redo | `Ctrl+Y` (or `Ctrl+Shift+Z`) |
 | Nudge selection | Arrow keys (step set in [Preferences](projects-files.md#preferences-edit-preferences)) |
+| Add to / remove from the layer-tree selection | `Ctrl`+click |
+| Select a range in the layer tree | `Shift`+click |
 
 *(More shortcuts will be added as they're confirmed.)*
 
