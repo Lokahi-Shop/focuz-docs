@@ -149,6 +149,9 @@ Right-click a row in the layer tree — an action, a group, a layer, a file or a
 - A **grid** for scale reference (toggleable).
 - Imported geometry colored by layer.
 - **Fill** and **cut** previews drawn over the shapes so you can see the marking pattern before you run.
+- **The same colours in the Preview.** The **Preview** (toolbar toggle) draws every layer's and sublayer's lines in
+  that fill's own colour — the colour its fill shows on the canvas and its square shows in the layer tree — so you can
+  tell the layers apart while scrubbing through a job. A cut band is red in both views.
 - **Very fine fills drawn solid.** A fill whose line spacing is below the **Solid fill below spacing** setting
   ([Preferences](projects-files.md#preferences-edit-preferences), default **0.05 mm**) shows as one solid area in the
   layer's colour instead of its lines — at that spacing the lines blend into a solid area anyway, and the canvas stays
