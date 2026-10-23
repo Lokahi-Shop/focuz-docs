@@ -192,18 +192,20 @@ stays.
 ### Layer colours
 
 Each layer and sublayer is drawn in its own colour — its fill and outlines on the canvas, its lines in the
-Preview, and its square in the layer tree. Out of the box the colours come in order from a set of **six**
-(orange, cyan, lime, pink, yellow, blue) and then repeat, so a job with more than six layers reuses them.
+Preview, and its square in the layer tree. Out of the box each layer and sublayer takes the next colour, in order,
+from a set of **36** (starting orange, cyan, lime, pink, yellow, blue); only a job with more than 36 starts reusing them.
 
 To choose one yourself, right-click a layer (or sublayer) and pick **Layer color…** (**Sublayer color…**):
 
 - Click or drag on the **colour wheel**, and set **Brightness** with the slider below it.
-- Or type the **R / G / B** values (0–255), or a **hex** code such as `#FF8800`.
-- Or click one of the six **Default colors**.
+- Or type the **R / G / B** values (0–255), or a **hex** code such as `#FF8800`. Like the sequencer's boxes, a box
+  stays **red** until you press **Enter** or click out of it.
+- Or click one of the **Recent colors** — the last six colours you picked (until then, the first six automatic ones).
 - **Automatic** goes back to the colour the row gets by its place in the list.
 
-**OK** applies it (one **Ctrl+Z** undoes it); **Cancel** leaves the colour as it was. The colour is saved with the
-project and works the same for 2D and 3D layers. It is for the screen only — it never changes what marks.
+The canvas follows along while the dialog is open. **OK** keeps the colour (one **Ctrl+Z** undoes it);
+**Cancel** puts it back as it was. The colour is saved with the project and works the same for 2D and 3D layers.
+It is for the screen only — it never changes what marks.
 
 ### Copy, paste and reorder
 
