@@ -22,6 +22,9 @@ single object inside a layer, and on a multi-selection it acts on everything sel
 job tidy. To **reorder**, right-click a layer, group, sublayer or action in the layer tree and choose **Move up**, **Move down**,
 **Move to top** or **Move to bottom** — the marking order follows. The same menu **copies and pastes** layers, groups,
 actions, files, objects and sublayers, also between projects (see [the layer tree](canvas.md#the-layer-tree)).
+To **delete** a group, layer or sublayer, right-click it in the layer tree — or right-click its header in the sequencer —
+and choose **Delete** (see [Deleting](canvas.md#deleting)); the same menu sets a layer's
+[colour](canvas.md#layer-colours).
 
 Deleting a layer, group or sublayer with the **X** on its header also removes its artwork from the canvas —
 the imported art, its border and any cut paths — unless another layer still uses it. One **Ctrl+Z** brings
