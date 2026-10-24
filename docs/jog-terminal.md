@@ -41,7 +41,9 @@ reopen it from the menu at any time.
   axis homes, FocuZ offers to move it to one of your [saved positions](#saved-positions), and finally asks
   **Return Z to MPos …?** Answer **No** to leave Z up — homing the other axis right after won't lift or ask
   again, and offers the Z return at its end. With Z disabled, FocuZ warns you to make sure nothing on Z —
-  especially the lens — is in the way.
+  especially the lens — is in the way. The **Home** button on the **Homing Required** message (shown when a
+  move or a run needs an axis homed) homes X and Y the same way — X, then Y — and offers the Z return once,
+  at the end.
 - While a Jog window move (Home X / Y, **Jog to**, **Home + Jog Lens 0**) is running, the jog pad and the lens
   button are locked, and the Terminal only sends real-time keys (`?` `!` `~`) and `$G`. If a move is
   interrupted, FocuZ says so.
