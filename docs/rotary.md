@@ -23,9 +23,9 @@ Rotary Setup keeps **one settings profile per fixture** — **Chuck**, **Roller*
 and each rotary action is tied to one of them: **2D Rotary (Chuck)** runs the Chuck profile, **2D
 Rotary (Roller)** the Roller profile. Set each fixture up once; switching fixtures is just picking
 the matching action. The **Fixture** selector at the top of the dialog chooses which profile the
-page edits, and its **Enabled** box decides whether that fixture's action is offered in the
-action list — untick the fixtures you don't own. (All three start enabled. A project that already
-contains a hidden fixture's action still runs.) Everything below is per profile.
+page edits — and the fixture selected when you press **OK** becomes **your machine's rotary type**: its
+action is the one offered in the action list, and the Jog window's rotary strip and the Rotary Jog action
+use it. (A project that already contains another fixture's action still runs.) Everything below is per profile.
 
 ### Settings
 
@@ -190,7 +190,7 @@ first run.
 The **2D Rotary (Chuck)** and **2D Rotary (Roller)** actions (Sequencer › Marking › **Rotary**) are
 a 2D Import that marks through the rotary engine — the only way a job runs on the rotary. Pick
 the one for the fixture on the bench: each runs its own Rotary Setup profile (the chuck action
-uses chuck math, the roller action roller math), and only enabled fixtures are listed. Both carry
+uses chuck math, the roller action roller math), and the one for your rotary type (Rotary Setup) is listed. Both carry
 the same **Rotary** section above their content:
 
 - **Part Diameter / Max Split Size / Number of Splits / Overlap** — the job's own values, saved
@@ -478,10 +478,10 @@ Each is a **fixture profile** in Rotary Setup with its own action:
 ## Rotary Jog
 
 **Rotary Jog (BJJCZ)** (Sequencer › Motion) turns the part as a step inside a sequence — between
-marks, or to present the next face. Choose the **fixture** (its profile's motor settings apply),
-**Rotation (degrees)** or **Distance (mm)** of part surface, the direction, and the amount. A
-distance needs the part's diameter — enter it on the action, or leave it blank to use the
-profile's Part Ø default. The live jog buttons on the Jog card have the same fixture choice.
+marks, or to present the next face. It uses your rotary type from Rotary Setup (that profile's motor
+settings apply); choose **Rotation (degrees)** or **Distance (mm)** of part surface, the direction, and the
+amount. A distance needs the part's diameter — enter it on the action, or leave it blank to use the
+profile's Part Ø default. The live jog buttons in the Jog window use the same rotary type.
 
 ## See also
 

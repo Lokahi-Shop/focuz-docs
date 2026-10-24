@@ -142,9 +142,9 @@ they're included when you export or import your settings.
 ### BJJCZ Rotary
 
 The Jog window's **BJJCZ Rotary** strip jogs the rotary axis (it runs on the laser controller, so
-it's live whenever the laser is connected): jog **CCW / CW** by the set angle, **Set Zero** to
-define the current position as zero, and **Go to Zero** to rotate back to it — with a live
-position readout. To turn the rotary as a step inside a job, use the **Rotary Jog (BJJCZ)** action in
+it's live whenever the laser is connected). It's one line: on the left your rotary type (the fixture chosen in
+[Rotary Setup](rotary.md#rotary-setup)), the live position and the jog angle; in the middle **CCW / CW** to jog by
+that angle; on the right **Set Zero** to define the current position as zero and **Go to Zero** to rotate back to it. To turn the rotary as a step inside a job, use the **Rotary Jog (BJJCZ)** action in
 the Sequencer (see [Rotary Jog](rotary.md#rotary-jog)). See [Rotary Marking](rotary.md).
 
 Like the Jog and Home buttons, **CCW / CW, Set Zero and Go to Zero are grayed out while a sequence
