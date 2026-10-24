@@ -1,10 +1,10 @@
-# Jog, Homing & Terminal
+# Motion, Homing & Terminal
 
 This section covers the **Jog** and **Terminal** screens and the **FocuZ:grbl controller** — the
 motion-and-accessory controller FocuZ pairs with your galvo controller.
 
 !!! info "What works today"
-    **Rotary jogging works now** — it runs on your BJJCZ laser controller, so the Jog window's
+    **Rotary jogging works now** — it runs on your BJJCZ laser controller, so the Motion window's
     [BJJCZ Rotary](#bjjcz-rotary) strip and the **Rotary Jog (BJJCZ)** sequencer action need nothing
     extra. The **FocuZ:grbl controller is coming soon**: X / Y / Z motion, homing, the Terminal and the
     accessory relays described below light up once it's available and connected.
@@ -26,9 +26,9 @@ so the homing, jogging, and accessory features described here light up once it's
     for example, jog an axis, switch on air assist, mark, then switch it off. How they coordinate within a
     run is covered in [Marking & Tracing](marking-tracing.md).
 
-## Jog
+## Motion window
 
-Open **Jog** from the menu. The Jog window gives you homing, axis control, and live position. It's a
+Open **Motion** from the menu (it was called Jog before). The Motion window gives you homing, axis control, and live position. It's a
 separate window, so you can leave it open beside the canvas and keep working — close it with the ✕ or
 reopen it from the menu at any time.
 
@@ -44,7 +44,7 @@ reopen it from the menu at any time.
   especially the lens — is in the way. The **Home** button on the **Homing Required** message (shown when a
   move or a run needs an axis homed) homes X and Y the same way — X, then Y — and offers the Z return once,
   at the end.
-- While a Jog window move (Home X / Y, **Jog to**, **Home + Jog Lens 0**) is running, the jog pad and the lens
+- While a Motion window move (Home X / Y, **Jog to**, **Home + Jog Lens 0**) is running, the jog pad and the lens
   button are locked, and the Terminal only sends real-time keys (`?` `!` `~`) and `$G`. If a move is
   interrupted, FocuZ says so.
 - Each axis tracks its own **homing status**. An axis must be homed for its absolute position to be
@@ -141,7 +141,7 @@ they're included when you export or import your settings.
 
 ### BJJCZ Rotary
 
-The Jog window's **BJJCZ Rotary** strip jogs the rotary axis (it runs on the laser controller, so
+The Motion window's **BJJCZ Rotary** strip jogs the rotary axis (it runs on the laser controller, so
 it's live whenever the laser is connected). It's one line: on the left your rotary type (the fixture chosen in
 [Rotary Setup](rotary.md#rotary-setup)), the live position and the jog angle; in the middle **CCW / CW** to jog by
 that angle; on the right **Set Zero** to define the current position as zero and **Go to Zero** to rotate back to it. To turn the rotary as a step inside a job, use the **Rotary Jog (BJJCZ)** action in
@@ -193,9 +193,9 @@ else — moves, `G53`, `G90` / `G91`, `$J=` jogs, M-codes, queries — is sent a
 homing and the other settings are sent as typed. A `G53` line is a move to a **machine** position (G90 / G91
 don't apply to it), and counts as an absolute move for the [homing check](#terminal).
 
-Moves FocuZ makes itself (an Axis Jog, a Jog sublayer, the Jog window's Home X / Y moves, Home + Jog Lens 0, a
+Moves FocuZ makes itself (an Axis Jog, a Jog sublayer, the Motion window's Home X / Y moves, Home + Jog Lens 0, a
 Home action's return to 0, Return to Saved 0, Go to Position) run at your controller's **homing seek rate** (`$25`),
-so they suit your machine (the Jog window's **Jog to** uses its Feed XY box). Every position FocuZ remembers — a
+so they suit your machine (the Motion window's **Jog to** uses its Feed XY box). Every position FocuZ remembers — a
 lens focus, a saved 0, a saved position — is a machine position, and FocuZ moves to it as one
 (a `G53` move), so nothing typed in the Terminal can shift where it lands. They leave the controller's G0/G1,
 feed and G90/G91 exactly as they found them.

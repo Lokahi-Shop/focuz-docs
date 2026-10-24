@@ -117,7 +117,7 @@ board's rotary port.
   selected lens's saved focal position; X/Y saved zeros are not available yet). Requires that axis's limit
   switches to be enabled in both + and − (Device Setup ▸ Enable Limit Switches); the warning icon says so.
 - **Go to Position (FocuZ)** — moves X and Y to one of the [saved positions](jog-terminal.md#saved-positions)
-  you set in the Jog window. Pick the **Position**; picking it ticks **Move X** / **Move Y** for the axes that
+  you set in the Motion window. Pick the **Position**; picking it ticks **Move X** / **Move Y** for the axes that
   slot holds (untick one to leave that axis where it is). **Raise Z first to MPos** lifts Z out of the way
   before the move — it starts at the top of Z's travel (your controller's homing pull-off) and never moves Z
   down; Z already higher is left alone. **Return Z after** brings Z back to where it was when the action
@@ -409,4 +409,4 @@ the **group**, and where it is attached decides when it runs — see
 ## See also
 
 - [Marking & Tracing](marking-tracing.md) — preview and run the job you built.
-- [Importing Geometry](importing.md) · [The Canvas](canvas.md) · [Jog, Homing & Terminal](jog-terminal.md)
+- [Importing Geometry](importing.md) · [The Canvas](canvas.md) · [Motion, Homing & Terminal](jog-terminal.md)

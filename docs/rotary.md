@@ -24,7 +24,7 @@ and each rotary action is tied to one of them: **2D Rotary (Chuck)** runs the Ch
 Rotary (Roller)** the Roller profile. Set each fixture up once; switching fixtures is just picking
 the matching action. The **Fixture** selector at the top of the dialog chooses which profile the
 page edits — and the fixture selected when you press **Save** becomes **your machine's rotary type**: its
-action is the one offered in the action list, and the Jog window's rotary strip and the Rotary Jog action
+action is the one offered in the action list, and the Motion window's rotary strip and the Rotary Jog action
 use it. (A project that already contains another fixture's action still runs.) Everything below is per profile.
 
 ### Settings
@@ -177,7 +177,7 @@ settings on every split would cost a full rest each time.
 Live rotary motion lives on the **Jog** card's **BJJCZ Rotary** strip (available while the
 controller is connected): jog **CCW / CW** by the set angle, **Set Zero** to define the current
 position as zero, and **Go to Zero** to rotate back to it at the Return Spd — with a live
-position readout. See [Jog, Homing & Terminal](jog-terminal.md).
+position readout. See [Motion, Homing & Terminal](jog-terminal.md).
 
 **Import Rotary from markcfg7…** pulls rotary parameters from an existing `markcfg7` file, the
 same way as the main [device import](hardware-setup.md). The Device Setup window
@@ -481,7 +481,7 @@ Each is a **fixture profile** in Rotary Setup with its own action:
 marks, or to present the next face. It uses your rotary type from Rotary Setup (that profile's motor
 settings apply); choose **Rotation (degrees)** or **Distance (mm)** of part surface, the direction, and the
 amount. A distance needs the part's diameter — enter it on the action, or leave it blank to use the
-profile's Part Ø default. The live jog buttons in the Jog window use the same rotary type.
+profile's Part Ø default. The live jog buttons in the Motion window use the same rotary type.
 
 ## See also
 

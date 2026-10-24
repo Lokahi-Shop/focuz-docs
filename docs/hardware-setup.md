@@ -204,5 +204,5 @@ saved copy back at that location.
 ## See also
 
 - [Lenses, Corrections & Calibration](lenses-corrections.md) — per-lens field size, correction, focal Z.
-- [Jog, Homing & Terminal](jog-terminal.md) — homing and axis control.
+- [Motion, Homing & Terminal](jog-terminal.md) — homing and axis control.
 - [Troubleshooting & FAQ](troubleshooting.md) — controller-not-found, driver issues.

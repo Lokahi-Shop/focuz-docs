@@ -50,7 +50,7 @@ still imports, but FocuZ tells you so and keeps marking and tracing disabled.
     - **load a `.cor` file** (recommended — the same lens file EZCad2 and LightBurn use), or
     - enter **manual** correction values — typed in directly, imported with **From device markcfg7**
       (reuses the file you imported above), or imported from any file with **Choose markcfg7…**.
-3. *(Later)* set the lens's **focal Z height** from the **Lens** menu — see
+3. *(Later)* set the lens's **focal Z height** in the **Motion** window — see
    [Lenses, Corrections & Calibration](../lenses-corrections.md).
 
 You can configure **more than one lens** here — pick a lens, set it up, then switch to another and come
