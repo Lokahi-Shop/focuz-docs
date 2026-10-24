@@ -116,7 +116,7 @@ board's rotary port.
 - **Return to Saved 0 (FocuZ)** — the same panel, but each ticked axis moves to its saved 0 (Z = the
   selected lens's saved focal position; X/Y saved zeros are not available yet). Requires that axis's limit
   switches to be enabled in both + and − (Device Setup ▸ Enable Limit Switches); the warning icon says so.
-- **Go to Position (FocuZ)** — moves X and Y to one of the [saved positions](jog-terminal.md#saved-positions)
+- **Go to Position (FocuZ)** — moves X and Y to one of the [saved positions](jog-terminal.md#xy-positioning-saved-positions)
   you set in the Motion window. Pick the **Position**; picking it ticks **Move X** / **Move Y** for the axes that
   slot holds (untick one to leave that axis where it is). **Raise Z first to MPos** lifts Z out of the way
   before the move — it starts at the top of Z's travel (your controller's homing pull-off) and never moves Z

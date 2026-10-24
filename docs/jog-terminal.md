@@ -38,7 +38,7 @@ reopen it from the menu at any time.
 - **Home X / Home Y keep the lens out of the way.** With Z enabled, FocuZ first lifts Z to the top of its
   travel (just below the Z switch — your controller's homing pull-off, `$27Z`) and remembers where it was. If Z
   isn't homed yet, Z homes first instead — FocuZ tells you, because Z's current position is then lost. Then the
-  axis homes, FocuZ offers to move it to one of your [saved positions](#saved-positions), and finally asks
+  axis homes, FocuZ offers to move it to one of your [saved positions](#xy-positioning-saved-positions), and finally asks
   **Return Z to MPos …?** Answer **No** to leave Z up — homing the other axis right after won't lift or ask
   again, and offers the Z return at its end. With Z disabled, FocuZ warns you to make sure nothing on Z —
   especially the lens — is in the way. The **Home** button on the **Homing Required** message (shown when a
@@ -118,10 +118,11 @@ controller and simply grays out when the laser isn't connected.
 - **Home & Jog to Lens 0** homes Z and moves to the active lens's saved focal height in one step — handy
   for getting straight to focus (see [Lenses, Corrections & Calibration](lenses-corrections.md)).
 
-The right-hand column beside the pad holds **Lens focus** (see
-[Lenses, Corrections & Calibration](lenses-corrections.md)) and **Saved positions**.
+The **FocuZ (custom GRBL)** box has three outlined sections: **Jog** (the pad, on the left), and on the right
+**Z Lens focus** (see [Lenses, Corrections & Calibration](lenses-corrections.md)) above **X/Y Positioning**
+(saved positions, below).
 
-### Saved positions
+### X/Y Positioning (saved positions)
 
 Save up to **99 X/Y positions** — a fixture corner, a jig, a load position — and jog back to them, or move
 there inside a job with the [Go to Position](sequencer.md) action.

@@ -86,8 +86,8 @@ tracing — changing it never moves artwork on the canvas.
 
 ## Focal height (Z) per lens
 
-Each lens has a focal working distance. Set it in the **Motion** window (top menu), in the right-hand column of the
-**FocuZ (custom GRBL)** section, under **Lens focus — L1** (the heading names the lens it saves to):
+Each lens has a focal working distance. Set it in the **Motion** window (top menu), in the **Z Lens focus**
+section of the **FocuZ (custom GRBL)** box — its first line names the lens it saves to (**L1**, for example):
 
 1. **Jog Z** to the optimum focal distance.
 2. Enter an **Offset** (the distance between the baseboard and the top of your test material).
@@ -99,7 +99,7 @@ Each lens has a focal working distance. Set it in the **Motion** window (top men
 > Z positions.
 
 > The **FocuZ (custom GRBL)** section shows its controls only when a FocuZ compatible controller is
-> connected, and **Lens focus** only when the **Z** axis is enabled too (Device ▸ Connection) — otherwise
+> connected, and **Z Lens focus** only when the **Z** axis is enabled too (Device ▸ Connection) — otherwise
 > it says so. Without a motorized Z there is nothing for FocuZ to save a focal height against.
 
 Everything stored against a lens — the correction source, field size, angle, WCS offset, and the saved
