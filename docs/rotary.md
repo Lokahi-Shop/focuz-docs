@@ -23,7 +23,7 @@ Rotary Setup keeps **one settings profile per fixture** — **Chuck**, **Roller*
 and each rotary action is tied to one of them: **2D Rotary (Chuck)** runs the Chuck profile, **2D
 Rotary (Roller)** the Roller profile. Set each fixture up once; switching fixtures is just picking
 the matching action. The **Fixture** selector at the top of the dialog chooses which profile the
-page edits — and the fixture selected when you press **OK** becomes **your machine's rotary type**: its
+page edits — and the fixture selected when you press **Save** becomes **your machine's rotary type**: its
 action is the one offered in the action list, and the Jog window's rotary strip and the Rotary Jog action
 use it. (A project that already contains another fixture's action still runs.) Everything below is per profile.
 
