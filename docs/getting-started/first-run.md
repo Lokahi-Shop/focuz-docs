@@ -45,7 +45,7 @@ still imports, but FocuZ tells you so and keeps marking and tracing disabled.
 
 1. Pick the **Lens** you're using (**L1–L8**). FocuZ keeps settings **per lens**, so each lens has its own
    field size, scale and angle, and correction. Give it a short **Label** (for example "110" or "174") —
-   the label follows the lens everywhere it's shown, including the lens dropdown.
+   the label follows the lens everywhere it's shown, including the lens button.
 2. Click **Corrections…** to open the correction dialog and either:
     - **load a `.cor` file** (recommended — the same lens file EZCad2 and LightBurn use), or
     - enter **manual** correction values — typed in directly, imported with **From device markcfg7**

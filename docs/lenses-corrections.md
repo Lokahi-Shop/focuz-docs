@@ -6,9 +6,16 @@ aligning the mark to the part.
 
 ## Lens management
 
-- Pick the active lens (**L1–L8**) from the lens selector. Each lens carries its own field size, correction,
-  work offset, and focal Z.
-- Selecting a lens shows a short summary of its settings.
+- The **lens button** at the left of the top bar shows the lens in use: its number and label, its field size,
+  and a status dot — **green** ready, **orange** needs Z homed or set, **grey** no lens. With the Z axis
+  enabled, an orange **Z not set** tag shows when the lens has no saved focus Z.
+- Click it to list all eight lenses (**L1–L8**, always in that order) with each one's label, field size, focus
+  Z and Z offset (the Z columns show only with the Z axis enabled). A slot that isn't set up yet reads
+  **Not set up** — pick it, then set it up in [the Corrections dialog](#distortion-correction-the-corrections-dialog).
+  **Lens settings…** at the bottom opens the Lens card.
+- Picking a lens opens the **Lens change** card: the lens's summary and details, then the moves on offer
+  (home, jog to the lens's saved Z, or continue without movement) — or **Cancel** to keep the current lens.
+  Each lens carries its own field size, correction, work offset, and focal Z.
 - When the lens needs a known Z reference, FocuZ may prompt to home / jog before marking (see the
   [homing gate](marking-tracing.md#lens-activation-homing-gate)).
 
