@@ -23,9 +23,9 @@ Rotary Setup keeps **one settings profile per fixture** — **Chuck**, **Roller*
 and each rotary action is tied to one of them: **2D Rotary (Chuck)** runs the Chuck profile, **2D
 Rotary (Roller)** the Roller profile. Set each fixture up once; switching fixtures is just picking
 the matching action. The **Fixture** selector at the top of the dialog chooses which profile the
-page edits, and its **Enabled** box decides whether that fixture's action is offered in the
-action list — untick the fixtures you don't own. (All three start enabled. A project that already
-contains a hidden fixture's action still runs.) Everything below is per profile.
+page edits — and the fixture selected when you press **Save** becomes **your machine's rotary type**: its
+action is the one offered in the action list, and the Motion window's rotary strip and the Rotary Jog action
+use it. (A project that already contains another fixture's action still runs.) Everything below is per profile.
 
 ### Settings
 
@@ -177,7 +177,7 @@ settings on every split would cost a full rest each time.
 Live rotary motion lives on the **Jog** card's **BJJCZ Rotary** strip (available while the
 controller is connected): jog **CCW / CW** by the set angle, **Set Zero** to define the current
 position as zero, and **Go to Zero** to rotate back to it at the Return Spd — with a live
-position readout. See [Jog, Homing & Terminal](jog-terminal.md).
+position readout. See [Motion, Homing & Terminal](jog-terminal.md).
 
 **Import Rotary from markcfg7…** pulls rotary parameters from an existing `markcfg7` file, the
 same way as the main [device import](hardware-setup.md). The Device Setup window
@@ -190,7 +190,7 @@ first run.
 The **2D Rotary (Chuck)** and **2D Rotary (Roller)** actions (Sequencer › Marking › **Rotary**) are
 a 2D Import that marks through the rotary engine — the only way a job runs on the rotary. Pick
 the one for the fixture on the bench: each runs its own Rotary Setup profile (the chuck action
-uses chuck math, the roller action roller math), and only enabled fixtures are listed. Both carry
+uses chuck math, the roller action roller math), and the one for your rotary type (Rotary Setup) is listed. Both carry
 the same **Rotary** section above their content:
 
 - **Part Diameter / Max Split Size / Number of Splits / Overlap** — the job's own values, saved
@@ -374,7 +374,7 @@ it runs:
 | Attached to | Added with | Runs | Can be |
 |---|---|---|---|
 | a **layer** | **+ Sub** on the layer's header | **on the split** — right after the layer's pass on that split, while the strip is still under the lens | Mark, Groove |
-| the **group** | **+ Sublayer** on the group's header | **per revolution** — after the group's layers have gone round | Mark, Jog, Terminal |
+| the **group** | **+ Sublayer** on the group's header (pick it with the **▼** beside **+ Layer**) | **per revolution** — after the group's layers have gone round | Mark, Jog, Terminal |
 
 **+ Sub** on a layer is shown once **Enable sublayers on layers** is ticked in
 [Rotary Setup](#rotary-behavior) (it is off by default); **+ Sublayer** on the group is always there.
@@ -414,8 +414,8 @@ the layer's header; the sublayer is listed at the bottom of that layer, under bo
 
 ### Group sublayers
 
-On **2D Rotary** and **2D Rotary (Roller)** a sublayer can also be attached to a **group**: press
-**+ Sublayer** on the group's header. A group sublayer is listed at the bottom of the group, below
+On **2D Rotary** and **2D Rotary (Roller)** a sublayer can also be attached to a **group**: on the
+group's header press **▼** beside **+ Layer**, choose **Sublayer**, then press **+ Sublayer**. A group sublayer is listed at the bottom of the group, below
 its layers, and runs **after** them — per revolution, never on each split:
 
 - **Mark** takes its own trip round the part with its own settings. It has no artwork of its own;
@@ -439,7 +439,8 @@ stop until you pick another — it is never switched to a different layer for yo
 
 #### On the 2D Grid action
 
-The **Group** header of a [2D Grid](#the-2d-grid-action) action carries **+ Sublayer** as well. A
+The **Group** header of a [2D Grid](#the-2d-grid-action) action offers **+ Sublayer** as well, from
+the **▼** beside **+ Layer**. A
 group sublayer sits at the bottom of the Group, under the last grid, and runs after the grids have
 gone round — every **Run every** revolutions of the Group. Its **Source** lists the grids by the
 names you see on screen (**Layer 1**, **Layer 2**, …) in place of layers.
@@ -477,10 +478,10 @@ Each is a **fixture profile** in Rotary Setup with its own action:
 ## Rotary Jog
 
 **Rotary Jog (BJJCZ)** (Sequencer › Motion) turns the part as a step inside a sequence — between
-marks, or to present the next face. Choose the **fixture** (its profile's motor settings apply),
-**Rotation (degrees)** or **Distance (mm)** of part surface, the direction, and the amount. A
-distance needs the part's diameter — enter it on the action, or leave it blank to use the
-profile's Part Ø default. The live jog buttons on the Jog card have the same fixture choice.
+marks, or to present the next face. It uses your rotary type from Rotary Setup (that profile's motor
+settings apply); choose **Rotation (degrees)** or **Distance (mm)** of part surface, the direction, and the
+amount. A distance needs the part's diameter — enter it on the action, or leave it blank to use the
+profile's Part Ø default. The live jog buttons in the Motion window use the same rotary type.
 
 ## See also
 

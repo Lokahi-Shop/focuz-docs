@@ -15,6 +15,10 @@ Your job is organized as a tree:
   sublayer moves an axis by a distance each time it fires; moving to a set position is planned as an action of
   its own.
 
+To **add** to the tree, use the add button on the right of a header, beside its **Repeat**. On a group header it
+reads **+ Layer**; press **▼** beside it to switch it to **+ Group** (or **+ Sublayer** on rotary actions), then press
+it to add one. A layer's header has **+ Sub** for its sublayers.
+
 To skip a node without deleting it, **right-click** it in the canvas [layer tree](canvas.md#the-layer-tree)
 and choose **Disable marking** (**Enable marking** turns it back on). A disabled node is gray in the tree
 and in its header, isn't drawn on the canvas, and doesn't mark. The same menu works on an imported file or a
@@ -22,8 +26,11 @@ single object inside a layer, and on a multi-selection it acts on everything sel
 job tidy. To **reorder**, right-click a layer, group, sublayer or action in the layer tree and choose **Move up**, **Move down**,
 **Move to top** or **Move to bottom** — the marking order follows. The same menu **copies and pastes** layers, groups,
 actions, files, objects and sublayers, also between projects (see [the layer tree](canvas.md#the-layer-tree)).
+To **delete** a group, layer or sublayer, right-click it in the layer tree — or right-click its header in the sequencer —
+and choose **Delete** (see [Deleting](canvas.md#deleting)); the same menu sets a layer's
+[colour](canvas.md#layer-colours).
 
-Deleting a layer, group or sublayer with the **X** on its header also removes its artwork from the canvas —
+Deleting a layer, group or sublayer also removes its artwork from the canvas —
 the imported art, its border and any cut paths — unless another layer still uses it. One **Ctrl+Z** brings
 back the node and its artwork together.
 
@@ -109,6 +116,14 @@ board's rotary port.
 - **Return to Saved 0 (FocuZ)** — the same panel, but each ticked axis moves to its saved 0 (Z = the
   selected lens's saved focal position; X/Y saved zeros are not available yet). Requires that axis's limit
   switches to be enabled in both + and − (Device Setup ▸ Enable Limit Switches); the warning icon says so.
+- **Go to Position (FocuZ)** — moves X and Y to one of the [saved positions](jog-terminal.md#xy-positioning-saved-positions)
+  you set in the Motion window. Pick the **Position**; picking it ticks **Move X** / **Move Y** for the axes that
+  slot holds (untick one to leave that axis where it is). **Raise Z first to MPos** lifts Z out of the way
+  before the move — it starts at the top of Z's travel (your controller's homing pull-off) and never moves Z
+  down; Z already higher is left alone. **Return Z after** brings Z back to where it was when the action
+  started. The moves run at your controller's homing rate. Everything is checked when you press **Run**: the
+  slot must hold each ticked axis, and each moving axis must be enabled and homed (a Home action as action #1
+  counts) — a warning icon beside Duplicate names anything that would stop it.
 
 !!! note "Return actions only raise Z"
     Both Return actions may only move Z in the + direction. Before a run starts, FocuZ walks the sequence's Z
@@ -394,4 +409,4 @@ the **group**, and where it is attached decides when it runs — see
 ## See also
 
 - [Marking & Tracing](marking-tracing.md) — preview and run the job you built.
-- [Importing Geometry](importing.md) · [The Canvas](canvas.md) · [Jog, Homing & Terminal](jog-terminal.md)
+- [Importing Geometry](importing.md) · [The Canvas](canvas.md) · [Motion, Homing & Terminal](jog-terminal.md)

@@ -1,10 +1,10 @@
-# Jog, Homing & Terminal
+# Motion, Homing & Terminal
 
 This section covers the **Jog** and **Terminal** screens and the **FocuZ:grbl controller** — the
 motion-and-accessory controller FocuZ pairs with your galvo controller.
 
 !!! info "What works today"
-    **Rotary jogging works now** — it runs on your BJJCZ laser controller, so the Jog window's
+    **Rotary jogging works now** — it runs on your BJJCZ laser controller, so the Motion window's
     [BJJCZ Rotary](#bjjcz-rotary) strip and the **Rotary Jog (BJJCZ)** sequencer action need nothing
     extra. The **FocuZ:grbl controller is coming soon**: X / Y / Z motion, homing, the Terminal and the
     accessory relays described below light up once it's available and connected.
@@ -26,19 +26,27 @@ so the homing, jogging, and accessory features described here light up once it's
     for example, jog an axis, switch on air assist, mark, then switch it off. How they coordinate within a
     run is covered in [Marking & Tracing](marking-tracing.md).
 
-## Jog
+## Motion window
 
-Open **Jog** from the menu. The Jog window gives you homing, axis control, and live position. It's a
+Open **Motion** from the menu (it was called Jog before). The Motion window gives you homing, axis control, and live position. It's a
 separate window, so you can leave it open beside the canvas and keep working — close it with the ✕ or
 reopen it from the menu at any time.
 
 ### Homing
 
 - **Home X / Home Y / Home Z** home each axis independently; **Home All** runs them in sequence.
-- **Home + X0 / Home + Y0** (under Home X / Home Y) home that axis and then move it to 0. X/Y 0 is the
-  machine's 0: on an axis that homes toward +, that is right at the limit switch and can trip it.
-  While they (or **Home + Jog Lens 0**) are moving, the jog pad and the lens dropdown are locked, and the
-  Terminal only sends real-time keys (`?` `!` `~`) and `$G`. If the move to 0 is interrupted, FocuZ says so.
+- **Home X / Home Y keep the lens out of the way.** With Z enabled, FocuZ first lifts Z to the top of its
+  travel (just below the Z switch — your controller's homing pull-off, `$27Z`) and remembers where it was. If Z
+  isn't homed yet, Z homes first instead — FocuZ tells you, because Z's current position is then lost. Then the
+  axis homes, FocuZ offers to move it to one of your [saved positions](#xy-positioning-saved-positions), and finally asks
+  **Return Z to MPos …?** Answer **No** to leave Z up — homing the other axis right after won't lift or ask
+  again, and offers the Z return at its end. With Z disabled, FocuZ warns you to make sure nothing on Z —
+  especially the lens — is in the way. The **Home** button on the **Homing Required** message (shown when a
+  move or a run needs an axis homed) homes X and Y the same way — X, then Y — and offers the Z return once,
+  at the end.
+- While a Motion window move (Home X / Y, **Jog to**, **Home + Jog Lens 0**) is running, the jog pad and the lens
+  button are locked, and the Terminal only sends real-time keys (`?` `!` `~`) and `$G`. If a move is
+  interrupted, FocuZ says so.
 - Each axis tracks its own **homing status**. An axis must be homed for its absolute position to be
   trustworthy; homing is what establishes a known origin (by touching the limit switch).
 - After an **alarm** (e.g. a limit hit) an axis loses its homed status and must be re-homed before its
@@ -47,8 +55,8 @@ reopen it from the menu at any time.
   moves the head *away* from the work. FocuZ checks the controller's Z homing direction when it
   connects and keeps Z homing locked if it is set to home downward. X and Y may home in either
   direction.
-- Every Z homing also resets the controller's Z work offset to zero, so FocuZ's saved lens heights
-  always refer to the same place — whichever Home button or command you used.
+- FocuZ's saved lens heights and saved positions are machine positions, so they always refer to the same
+  place — whichever Home button or command you used.
 
 !!! note "While a sequence is running"
     The **Jog** and **Home** buttons are grayed out while a sequence runs or is paused — a manual move
@@ -59,7 +67,7 @@ reopen it from the menu at any time.
     The **Run / Pause** button becomes **Cancel All** (red). A homing cycle can't be paused, so Cancel All
     resets the controller — that stops all motion and ends the sequence. FocuZ then unlocks the controller
     and asks you to home again before the next absolute move. While any axis homes — from a Home button, a
-    Home action, or `$H` typed in the Terminal — the jog pad and the lens dropdown are grayed out, and the
+    Home action, or `$H` typed in the Terminal — the jog pad and the lens button are grayed out, and the
     Terminal only sends real-time keys, `$G` and `$X`.
 
 ### Motorized axes (Enable X / Y / Z)
@@ -83,6 +91,11 @@ in when a sequence finishes; see [Distance mode](#distance-mode-g90-g91).
 
 All three axes are **off by default**. Your choices persist until you change them.
 
+!!! tip "Set the Z− limit switch so Z can never crash"
+    Z homes up to its top switch, but a **Z− limit switch** at the bottom of travel is what stops a wrong move
+    from driving the lens into the work or the bed. Mount it at a height where Z stops **before** anything
+    can touch, and enable it in **Device Setup ▸ Enable Limit Switches**.
+
 ### Position & limits
 
 - **MPos** is the machine (absolute) position; **LPos** is the work position FocuZ derives from it.
@@ -105,12 +118,34 @@ controller and simply grays out when the laser isn't connected.
 - **Home & Jog to Lens 0** homes Z and moves to the active lens's saved focal height in one step — handy
   for getting straight to focus (see [Lenses, Corrections & Calibration](lenses-corrections.md)).
 
+The **FocuZ (custom GRBL)** box has three outlined sections: **Jog** (the pad, on the left), and on the right
+**Z Lens focus** (see [Lenses, Corrections & Calibration](lenses-corrections.md)) above **X/Y Positioning**
+(saved positions, below).
+
+### X/Y Positioning (saved positions)
+
+Save up to **99 X/Y positions** — a fixture corner, a jig, a load position — and jog back to them, or move
+there inside a job with the [Go to Position](sequencer.md) action.
+
+- **Position** picks the slot (01–99); each entry shows its name, or its X / Y values when it has no name.
+- **Name** — one name per slot, shared by its X and Y. The box turns red while you type; **Enter** or
+  clicking away keeps it, **Esc** puts the old name back.
+- **Save X** / **Save Y** store that axis's current machine position in the slot. The axis must be homed
+  first. Saving over a value already there asks first. Each axis is saved on its own, so a slot can hold just
+  X, just Y, or both. A disabled axis's button is grayed out.
+- **Clear** empties the slot (it asks first).
+- **Jog to 07** moves the enabled axes the slot holds to the saved position in **one move**, at the pad's
+  **Feed XY**. Z is not moved — lift it first if anything could be in the way. Both axes must be homed.
+
+Saved positions belong to the machine, not to a project: they're the same whichever project is open, and
+they're included when you export or import your settings.
+
 ### BJJCZ Rotary
 
-The Jog window's **BJJCZ Rotary** strip jogs the rotary axis (it runs on the laser controller, so
-it's live whenever the laser is connected): jog **CCW / CW** by the set angle, **Set Zero** to
-define the current position as zero, and **Go to Zero** to rotate back to it — with a live
-position readout. To turn the rotary as a step inside a job, use the **Rotary Jog (BJJCZ)** action in
+The Motion window's **BJJCZ Rotary** strip jogs the rotary axis (it runs on the laser controller, so
+it's live whenever the laser is connected). It's one line: on the left your rotary type (the fixture chosen in
+[Rotary Setup](rotary.md#rotary-setup)), the live position and the jog angle; in the middle **CCW / CW** to jog by
+that angle; on the right **Set Zero** to define the current position as zero and **Go to Zero** to rotate back to it. To turn the rotary as a step inside a job, use the **Rotary Jog (BJJCZ)** action in
 the Sequencer (see [Rotary Jog](rotary.md#rotary-jog)). See [Rotary Marking](rotary.md).
 
 Like the Jog and Home buttons, **CCW / CW, Set Zero and Go to Zero are grayed out while a sequence
@@ -139,14 +174,14 @@ in view along the bottom.
 
 ### Commands FocuZ doesn't send
 
-FocuZ works in one coordinate system (**G54**), in **millimetres**, and keeps every lens and fixture
-offset itself. A command that would change that underneath it could move where FocuZ's own moves end
-up, so the Terminal answers with a one-line reason and **does not send** it:
+The FocuZ controller has **one coordinate system — the machine's** — works in **millimetres**, and FocuZ keeps
+every lens and fixture offset itself. A command that would try to change that is not something the controller
+supports, so the Terminal answers with a one-line reason and **does not send** it:
 
 | Not sent | Why |
 | --- | --- |
-| `G55`–`G59` | FocuZ runs in G54 |
-| `G10`, `G92`, `G43.1`, `G49` | FocuZ manages work offsets itself |
+| `G55`–`G59` | the controller has one coordinate system |
+| `G10`, `G92`, `G43.1`, `G49` | no work offsets on the controller — FocuZ keeps every offset itself |
 | `G20`, `G93` | FocuZ works in mm, at units-per-minute feed |
 | `G2`, `G3`, `G38` | arcs and probing aren't supported |
 | `$N…` (startup lines), `$C` (check mode) | not supported with FocuZ |
@@ -156,11 +191,18 @@ The same rules apply to **GRBL - Command** actions and **Terminal** sublayers: a
 these lines is stopped at **Run** with the line and the reason listed, so you can correct it.
 In a job, homing (`$H…`) and controller settings are refused too — use a **Home** action to home. Everything
 else — moves, `G53`, `G90` / `G91`, `$J=` jogs, M-codes, queries — is sent as typed. In the Terminal itself,
-homing and the other settings are sent as typed.
+homing and the other settings are sent as typed. A `G53` line is a move to a **machine** position (G90 / G91
+don't apply to it), and counts as an absolute move for the [homing check](#terminal).
 
-Moves FocuZ makes itself (an Axis Jog, a Jog sublayer, Home + X0 / Y0, Home + Jog Lens 0, a Home action's
-return to 0) run at your controller's **homing seek rate** (`$25`), so they suit your machine. They leave the
-controller's G0/G1, feed and G90/G91 exactly as they found them.
+Moves FocuZ makes itself (an Axis Jog, a Jog sublayer, the Motion window's Home X / Y moves, Home + Jog Lens 0, a
+Home action's return to 0, Return to Saved 0, Go to Position) run at your controller's **homing seek rate** (`$25`),
+so they suit your machine (the Motion window's **Jog to** uses its Feed XY box). Every position FocuZ remembers — a
+lens focus, a saved 0, a saved position — is a machine position, and FocuZ moves to it as one
+(a `G53` move), so nothing typed in the Terminal can shift where it lands. They leave the controller's G0/G1,
+feed and G90/G91 exactly as they found them.
+
+FocuZ also checks the controller's firmware build when it connects: a controller with an older build than this
+FocuZ needs is refused with an **Incompatible Controller** message — update the controller firmware and connect again.
 
 ### Feed rate on G1 lines
 
