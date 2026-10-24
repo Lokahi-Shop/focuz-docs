@@ -35,10 +35,16 @@ reopen it from the menu at any time.
 ### Homing
 
 - **Home X / Home Y / Home Z** home each axis independently; **Home All** runs them in sequence.
-- **Home + X0 / Home + Y0** (under Home X / Home Y) home that axis and then move it to 0. X/Y 0 is the
-  machine's 0: on an axis that homes toward +, that is right at the limit switch and can trip it.
-  While they (or **Home + Jog Lens 0**) are moving, the jog pad and the lens button are locked, and the
-  Terminal only sends real-time keys (`?` `!` `~`) and `$G`. If the move to 0 is interrupted, FocuZ says so.
+- **Home X / Home Y keep the lens out of the way.** With Z enabled, FocuZ first lifts Z to the top of its
+  travel (just below the Z switch — your controller's homing pull-off, `$27Z`) and remembers where it was. If Z
+  isn't homed yet, Z homes first instead — FocuZ tells you, because Z's current position is then lost. Then the
+  axis homes, FocuZ offers to move it to one of your [saved positions](#saved-positions), and finally asks
+  **Return Z to MPos …?** Answer **No** to leave Z up — homing the other axis right after won't lift or ask
+  again, and offers the Z return at its end. With Z disabled, FocuZ warns you to make sure nothing on Z —
+  especially the lens — is in the way.
+- While a Jog window move (Home X / Y, **Jog to**, **Home + Jog Lens 0**) is running, the jog pad and the lens
+  button are locked, and the Terminal only sends real-time keys (`?` `!` `~`) and `$G`. If a move is
+  interrupted, FocuZ says so.
 - Each axis tracks its own **homing status**. An axis must be homed for its absolute position to be
   trustworthy; homing is what establishes a known origin (by touching the limit switch).
 - After an **alarm** (e.g. a limit hit) an axis loses its homed status and must be re-homed before its
@@ -47,8 +53,8 @@ reopen it from the menu at any time.
   moves the head *away* from the work. FocuZ checks the controller's Z homing direction when it
   connects and keeps Z homing locked if it is set to home downward. X and Y may home in either
   direction.
-- Every Z homing also resets the controller's Z work offset to zero, so FocuZ's saved lens heights
-  always refer to the same place — whichever Home button or command you used.
+- FocuZ's saved lens heights and saved positions are machine positions, so they always refer to the same
+  place — whichever Home button or command you used.
 
 !!! note "While a sequence is running"
     The **Jog** and **Home** buttons are grayed out while a sequence runs or is paused — a manual move
@@ -83,6 +89,11 @@ in when a sequence finishes; see [Distance mode](#distance-mode-g90-g91).
 
 All three axes are **off by default**. Your choices persist until you change them.
 
+!!! tip "Set the Z− limit switch so Z can never crash"
+    Z homes up to its top switch, but a **Z− limit switch** at the bottom of travel is what stops a wrong move
+    from driving the lens into the work or the bed. Mount it at a height where Z stops **before** anything
+    can touch, and enable it in **Device Setup ▸ Enable Limit Switches**.
+
 ### Position & limits
 
 - **MPos** is the machine (absolute) position; **LPos** is the work position FocuZ derives from it.
@@ -104,6 +115,27 @@ controller and simply grays out when the laser isn't connected.
 
 - **Home & Jog to Lens 0** homes Z and moves to the active lens's saved focal height in one step — handy
   for getting straight to focus (see [Lenses, Corrections & Calibration](lenses-corrections.md)).
+
+The right-hand column beside the pad holds **Lens focus** (see
+[Lenses, Corrections & Calibration](lenses-corrections.md)) and **Saved positions**.
+
+### Saved positions
+
+Save up to **99 X/Y positions** — a fixture corner, a jig, a load position — and jog back to them, or move
+there inside a job with the [Go to Position](sequencer.md) action.
+
+- **Position** picks the slot (01–99); each entry shows its name, or its X / Y values when it has no name.
+- **Name** — one name per slot, shared by its X and Y. The box turns red while you type; **Enter** or
+  clicking away keeps it, **Esc** puts the old name back.
+- **Save X** / **Save Y** store that axis's current machine position in the slot. The axis must be homed
+  first. Saving over a value already there asks first. Each axis is saved on its own, so a slot can hold just
+  X, just Y, or both. A disabled axis's button is grayed out.
+- **Clear** empties the slot (it asks first).
+- **Jog to 07** moves the enabled axes the slot holds to the saved position in **one move**, at the pad's
+  **Feed XY**. Z is not moved — lift it first if anything could be in the way. Both axes must be homed.
+
+Saved positions belong to the machine, not to a project: they're the same whichever project is open, and
+they're included when you export or import your settings.
 
 ### BJJCZ Rotary
 
@@ -159,9 +191,10 @@ else — moves, `G53`, `G90` / `G91`, `$J=` jogs, M-codes, queries — is sent a
 homing and the other settings are sent as typed. A `G53` line is a move to a **machine** position (G90 / G91
 don't apply to it), and counts as an absolute move for the [homing check](#terminal).
 
-Moves FocuZ makes itself (an Axis Jog, a Jog sublayer, Home + X0 / Y0, Home + Jog Lens 0, a Home action's
-return to 0, Return to Saved 0) run at your controller's **homing seek rate** (`$25`), so they suit your machine.
-Every position FocuZ remembers — a lens focus, a saved 0 — is a machine position, and FocuZ moves to it as one
+Moves FocuZ makes itself (an Axis Jog, a Jog sublayer, the Jog window's Home X / Y moves, Home + Jog Lens 0, a
+Home action's return to 0, Return to Saved 0, Go to Position) run at your controller's **homing seek rate** (`$25`),
+so they suit your machine (the Jog window's **Jog to** uses its Feed XY box). Every position FocuZ remembers — a
+lens focus, a saved 0, a saved position — is a machine position, and FocuZ moves to it as one
 (a `G53` move), so nothing typed in the Terminal can shift where it lands. They leave the controller's G0/G1,
 feed and G90/G91 exactly as they found them.
 

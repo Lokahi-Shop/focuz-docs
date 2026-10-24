@@ -116,6 +116,14 @@ board's rotary port.
 - **Return to Saved 0 (FocuZ)** — the same panel, but each ticked axis moves to its saved 0 (Z = the
   selected lens's saved focal position; X/Y saved zeros are not available yet). Requires that axis's limit
   switches to be enabled in both + and − (Device Setup ▸ Enable Limit Switches); the warning icon says so.
+- **Go to Position (FocuZ)** — moves X and Y to one of the [saved positions](jog-terminal.md#saved-positions)
+  you set in the Jog window. Pick the **Position**; picking it ticks **Move X** / **Move Y** for the axes that
+  slot holds (untick one to leave that axis where it is). **Raise Z first to MPos** lifts Z out of the way
+  before the move — it starts at the top of Z's travel (your controller's homing pull-off) and never moves Z
+  down; Z already higher is left alone. **Return Z after** brings Z back to where it was when the action
+  started. The moves run at your controller's homing rate. Everything is checked when you press **Run**: the
+  slot must hold each ticked axis, and each moving axis must be enabled and homed (a Home action as action #1
+  counts) — a warning icon beside Duplicate names anything that would stop it.
 
 !!! note "Return actions only raise Z"
     Both Return actions may only move Z in the + direction. Before a run starts, FocuZ walks the sequence's Z
