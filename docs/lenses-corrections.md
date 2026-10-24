@@ -12,7 +12,7 @@ aligning the mark to the part.
 - Click it to list all eight lenses (**L1–L8**, always in that order) with each one's label, field size, focus
   Z and Z offset (the Z columns show only with the Z axis enabled). A slot that isn't set up yet reads
   **Not set up** — pick it, then set it up in [the Corrections dialog](#distortion-correction-the-corrections-dialog).
-  **Lens settings…** at the bottom opens the Lens card.
+  **Lens settings…** at the bottom opens **Lens Corrections** for the lens in use.
 - Picking a lens opens the **Lens change** card: the lens's summary and details, then the moves on offer
   (home, jog to the lens's saved Z, or continue without movement) — or **Cancel** to keep the current lens.
   Each lens carries its own field size, correction, work offset, and focal Z.
