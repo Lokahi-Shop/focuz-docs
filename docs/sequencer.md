@@ -15,6 +15,10 @@ Your job is organized as a tree:
   sublayer moves an axis by a distance each time it fires; moving to a set position is planned as an action of
   its own.
 
+To **add** to the tree, use the add button on the right of a header, beside its **Repeat**. On a group header it
+reads **+ Layer**; press **▼** beside it to switch it to **+ Group** (or **+ Sublayer** on rotary actions), then press
+it to add one. A layer's header has **+ Sub** for its sublayers.
+
 To skip a node without deleting it, **right-click** it in the canvas [layer tree](canvas.md#the-layer-tree)
 and choose **Disable marking** (**Enable marking** turns it back on). A disabled node is gray in the tree
 and in its header, isn't drawn on the canvas, and doesn't mark. The same menu works on an imported file or a
@@ -22,8 +26,11 @@ single object inside a layer, and on a multi-selection it acts on everything sel
 job tidy. To **reorder**, right-click a layer, group, sublayer or action in the layer tree and choose **Move up**, **Move down**,
 **Move to top** or **Move to bottom** — the marking order follows. The same menu **copies and pastes** layers, groups,
 actions, files, objects and sublayers, also between projects (see [the layer tree](canvas.md#the-layer-tree)).
+To **delete** a group, layer or sublayer, right-click it in the layer tree — or right-click its header in the sequencer —
+and choose **Delete** (see [Deleting](canvas.md#deleting)); the same menu sets a layer's
+[colour](canvas.md#layer-colours).
 
-Deleting a layer, group or sublayer with the **X** on its header also removes its artwork from the canvas —
+Deleting a layer, group or sublayer also removes its artwork from the canvas —
 the imported art, its border and any cut paths — unless another layer still uses it. One **Ctrl+Z** brings
 back the node and its artwork together.
 

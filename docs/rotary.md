@@ -374,7 +374,7 @@ it runs:
 | Attached to | Added with | Runs | Can be |
 |---|---|---|---|
 | a **layer** | **+ Sub** on the layer's header | **on the split** — right after the layer's pass on that split, while the strip is still under the lens | Mark, Groove |
-| the **group** | **+ Sublayer** on the group's header | **per revolution** — after the group's layers have gone round | Mark, Jog, Terminal |
+| the **group** | **+ Sublayer** on the group's header (pick it with the **▼** beside **+ Layer**) | **per revolution** — after the group's layers have gone round | Mark, Jog, Terminal |
 
 **+ Sub** on a layer is shown once **Enable sublayers on layers** is ticked in
 [Rotary Setup](#rotary-behavior) (it is off by default); **+ Sublayer** on the group is always there.
@@ -414,8 +414,8 @@ the layer's header; the sublayer is listed at the bottom of that layer, under bo
 
 ### Group sublayers
 
-On **2D Rotary** and **2D Rotary (Roller)** a sublayer can also be attached to a **group**: press
-**+ Sublayer** on the group's header. A group sublayer is listed at the bottom of the group, below
+On **2D Rotary** and **2D Rotary (Roller)** a sublayer can also be attached to a **group**: on the
+group's header press **▼** beside **+ Layer**, choose **Sublayer**, then press **+ Sublayer**. A group sublayer is listed at the bottom of the group, below
 its layers, and runs **after** them — per revolution, never on each split:
 
 - **Mark** takes its own trip round the part with its own settings. It has no artwork of its own;
@@ -439,7 +439,8 @@ stop until you pick another — it is never switched to a different layer for yo
 
 #### On the 2D Grid action
 
-The **Group** header of a [2D Grid](#the-2d-grid-action) action carries **+ Sublayer** as well. A
+The **Group** header of a [2D Grid](#the-2d-grid-action) action offers **+ Sublayer** as well, from
+the **▼** beside **+ Layer**. A
 group sublayer sits at the bottom of the Group, under the last grid, and runs after the grids have
 gone round — every **Run every** revolutions of the Group. Its **Source** lists the grids by the
 names you see on screen (**Layer 1**, **Layer 2**, …) in place of layers.
