@@ -157,6 +157,15 @@ Right-click a row in the layer tree — an action, a group, a layer, a file or a
   layer's colour instead of its lines — at that spacing the lines blend into a solid area anyway, and the canvas stays
   quick. Holes in the art stay empty. Only the screen changes: the job marks every line, and the time estimate
   counts them. Set it to **0** to always see the lines.
+    - It covers every fill on the canvas: layer and sublayer fills, **cut bands** (a 2D Cut / 3D Cut band or a Cut
+      sublayer shows as a solid red ring, with any holding-tab gaps left open), **2D Grid** fills (cut to their cells),
+      and every fill type, **Wobble** and **Hilbert** included.
+    - A **Hilbert** fill has no spacing box: its spacing is set by its **Depth** and the size of the art (the art's
+      diagonal ÷ 2^Depth). When one Hilbert fill in a layer is fine enough to show solid, all of that layer's Hilbert
+      fills show solid, so they never mix.
+    - A cut with **Distance 0** is a single line and always shows as one.
+    - The **Preview** always shows lines, so you see exactly what marks. The wrapped 3D rotary view also keeps its
+      lines.
 
 ## The layer tree
 
