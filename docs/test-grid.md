@@ -22,8 +22,9 @@ The grid appears on the canvas immediately, centered on the active lens's work o
 as you change the fields.
 
 To move the grid, type a **Location** (red until Enter or clicking away, then the grid moves so that point
-lands on your value) or select the grid in the layer tree and nudge it with the arrow keys (the same steps as
-nudging art — the Location boxes follow the nudge). Picking another point on the registration square only
+lands on your value) or nudge it with the arrow keys (the same steps as nudging art — the Location boxes
+follow the nudge). A new or opened Test Grid starts with its first layer selected in the layer tree, so the
+arrow keys and the registration square are ready straight away. Picking another point on the registration square only
 changes what the Location reads; the grid stays put. The labels move with the grid, it stays where you put it
 when you run or trace, and the position is saved with the project.
 
