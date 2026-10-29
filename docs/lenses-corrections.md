@@ -87,13 +87,15 @@ tracing — changing it never moves artwork on the canvas.
 ## Focal height (Z) per lens
 
 Each lens has a focal working distance. Set it in the **Motion** window (top menu), in the **Z Lens focus**
-section of the **FocuZ (custom GRBL)** box — its first line names the lens it saves to (**L1**, for example):
+section of the **FocuZ (custom GRBL)** box — its first line names the lens it saves to (**L1**, for example)
+and shows the **Offset** saved with that lens, or **Z not set** until a focal has been saved:
 
 1. **Jog Z** to the optimum focal distance.
 2. Enter an **Offset** (the distance between the baseboard and the top of your test material).
 3. Click **Save Current Z** to commit the focal distance + offset to the active lens.
 
-> The Offset can be updated later without re-finding the focal distance (**Update Offset**). The
+> The Offset box starts empty each time you change lens — the saved value stays on the heading for
+> reference. The Offset can be updated later without re-finding the focal distance (**Update Offset**). The
 > **Instructions** button repeats these three steps in the app. Saving the focal and updating the
 > Offset are locked while a sequence is running or paused — a new focal would move the job's later
 > Z positions.
