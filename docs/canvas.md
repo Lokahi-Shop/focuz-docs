@@ -182,6 +182,12 @@ The small square beside a layer or sublayer shows or hides its **fill** preview 
 own colour, filled while the preview is shown and hollow while it is hidden — and right-clicking an
 object, an import or a border offers **Delete**.
 
+A **Test Grid** lists its layers and sublayers as rows too, under the action. Each row has the eye (the
+layer's own show switch — the cells belong to the grid, so a Test Grid layer has no object rows of its own),
+the fill square in the colour that layer is drawn with on the cells, and the same right-click options as any
+layer row: **Layer color…**, **Enable / Disable marking** and **Delete**. Copy, Paste and Flip are not offered
+there, because a Test Grid layer holds no art of its own.
+
 ### Copy, paste and reorder
 
 Right-click a layer, group, action, imported file, single object or sublayer and choose **Copy**. The clipboard holds
