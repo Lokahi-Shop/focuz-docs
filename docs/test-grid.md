@@ -67,14 +67,15 @@ section:
 | **Decimals** | Decimal places for values, **0** (no decimal point) to **3**. |
 | **X Grid** | The swept values below each **column**. |
 | **Y Grid** | The swept values beside each **row**. |
-| **X Axis** / **Y Axis** | The parameter *names* next to those value rows and columns. |
+| **Units** | The last value of each sweep ends with its unit — `3000 mm/s`, `75%`, `200 kHz`, `20 ns`, `3 passes` — so the axes read without separate name labels. |
 | **Static** | The fixed (un-swept) parameters above the grid as `Name: value`. |
 | **Static columns** / **Static rows** | Shown while **Static** is on: lay the static block out as one **column per layer** (the default) or one **row per layer** (`Speed: 800 \| Power: 30 \| …`). |
 | **Label** | Your own free text along the right edge — the material name, lens, date, anything. |
 
-With several layers or sublayers, names are prefixed so you can tell them apart — `L1:` for layer 1,
-`L1|S1:` for its first sublayer — and the static block splits into one column per source (or one row per
-source with **Static rows**, the first source on top).
+With several layers or sublayers, the static block splits into one column per source — `L1` for layer 1,
+`L1|S1` for its first sublayer — (or one row per source with **Static rows**, the first source on top), and
+each sweep's first value starts with its source (`L2 800 … 3000 mm/s`). A variation sweep starts with its
+name (`VarSpd 800 …`), since its unit alone would read like the base parameter's.
 
 Labels show on the canvas as you toggle them — if a trace is running it restarts to show the change. **Size** and
 the **Label** text turn red while you type; press Enter or click away to apply. Labels are **engraved together with
