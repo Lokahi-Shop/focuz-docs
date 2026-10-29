@@ -16,16 +16,16 @@ The **Grid** section defines the coupon:
 | **Rows** / **Columns** | How many squares in each direction. |
 | **Width** / **Length** (mm) | The size of each square. |
 | **Spacing** (mm) | The gap between squares. |
-| **Location X** / **Y** / **Z** (mm) | Where the grid sits, measured from the design origin. A new grid is **0, 0, 0** — centered. |
+| **Location X** / **Y** (mm) | Where the grid's **registration point** sits, measured from the design origin — the same point the canvas registration square selects for art (centre by default, or a corner or edge). A new grid is centered: **0, 0** with the centre point. |
 
 The grid appears on the canvas immediately, centered on the active lens's work offset, and redraws live
 as you change the fields.
 
-To move the grid, type a **Location** or select the grid in the layer tree and nudge it with the arrow keys
-(the same steps as nudging art — the Location boxes follow the nudge). The labels move with it, it stays
-where you put it when you run or trace, and the position is saved with the project. **Location Z** (and
-**Alt + Up / Down** when nudging) sets the height the grid is drawn at on the canvas, like a layer's
-Location Z — it does not change the mark.
+To move the grid, type a **Location** (red until Enter or clicking away, then the grid moves so that point
+lands on your value) or select the grid in the layer tree and nudge it with the arrow keys (the same steps as
+nudging art — the Location boxes follow the nudge). Picking another point on the registration square only
+changes what the Location reads; the grid stays put. The labels move with the grid, it stays where you put it
+when you run or trace, and the position is saved with the project.
 
 ## Layers and parameter sweeps
 
@@ -69,7 +69,7 @@ section:
 | **Y Grid** | The swept values beside each **row**. |
 | **X Axis** / **Y Axis** | The parameter *names* next to those value rows and columns. |
 | **Static** | The fixed (un-swept) parameters above the grid as `Name: value`. |
-| **Static rows** | Lay the static block out as one **row per layer** (`Speed: 800 \| Power: 30 \| …`) instead of one column per layer. |
+| **Static columns** / **Static rows** | Shown while **Static** is on: lay the static block out as one **column per layer** (the default) or one **row per layer** (`Speed: 800 \| Power: 30 \| …`). |
 | **Label** | Your own free text along the right edge — the material name, lens, date, anything. |
 
 With several layers or sublayers, names are prefixed so you can tell them apart — `L1:` for layer 1,
