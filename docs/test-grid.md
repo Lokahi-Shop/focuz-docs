@@ -64,7 +64,7 @@ section:
 |---|---|
 | **Size** (mm) | Text height of the labels. |
 | **Fill** | Engrave the label text filled instead of outline-only. |
-| **Decimals** | Decimal places for values, **0** (no decimal point) to **3**. |
+| **Decimals** | The most decimal places a value shows, **0** to **3** — trailing zeros are dropped, so `25.50` reads `25.5` and `800.00` reads `800`. |
 | **X Grid** | The swept values below each **column**. |
 | **Y Grid** | The swept values beside each **row**. |
 | **Units** | The last value of each sweep ends with its unit — `3000 mm/s`, `75%`, `200 kHz`, `20 ns`, `3 passes` — so the axes read without separate name labels. |
