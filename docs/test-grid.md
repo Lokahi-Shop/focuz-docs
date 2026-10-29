@@ -70,7 +70,7 @@ section:
 | **Units** | The last value of each sweep ends with its unit — `3000 mm/s`, `75%`, `200 kHz`, `20 ns`, `3 passes` — so the axes read without separate name labels. |
 | **Static** | The fixed (un-swept) parameters above the grid as `Name: value`. |
 | **Static columns** / **Static rows** | Shown while **Static** is on: lay the static block out as one **column per layer** (the default, full names) or one **row per layer** with short names — `S: 800 \| P: 30 \| F: 30 \| Q: 20 \| Pass: 1`. |
-| **Fill** (beside Label) | One line per layer that fills, standing to the right of the Label: the fill type's first three letters, then `Space:` line spacing, `A:` fill angle and `AR:` the auto-rotate step or `no` — `Bid \| Space: 0.016 \| A: 0 \| AR: no`. A layer with no fill gets no line. |
+| **Fill data** | One line per layer that fills, standing to the right of the Label: the fill type's first three letters, then `Space:` line spacing, `A:` fill angle and `AR:` the auto-rotate step or `off` — `Bid \| Space: 0.016 \| A: 0 \| AR: off`. A layer with no fill gets no line. |
 | **Label** | Your own free text along the right edge — the material name, lens, date, anything. |
 
 With several layers or sublayers, the static block splits into one column per source — `L1` for layer 1,
