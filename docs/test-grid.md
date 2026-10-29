@@ -31,6 +31,11 @@ The action starts with one layer; **+ Layer** adds more. Each layer carries the 
 every square marks each enabled layer in turn, and the fill type, spacing, and angle stay the same
 across the whole grid. What *changes* from square to square is up to the sweep controls:
 
+Each layer is also a row in the [layer tree](canvas.md#the-layer-tree), under the Test Grid action: its eye
+shows or hides that layer's fill on the cells, the small square shows the colour it is drawn in — the layers
+take the same palette colours as every other layer, so two of them are easy to tell apart on the canvas — and
+the row's right-click menu offers **Layer color…**, **Enable / Disable marking** and **Delete**.
+
 Next to **Speed**, **Power**, **Frequency**, **Q-Pulse**, and **Passes** sits an **axis selector**:
 
 - **⊘** — fixed: every square uses the value in the parameter box.
