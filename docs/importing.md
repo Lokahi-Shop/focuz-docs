@@ -115,8 +115,8 @@ model into layers for marking.
 
     Whatever stays open is highlighted in **orange** on the design canvas, so you can see where the model
     may not mark as expected; the highlight disappears once the mesh is closed. Modeled through-holes (a
-    sealed tunnel, a torus) are closed surfaces and are never flagged or touched. **STEP** files are true
-    solids and skip the check.
+    sealed tunnel, a torus) are closed surfaces and are never flagged or touched. **STEP** files get the
+    same check: a true solid reads closed, and the rare face that could not be meshed gets the same offer.
 
     OBJ faces with any number of corners import complete, and a 3MF keeps its units and the placement of
     every part on the plate.

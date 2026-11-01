@@ -29,11 +29,11 @@ one after another, so the laser removes material in the shape of the model — n
 
 ## Tips for clean results
 
-- **STEP or STL?** With a STEP file there's no need to worry about the model being watertight — it's a
-  true solid. An STL (or other mesh) is checked on import: if it has holes, FocuZ offers to **repair** it
-  (see [Importing](../importing.md)), and anything it can't close is highlighted in orange on the canvas.
-  A mesh can also show **micro-faceting** if the model doesn't have enough polygons; export it with a
-  finer mesh for smooth curves.
+- **STEP or STL?** A STEP file is a true solid, so it is normally watertight by construction. Every 3D
+  import is checked anyway: if the model has holes, FocuZ offers to **repair** it (see
+  [Importing](../importing.md)), and anything it can't close is highlighted in orange on the canvas. An
+  STL (or other mesh) can also show **micro-faceting** if the model doesn't have enough polygons; export
+  it with a finer mesh for smooth curves.
 - **Fill Through** fills the mesh or solid down to the workspace, eliminating any undercuts.
   **Respect holes** keeps through-holes empty.
 - **Z+ Offset** includes space above the model, in mm or in slices.
