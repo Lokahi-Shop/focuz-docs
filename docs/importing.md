@@ -102,9 +102,24 @@ model into layers for marking.
 - The **slice count** follows the model's depth and your settings.
 
 !!! note "Open meshes"
-    STL/OBJ/3MF meshes are checked on import, and FocuZ tells you if a mesh isn't closed ("watertight").
-    An open mesh can slice unpredictably — repair it in your modeling tool, or use **STEP** for true
-    solids (always closed).
+    STL/OBJ/3MF meshes are checked on import. If a mesh isn't closed ("watertight") — it has holes, or
+    faces that share an edge with more than one other face — FocuZ says how many and offers to repair it:
+
+    - **Repair and import** merges coincident corners, joins open edges within 0.01 mm, removes doubled
+      faces, caps each hole and makes the faces consistent. A through-hole whose wall faces are missing is
+      bridged with a wall, so it stays a hole; a pipe end keeps its bore. The file on disk is not changed.
+      If some edges still can't be closed, FocuZ tells you what remains and suggests repairing the model
+      in your modeling tool and importing it again (you can still **Import anyway**).
+    - **Import as-is** brings the model in unchanged.
+    - **Esc** cancels the import.
+
+    Whatever stays open is highlighted in **orange** on the design canvas, so you can see where the model
+    may not mark as expected; the highlight disappears once the mesh is closed. Modeled through-holes (a
+    sealed tunnel, a torus) are closed surfaces and are never flagged or touched. **STEP** files are true
+    solids and skip the check.
+
+    OBJ faces with any number of corners import complete, and a 3MF keeps its units and the placement of
+    every part on the plate.
 
 !!! note "STEP size and curves"
     A STEP model imports at its **exact** size — the Size fields show the model's true dimensions (a 49 mm
