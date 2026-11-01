@@ -6,8 +6,8 @@ FocuZ is a commercial product by **Lokahi Innovation**.
 - **Support email:** <info@lokahi.shop>
 - **Downloads & releases:** [github.com/Lokahi-Shop/FocuZ/releases](https://github.com/Lokahi-Shop/FocuZ/releases/latest)
 
-Inside FocuZ, the **Help** menu opens these directly: **Lokahi.Shop** (the website), **Documentation** (this wiki)
-and **YouTube** (the Lokahi channel). **Help → About** shows the version you are running.
+Inside FocuZ, the **Help** menu opens these directly: **Documentation** (this wiki), **YouTube** (the Lokahi channel)
+and **Lokahi.Shop** (the website). **Help → About** shows the version you are running.
 
 ## Before you reach out
 
