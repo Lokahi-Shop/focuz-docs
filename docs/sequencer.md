@@ -373,7 +373,8 @@ Per-layer or per-action overrides for laser/jump timing (laser on/off, polygon c
 speed and ramp). Choose **Device** to use this machine's defaults from
 [Laser Setup](hardware-setup.md#timing-defaults), or **Custom** to give that layer its own eight values.
 A Custom layer keeps every value you set, including any that happen to equal the defaults, so a later change
-to the Timing Defaults never reaches it; the small reset arrows put a value back to the current default. A
+to the Timing Defaults never reaches it; the small reset arrows put a value back to the current default. A sublayer
+has a third choice, **Layer**: it marks with its layer's timings, whatever that layer's mode. A
 value you type is saved when you press **Enter** or leave the box.
 
 ## Sublayers
