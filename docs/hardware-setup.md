@@ -134,7 +134,7 @@ offered at all is the **Enable pulse width** switch under [Fiber pulse settings]
 - **Open MO delay** — delay after opening the laser's master oscillator before marking.
 - **Enable pulse width** — whether your source has pulse-width control (MOPA on, non-MOPA off). With it off,
   FocuZ hides every Q-Pulse input: the layer and sublayer rows, Vary Q-Pulse, the Test Grid's Q-Pulse sweeps
-  and the Settings Library's Q-Pulse fields. Nothing is changed or lost: every stored Q-Pulse value stays
+  and the Settings Library's Q-Pulse fields. Nothing is changed or lost: each layer still marks with its stored Q-Pulse, as EZCad2 does with its box unticked; the value stays
   with its layer and comes back when you turn the switch on again, and a Test Grid sweep saved on Q-Pulse
   simply does not run while the switch is off. A `markcfg7` import sets the switch from the file.
 - **Laser leak handle** — closes the master oscillator between jobs on lasers that need it.
