@@ -31,7 +31,9 @@ The action starts with one layer; **+ Layer** adds more. Each layer carries the 
 every square marks each enabled layer in turn, and the fill type, spacing, and angle stay the same
 across the whole grid. What *changes* from square to square is up to the sweep controls:
 
-Next to **Speed**, **Power**, **Frequency**, **Q-Pulse**, and **Passes** sits an **axis selector**:
+Next to **Speed**, **Power**, **Frequency**, **Q-Pulse**, and **Passes** sits an **axis selector** (Q-Pulse only
+while **Enable pulse width** is on in [Laser Setup](hardware-setup.md#fiber-pulse-settings); a Q-Pulse sweep saved
+in a grid waits, unused, while it is off):
 
 - **⊘** — fixed: every square uses the value in the parameter box.
 - **X** — sweep across **columns**: the parameter box is the value for the **leftmost** column, and an
