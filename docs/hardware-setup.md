@@ -63,13 +63,15 @@ lens you're configuring.
 
 The full device configuration screen, on two tabs. **Laser** holds **Configuration** (what the machine is)
 and **Timing Defaults** (this machine's default delay and jump values). **Axis** holds the motorized-axis
-settings: Enable X / Y / Z and the positioning mode a run leaves the motion controller in.
+settings: Enable X / Y / Z and the positioning mode a run leaves the motion controller in (Absolute, G90, is the
+default and the recommended choice).
 
 !!! note "Save or Cancel"
     Nothing you change here is kept until you press **Save** — not the boxes, the galvo and mirror choices,
     the checkboxes, the Axis tab's settings or a markcfg7 import. **Cancel** (or Esc, or ✕) leaves
     everything as it was. Each box keeps to its range: type a value past it and it changes to the nearest
-    limit when you press Enter or leave the box. An **empty box turns red**, and **Save** stays unavailable
+    limit when you press Enter or leave the box. A value you have typed shows **red until you press Enter or leave
+    the box**, which takes it into the dialog (Save still writes it, Cancel still discards it). An **empty box stays red**, and **Save** stays unavailable
     until it is filled — as it does while a **Max** is not above its **Min**.
 
     | Box | Range |
