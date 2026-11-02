@@ -41,7 +41,7 @@ in a grid waits, unused, while it is off):
 - **Y** — sweep across **rows**, from the **bottom** row (parameter box) to the **top** row (end value).
 
 Sweep as many parameters as you like — put one on X and another on Y to cover a two-dimensional space
-in a single mark. Q-Pulse and Passes sweep in whole numbers.
+in a single mark. Q-Pulse and Passes sweep in whole numbers; a Q-Pulse sweep is set aside while **Enable pulse width** is off.
 
 Every value a sweep uses, start and end, is held to the same limits as the parameter itself: Speed and Frequency to
 the [limits in Laser Setup](hardware-setup.md#speed-and-frequency-limits), Q-Pulse to 1 – 1000 ns, Power
