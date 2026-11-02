@@ -160,8 +160,10 @@ Right-click a row in the layer tree — an action, a group, a layer, a file or a
 
 ## The layer tree
 
-The panel on the left edge of the canvas lists every action's groups, layers, sublayers and imported
-objects. Two things decide what you see and what marks:
+The panel on the left edge of the canvas lists every action, numbered as in the sequencer, with its groups,
+layers, sublayers and imported objects. An action with nothing to list under it — a Rotary Jog, a GRBL or
+Sequencer action — is a single row, and a slot that has no type yet shows as **(empty)**. Right-click any action
+row to move, copy or delete it. Two things decide what you see and what marks:
 
 - **Marking on or off** — right-click a group, layer, sublayer, imported file or single object and choose
   **Disable marking** or **Enable marking**. A disabled line is **gray**: it is not drawn on the canvas and it
