@@ -52,8 +52,9 @@ reopen it from the menu at any time.
 
 !!! note "While a sequence is running"
     The **Jog** and **Home** buttons are grayed out while a sequence runs or is paused — a manual move
-    in the middle of a run would change positions the run was checked against. They come back as soon
-    as the run finishes or is cancelled.
+    in the middle of a run would change positions the run was checked against. So are the **Z Lens focus**
+    controls (**Offset**, **Update Offset**, **Save Current Z**), the saved **Position** chooser and the
+    rotary jog amount. They all come back as soon as the run finishes or is cancelled.
 
 !!! note "While an axis is homing"
     The **Run / Pause** button becomes **Cancel All** (red). A homing cycle can't be paused, so Cancel All
@@ -195,7 +196,7 @@ absolute (`G90`) or incremental (`G91`) mode; it shows **—** while disconnecte
 ### While a sequence is running
 
 Only the status query `?` and `$G` (show current modes) are sent while a sequence runs or is paused.
-Anything else is answered with "a sequence is running" and not sent. To stop a run, use **Pause** /
+Anything else is answered with "a sequence is running" and not sent — the refused line is also written to the log. To stop a run, use **Pause** /
 **Cancel** in FocuZ (or **Soft Reset**, which also cancels it).
 
 ## Accessory relays — air, vacuum & more
