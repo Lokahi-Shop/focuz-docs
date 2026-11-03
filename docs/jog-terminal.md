@@ -197,7 +197,7 @@ absolute (`G90`) or incremental (`G91`) mode; it shows **—** while disconnecte
 
 Only the status query `?` and `$G` (show current modes) are sent while a sequence runs or is paused.
 Anything else is answered with "a sequence is running" and not sent — the refused line is also written to the log. To stop a run, use **Pause** /
-**Cancel** in FocuZ (or **Soft Reset**, which also cancels it).
+**Cancel** in FocuZ (or **Soft Reset**, which also cancels it — its confirmation says so, with **No** as the default).
 
 ## Accessory relays — air, vacuum & more
 
