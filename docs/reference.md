@@ -34,6 +34,8 @@ Quick-reference material.
 
 FocuZ stores per-user settings and logs under **`%AppData%\FocuZ`**. The user log is a text file in that
 folder — include it when contacting [Support](support.md). *(Exact filenames to be documented.)*
+Unexpected errors are written to **`crash.log`** in the same folder — send it too if FocuZ closed on its own or
+showed an "Unexpected Error" message.
 
 ## Glossary
 
