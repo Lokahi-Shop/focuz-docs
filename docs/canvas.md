@@ -179,8 +179,33 @@ objects. Two things decide what you see and what marks:
 | Disabled | Either | Hidden — gray in the tree | No |
 
 The small square beside a layer or sublayer shows or hides its **fill** preview — it is drawn in that fill's
-own colour, filled while the preview is shown and hollow while it is hidden — and right-clicking an
-object, an import or a border offers **Delete**.
+own colour, filled while the preview is shown and hollow while it is hidden.
+
+### Deleting
+
+Right-click any row and choose **Delete**: an object, an import, a border, a sublayer, a layer, a group or a
+whole action. (A sequencer panel's header offers the same **Delete** on its own right-click.) **Ctrl+Z** brings
+a deleted group, layer, sublayer or action back. Rows that are fixed parts of an action — a Z Focus Test's
+layer, a 2D Grid's two layers — have no Delete, and the last layer of a group or the last group of an action
+stays.
+
+### Layer colours
+
+Each layer and sublayer is drawn in its own colour — its fill and outlines on the canvas, its lines in the
+Preview, and its square in the layer tree. Out of the box each layer and sublayer takes the next colour, in order,
+from a set of **36** (starting orange, cyan, lime, pink, yellow, blue); only a job with more than 36 starts reusing them.
+
+To choose one yourself, right-click a layer (or sublayer) and pick **Layer color…** (**Sublayer color…**):
+
+- Click or drag on the **colour wheel**, and set **Brightness** with the slider below it.
+- Or type the **R / G / B** values (0–255), or a **hex** code such as `#FF8800`. Like the sequencer's boxes, a box
+  stays **red** until you press **Enter** or click out of it.
+- Or click one of the **Recent colors** — the last six colours you picked (until then, the first six automatic ones).
+- **Automatic** goes back to the colour the row gets by its place in the list.
+
+The canvas follows along while the dialog is open. **OK** keeps the colour (one **Ctrl+Z** undoes it);
+**Cancel** puts it back as it was. The colour is saved with the project and works the same for 2D and 3D layers.
+It is for the screen only — it never changes what marks.
 
 ### Copy, paste and reorder
 

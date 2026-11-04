@@ -37,7 +37,7 @@ reopen it from the menu at any time.
 - **Home X / Home Y / Home Z** home each axis independently; **Home All** runs them in sequence.
 - **Home + X0 / Home + Y0** (under Home X / Home Y) home that axis and then move it to 0. X/Y 0 is the
   machine's 0: on an axis that homes toward +, that is right at the limit switch and can trip it.
-  While they (or **Home + Jog Lens 0**) are moving, the jog pad and the lens dropdown are locked, and the
+  While they (or **Home + Jog Lens 0**) are moving, the jog pad and the lens button are locked, and the
   Terminal only sends real-time keys (`?` `!` `~`) and `$G`. If the move to 0 is interrupted, FocuZ says so.
 - Each axis tracks its own **homing status**. An axis must be homed for its absolute position to be
   trustworthy; homing is what establishes a known origin (by touching the limit switch).
@@ -59,7 +59,7 @@ reopen it from the menu at any time.
     The **Run / Pause** button becomes **Cancel All** (red). A homing cycle can't be paused, so Cancel All
     resets the controller — that stops all motion and ends the sequence. FocuZ then unlocks the controller
     and asks you to home again before the next absolute move. While any axis homes — from a Home button, a
-    Home action, or `$H` typed in the Terminal — the jog pad and the lens dropdown are grayed out, and the
+    Home action, or `$H` typed in the Terminal — the jog pad and the lens button are grayed out, and the
     Terminal only sends real-time keys, `$G` and `$X`.
 
 ### Motorized axes (Enable X / Y / Z)
