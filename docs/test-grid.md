@@ -40,7 +40,9 @@ shows or hides that layer's fill on the cells, the small square shows the colour
 take the same palette colours as every other layer, so two of them are easy to tell apart on the canvas — and
 the row's right-click menu offers **Layer color…**, **Enable / Disable marking** and **Delete**.
 
-Next to **Speed**, **Power**, **Frequency**, **Q-Pulse**, and **Passes** sits an **axis selector**:
+Next to **Speed**, **Power**, **Frequency**, **Q-Pulse**, and **Passes** sits an **axis selector** (Q-Pulse only
+while **Enable pulse width** is on in [Laser Setup](hardware-setup.md#fiber-pulse-settings); a Q-Pulse sweep saved
+in a grid waits, unused, while it is off):
 
 - **⊘** — fixed: every square uses the value in the parameter box.
 - **X** — sweep across **columns**: the parameter box is the value for the **leftmost** column, and an
@@ -48,7 +50,7 @@ Next to **Speed**, **Power**, **Frequency**, **Q-Pulse**, and **Passes** sits an
 - **Y** — sweep across **rows**, from the **bottom** row (parameter box) to the **top** row (end value).
 
 Sweep as many parameters as you like — put one on X and another on Y to cover a two-dimensional space
-in a single mark. Q-Pulse and Passes sweep in whole numbers.
+in a single mark. Q-Pulse and Passes sweep in whole numbers; a Q-Pulse sweep is set aside while **Enable pulse width** is off.
 
 Every value a sweep uses, start and end, is held to the same limits as the parameter itself: Speed and Frequency to
 the [limits in Laser Setup](hardware-setup.md#speed-and-frequency-limits), Q-Pulse to 1 – 1000 ns, Power

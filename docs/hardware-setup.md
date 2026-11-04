@@ -121,8 +121,9 @@ default and the recommended choice).
   range for the machine, which is why it lives in Configuration rather than Timing Defaults.
 These are global limits: a layer's Speed and Frequency, the second values in [Variation](sequencer.md#variation),
 the Settings Library and the [Test Grid](test-grid.md) are all held to them as you enter values. A value outside
-them is changed to the nearest limit. **Q-Pulse** has no setting here (a `markcfg7` has none either): it is
-entered from 1 to 1000 ns everywhere, and the laser source applies its own limits within that.
+them is changed to the nearest limit. **Q-Pulse** has no range here (a `markcfg7` has none either): it is
+entered from 1 to 1000 ns everywhere, and the laser source applies its own limits within that. Whether it is
+offered at all is the **Enable pulse width** switch under [Fiber pulse settings](#fiber-pulse-settings).
 
 #### Path tolerances
 
@@ -136,7 +137,11 @@ entered from 1 to 1000 ns everywhere, and the laser source applies its own limit
 #### Fiber pulse settings
 
 - **Open MO delay** — delay after opening the laser's master oscillator before marking.
-- **Enable pulse width** — toggles pulse-width control (MOPA on, non-MOPA off).
+- **Enable pulse width** — whether your source has pulse-width control (MOPA on, non-MOPA off). With it off,
+  FocuZ hides every Q-Pulse input: the layer and sublayer rows, Vary Q-Pulse, the Test Grid's Q-Pulse sweeps
+  and the Settings Library's Q-Pulse fields (a template applied as a whole still brings its Q-Pulse with it). Nothing is changed or lost: each layer still marks with its stored Q-Pulse, as EZCad2 does with its box unticked; the value stays
+  with its layer and comes back when you turn the switch on again, and a Test Grid sweep saved on Q-Pulse
+  simply does not run while the switch is off. A `markcfg7` import sets the switch from the file.
 - **Laser leak handle** — closes the master oscillator between jobs on lasers that need it.
 
 ### Timing Defaults

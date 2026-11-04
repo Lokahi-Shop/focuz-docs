@@ -38,7 +38,7 @@ begin conservative and adjust:
 | **Speed** (mm/s) | How fast the galvo moves while marking. |
 | **Power** (%) | Laser power. |
 | **Frequency** (kHz) | Pulse frequency (clamped to your device's min/max). |
-| **Q-Pulse** | Pulse width / energy-per-pulse control. |
+| **Q-Pulse** | Pulse width / energy-per-pulse control. Shown only for a source with pulse-width control (**Enable pulse width** in Laser Setup). |
 | **# of Passes** | How many times each marked segment is repeated in place before moving on (each ring, for contour fills). To repeat the whole layer instead, use the **Repeat** box in the layer header. |
 
 For a filled (engraved) shape, also pick a **fill type** (e.g. bidirectional) and a **fill

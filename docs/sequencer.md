@@ -178,7 +178,7 @@ Per layer:
 | **Speed** (mm/s) | Galvo speed while marking. |
 | **Power** (%) | Laser power (0.001–100). |
 | **Frequency** (kHz) | Pulse frequency, clamped to the device min/max. |
-| **Q-Pulse** | Pulse-width / energy-per-pulse control. |
+| **Q-Pulse** | Pulse-width / energy-per-pulse control. Shown only while **Enable pulse width** is on in [Laser Setup](hardware-setup.md#fiber-pulse-settings) (a MOPA source); the value is kept while it is off. |
 | **# of Passes** | Repeats each fill line (or, for a contour fill, each ring) that many times before moving on — like a per-segment pass count. **Unidirectional** and **Thatch** repeat a line in the same direction every time. **Snake** does the same for each straight run of its curve — run 1, run 1 again, round the turn, run 2, run 2 again — and marks each turn once. **Bidirectional** and **Cross** go back and forth along the line. Hidden for Wobble and Hilbert, where it doesn't apply. The whole-layer pass count is **Repeat** in the layer header. |
 
 ## Fill types
@@ -283,7 +283,7 @@ The **Group** setting controls how the outline's through-holes fill: **Even / Od
 ## Variation
 
 **Variation** changes a parameter as the mark progresses — from the layer's own value (the *first*
-value) to a *second* value you enter. Tick **Speed**, **Power**, **Freq** and/or **Q-Pulse** and give
+value) to a *second* value you enter. Tick **Speed**, **Power**, **Freq** and/or **Q-Pulse** (offered only while **Enable pulse width** is on in Laser Setup; a Q-Pulse ramp saved on a layer is set aside while it is off) and give
 each its second value. The section heading reads **Variation (active)** while any parameter is varied,
 and a layer that varies a parameter opens with the section already expanded when its project loads.
 The second-value boxes work like the main parameter boxes: a box turns red while what you typed has not
