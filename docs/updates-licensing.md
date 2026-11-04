@@ -46,6 +46,13 @@ the internet and click Run or Trace again, or use **Check for Updates** on the L
     The message tells you why. If it asks you to connect, make sure the computer is online and
     click Run or Trace again — verification happens automatically and is only needed once.
 
+## Buying a license
+
+Click **Purchase License** on the License panel — it opens our checkout in your browser — or buy
+from [lokahi.shop](https://lokahi.shop/#fz-purchasing) under **Purchasing info**, which shows the
+current price and any discount code we're running. Either way, the license key arrives by email at
+the address you enter at checkout; activate it as described next.
+
 ## Activating a license
 
 Open the **License** panel:
@@ -88,7 +95,9 @@ it with your saved key.
 ## Renew updates
 
 **Renew Updates** (License menu) opens a checkout for another year of updates — current
-pricing is shown at checkout. Renewing never costs you time you already have: the new year is
+pricing is shown at checkout and under **Purchasing info** on [lokahi.shop](https://lokahi.shop/#fz-purchasing).
+Renew from inside FocuZ: the checkout then carries your license key, so the new year lands on the
+right license even if you pay with a different email address. Renewing never costs you time you already have: the new year is
 added on top of your remaining update period, and renewing **before** your period ends adds
 **two bonus months** on top of that. There are no subscriptions and no automatic charges —
 renew only when you want another year of new releases.
