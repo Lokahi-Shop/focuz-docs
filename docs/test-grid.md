@@ -16,13 +16,17 @@ The **Grid** section defines the coupon:
 | **Rows** / **Columns** | How many squares in each direction. |
 | **Width** / **Length** (mm) | The size of each square. |
 | **Spacing** (mm) | The gap between squares. |
+| **Location X** / **Y** (mm) | Where the grid's **registration point** sits, measured from the design origin — the same point the canvas registration square selects for art (centre by default, or a corner or edge). A new grid is centered: **0, 0** with the centre point. |
 
 The grid appears on the canvas immediately, centered on the active lens's work offset, and redraws live
 as you change the fields.
 
-To move the grid, select it in the layer tree and nudge it with the arrow keys (the same steps as nudging
-art). The labels move with it, it stays where you put it when you run or trace, and the position is saved
-with the project.
+To move the grid, type a **Location** (red until Enter or clicking away, then the grid moves so that point
+lands on your value) or nudge it with the arrow keys (the same steps as nudging art — the Location boxes
+follow the nudge). A new or opened Test Grid starts with its first layer selected in the layer tree, so the
+arrow keys and the registration square are ready straight away. Picking another point on the registration square only
+changes what the Location reads; the grid stays put. The labels move with the grid, it stays where you put it
+when you run or trace, and the position is saved with the project.
 
 ## Layers and parameter sweeps
 
@@ -30,6 +34,11 @@ The action starts with one layer; **+ Layer** adds more. Each layer carries the 
 [marking parameters](sequencer.md#marking-parameters) and [fill settings](sequencer.md#fill-types) —
 every square marks each enabled layer in turn, and the fill type, spacing, and angle stay the same
 across the whole grid. What *changes* from square to square is up to the sweep controls:
+
+Each layer is also a row in the [layer tree](canvas.md#the-layer-tree), under the Test Grid action: its eye
+shows or hides that layer's fill on the cells, the small square shows the colour it is drawn in — the layers
+take the same palette colours as every other layer, so two of them are easy to tell apart on the canvas — and
+the row's right-click menu offers **Layer color…**, **Enable / Disable marking** and **Delete**.
 
 Next to **Speed**, **Power**, **Frequency**, **Q-Pulse**, and **Passes** sits an **axis selector** (Q-Pulse only
 while **Enable pulse width** is on in [Laser Setup](hardware-setup.md#fiber-pulse-settings); a Q-Pulse sweep saved
@@ -63,15 +72,19 @@ section:
 |---|---|
 | **Size** (mm) | Text height of the labels. |
 | **Fill** | Engrave the label text filled instead of outline-only. |
-| **Decimals** | Decimal places for values, **0** (no decimal point) to **3**. |
+| **Decimals** | The most decimal places a value shows, **0** to **3** — trailing zeros are dropped, so `25.50` reads `25.5` and `800.00` reads `800`. |
 | **X Grid** | The swept values below each **column**. |
 | **Y Grid** | The swept values beside each **row**. |
-| **X Axis** / **Y Axis** | The parameter *names* next to those value rows and columns. |
+| **Units** | The last value of each sweep ends with its unit — `3000 mm/s`, `75%`, `200 kHz`, `20 ns`, `3 passes` — so the axes read without separate name labels. |
 | **Static** | The fixed (un-swept) parameters above the grid as `Name: value`. |
+| **Static columns** / **Static rows** | Shown while **Static** is on: lay the static block out as one **column per layer** (the default, full names) or one **row per layer** with short names — `S: 800 \| P: 30 \| F: 30 \| Q: 20 \| Pass: 1`. |
+| **Fill data** | One line per layer that fills, standing to the right of the Label: the fill type's first three letters, then `Space:` line spacing, `A:` fill angle and `AR:` the auto-rotate step or `off` — `Bid \| Space: 0.016 \| A: 0 \| AR: off`. A layer with no fill gets no line. |
 | **Label** | Your own free text along the right edge — the material name, lens, date, anything. |
 
-With several layers or sublayers, names are prefixed so you can tell them apart — `L1:` for layer 1,
-`L1|S1:` for its first sublayer — and the static block splits into one column per source.
+With several layers or sublayers, the static block splits into one column per source — `L1` for layer 1,
+`L1|S1` for its first sublayer — (or one row per source with **Static rows**, the first source on top), and
+each sweep's first value starts with its source (`L2 800 … 3000 mm/s`). A variation sweep starts with its
+name (`VarSpd 800 …`), since its unit alone would read like the base parameter's.
 
 Labels show on the canvas as you toggle them — if a trace is running it restarts to show the change. **Size** and
 the **Label** text turn red while you type; press Enter or click away to apply. Labels are **engraved together with

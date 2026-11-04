@@ -61,14 +61,17 @@ lens you're configuring.
 
 ## Laser Setup (Device ▸ Laser Setup)
 
-The full device configuration screen, in two sections: **Configuration** (what the machine is) and
-**Timing Defaults** (the delay/jump values layers fall back to).
+The full device configuration screen, on two tabs. **Laser** holds **Configuration** (what the machine is)
+and **Timing Defaults** (this machine's default delay and jump values). **Axis** holds the motorized-axis
+settings: Enable X / Y / Z and the positioning mode a run leaves the motion controller in (Absolute, G90, is the
+default and the recommended choice).
 
 !!! note "Save or Cancel"
     Nothing you change here is kept until you press **Save** — not the boxes, the galvo and mirror choices,
-    the checkboxes, the Motorized Axis settings or a markcfg7 import. **Cancel** (or Esc, or ✕) leaves
+    the checkboxes, the Axis tab's settings or a markcfg7 import. **Cancel** (or Esc, or ✕) leaves
     everything as it was. Each box keeps to its range: type a value past it and it changes to the nearest
-    limit when you press Enter or leave the box. An **empty box turns red**, and **Save** stays unavailable
+    limit when you press Enter or leave the box. A value you have typed shows **red until you press Enter or leave
+    the box**, which takes it into the dialog (Save still writes it, Cancel still discards it). An **empty box stays red**, and **Save** stays unavailable
     until it is filled — as it does while a **Max** is not above its **Min**.
 
     | Box | Range |
@@ -90,12 +93,14 @@ The full device configuration screen, in two sections: **Configuration** (what t
 #### Importing the device profile
 
 - **Import markcfg7** — loads device settings from your machine's `markcfg7`: laser type, galvo axis
-  mapping, timing defaults, red-light and power-map values. This is the recommended way to configure the
+  mapping, speed limits, red-light and power-map values. This is the recommended way to configure the
   device; manual entry is for fine-tuning. (Field size, field angle, and the work offset are **per-lens**
   and import separately in the lens Corrections dialog.)
-- The import also returns the **path tolerances** (below) to their standard values. If you had tuned
-  them, a small **↶** button appears next to each changed tolerance — click it to bring back the value
-  you had before the import.
+- A `markcfg7` carries **no timing or tolerance values** — EZCad2 keeps delays per pen. So the import never
+  changes your **Timing Defaults** or **path tolerances** on its own: if any of them differs from FocuZ's
+  built-in defaults, it asks whether to **keep** yours (the default answer) or set the FocuZ defaults. The
+  same question is asked by the Device Setup wizard's import; a first-time setup has nothing to keep and is
+  not asked.
 
 #### Galvo axis assignment
 
@@ -141,10 +146,11 @@ offered at all is the **Enable pulse width** switch under [Fiber pulse settings]
 
 ### Timing Defaults
 
-The device-wide **delay** (laser on/off, end, polygon corner) and **jump** (speed, min, max, limit)
-values. Every layer whose Timing Mode is **Device** uses these at mark time; layers with **Custom**
-timing override them per layer (see [Timings](sequencer.md#timings)). Values from a `markcfg7` import
-are a good starting point; tune for mark quality.
+This machine's default **delay** (laser on/off, end, polygon corner) and **jump** (speed, min, max, limit)
+values. They replace FocuZ's built-in timings: every layer and sublayer whose Timing Mode is **Device** uses
+them at mark time, and a layer in **Custom** timing mode keeps its own eight values instead, whatever the
+defaults become (see [Timings](sequencer.md#timings)). These values are yours to tune for mark quality — a
+`markcfg7` has none, and an import asks before touching them.
 
 ## Power Map (Device ▸ Power Map)
 

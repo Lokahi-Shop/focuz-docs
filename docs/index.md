@@ -25,7 +25,7 @@ parameters.
 | **3D formats** | STL, OBJ, 3MF, STEP — sliced directly into marking layers |
 | **2D formats** | SVG, DXF, AI, EPS, PDF (vector) |
 | **Highlights** | 3D slicing, fill variation, rotary marking with even splits, a job sequencer, lens profiles and correction files, a settings library |
-| **Trial and licensing** | Free 30-day trial; a license is purchased inside the app |
+| **Trial and licensing** | Free 30-day trial; a license is purchased inside the app or from [lokahi.shop](https://lokahi.shop/#fz-purchasing) |
 | **Made by** | Lokahi Innovation — [lokahi.shop](https://lokahi.shop) |
 
 ## What makes FocuZ different

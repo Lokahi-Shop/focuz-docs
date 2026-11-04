@@ -148,7 +148,9 @@ Right-click a row in the layer tree — an action, a group, a layer, a file or a
 
 - A **grid** for scale reference (toggleable).
 - Imported geometry colored by layer.
-- **Fill** and **cut** previews drawn over the shapes so you can see the marking pattern before you run.
+- **Fill** and **cut** previews drawn over the shapes so you can see the marking pattern before you run. A preview that
+  takes a moment to work out — a large model's cut band, a very fine fill — builds in the background while you keep
+  working: a slim loading bar at the canvas's top right fills as it lands, then disappears.
 - **The same colours in the Preview.** The **Preview** (toolbar toggle) draws every layer's and sublayer's lines in
   that fill's own colour — the colour its fill shows on the canvas and its square shows in the layer tree — so you can
   tell the layers apart while scrubbing through a job. A cut band is red in both views.
@@ -157,11 +159,22 @@ Right-click a row in the layer tree — an action, a group, a layer, a file or a
   layer's colour instead of its lines — at that spacing the lines blend into a solid area anyway, and the canvas stays
   quick. Holes in the art stay empty. Only the screen changes: the job marks every line, and the time estimate
   counts them. Set it to **0** to always see the lines.
+    - It covers every fill on the canvas: layer and sublayer fills, **cut bands** (a 2D Cut / 3D Cut band or a Cut
+      sublayer shows as a solid red ring, with any holding-tab gaps left open), **2D Grid** fills (cut to their cells),
+      and every fill type, **Wobble** and **Hilbert** included.
+    - A **Hilbert** fill has no spacing box: its spacing is set by its **Depth** and the size of the art (the art's
+      diagonal ÷ 2^Depth). When one Hilbert fill in a layer is fine enough to show solid, all of that layer's Hilbert
+      fills show solid, so they never mix.
+    - A cut with **Distance 0** is a single line and always shows as one.
+    - The **Preview** always shows lines, so you see exactly what marks. The wrapped 3D rotary view also keeps its
+      lines.
 
 ## The layer tree
 
-The panel on the left edge of the canvas lists every action's groups, layers, sublayers and imported
-objects. Two things decide what you see and what marks:
+The panel on the left edge of the canvas lists every action, numbered as in the sequencer, with its groups,
+layers, sublayers and imported objects. An action with nothing to list under it — a Rotary Jog, a GRBL or
+Sequencer action — is a single row, and a slot that has no type yet shows as **(empty)**. Right-click any action
+row to move, copy or delete it. Two things decide what you see and what marks:
 
 - **Marking on or off** — right-click a group, layer, sublayer, imported file or single object and choose
   **Disable marking** or **Enable marking**. A disabled line is **gray**: it is not drawn on the canvas and it
@@ -179,8 +192,39 @@ objects. Two things decide what you see and what marks:
 | Disabled | Either | Hidden — gray in the tree | No |
 
 The small square beside a layer or sublayer shows or hides its **fill** preview — it is drawn in that fill's
-own colour, filled while the preview is shown and hollow while it is hidden — and right-clicking an
-object, an import or a border offers **Delete**.
+own colour, filled while the preview is shown and hollow while it is hidden.
+
+### Deleting
+
+Right-click any row and choose **Delete**: an object, an import, a border, a sublayer, a layer, a group or a
+whole action. (A sequencer panel's header offers the same **Delete** on its own right-click.) **Ctrl+Z** brings
+a deleted group, layer, sublayer or action back. Rows that are fixed parts of an action — a Z Focus Test's
+layer, a 2D Grid's two layers — have no Delete, and the last layer of a group or the last group of an action
+stays.
+
+### Layer colours
+
+Each layer and sublayer is drawn in its own colour — its fill and outlines on the canvas, its lines in the
+Preview, and its square in the layer tree. Out of the box each layer and sublayer takes the next colour, in order,
+from a set of **36** (starting orange, cyan, lime, pink, yellow, blue); only a job with more than 36 starts reusing them.
+
+To choose one yourself, right-click a layer (or sublayer) and pick **Layer color…** (**Sublayer color…**):
+
+- Click or drag on the **colour wheel**, and set **Brightness** with the slider below it.
+- Or type the **R / G / B** values (0–255), or a **hex** code such as `#FF8800`. Like the sequencer's boxes, a box
+  stays **red** until you press **Enter** or click out of it.
+- Or click one of the **Recent colors** — the last six colours you picked (until then, the first six automatic ones).
+- **Automatic** goes back to the colour the row gets by its place in the list.
+
+The canvas follows along while the dialog is open. **OK** keeps the colour (one **Ctrl+Z** undoes it);
+**Cancel** puts it back as it was. The colour is saved with the project and works the same for 2D and 3D layers.
+It is for the screen only — it never changes what marks.
+
+A **Test Grid** lists its layers and sublayers as rows too, under the action. Each row has the eye (the
+layer's own show switch — the cells belong to the grid, so a Test Grid layer has no object rows of its own),
+the fill square in the colour that layer is drawn with on the cells, and the same right-click options as any
+layer row: **Layer color…**, **Enable / Disable marking** and **Delete**. Copy, Paste and Flip are not offered
+there, because a Test Grid layer holds no art of its own.
 
 ### Copy, paste and reorder
 
