@@ -111,5 +111,5 @@ taken when you pressed Run, so edits you make during a run apply to the **next**
 ## See also
 
 - [The Sequencer](sequencer.md) — building the job.
-- [Jog, Homing & Terminal](jog-terminal.md) — motion + accessory relays.
+- [Motion, Homing & Terminal](jog-terminal.md) — motion + accessory relays.
 - [Lenses, Corrections & Calibration](lenses-corrections.md) — focus and alignment.

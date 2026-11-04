@@ -50,7 +50,7 @@ parameters and fill types.
 Set the working distance so the beam is in focus on the part. With a manual Z, adjust the height until the
 part sits at the lens's focal distance. A **motorized Z axis** (through a FocuZ-compatible Z controller) makes this simple and extremely repeatable:
 home it once, and it moves to each lens's saved **focal Z height** for you (see
-[Jog, Homing & Terminal](../jog-terminal.md) and [Lenses, Corrections & Calibration](../lenses-corrections.md)).
+[Motion, Homing & Terminal](../jog-terminal.md) and [Lenses, Corrections & Calibration](../lenses-corrections.md)).
 
 ## 5. Trace it (laser off)
 

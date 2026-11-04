@@ -23,9 +23,9 @@ Rotary Setup keeps **one settings profile per fixture** — **Chuck**, **Roller*
 and each rotary action is tied to one of them: **2D Rotary (Chuck)** runs the Chuck profile, **2D
 Rotary (Roller)** the Roller profile. Set each fixture up once; switching fixtures is just picking
 the matching action. The **Fixture** selector at the top of the dialog chooses which profile the
-page edits, and its **Enabled** box decides whether that fixture's action is offered in the
-action list — untick the fixtures you don't own. (All three start enabled. A project that already
-contains a hidden fixture's action still runs.) Everything below is per profile.
+page edits — and the fixture selected when you press **Save** becomes **your machine's rotary type**: its
+action is the one offered in the action list, and the Motion window's rotary strip and the Rotary Jog action
+use it. (A project that already contains another fixture's action still runs.) Everything below is per profile.
 
 ### Settings
 
@@ -177,7 +177,7 @@ settings on every split would cost a full rest each time.
 Live rotary motion lives on the **Jog** card's **BJJCZ Rotary** strip (available while the
 controller is connected): jog **CCW / CW** by the set angle, **Set Zero** to define the current
 position as zero, and **Go to Zero** to rotate back to it at the Return Spd — with a live
-position readout. See [Jog, Homing & Terminal](jog-terminal.md).
+position readout. See [Motion, Homing & Terminal](jog-terminal.md).
 
 **Import Rotary from markcfg7…** pulls rotary parameters from an existing `markcfg7` file, the
 same way as the main [device import](hardware-setup.md). The Device Setup window
@@ -190,7 +190,7 @@ first run.
 The **2D Rotary (Chuck)** and **2D Rotary (Roller)** actions (Sequencer › Marking › **Rotary**) are
 a 2D Import that marks through the rotary engine — the only way a job runs on the rotary. Pick
 the one for the fixture on the bench: each runs its own Rotary Setup profile (the chuck action
-uses chuck math, the roller action roller math), and only enabled fixtures are listed. Both carry
+uses chuck math, the roller action roller math), and the one for your rotary type (Rotary Setup) is listed. Both carry
 the same **Rotary** section above their content:
 
 - **Part Diameter / Max Split Size / Number of Splits / Overlap** — the job's own values, saved
@@ -481,7 +481,7 @@ Each is a **fixture profile** in Rotary Setup with its own action:
 marks, or to present the next face. The action shows your machine's **rotary type** (set in Rotary
 Setup — its profile's motor settings apply); choose **Rotation (degrees)** or **Distance (mm)** of part
 surface, the direction, and the amount. A distance needs the part's diameter — enter it on the
-action, or leave it blank to use the profile's Part Ø default. The live jog strip on the Jog window
+action, or leave it blank to use the profile's Part Ø default. The live jog strip on the Motion window
 shows the same rotary type.
 
 ## See also

@@ -67,7 +67,7 @@ filled — except Field size, where leaving **both** X and Y empty means "use th
     See [Troubleshooting](troubleshooting.md).
 
 !!! tip "Marks come out the right shape but the wrong size?"
-    That's field size, not distortion. Check the **Field size** on the lens card — it shows the value in
+    That's field size, not distortion. Check the **Field size** in **Lens Corrections** — it shows the value in
     use and where it came from (`.cor` file, set for this lens, or the device default). With a `.cor`
     loaded you can trim the remaining error with the **Scale** boxes, which fine-tune on top of the file:
     multiply the current scale by `target / measured`.
@@ -86,27 +86,29 @@ tracing — changing it never moves artwork on the canvas.
 
 ## Focal height (Z) per lens
 
-Each lens has a focal working distance. Set it in the **Jog** window (top menu), at the bottom of the
-**FocuZ (custom GRBL)** section, under **Lens focus — L1** (the heading names the lens it saves to):
+Each lens has a focal working distance. Set it in the **Motion** window (top menu), in the **Z Lens focus**
+section of the **FocuZ (custom GRBL)** box — its first line names the lens it saves to (**L1**, for example)
+and shows the **Offset** saved with that lens, or **Z not set** until a focal has been saved:
 
 1. **Jog Z** to the optimum focal distance.
 2. Enter an **Offset** (the distance between the baseboard and the top of your test material).
 3. Click **Save Current Z** to commit the focal distance + offset to the active lens.
 
-> The Offset can be updated later without re-finding the focal distance (**Update Offset**). The
+> The Offset box starts empty each time you change lens — the saved value stays on the heading for
+> reference. The Offset can be updated later without re-finding the focal distance (**Update Offset**). The
 > **Instructions** button repeats these three steps in the app. Saving the focal and updating the
 > Offset are locked while a sequence is running or paused — a new focal would move the job's later
 > Z positions.
 
 > The **FocuZ (custom GRBL)** section shows its controls only when a FocuZ compatible controller is
-> connected, and **Lens focus** only when the **Z** axis is enabled too (Device ▸ Connection) — otherwise
+> connected, and **Z Lens focus** only when the **Z** axis is enabled too (Device ▸ Connection) — otherwise
 > it says so. Without a motorized Z there is nothing for FocuZ to save a focal height against.
 
-The **Lens** screen (top menu) lists the active lens and everything stored against it: the correction
-source, field size, angle, WCS offset, and the saved focal height + offset. Its title names the active
-lens too — **Lens L2**, for example.
+Everything stored against a lens — the correction source, field size, angle, WCS offset, and the saved
+focal height + offset — shows in the **lens picker** (label, field size, Z and offset for every lens), on the
+card that appears when you change lens, and in **Lens Corrections** (the picker's **Lens settings…**).
 
-Then **Home & Jog to Lens 0** (on the Jog window) gets you straight back to focus for that lens.
+Then **Home & Jog to Lens 0** (on the Motion window) gets you straight back to focus for that lens.
 
 ### Finding focus: the Z Focal Distance
 
@@ -130,7 +132,7 @@ focal height.
     will mark, one line at a time.
 3. **Run**, then inspect the part for the sharpest, cleanest line.
 4. **Motorized** — enter that mark's number when prompted and FocuZ jogs straight down to its focal height;
-   save it to the active lens via the **Lens** screen. **Manual** — move Z down by that many of your steps,
+   save it to the active lens with **Save Current Z** in the **Motion** window. **Manual** — move Z down by that many of your steps,
    then save the same way.
 
 ## Aligning the mark to the part
@@ -169,4 +171,4 @@ focal height.
 ## See also
 
 - [Hardware & Device Setup](hardware-setup.md) · [First-run setup](getting-started/first-run.md)
-- [Jog, Homing & Terminal](jog-terminal.md) · [Troubleshooting & FAQ](troubleshooting.md)
+- [Motion, Homing & Terminal](jog-terminal.md) · [Troubleshooting & FAQ](troubleshooting.md)

@@ -73,7 +73,7 @@ nav:
   - The Test Grid: test-grid.md
   - Marking & Tracing: marking-tracing.md
   - Rotary Marking: rotary.md
-  - Jog, Homing & Terminal: jog-terminal.md
+  - Motion, Homing & Terminal: jog-terminal.md
   - Projects & Files: projects-files.md
   - Updates & Licensing: updates-licensing.md
   - Troubleshooting & FAQ: troubleshooting.md

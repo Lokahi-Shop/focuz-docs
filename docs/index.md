@@ -39,7 +39,7 @@ parameters.
 - **Motion and accessory control (coming soon).** Alongside the galvo controller, FocuZ is designed to
   pair with a **FocuZ:grbl** motion controller (a custom GRBL build) for **X / Y / Z axis motion**
   (jogging, homing) and **accessory relays** such as air assist or a vacuum, run by hand or as steps in
-  a job. The controller hardware is not yet available. See [Jog, Homing & Terminal](jog-terminal.md).
+  a job. The controller hardware is not yet available. See [Motion, Homing & Terminal](jog-terminal.md).
 - **A sequencer, not just a pen list.** Jobs are built as an ordered **sequence of actions** with
   repeats, per-slice steps, and grouping (see below) — a more powerful model for multi-step and 3D jobs.
 - **Rich fills and per-layer control.** Line fills (unidirectional, bidirectional, cross), snake, contour, and thatch fills;
