@@ -33,7 +33,8 @@ Add a **2D Import** action (or drag a file onto the canvas) and choose your file
 !!! tip "Fills need closed paths"
     A [fill](sequencer.md#fill-types) can only fill a **closed** shape. If a fill looks empty, the path
     probably isn't closed — check it in your design tool, or adjust the closed-path tolerance in
-    [Hardware & Device Setup](hardware-setup.md).
+    [Hardware & Device Setup](hardware-setup.md). A layer whose art has no closed path keeps its **Fill**
+    box greyed out until it does; a 2D Grid's second layer and a group sublayer follow the art they fill.
 
 ## Preparing AI and SVG files
 
