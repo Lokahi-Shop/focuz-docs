@@ -60,8 +60,9 @@ reopen it from the menu at any time.
 
 !!! note "While a sequence is running"
     The **Jog** and **Home** buttons are grayed out while a sequence runs or is paused — a manual move
-    in the middle of a run would change positions the run was checked against. They come back as soon
-    as the run finishes or is cancelled.
+    in the middle of a run would change positions the run was checked against. So are the **Z Lens focus**
+    controls (**Offset**, **Update Offset**, **Save Current Z**), the saved **Position** chooser and the
+    rotary jog amount. They all come back as soon as the run finishes or is cancelled.
 
 !!! note "While an axis is homing"
     The **Run / Pause** button becomes **Cancel All** (red). A homing cycle can't be paused, so Cancel All
@@ -99,6 +100,9 @@ All three axes are **off by default**. Your choices persist until you change the
 ### Position & limits
 
 - **MPos** is the machine (absolute) position; **LPos** is the work position FocuZ derives from it.
+- The top bar shows the live readouts for the enabled axes: **LPos Z** and **MPos Z** in the centre, with
+  **MPos X** and **MPos Y** to their right. A readout shows **N/A** until its axis has been homed, and an axis
+  that is off has no readout — the others keep their places.
 - Limit-switch status is shown per axis/direction so you can confirm switches before homing.
 
 ### Manual jogging
@@ -237,8 +241,8 @@ absolute (`G90`) or incremental (`G91`) mode; it shows **—** while disconnecte
 ### While a sequence is running
 
 Only the status query `?` and `$G` (show current modes) are sent while a sequence runs or is paused.
-Anything else is answered with "a sequence is running" and not sent. To stop a run, use **Pause** /
-**Cancel** in FocuZ (or **Soft Reset**, which also cancels it).
+Anything else is answered with "a sequence is running" and not sent — the refused line is also written to the log. To stop a run, use **Pause** /
+**Cancel** in FocuZ (or **Soft Reset**, which also cancels it — its confirmation says so, with **No** as the default).
 
 ## Accessory relays — air, vacuum & more
 

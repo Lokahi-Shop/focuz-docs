@@ -7,7 +7,7 @@ FocuZ imports both 2D art and full 3D models. 3D models are sliced into layers f
 | Kind | Formats | Notes |
 |---|---|---|
 | 2D vector | **SVG, DXF, AI** | Lines/curves to mark or fill. |
-| 3D solid | **STEP / STP** | True solids (via the built-in 3D engine). |
+| 3D solid | **STEP / STP** | True solids (via the built-in 3D engine). Imports at the model's exact size; curves come in to within 0.01 mm. |
 | 3D mesh | **STL, OBJ, 3MF** | Triangle meshes. |
 | Images | common raster formats | For reference/placement. |
 
@@ -33,7 +33,8 @@ Add a **2D Import** action (or drag a file onto the canvas) and choose your file
 !!! tip "Fills need closed paths"
     A [fill](sequencer.md#fill-types) can only fill a **closed** shape. If a fill looks empty, the path
     probably isn't closed — check it in your design tool, or adjust the closed-path tolerance in
-    [Hardware & Device Setup](hardware-setup.md).
+    [Hardware & Device Setup](hardware-setup.md). A layer whose art has no closed path keeps its **Fill**
+    box greyed out until it does; a 2D Grid's second layer and a group sublayer follow the art they fill.
 
 ## Preparing AI and SVG files
 
@@ -105,6 +106,12 @@ model into layers for marking.
     STL/OBJ/3MF meshes are checked on import, and FocuZ tells you if a mesh isn't closed ("watertight").
     An open mesh can slice unpredictably — repair it in your modeling tool, or use **STEP** for true
     solids (always closed).
+
+!!! note "STEP size and curves"
+    A STEP model imports at its **exact** size — the Size fields show the model's true dimensions (a 49 mm
+    disc reads 49, not the width of the polygon that draws it). Its curved faces come in to within
+    **0.01 mm** of the true surface, the same curve tolerance 2D arcs use, so a STEP circle and an SVG
+    circle of the same size mark the same.
 
 How slices are marked (Z order, per-slice sublayers) is covered in
 [Marking & Tracing](marking-tracing.md#3d-slice-marking).

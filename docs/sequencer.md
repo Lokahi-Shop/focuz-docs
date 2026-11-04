@@ -95,10 +95,10 @@ board's rotary port.
   to Start goes back to where the Home action left the machine.
 - **Axis Jog (FocuZ)** — move an axis as a job step. Pausing the run holds the move and Continue
   finishes it; FocuZ checks the axis arrived before going on.
-- **Rotary Jog (BJJCZ)** — turn the rotary as a job step: pick the fixture (its Rotary Setup
-  profile applies), **Rotation (degrees)** or **Distance (mm)** of part surface, the direction and
-  the amount. A distance needs the part diameter — on the action, or blank for the profile's
-  default (see [Rotary Jog](rotary.md#rotary-jog)).
+- **Rotary Jog (BJJCZ)** — turn the rotary as a job step on your machine's rotary type (shown on
+  the action; its Rotary Setup profile applies): **Rotation (degrees)** or **Distance (mm)** of part
+  surface, the direction and the amount. A distance needs the part diameter — on the action, or
+  blank for the profile's default (see [Rotary Jog](rotary.md#rotary-jog)).
 - **Return to Start (FocuZ)** — return the axes you tick to the machine position they were at when
   the run started, Z first, then X, then Y, at the feedrate you set (mm/min). All three axes are
   listed with their live lens (LPos) and machine (MPos) position, so you can set the action up with no
@@ -163,7 +163,8 @@ Listed in the order you'd normally work through them:
   (its type, settings and art) after the last action — one **Ctrl+Z** removes it again; Delete removes the action.
   To put a copy somewhere else, or into another project, copy and paste it from the
   [layer tree](canvas.md#copy-paste-and-reorder). An empty chooser slot shows **Delete** only —
-  there's nothing to duplicate yet — and the sole remaining slot shows no buttons at all.
+  there's nothing to duplicate yet — and the sole remaining slot shows no buttons at all. Every slot, an empty
+  one too, is also a row in the layer tree, where right-click moves or deletes it.
 - The list always keeps at least one slot. Deleting the **last remaining** action returns it to the
   empty chooser instead of leaving an empty list; deleting any earlier action shifts the rest up and
   renumbers them. All of this is undoable.
@@ -263,7 +264,7 @@ selected, the size fields become a single **Off:** (offset) box that grows or sh
 all the way around; setting it back to 0 restores the original outline exactly.
 
 **Respect holes** (on by default) — the model's **through-holes** are treated as real empty space with
-**any** perimeter, or none. The checkbox sits next to **Fill Through** in the slice section; with a Hull
+**any** perimeter, or none. The checkbox sits next to **Fill Through** in the slice section and can be switched whenever Fill Through is on; with a Hull
 perimeter, the same setting also makes the Hull itself follow the holes (a ring's outline becomes a ring,
 not a disc — the Hull's own checkbox toggles the same thing). What a hole becomes depends on the setup:
 **with a perimeter**, the hole is carved at full depth along with the background; **without one**, it is
@@ -385,9 +386,12 @@ While a job runs, the boxes on the action panels (Delay, Goto, feedrates…) can
 ## Timings
 
 Per-layer or per-action overrides for laser/jump timing (laser on/off, polygon corner, end delays; jump
-speed and ramp). Choose **Device** to use the global device defaults, or **Custom** to override for that
-layer/action. Defaults from your `markcfg7` import are a good starting point. A value you type is saved when
-you press **Enter** or leave the box.
+speed and ramp). Choose **Device** to use this machine's defaults from
+[Laser Setup](hardware-setup.md#timing-defaults), or **Custom** to give that layer its own eight values.
+A Custom layer keeps every value you set, including any that happen to equal the defaults, so a later change
+to the Timing Defaults never reaches it; the small reset arrows put a value back to the current default. A sublayer
+has a third choice, **Layer**: it marks with its layer's timings, whatever that layer's mode. A
+value you type is saved when you press **Enter** or leave the box.
 
 ## Sublayers
 

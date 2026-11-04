@@ -79,3 +79,7 @@ connect to the internet: see [Offline licensing and custom solutions](updates-li
 
 FocuZ keeps a **log** (see [Reference](reference.md#file-settings-locations) for its location) — include it
 when you contact [Support](support.md).
+
+**FocuZ showed "Unexpected Error" or closed on its own.** The details are saved to **`crash.log`** in
+`%AppData%\FocuZ` — send that file to [Support](support.md) along with what you were doing at the time. On the
+"Unexpected Error" message, **Yes** keeps working and **No** closes FocuZ.
