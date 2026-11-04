@@ -43,6 +43,12 @@ previous program left there — so simply **reconnect in FocuZ** and mark. (If y
 FocuZ to EZCad2/LightBurn — power-cycle the controller first, or re-select the correction file there:
 those programs don't always refresh the controller when settings change.)
 
+**A 3D slice shows its outline but no fill, or the fill stops partway.** The mesh is probably not closed
+there — a hole in the model, or doubled faces. FocuZ checks every STL/OBJ/3MF on import and offers to
+repair it (see [Importing](importing.md)); whatever stays open is highlighted in orange on the design
+canvas. Repair the model in your modeling tool and import it again, or use a STEP file, which is always a
+true solid.
+
 ## Motion & axes
 
 **An axis won't move / "alarm" after a limit hit.** The FocuZ:grbl controller loses an axis's homed status
