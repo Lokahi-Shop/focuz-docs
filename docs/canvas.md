@@ -149,7 +149,7 @@ Right-click a row in the layer tree — an action, a group, a layer, a file or a
 - A **grid** for scale reference (toggleable).
 - Imported geometry colored by layer.
 - **Fill** and **cut** previews drawn over the shapes so you can see the marking pattern before you run. A preview that
-  takes a moment to work out — a large model's cut band, a very fine fill — builds in the background while you keep
+  takes a moment to work out — a large model's cut band, a very fine fill, the fill-through shading under a 3D model — builds in the background while you keep
   working: a slim loading bar at the canvas's top right fills as it lands, then disappears.
 - **The same colours in the Preview.** The **Preview** (toolbar toggle) draws every layer's and sublayer's lines in
   that fill's own colour — the colour its fill shows on the canvas and its square shows in the layer tree — so you can
