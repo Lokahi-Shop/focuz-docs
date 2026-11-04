@@ -155,7 +155,8 @@ Listed in the order you'd normally work through them:
   (its type, settings and art) after the last action — one **Ctrl+Z** removes it again; Delete removes the action.
   To put a copy somewhere else, or into another project, copy and paste it from the
   [layer tree](canvas.md#copy-paste-and-reorder). An empty chooser slot shows **Delete** only —
-  there's nothing to duplicate yet — and the sole remaining slot shows no buttons at all.
+  there's nothing to duplicate yet — and the sole remaining slot shows no buttons at all. Every slot, an empty
+  one too, is also a row in the layer tree, where right-click moves or deletes it.
 - The list always keeps at least one slot. Deleting the **last remaining** action returns it to the
   empty chooser instead of leaving an empty list; deleting any earlier action shifts the rest up and
   renumbers them. All of this is undoable.
