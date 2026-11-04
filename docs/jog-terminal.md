@@ -37,7 +37,7 @@ reopen it from the menu at any time.
 - **Home X / Home Y / Home Z** home each axis independently; **Home All** runs them in sequence.
 - **Home + X0 / Home + Y0** (under Home X / Home Y) home that axis and then move it to 0. X/Y 0 is the
   machine's 0: on an axis that homes toward +, that is right at the limit switch and can trip it.
-  While they (or **Home + Jog Lens 0**) are moving, the jog pad and the lens dropdown are locked, and the
+  While they (or **Home + Jog Lens 0**) are moving, the jog pad and the lens button are locked, and the
   Terminal only sends real-time keys (`?` `!` `~`) and `$G`. If the move to 0 is interrupted, FocuZ says so.
 - Each axis tracks its own **homing status**. An axis must be homed for its absolute position to be
   trustworthy; homing is what establishes a known origin (by touching the limit switch).
@@ -52,14 +52,15 @@ reopen it from the menu at any time.
 
 !!! note "While a sequence is running"
     The **Jog** and **Home** buttons are grayed out while a sequence runs or is paused — a manual move
-    in the middle of a run would change positions the run was checked against. They come back as soon
-    as the run finishes or is cancelled.
+    in the middle of a run would change positions the run was checked against. So are the **Z Lens focus**
+    controls (**Offset**, **Update Offset**, **Save Current Z**), the saved **Position** chooser and the
+    rotary jog amount. They all come back as soon as the run finishes or is cancelled.
 
 !!! note "While an axis is homing"
     The **Run / Pause** button becomes **Cancel All** (red). A homing cycle can't be paused, so Cancel All
     resets the controller — that stops all motion and ends the sequence. FocuZ then unlocks the controller
     and asks you to home again before the next absolute move. While any axis homes — from a Home button, a
-    Home action, or `$H` typed in the Terminal — the jog pad and the lens dropdown are grayed out, and the
+    Home action, or `$H` typed in the Terminal — the jog pad and the lens button are grayed out, and the
     Terminal only sends real-time keys, `$G` and `$X`.
 
 ### Motorized axes (Enable X / Y / Z)
@@ -86,6 +87,9 @@ All three axes are **off by default**. Your choices persist until you change the
 ### Position & limits
 
 - **MPos** is the machine (absolute) position; **LPos** is the work position FocuZ derives from it.
+- The top bar shows the live readouts for the enabled axes: **LPos Z** and **MPos Z** in the centre, with
+  **MPos X** and **MPos Y** to their right. A readout shows **N/A** until its axis has been homed, and an axis
+  that is off has no readout — the others keep their places.
 - Limit-switch status is shown per axis/direction so you can confirm switches before homing.
 
 ### Manual jogging
@@ -139,14 +143,14 @@ in view along the bottom.
 
 ### Commands FocuZ doesn't send
 
-FocuZ works in one coordinate system (**G54**), in **millimetres**, and keeps every lens and fixture
-offset itself. A command that would change that underneath it could move where FocuZ's own moves end
-up, so the Terminal answers with a one-line reason and **does not send** it:
+The FocuZ controller has **one coordinate system — the machine's** — works in **millimetres**, and FocuZ keeps
+every lens and fixture offset itself. A command that would try to change that is not something the controller
+supports, so the Terminal answers with a one-line reason and **does not send** it:
 
 | Not sent | Why |
 | --- | --- |
-| `G55`–`G59` | FocuZ runs in G54 |
-| `G10`, `G92`, `G43.1`, `G49` | FocuZ manages work offsets itself |
+| `G55`–`G59` | the controller has one coordinate system |
+| `G10`, `G92`, `G43.1`, `G49` | no work offsets on the controller — FocuZ keeps every offset itself |
 | `G20`, `G93` | FocuZ works in mm, at units-per-minute feed |
 | `G2`, `G3`, `G38` | arcs and probing aren't supported |
 | `$N…` (startup lines), `$C` (check mode) | not supported with FocuZ |
@@ -156,11 +160,17 @@ The same rules apply to **GRBL - Command** actions and **Terminal** sublayers: a
 these lines is stopped at **Run** with the line and the reason listed, so you can correct it.
 In a job, homing (`$H…`) and controller settings are refused too — use a **Home** action to home. Everything
 else — moves, `G53`, `G90` / `G91`, `$J=` jogs, M-codes, queries — is sent as typed. In the Terminal itself,
-homing and the other settings are sent as typed.
+homing and the other settings are sent as typed. A `G53` line is a move to a **machine** position (G90 / G91
+don't apply to it), and counts as an absolute move for the [homing check](#terminal).
 
 Moves FocuZ makes itself (an Axis Jog, a Jog sublayer, Home + X0 / Y0, Home + Jog Lens 0, a Home action's
-return to 0) run at your controller's **homing seek rate** (`$25`), so they suit your machine. They leave the
-controller's G0/G1, feed and G90/G91 exactly as they found them.
+return to 0, Return to Saved 0) run at your controller's **homing seek rate** (`$25`), so they suit your machine.
+Every position FocuZ remembers — a lens focus, a saved 0 — is a machine position, and FocuZ moves to it as one
+(a `G53` move), so nothing typed in the Terminal can shift where it lands. They leave the controller's G0/G1,
+feed and G90/G91 exactly as they found them.
+
+FocuZ also checks the controller's firmware build when it connects: a controller with an older build than this
+FocuZ needs is refused with an **Incompatible Controller** message — update the controller firmware and connect again.
 
 ### Feed rate on G1 lines
 
@@ -195,8 +205,8 @@ absolute (`G90`) or incremental (`G91`) mode; it shows **—** while disconnecte
 ### While a sequence is running
 
 Only the status query `?` and `$G` (show current modes) are sent while a sequence runs or is paused.
-Anything else is answered with "a sequence is running" and not sent. To stop a run, use **Pause** /
-**Cancel** in FocuZ (or **Soft Reset**, which also cancels it).
+Anything else is answered with "a sequence is running" and not sent — the refused line is also written to the log. To stop a run, use **Pause** /
+**Cancel** in FocuZ (or **Soft Reset**, which also cancels it — its confirmation says so, with **No** as the default).
 
 ## Accessory relays — air, vacuum & more
 

@@ -15,6 +15,10 @@ Your job is organized as a tree:
   sublayer moves an axis by a distance each time it fires; moving to a set position is planned as an action of
   its own.
 
+To **add** to the tree, use the add button on the right of a header, beside its **Repeat**. On a group header it
+reads **+ Layer**; press **▼** beside it to switch it to **+ Group** (or **+ Sublayer** on rotary actions), then press
+it to add one. A layer's header has **+ Sub** for its sublayers.
+
 To skip a node without deleting it, **right-click** it in the canvas [layer tree](canvas.md#the-layer-tree)
 and choose **Disable marking** (**Enable marking** turns it back on). A disabled node is gray in the tree
 and in its header, isn't drawn on the canvas, and doesn't mark. The same menu works on an imported file or a
@@ -22,8 +26,11 @@ single object inside a layer, and on a multi-selection it acts on everything sel
 job tidy. To **reorder**, right-click a layer, group, sublayer or action in the layer tree and choose **Move up**, **Move down**,
 **Move to top** or **Move to bottom** — the marking order follows. The same menu **copies and pastes** layers, groups,
 actions, files, objects and sublayers, also between projects (see [the layer tree](canvas.md#the-layer-tree)).
+To **delete** a group, layer or sublayer, right-click it in the layer tree — or right-click its header in the sequencer —
+and choose **Delete** (see [Deleting](canvas.md#deleting)); the same menu sets a layer's
+[colour](canvas.md#layer-colours).
 
-Deleting a layer, group or sublayer with the **X** on its header also removes its artwork from the canvas —
+Deleting a layer, group or sublayer also removes its artwork from the canvas —
 the imported art, its border and any cut paths — unless another layer still uses it. One **Ctrl+Z** brings
 back the node and its artwork together.
 
@@ -88,10 +95,10 @@ board's rotary port.
   to Start goes back to where the Home action left the machine.
 - **Axis Jog (FocuZ)** — move an axis as a job step. Pausing the run holds the move and Continue
   finishes it; FocuZ checks the axis arrived before going on.
-- **Rotary Jog (BJJCZ)** — turn the rotary as a job step: pick the fixture (its Rotary Setup
-  profile applies), **Rotation (degrees)** or **Distance (mm)** of part surface, the direction and
-  the amount. A distance needs the part diameter — on the action, or blank for the profile's
-  default (see [Rotary Jog](rotary.md#rotary-jog)).
+- **Rotary Jog (BJJCZ)** — turn the rotary as a job step on your machine's rotary type (shown on
+  the action; its Rotary Setup profile applies): **Rotation (degrees)** or **Distance (mm)** of part
+  surface, the direction and the amount. A distance needs the part diameter — on the action, or
+  blank for the profile's default (see [Rotary Jog](rotary.md#rotary-jog)).
 - **Return to Start (FocuZ)** — return the axes you tick to the machine position they were at when
   the run started, Z first, then X, then Y, at the feedrate you set (mm/min). All three axes are
   listed with their live lens (LPos) and machine (MPos) position, so you can set the action up with no
@@ -148,7 +155,8 @@ Listed in the order you'd normally work through them:
   (its type, settings and art) after the last action — one **Ctrl+Z** removes it again; Delete removes the action.
   To put a copy somewhere else, or into another project, copy and paste it from the
   [layer tree](canvas.md#copy-paste-and-reorder). An empty chooser slot shows **Delete** only —
-  there's nothing to duplicate yet — and the sole remaining slot shows no buttons at all.
+  there's nothing to duplicate yet — and the sole remaining slot shows no buttons at all. Every slot, an empty
+  one too, is also a row in the layer tree, where right-click moves or deletes it.
 - The list always keeps at least one slot. Deleting the **last remaining** action returns it to the
   empty chooser instead of leaving an empty list; deleting any earlier action shifts the rest up and
   renumbers them. All of this is undoable.
@@ -248,7 +256,7 @@ selected, the size fields become a single **Off:** (offset) box that grows or sh
 all the way around; setting it back to 0 restores the original outline exactly.
 
 **Respect holes** (on by default) — the model's **through-holes** are treated as real empty space with
-**any** perimeter, or none. The checkbox sits next to **Fill Through** in the slice section; with a Hull
+**any** perimeter, or none. The checkbox sits next to **Fill Through** in the slice section and can be switched whenever Fill Through is on; with a Hull
 perimeter, the same setting also makes the Hull itself follow the holes (a ring's outline becomes a ring,
 not a disc — the Hull's own checkbox toggles the same thing). What a hole becomes depends on the setup:
 **with a perimeter**, the hole is carved at full depth along with the background; **without one**, it is
@@ -370,9 +378,12 @@ While a job runs, the boxes on the action panels (Delay, Goto, feedrates…) can
 ## Timings
 
 Per-layer or per-action overrides for laser/jump timing (laser on/off, polygon corner, end delays; jump
-speed and ramp). Choose **Device** to use the global device defaults, or **Custom** to override for that
-layer/action. Defaults from your `markcfg7` import are a good starting point. A value you type is saved when
-you press **Enter** or leave the box.
+speed and ramp). Choose **Device** to use this machine's defaults from
+[Laser Setup](hardware-setup.md#timing-defaults), or **Custom** to give that layer its own eight values.
+A Custom layer keeps every value you set, including any that happen to equal the defaults, so a later change
+to the Timing Defaults never reaches it; the small reset arrows put a value back to the current default. A sublayer
+has a third choice, **Layer**: it marks with its layer's timings, whatever that layer's mode. A
+value you type is saved when you press **Enter** or leave the box.
 
 ## Sublayers
 

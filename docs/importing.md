@@ -33,7 +33,8 @@ Add a **2D Import** action (or drag a file onto the canvas) and choose your file
 !!! tip "Fills need closed paths"
     A [fill](sequencer.md#fill-types) can only fill a **closed** shape. If a fill looks empty, the path
     probably isn't closed — check it in your design tool, or adjust the closed-path tolerance in
-    [Hardware & Device Setup](hardware-setup.md).
+    [Hardware & Device Setup](hardware-setup.md). A layer whose art has no closed path keeps its **Fill**
+    box greyed out until it does; a 2D Grid's second layer and a group sublayer follow the art they fill.
 
 ## Preparing AI and SVG files
 
@@ -120,6 +121,12 @@ model into layers for marking.
 
     OBJ faces with any number of corners import complete, and a 3MF keeps its units and the placement of
     every part on the plate.
+
+!!! note "STEP size and curves"
+    A STEP model imports at its **exact** size — the Size fields show the model's true dimensions (a 49 mm
+    disc reads 49, not the width of the polygon that draws it). Its curved faces come in to within
+    **0.01 mm** of the true surface, the same curve tolerance 2D arcs use, so a STEP circle and an SVG
+    circle of the same size mark the same.
 
 !!! note "STEP size and curves"
     A STEP model imports at its **exact** size — the Size fields show the model's true dimensions (a 49 mm
