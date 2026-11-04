@@ -128,12 +128,6 @@ model into layers for marking.
     **0.01 mm** of the true surface, the same curve tolerance 2D arcs use, so a STEP circle and an SVG
     circle of the same size mark the same.
 
-!!! note "STEP size and curves"
-    A STEP model imports at its **exact** size — the Size fields show the model's true dimensions (a 49 mm
-    disc reads 49, not the width of the polygon that draws it). Its curved faces come in to within
-    **0.01 mm** of the true surface, the same curve tolerance 2D arcs use, so a STEP circle and an SVG
-    circle of the same size mark the same.
-
 How slices are marked (Z order, per-slice sublayers) is covered in
 [Marking & Tracing](marking-tracing.md#3d-slice-marking).
 
