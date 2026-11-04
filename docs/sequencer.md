@@ -95,10 +95,10 @@ board's rotary port.
   to Start goes back to where the Home action left the machine.
 - **Axis Jog (FocuZ)** — move an axis as a job step. Pausing the run holds the move and Continue
   finishes it; FocuZ checks the axis arrived before going on.
-- **Rotary Jog (BJJCZ)** — turn the rotary as a job step: pick the fixture (its Rotary Setup
-  profile applies), **Rotation (degrees)** or **Distance (mm)** of part surface, the direction and
-  the amount. A distance needs the part diameter — on the action, or blank for the profile's
-  default (see [Rotary Jog](rotary.md#rotary-jog)).
+- **Rotary Jog (BJJCZ)** — turn the rotary as a job step on your machine's rotary type (shown on
+  the action; its Rotary Setup profile applies): **Rotation (degrees)** or **Distance (mm)** of part
+  surface, the direction and the amount. A distance needs the part diameter — on the action, or
+  blank for the profile's default (see [Rotary Jog](rotary.md#rotary-jog)).
 - **Return to Start (FocuZ)** — return the axes you tick to the machine position they were at when
   the run started, Z first, then X, then Y, at the feedrate you set (mm/min). All three axes are
   listed with their live lens (LPos) and machine (MPos) position, so you can set the action up with no

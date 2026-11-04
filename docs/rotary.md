@@ -478,10 +478,11 @@ Each is a **fixture profile** in Rotary Setup with its own action:
 ## Rotary Jog
 
 **Rotary Jog (BJJCZ)** (Sequencer › Motion) turns the part as a step inside a sequence — between
-marks, or to present the next face. Choose the **fixture** (its profile's motor settings apply),
-**Rotation (degrees)** or **Distance (mm)** of part surface, the direction, and the amount. A
-distance needs the part's diameter — enter it on the action, or leave it blank to use the
-profile's Part Ø default. The live jog buttons on the Jog card have the same fixture choice.
+marks, or to present the next face. The action shows your machine's **rotary type** (set in Rotary
+Setup — its profile's motor settings apply); choose **Rotation (degrees)** or **Distance (mm)** of part
+surface, the direction, and the amount. A distance needs the part's diameter — enter it on the
+action, or leave it blank to use the profile's Part Ø default. The live jog strip on the Jog window
+shows the same rotary type.
 
 ## See also
 
