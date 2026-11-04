@@ -139,14 +139,14 @@ in view along the bottom.
 
 ### Commands FocuZ doesn't send
 
-FocuZ works in one coordinate system (**G54**), in **millimetres**, and keeps every lens and fixture
-offset itself. A command that would change that underneath it could move where FocuZ's own moves end
-up, so the Terminal answers with a one-line reason and **does not send** it:
+The FocuZ controller has **one coordinate system — the machine's** — works in **millimetres**, and FocuZ keeps
+every lens and fixture offset itself. A command that would try to change that is not something the controller
+supports, so the Terminal answers with a one-line reason and **does not send** it:
 
 | Not sent | Why |
 | --- | --- |
-| `G55`–`G59` | FocuZ runs in G54 |
-| `G10`, `G92`, `G43.1`, `G49` | FocuZ manages work offsets itself |
+| `G55`–`G59` | the controller has one coordinate system |
+| `G10`, `G92`, `G43.1`, `G49` | no work offsets on the controller — FocuZ keeps every offset itself |
 | `G20`, `G93` | FocuZ works in mm, at units-per-minute feed |
 | `G2`, `G3`, `G38` | arcs and probing aren't supported |
 | `$N…` (startup lines), `$C` (check mode) | not supported with FocuZ |
@@ -156,11 +156,17 @@ The same rules apply to **GRBL - Command** actions and **Terminal** sublayers: a
 these lines is stopped at **Run** with the line and the reason listed, so you can correct it.
 In a job, homing (`$H…`) and controller settings are refused too — use a **Home** action to home. Everything
 else — moves, `G53`, `G90` / `G91`, `$J=` jogs, M-codes, queries — is sent as typed. In the Terminal itself,
-homing and the other settings are sent as typed.
+homing and the other settings are sent as typed. A `G53` line is a move to a **machine** position (G90 / G91
+don't apply to it), and counts as an absolute move for the [homing check](#terminal).
 
 Moves FocuZ makes itself (an Axis Jog, a Jog sublayer, Home + X0 / Y0, Home + Jog Lens 0, a Home action's
-return to 0) run at your controller's **homing seek rate** (`$25`), so they suit your machine. They leave the
-controller's G0/G1, feed and G90/G91 exactly as they found them.
+return to 0, Return to Saved 0) run at your controller's **homing seek rate** (`$25`), so they suit your machine.
+Every position FocuZ remembers — a lens focus, a saved 0 — is a machine position, and FocuZ moves to it as one
+(a `G53` move), so nothing typed in the Terminal can shift where it lands. They leave the controller's G0/G1,
+feed and G90/G91 exactly as they found them.
+
+FocuZ also checks the controller's firmware build when it connects: a controller with an older build than this
+FocuZ needs is refused with an **Incompatible Controller** message — update the controller firmware and connect again.
 
 ### Feed rate on G1 lines
 
