@@ -407,7 +407,8 @@ the **group**, and where it is attached decides when it runs — see
   passes over 580 passes reads as −2.4 mm total.
 - **Terminal** — send raw GRBL command lines (e.g. switch a relay) as a step.
 - **Cut** — mark an **offset band** around the path:
-    - **Source** — an imported file, the layer **Perimeter**, or a **Border**.
+    - **Source** — an imported file, the layer **Perimeter**, or a **Border**. An imported file lands the right way
+      up, centered on the layer's art, whatever its position in the file.
     - **Offset** (how far out from the path) and **Distance** (band width).
     - Optional **outline**, or a wobble fill for the band.
 
