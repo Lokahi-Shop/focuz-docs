@@ -85,6 +85,9 @@ deleting actions/layers/sublayers, parameter changes, object transforms, and arr
   layer's fields selects that layer). On: the layer tree is the main selection tool — select across layers,
   edit their combined Size / Location; clicking or typing in the sequencer never changes the tree selection.
 - **Log** — the rolling log line cap, and a button to clear the log.
+- **Import** — clipping of AI art that crosses the artboard, the SVG pixel scale, and **Enable marking on imported
+  hidden layers** (off by default: a layer hidden in the art file imports with marking disabled) — see
+  [Importing Geometry](importing.md#hidden-layers).
 - **Canvas preview ▸ Solid fill below spacing (mm)** — default **0.05**. Fills spaced below this show on the
   canvas as a solid area instead of lines ([what you see](canvas.md#what-you-see)); **0** always shows the lines.
   Range 0 – 10 mm. It covers every fill on the canvas, cut bands and 2D Grid fills included; the Preview always

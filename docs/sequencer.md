@@ -253,10 +253,13 @@ and an **Intersection** grows the shared area rather than losing it.
 fill around the model's footprint (for a 3D Slice, the area between the perimeter and the model is what
 gets carved). Pick a source from the **Perimeter ▾** menu on the layer:
 
-- **Import…** — load a closed 2D path from a file.
+- **Import…** — load a closed 2D path from a file (SVG, DXF, AI, EPS, PDF). It lands the right way up, centered on
+  the model's footprint, whatever its position in the file; move or resize it from there.
 - **Hull** — the model's outline where it meets the floor (Z 0), plus everything Fill Through carves above it,
   generated for you, so an overhanging model still gets a perimeter around its whole footprint; move the model up or down
-  in Z and the Hull follows its cross-section there. Re-importing the model refreshes it.
+  in Z and the Hull follows its cross-section there. Re-importing the model refreshes it. On a layer with several
+  models it wraps the ones that mark: disable marking on a model or file and the Hull rebuilds without it, keeping
+  its Offset.
 - **Circle** / **Square** — a simple shape centered on the model's footprint (set its width/length).
 
 A perimeter is a normal canvas object — select it to move it or edit it. With **Hull** or **Import**
@@ -406,7 +409,8 @@ the **group**, and where it is attached decides when it runs — see
   passes over 580 passes reads as −2.4 mm total.
 - **Terminal** — send raw GRBL command lines (e.g. switch a relay) as a step.
 - **Cut** — mark an **offset band** around the path:
-    - **Source** — an imported file, the layer **Perimeter**, or a **Border**.
+    - **Source** — an imported file, the layer **Perimeter**, or a **Border**. An imported file lands the right way
+      up, centered on the layer's art, whatever its position in the file.
     - **Offset** (how far out from the path) and **Distance** (band width).
     - Optional **outline**, or a wobble fill for the band.
 
