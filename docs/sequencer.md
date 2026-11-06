@@ -253,7 +253,8 @@ and an **Intersection** grows the shared area rather than losing it.
 fill around the model's footprint (for a 3D Slice, the area between the perimeter and the model is what
 gets carved). Pick a source from the **Perimeter ▾** menu on the layer:
 
-- **Import…** — load a closed 2D path from a file.
+- **Import…** — load a closed 2D path from a file (SVG, DXF, AI, EPS, PDF). It lands the right way up, centered on
+  the model's footprint, whatever its position in the file; move or resize it from there.
 - **Hull** — the model's outline where it meets the floor (Z 0), plus everything Fill Through carves above it,
   generated for you, so an overhanging model still gets a perimeter around its whole footprint; move the model up or down
   in Z and the Hull follows its cross-section there. Re-importing the model refreshes it.
