@@ -6,10 +6,12 @@ FocuZ imports both 2D art and full 3D models. 3D models are sliced into layers f
 
 | Kind | Formats | Notes |
 |---|---|---|
-| 2D vector | **SVG, DXF, AI** | Lines/curves to mark or fill. |
+| 2D vector | **SVG, DXF, AI, EPS, PDF** | Lines/curves to mark or fill. |
 | 3D solid | **STEP / STP** | True solids (via the built-in 3D engine). Imports at the model's exact size; curves come in to within 0.01 mm. |
 | 3D mesh | **STL, OBJ, 3MF** | Triangle meshes. |
-| Images | common raster formats | For reference/placement. |
+
+Text and placed images inside a 2D file are not imported — see
+[Text and images](#text-and-images).
 
 A layer takes the files that match its action: 2D actions import 2D art, 3D actions (3D Slice, 3D Cut, 3D Shadow)
 import 3D models. Picking the other kind (for example with **All Files** in the file dialog) shows a message and
@@ -25,6 +27,8 @@ Add a **2D Import** action (or drag a file onto the canvas) and choose your file
   Pick **which layers** come in: all are selected at first; click picks one, `Ctrl`+click toggles,
   `Shift`+click picks a range, `Ctrl+A` picks all. Picked **separate** layers still land where they sit in the
   whole file — as if every layer came in and you deleted the rest.
+  A layer that is hidden in the file is listed as ***Name* (hidden)** — it imports with the rest, switched off
+  (see [Hidden layers](#hidden-layers)). Art that sits in none of the file's layers is listed as **(no layer)**.
 - **Registration point** — choose the reference point used to position the art (a 9-point grid for 2D).
 - **Position / Size / Rotation** — place and scale the art on the [canvas](canvas.md); link or unlink X/Y
   scaling.
@@ -35,6 +39,44 @@ Add a **2D Import** action (or drag a file onto the canvas) and choose your file
     probably isn't closed — check it in your design tool, or adjust the closed-path tolerance in
     [Hardware & Device Setup](hardware-setup.md). A layer whose art has no closed path keeps its **Fill**
     box greyed out until it does; a 2D Grid's second layer and a group sublayer follow the art they fill.
+
+## Hidden layers
+
+A layer that is hidden in your design tool **still imports** — but it arrives switched off, so it can never
+mark the part by surprise:
+
+- Its **eye is closed**: it is not shown on the canvas.
+- Its **marking is disabled**: it does not mark until you right-click it in the
+  [layer tree](canvas.md#the-layer-tree) and choose **Enable marking**. Enabling marking does not open the eye —
+  click the eye to see the layer. (A layer that marks while its eye is closed carries the tree's warning triangle.)
+
+Where the hidden layer lands depends on how you import:
+
+| Import | A hidden layer becomes |
+|---|---|
+| **Separate layers** | Its own layer, gray in the tree. |
+| **Flattened** into one layer (also a 2D Grid) | Its own file row inside that layer, gray in the tree. |
+
+The import is **placed by the art that is not hidden**. A hidden layer keeps its position relative to the rest,
+but it never changes where the visible art lands. In a flattened layer the **Size** and **Location** boxes
+measure everything in the layer, hidden rows included.
+
+**Preferences ▸ Import ▸ Enable marking on imported hidden layers** (off by default) brings hidden layers in
+with marking **enabled** instead — still with the eye closed.
+
+What counts as a hidden layer:
+
+| File | Hidden means |
+|---|---|
+| SVG | A top-level layer group with `display: none` or hidden visibility — on the group itself or through a style-sheet class. |
+| DXF | A layer that is **off** or **frozen**. |
+| AI, PDF | A layer with its eye off. |
+| EPS | Nothing — an EPS carries no layers, and a layer hidden when it was saved is not in the file at all. |
+
+- A layer that is visible but set **not to print** (or not to plot) is a visible layer.
+- Hidden things that are **not layers** are not imported: a hidden shape, group or sublayer inside a layer, and a
+  DXF entity marked invisible.
+- A file imported as a **perimeter** or as a **cut path** uses its visible layers only.
 
 ## Preparing AI and SVG files
 
@@ -52,6 +94,23 @@ is worse than leaving them out. Convert text to paths before exporting:
 
 If imported art is missing its lettering, this is almost always why.
 
+### Text and images
+
+When a file holds text, FocuZ says so as it imports: **Continue** brings in the rest of the art, **Cancel**
+imports nothing so you can convert the text first. Placed images are called out the same way — images are not
+imported. If the file holds nothing else, the message says that too. The log records how many text objects and
+images were left out.
+
+### Saving AI, PDF and EPS files
+
+- **AI and PDF** — FocuZ reads the art from the file's page, with its layers. Save with **Create PDF Compatible
+  File** turned on (Illustrator's default): a file saved without it holds no readable art, and FocuZ tells you to
+  save it again. **Use Compression** and **Embed ICC Profiles** can be on or off.
+- **Illustrator 8** files import with their layers.
+- **EPS** files import as one flat set of art.
+- A shape that has both a fill and a stroke imports as **one** object.
+- A password-protected PDF cannot be read.
+
 ### Flatten before export
 
 Flattening (Illustrator: **Object ▸ Flatten Transparency**, or **Object ▸ Expand / Expand
@@ -67,8 +126,8 @@ save-down itself, which is why EZCad2-era art usually imports cleanly.
 
 ### Artboards
 
-FocuZ imports the **artboard's art**: paths entirely outside the artboard are skipped, and the
-count is recorded in the log ("*N paths beyond the artboard were not imported*") so a missing
+From an **AI or PDF** file FocuZ imports the **artboard's art**: paths entirely outside the artboard are
+skipped, and the count is recorded in the log ("*N paths beyond the artboard were not imported*") so a missing
 element is never a mystery. Artists commonly park scratch material on the pasteboard — that
 material stays out of your job.
 
@@ -76,7 +135,7 @@ material stays out of your job.
   **"clip art crossing the artboard closed at its edge"** cuts it at the boundary instead,
   resealing closed shapes along the edge (note the sealed edge marks as a line).
 - A file with **several artboards** asks which one to import.
-- A file with no artboard declaration imports in full.
+- **Illustrator 8** files and **EPS** files carry no artboard FocuZ can use — all of their art imports.
 
 ### Sizes and units
 
@@ -84,10 +143,6 @@ AI files import at true size (Illustrator's points convert to millimeters). SVG 
 units (mm/cm/in/pt) import exactly; pixel-based SVGs use **Preferences ▸ Import ▸ SVG px
 scale** — *Auto* reads 96 dpi (the web standard) unless the file identifies itself as an
 Illustrator export (72 dpi), or force either value.
-
-!!! tip "Hidden layers stay hidden"
-    Layers or objects hidden in the file (`display: none` / hidden visibility in SVG) are not
-    imported — a layer you switched off in your design tool can't silently mark the part.
 
 ## Importing 3D models (slicing)
 
