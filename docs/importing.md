@@ -19,7 +19,7 @@ imports nothing.
 
 ## Importing 2D art
 
-Add a **2D Import** action (or drag a file onto the canvas) and choose your file.
+Add a **2D Import** action and choose your file.
 
 - **Multi-layer files** — if the file has multiple layers, FocuZ asks whether to **flatten** them into one
   or keep them **separate**. Separate layers land exactly where they sit in the file — the whole file is placed by

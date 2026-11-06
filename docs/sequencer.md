@@ -257,7 +257,9 @@ gets carved). Pick a source from the **Perimeter ▾** menu on the layer:
   the model's footprint, whatever its position in the file; move or resize it from there.
 - **Hull** — the model's outline where it meets the floor (Z 0), plus everything Fill Through carves above it,
   generated for you, so an overhanging model still gets a perimeter around its whole footprint; move the model up or down
-  in Z and the Hull follows its cross-section there. Re-importing the model refreshes it.
+  in Z and the Hull follows its cross-section there. Re-importing the model refreshes it. On a layer with several
+  models it wraps the ones that mark: disable marking on a model or file and the Hull rebuilds without it, keeping
+  its Offset.
 - **Circle** / **Square** — a simple shape centered on the model's footprint (set its width/length).
 
 A perimeter is a normal canvas object — select it to move it or edit it. With **Hull** or **Import**
