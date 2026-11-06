@@ -58,8 +58,9 @@ Where the hidden layer lands depends on how you import:
 | **Flattened** into one layer (also a 2D Grid) | Its own file row inside that layer, gray in the tree. |
 
 The import is **placed by the art that is not hidden**. A hidden layer keeps its position relative to the rest,
-but it never changes where the visible art lands. In a flattened layer the **Size** and **Location** boxes
-measure everything in the layer, hidden rows included.
+but it never changes where the visible art lands. After a flattened import the visible art is selected, so the
+**Size** and **Location** boxes show it; with the whole layer selected they measure everything in the layer,
+hidden rows included.
 
 **Preferences ▸ Import ▸ Enable marking on imported hidden layers** (off by default) brings hidden layers in
 with marking **enabled** instead — still with the eye closed.
