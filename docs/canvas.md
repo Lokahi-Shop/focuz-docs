@@ -75,9 +75,9 @@ surface. On a rotary job it also marks the axis height and each part surface.
 
 ### Registration point
 
-The **registration point** is the point of the art that its **Location** numbers describe: a corner, an edge
-middle or the centre. It is also the point that stays put when you **resize**, and the point the selection turns about
-with **Turn about: Registration point**.
+The **registration point** is the point of the **box around the art on the workspace** that its **Location** numbers
+describe: a corner, an edge middle or the centre of that box. It is also the point that stays put when you **resize**,
+and the point the selection turns about with **Turn about: Registration point**.
 
 - **One point for everything.** The 2D chooser (9 points) and the 3D registration cube (27 points) set **one**
   shared point for every layer in every action. Every layer's Location always reads for that point.
@@ -108,10 +108,11 @@ Every object — a piece of 2D art or a 3D model — keeps its **own** angle. Ro
 - **Turn by (°)** takes an amount. The selection turns **together** (a layout stays a layout): items at 30° and 0°,
   turned by 20, end at 50° and 20°. The box empties once used — if a turn wasn't what you wanted, **Ctrl+Z**. An empty
   box is simply no turn.
-- **Turn about**: the selection's **registration point**, or the **workspace origin** (the selection swings around
-  0, 0). Both options are remembered and apply to every layer. The registration point is the one on the art itself
-  (its Location X / Y stay put through a turn); several selected layers turn about the combined point their panels
-  show. A turn that carries art outside the lens field tells you so.
+- **Turn about**: the selection's **registration point** — the point its Location shows — or the **workspace origin**
+  (the selection swings around 0, 0). Both options are remembered and apply to every layer. The box around the art
+  changes shape as it turns, so the Location numbers follow it; a turn by 30 and then by −30 does not land back exactly
+  where it started — **Ctrl+Z** does. Several selected layers turn about the combined point their panels show. A turn
+  that carries art outside the lens field tells you so.
 - Angles show as **0.000 – 359.999**: typing 400 gives 40, −30 gives 330. Turn by takes −359.999 – 359.999.
 - **2D art** turns about Z (the rows show Z only). To mirror it, right-click it in the layer tree — see
   [Flip and Mirror](#flip-and-mirror).
@@ -120,10 +121,13 @@ Every object — a piece of 2D art or a 3D model — keeps its **own** angle. Ro
   re-counts its **# of Slices** so each slice stays the same thickness.
 - With **Allow multiple layer selection** on, the Angle and Turn by boxes act on every selected layer; with it off,
   on the selected layer.
-- **Size** shows the selection's **own** size (along its sides) when its items share one angle, labelled
-  *Size (own)*; when they differ, the **outline** on the workspace (*Size (outline)*) and resizing is proportional
-  only (the lock turns on). Several selected layers show their combined outline, and resize proportionally. For 3D,
-  **Location Z** is the lowest point on the bed (with a bottom registration point) — it changes as a part tilts.
+- **Size** shows the box around the selection **on the workspace** — its footprint, as a ruler on the bed would measure
+  it — so a turned part's width and height change with the turn, and **Location** is the registration point on that box.
+  Width and height can be set on their own while every selected item sits at a right angle (0, 90, 180 or 270°, or a
+  model turned only in quarter turns); at any other angle resizing is proportional (the lock turns on and shows a gold
+  mark). Several selected layers show their combined box and follow the same rule. For 3D, **Location Z** is the lowest
+  point on the bed (with a bottom registration point) — it changes as a part tilts — and **Slices/mm** reads against
+  that real height.
 - Fill lines keep their direction when the art turns.
 - A layer's **cut sublayer art** turns with the layer — also with **Each item** (when the layer is one item, or its
   items share an angle). On a **3D** layer it follows turns about Z and 180° flips; a tilt (e.g. X 90) leaves the flat
