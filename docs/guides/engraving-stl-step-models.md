@@ -38,7 +38,7 @@ one after another, so the laser removes material in the shape of the model — n
   **Respect holes** keeps through-holes empty.
 - **Models that overlap or touch on one layer mark as one solid**, in any mix of file formats. A wall they
   share is not marked, and fill lines run straight across where it was. To keep two models separate, put
-  them on different layers. Overlap inside a single imported model is not combined.
+  them on different layers. Shells that overlap inside a single imported model combine the same way.
 - **Z+ Offset** includes space above the model, in mm or in slices.
 
 ## Why slice instead of using a depth map?
