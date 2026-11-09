@@ -262,7 +262,9 @@ gets carved). Pick a source from the **Perimeter ▾** menu on the layer:
   its Offset.
 - **Circle** / **Square** — a simple shape centered on the model's footprint (set its width/length).
 
-A perimeter is a normal canvas object — select it to move it or edit it. With **Hull** or **Import**
+A perimeter is a normal canvas object — select it to move it or edit it. Moving a selected **Hull** perimeter (arrow keys
+or a typed Location) carries the layer's models with it, so the two stay in step; a Circle, Square or Import perimeter
+moves on its own. With **Hull** or **Import**
 selected, the size fields become a single **Off:** (offset) box that grows or shrinks the boundary evenly
 all the way around; setting it back to 0 restores the original outline exactly.
 
