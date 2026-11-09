@@ -5,7 +5,7 @@ other boxes are optional: news emails, and **Check for updates each time FocuZ s
 manual checks only; you can change it later under **License ▸ Software Updates**). See
 [Updates & Licensing](../updates-licensing.md).
 
-The first time you launch FocuZ, the **Device Setup** window opens automatically. It also re-opens if you
+The first time you launch FocuZ, the **Device Setup Wizard** window opens automatically. It also re-opens if you
 try to Run or Trace before the device is configured. You can revisit it any time from **Device ▸ Device
 Setup**.
 

@@ -33,7 +33,7 @@ FocuZ talks to the controller through a **WinUSB** driver.
 
 ## 2. First-time setup
 
-If this is the first time FocuZ has run on this PC, the **Device Setup** window opens on launch and walks you
+If this is the first time FocuZ has run on this PC, the **Device Setup Wizard** window opens on launch and walks you
 through importing your EZCad2 `markcfg7` and lens correction — see [First-run setup](../getting-started/first-run.md).
 
 ## 3. The main difference: jobs are a sequence
