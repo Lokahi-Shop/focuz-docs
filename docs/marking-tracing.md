@@ -70,7 +70,8 @@ controller connected.
 
 If the Z axis is enabled but not homed when you Run, FocuZ shows a prompt to **home + jog + run** or
 **run anyway**. This protects against marking out of focus on an un-referenced Z. See
-[Lenses, Corrections & Calibration](lenses-corrections.md).
+[Lenses, Corrections & Calibration](lenses-corrections.md). A **Return to Start** action is refused at Run when Z
+isn't homed at that point (a Home action as action #1 counts).
 
 ## Progress
 

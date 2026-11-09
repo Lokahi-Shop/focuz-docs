@@ -99,20 +99,19 @@ board's rotary port.
   the action; its Rotary Setup profile applies): **Rotation (degrees)** or **Distance (mm)** of part
   surface, the direction and the amount. A distance needs the part diameter — on the action, or
   blank for the profile's default (see [Rotary Jog](rotary.md#rotary-jog)).
-- **Return to Start (FocuZ)** — return the axes you tick to the machine position they were at when
-  the run started, Z first, then X, then Y, at the feedrate you set (mm/min). All three axes are
-  listed with their live lens (LPos) and machine (MPos) position, so you can set the action up with no
-  controller connected;
-  a warning icon shows beside Duplicate while the controller is disconnected; hover it for the reason. The
+- **Return to Start (FocuZ)** — return Z to the machine position it was at when the run started, at the
+  feedrate you set (mm/min). X and Y are listed too but can't be ticked yet (they still need testing). The rows
+  show each axis's live lens (LPos) and machine (MPos) position, so you can set the action up with no controller
+  connected; a warning icon shows beside Duplicate while something would stop the run — hover it for the reason. The
   rows show the **start each axis will return to**, worked out from the sequence as you build it: an
   axis a Home action #1 homes shows where that action leaves it (marked *Action 1*); every other axis
   shows its live position, which becomes the start when you press Run. The lens the Z position is
   measured from is shown under the rows. The run-start position is recorded after the Run
-  checks pass (or, with a Home action as action #1, once that action is done). The return is a move
-  *back by the distance* from where the machine is, so it works on axes that aren't homed (Run only
-  warns), and pausing the run holds it rather than cutting it short. Run refuses the job if a homing
-  line in a Command action would home an axis that isn't homed yet before a Return to Start brings it
-  back — the start would no longer match. After every return FocuZ checks the axis arrived.
+  checks pass (or, with a Home action as action #1, once that action is done). Run refuses the job when Z isn't
+  homed at that point (a Home action #1 counts). The return is a move *back by the distance* from where the machine
+  is, and pausing the run holds it rather than cutting it short. Run also refuses the job if a homing line in a Command action would home an
+  axis that isn't homed yet before a Return to Start brings it back — the start would no longer match. After every
+  return FocuZ checks the axis arrived.
 - **Return to Saved 0 (FocuZ)** — the same panel, but each ticked axis moves to its saved 0 (Z = the
   selected lens's saved focal position; X/Y saved zeros are not available yet). Requires that axis's limit
   switches to be enabled in both + and − (Device Setup ▸ Enable Limit Switches); the warning icon says so.
