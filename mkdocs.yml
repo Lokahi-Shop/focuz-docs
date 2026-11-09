@@ -63,6 +63,10 @@ nav:
       - Engraving STL and STEP models: guides/engraving-stl-step-models.md
       - "Relief engraving: slicing vs depth maps": guides/relief-engraving-slicing-vs-depth-maps.md
       - "Rotary seams: causes and fixes": guides/rotary-seams-causes-and-fixes.md
+      - "3D laser engraving: slicing vs a depth map": guides/3d-laser-engraving-stl-slicing-vs-depth-map.md
+      - "Does my laser have a BJJCZ board?": guides/does-my-fiber-laser-have-a-bjjcz-board.md
+      - Finding settings with a test grid: guides/finding-fiber-laser-settings-with-a-test-grid.md
+      - Color marking stainless steel: guides/color-marking-stainless-steel.md
   - Hardware & Device Setup: hardware-setup.md
   - Lenses, Corrections & Calibration: lenses-corrections.md
   - Importing Geometry: importing.md
