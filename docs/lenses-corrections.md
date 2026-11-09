@@ -94,9 +94,10 @@ and shows the **Offset** saved with that lens, or **Z not set** until a focal ha
 2. Enter an **Offset** (the distance between the baseboard and the top of your test material).
 3. Click **Save Current Z** to commit the focal distance + offset to the active lens.
 
-> The Offset box starts empty each time you change lens — the saved value stays on the heading for
-> reference. The Offset can be updated later without re-finding the focal distance (**Update Offset**). The
-> **Instructions** button repeats these three steps in the app. Saving the focal and updating the
+> The Offset box starts empty each time you change lens, and clears again after **Save Current Z** or
+> **Update Offset** — the saved value stays on the heading for reference. The Offset can be updated later
+> without re-finding the focal distance (**Update Offset**). The **Instructions** button repeats these
+> three steps in the app. Saving the focal and updating the
 > Offset are locked while a sequence is running or paused — a new focal would move the job's later
 > Z positions.
 
