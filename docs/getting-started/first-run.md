@@ -23,8 +23,8 @@ The window has two sections: **Device Setup** on top and **Lens Setup** below it
    lives in EZCad2's **plug** folder.
 2. The status line confirms **"Device configured (markcfg7 imported)."** and Run and Trace unlock.
 
-One import sets up everything device-wide: the **laser** settings (galvo axis mapping, speed and timing
-defaults), the **rotary** motor settings, the **red light**, the **power map** and the **I/O** port
+One import sets up everything device-wide: the **laser** settings (laser type, galvo axis mapping and
+speed limits), the **rotary** motor settings, the **red light**, the **power map** and the **I/O** port
 assignments. If you only want to re-import one of those later, each has its own **Import markcfg7**
 button on its own panel in the **Device** menu.
 
