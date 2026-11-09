@@ -176,7 +176,9 @@ model into layers for marking.
     same check: a true solid reads closed, and the rare face that could not be meshed gets the same offer.
 
     OBJ faces with any number of corners import complete, and a 3MF keeps its units and the placement of
-    every part on the plate.
+    every part on the plate. A 3MF that stores its model across several parts in the file, as meshy.ai
+    exports do, imports like any other. Very large models (millions of triangles) can take a minute to
+    import.
 
 !!! note "STEP size and curves"
     A STEP model imports at its **exact** size — the Size fields show the model's true dimensions (a 49 mm
