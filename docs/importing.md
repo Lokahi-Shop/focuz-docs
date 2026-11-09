@@ -89,6 +89,28 @@ Illustrator export (72 dpi), or force either value.
     Layers or objects hidden in the file (`display: none` / hidden visibility in SVG) are not
     imported — a layer you switched off in your design tool can't silently mark the part.
 
+### Curves come in as drawn
+
+FocuZ keeps the file's geometry rather than redrawing it. Circles, ellipses and arcs import as
+**true curves**: an SVG `<circle>`, `<ellipse>`, rounded `<rect>` or path arc command, and a DXF
+CIRCLE, ARC, ELLIPSE (a partial one keeps its start and end) or polyline bulge. A 50 mm circle
+measures 50.000 at any angle, and its marking follows the real curve. SVG `skewX` / `skewY`
+transforms are honoured. Curves drawn **with Béziers** in the design tool (an Illustrator circle,
+every AI / PDF / EPS curve) stay Béziers — that is what the artist drew.
+
+DXF files also bring in:
+
+- **Splines**, read from their knot vector; a spline given by fit points only is drawn as a smooth
+  curve through them.
+- **Block references** (INSERT), placed with their scale, rotation, mirror and arrays, nested blocks
+  included. External references (XREF) live in another file and are not imported — the log says so.
+- **Drawing units** (`$INSUNITS`): inches, feet, centimetres and the rest convert to millimetres. A
+  file that states no unit is read as millimetres, with a note in the log.
+- **Model space only**: entities placed on a paper-space layout are skipped, with a note in the log.
+
+!!! note "Projects and curves"
+    Projects saved by this version carry the new curve type and open in this version or newer.
+
 ## Importing 3D models (slicing)
 
 Add a **3D Slice** action and import a STEP/STP or mesh file. FocuZ switches to the 3D canvas and slices the
