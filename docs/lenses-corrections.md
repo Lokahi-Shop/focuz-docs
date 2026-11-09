@@ -15,7 +15,8 @@ aligning the mark to the part.
   **Lens settings…** at the bottom opens **Lens Corrections** for the lens in use.
 - Picking a lens opens the **Lens change** card: the lens's summary and details, then the moves on offer
   (home, jog to the lens's saved Z, or continue without movement) — or **Cancel** to keep the current lens.
-  Each lens carries its own field size, correction, work offset, and focal Z.
+  Each lens carries its own field size, correction, work offset, and focal Z. The picker waits while a job runs —
+  to change lenses inside a job, add a [Lens Change](sequencer.md#action-types) action to the sequence.
 - When the lens needs a known Z reference, FocuZ may prompt to home / jog before marking (see the
   [homing gate](marking-tracing.md#lens-activation-homing-gate)).
 
