@@ -6,8 +6,8 @@ manual checks only; you can change it later under **License ▸ Software Updates
 [Updates & Licensing](../updates-licensing.md).
 
 The first time you launch FocuZ, the **Device Setup Wizard** window opens automatically. It also re-opens if you
-try to Run or Trace before the device is configured. You can revisit it any time from **Device ▸ Device
-Setup**.
+try to Run or Trace before the device is configured. You can revisit it any time from **Device ▸ Device Setup
+Wizard**.
 
 !!! important "Marking is blocked until the device is configured"
     FocuZ won't let you **Run** or **Trace** until you've imported a `markcfg7`. This prevents marking
