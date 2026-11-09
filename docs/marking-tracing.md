@@ -70,10 +70,8 @@ controller connected.
 
 If the Z axis is enabled but not homed when you Run, FocuZ shows a prompt to **home + jog + run** or
 **run anyway**. This protects against marking out of focus on an un-referenced Z. See
-[Lenses, Corrections & Calibration](lenses-corrections.md). A [Lens Change](sequencer.md#action-types) action as
-action #1 counts like a Home action here — it homes Z itself, so there is no prompt. A **Return to Start** action is
-refused at Run when Z isn't homed at that point, or when a Lens Change before it leaves a lens other than the one the
-run began with installed.
+[Lenses, Corrections & Calibration](lenses-corrections.md). A **Return to Start** action is refused at Run when Z
+isn't homed at that point (a Home action as action #1 counts).
 
 ## Progress
 
