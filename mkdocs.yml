@@ -5,6 +5,7 @@ copyright: © 2026 Lokahi Innovation. All rights reserved.
 
 theme:
   name: material
+  custom_dir: overrides
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -31,6 +32,11 @@ theme:
 
 plugins:
   - search
+  # Real per-page change dates (last git commit) for the sitemap lastmod; see overrides/sitemap.xml.
+  - git-revision-date-localized:
+      type: date
+      timezone: Pacific/Honolulu
+      fallback_to_build_date: true
 
 markdown_extensions:
   - admonition
