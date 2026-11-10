@@ -34,7 +34,7 @@ and again after a power cycle or an unplugged cable. If the connection drops dur
 and FocuZ reconnects when the board is back — press **Run** or **Trace** again. The controller must be connected to
 **Trace** or **Run**.
 
-## Device Setup (Device ▸ Device Setup)
+## Device Setup Wizard (Device ▸ Device Setup Wizard)
 
 The one-page setup — `markcfg7` import on top, lens setup below. It's the fastest way to a working
 configuration and is covered in [First-run setup](getting-started/first-run.md). Importing a
@@ -99,7 +99,7 @@ default and the recommended choice).
 - A `markcfg7` carries **no timing or tolerance values** — EZCad2 keeps delays per pen. So the import never
   changes your **Timing Defaults** or **path tolerances** on its own: if any of them differs from FocuZ's
   built-in defaults, it asks whether to **keep** yours (the default answer) or set the FocuZ defaults. The
-  same question is asked by the Device Setup wizard's import; a first-time setup has nothing to keep and is
+  same question is asked by the Device Setup Wizard's import; a first-time setup has nothing to keep and is
   not asked.
 
 #### Galvo axis assignment

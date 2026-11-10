@@ -95,7 +95,7 @@ All three axes are **off by default**. Your choices persist until you change the
 !!! tip "Set the Z− limit switch so Z can never crash"
     Z homes up to its top switch, but a **Z− limit switch** at the bottom of travel is what stops a wrong move
     from driving the lens into the work or the bed. Mount it at a height where Z stops **before** anything
-    can touch, and enable it in **Device Setup ▸ Enable Limit Switches**.
+    can touch, and enable it in **Device ▸ Connection ▸ Enable Limit Switches**.
 
 ### Position & limits
 
