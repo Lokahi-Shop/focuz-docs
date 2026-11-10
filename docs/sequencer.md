@@ -71,7 +71,9 @@ Adding an action opens a picker grouped by purpose:
 - **Goto** — loop the sequence back to an earlier action. Pick the **target action** and a **Repeat**
   count: on reaching the Goto, the sequence returns to that action `Repeat` times (so the actions in
   between run `Repeat + 1` times total). **Repeat 0** passes straight through, as if the Goto weren't
-  there. A run won't start until the Goto has both a target and a repeat count set. Goto loops can be
+  there. A run won't start until the Goto has both a target and a repeat count set. A sequence that holds a
+  calibration action (Test Grid, WCS Offset, Z Focal Distance, Red Light, Dual Lens Alignment) can't contain a
+  Goto — calibration actions never loop. Goto loops can be
   **nested** — a Goto whose loop sits inside another Goto's loop runs its own repeats each time the
   outer loop comes back around.
 - **Select Action** — a no-op placeholder (skipped at marking); useful while building.
@@ -148,6 +150,9 @@ Listed in the order you'd normally work through them:
   [Finding focus](lenses-corrections.md#finding-focus-the-z-focal-distance-test)).
 - **Red Light** — mark a centered reference square, then align the red guide beam to it (see
   [Lenses, Corrections & Calibration](lenses-corrections.md)).
+- **Dual Lens Alignment** — engrave a square with one lens, then mark it through marker ink with a second lens
+  while you adjust that lens's offset, scale and angle until the two coincide (see
+  [Aligning two lenses](lenses-corrections.md#aligning-two-lenses-dual-lens-alignment)).
 
 ## Adding, copying & removing actions
 
