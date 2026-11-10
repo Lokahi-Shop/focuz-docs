@@ -67,6 +67,8 @@ nav:
       - "Does my laser have a BJJCZ board?": guides/does-my-fiber-laser-have-a-bjjcz-board.md
       - Finding settings with a test grid: guides/finding-fiber-laser-settings-with-a-test-grid.md
       - Color marking stainless steel: guides/color-marking-stainless-steel.md
+      - What is markcfg7?: guides/what-is-markcfg7.md
+      - "Changing lenses: per-lens calibration": guides/fiber-laser-lens-change-per-lens-calibration.md
   - Hardware & Device Setup: hardware-setup.md
   - Lenses, Corrections & Calibration: lenses-corrections.md
   - Importing Geometry: importing.md
