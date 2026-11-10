@@ -73,7 +73,7 @@ Adding an action opens a picker grouped by purpose:
   it: a card says the **Z axis will home now** (OK, or Cancel Sequence) → Z homes → the **Lens change** card asks you
   to install the lens (OK commits the change — the new lens's correction and field size apply from here on; the top
   bar shows it) → a card asks you to **confirm the lens change is complete** → Z moves in one move to the new lens's
-  **focus + Z offset** → the **safety warning** shows again and *Run Sequence* continues the job. Every card also offers
+  **focus + Z offset** → a **Lens changed** card (the safety warning's twin) asks you to **Continue** the job. Every card also offers
   **Cancel Sequence**, and the Run button still pauses or cancels the job while a card is up. If the run ends while a
   change is in progress, FocuZ tells you which lens it has selected so you can check it against the one installed.
   Run checks the action up front: Z enabled, the controller connected, the lens's focus below the Z switch; the action
