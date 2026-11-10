@@ -57,3 +57,37 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # After a merge to main is live: tell IndexNow (Bing, Yandex, Seznam, Naver) which pages changed.
+  # Key file: docs/<KEY>.txt (public by design). Never blocks or fails the site deploy.
+  indexnow:
+    if: github.event_name == 'push'
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Submit changed pages to IndexNow
+        env:
+          BEFORE: ${{ github.event.before }}
+          KEY: f29e86c464448f3fe6c79699afb0e3fb
+        run: |
+          host=wiki.lokahi.shop
+          files=$(git diff --name-only --diff-filter=AMR "$BEFORE" "$GITHUB_SHA" -- 'docs/*.md' || true)
+          urls=""
+          for f in $files; do
+            p=${f#docs/}; p=${p%.md}
+            case "$p" in
+              index) p="" ;;
+              */index) p="${p%index}" ;;
+              *) p="$p/" ;;
+            esac
+            urls="$urls\"https://$host/$p\","
+          done
+          if [ -z "$urls" ]; then echo "No page changes, nothing to submit."; exit 0; fi
+          body="{\"host\":\"$host\",\"key\":\"$KEY\",\"keyLocation\":\"https://$host/$KEY.txt\",\"urlList\":[${urls%,}]}"
+          echo "$body"
+          curl -sS -w "\nIndexNow HTTP %{http_code}\n" -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' -d "$body"
