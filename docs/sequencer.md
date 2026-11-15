@@ -387,6 +387,12 @@ sends nothing and the run carries on.
 
 While a job runs, the boxes on the action panels (Delay, Goto, feedrates…) can't be edited.
 
+A run marks the job **as it was when you pressed Run**. You can keep editing layer settings and artwork while it
+runs — also during a Pause — but those edits apply to the **next** run, not the one in progress. That holds for
+every marking action, the Test Grid and the Z Focal Distance test included, and for every pass of a **Goto** loop.
+Before the first action starts, FocuZ prepares the whole job (the progress bar reads *Preparing the job…*); with
+large 3D models this can take a moment.
+
 ## Timings
 
 Per-layer or per-action overrides for laser/jump timing (laser on/off, polygon corner, end delays; jump
