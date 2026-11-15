@@ -94,6 +94,12 @@ The dialog has three tabs; **OK** saves all of them at once.
   option is on.
 - **Log** — the rolling log line cap, and a button to clear the log.
 
+!!! note "What keep-awake cannot do"
+    Closing a laptop lid, the power button, **Start ▸ Sleep** and a critically low battery still put the PC to
+    sleep. Keep a laptop plugged in for long jobs — on battery, some laptops sleep once their display turns off.
+    Windows can also power down idle USB ports on its own (*USB selective suspend*, in the Windows power plan);
+    that setting is separate from sleep.
+
 **Workspace**
 
 - **Layer panel layout** — layer-panel docked vs. overlay.
@@ -111,12 +117,6 @@ The dialog has three tabs; **OK** saves all of them at once.
 - Clipping of AI art that crosses the artboard, the SVG pixel scale, and **Enable marking on imported
   hidden layers** (off by default: a layer hidden in the art file imports with marking disabled) — see
   [Importing Geometry](importing.md#hidden-layers).
-
-!!! note "What keep-awake cannot do"
-    Closing a laptop lid, the power button, **Start ▸ Sleep** and a critically low battery still put the PC to
-    sleep. Keep a laptop plugged in for long jobs — on battery, some laptops sleep once their display turns off.
-    Windows can also power down idle USB ports on its own (*USB selective suspend*, in the Windows power plan);
-    that setting is separate from sleep.
 
 The motion controller's **After a run, set positioning mode (G90/G91)** setting is in **Device ▸ Laser Setup**, under
 **Motorized Axis (FocuZ controlled)** — see [Distance mode](jog-terminal.md#distance-mode-g90-g91).
