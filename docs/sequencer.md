@@ -22,7 +22,17 @@ it to add one. A layer's header has **+ Sub** for its sublayers.
 To skip a node without deleting it, **right-click** it in the canvas [layer tree](canvas.md#the-layer-tree)
 and choose **Disable marking** (**Enable marking** turns it back on). A disabled node is gray in the tree
 and in its header, isn't drawn on the canvas, and doesn't mark. The same menu works on an imported file or a
-single object inside a layer, and on a multi-selection it acts on everything selected. Groups can be **collapsed** to keep a big
+single object inside a layer, and on a multi-selection it acts on everything selected.
+
+To skip a **whole action**, right-click the action's row in the layer tree and choose **Disable action**
+(**Enable action** turns it back on). It works on every kind of action — marking actions, and steps such as a
+GRBL command, a jog, a Delay, a Pause, a Stop, a Goto or a Lens Change. A disabled action keeps its place and
+its number, and is gray in the tree and in its header. **Run**, **Trace**, the **Preview** and the time estimate
+treat it as if it were not in the sequence: it does not mark, move or send anything, its boxes are not checked,
+and its artwork is not drawn on the canvas. A **Goto** that points at a disabled action continues with the next
+action that runs. It is saved with the project, and it can't be changed while a sequence is running.
+
+Groups can be **collapsed** to keep a big
 job tidy. To **reorder**, right-click a layer, group, sublayer or action in the layer tree and choose **Move up**, **Move down**,
 **Move to top** or **Move to bottom** — the marking order follows. The same menu **copies and pastes** layers, groups,
 actions, files, objects and sublayers, also between projects (see [the layer tree](canvas.md#the-layer-tree)).
