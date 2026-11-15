@@ -93,6 +93,20 @@ deleting actions/layers/sublayers, parameter changes, object transforms, and arr
   Range 0 – 10 mm. It covers every fill on the canvas, cut bands and 2D Grid fills included; the Preview always
   shows lines. It changes the screen only, never what marks.
 - **Layout** — layer-panel docked vs. overlay.
+- **Power ▸ Keep the PC awake while FocuZ is open** — on by default. A PC that goes to sleep drops its USB
+  connections to the laser and the motion controller, so FocuZ asks Windows not to sleep on its idle timer while
+  FocuZ is open. Your Windows power settings are not changed, and the request ends when FocuZ closes. Switched
+  off, Windows may sleep while FocuZ is idle — a **run or a trace still keeps the PC awake** until it ends (a
+  paused run included).
+- **Power ▸ Keep the display on while FocuZ is open** — off by default: the display follows your Windows setting.
+  On, the screen stays on too (so the PC also never reaches its idle screen lock). Available while the first
+  option is on.
+
+!!! note "What keep-awake cannot do"
+    Closing a laptop lid, the power button, **Start ▸ Sleep** and a critically low battery still put the PC to
+    sleep. Keep a laptop plugged in for long jobs — on battery, some laptops sleep once their display turns off.
+    Windows can also power down idle USB ports on its own (*USB selective suspend*, in the Windows power plan);
+    that setting is separate from sleep.
 
 The motion controller's **After a run, set positioning mode (G90/G91)** setting is in **Device ▸ Laser Setup**, under
 **Motorized Axis (FocuZ controlled)** — see [Distance mode](jog-terminal.md#distance-mode-g90-g91).
