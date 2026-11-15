@@ -67,7 +67,10 @@ Adding an action opens a picker grouped by purpose:
 
 - **Delay** — wait a set time.
 - **Pause** — stop and wait for you to continue (a modal prompt).
-- **Stop** — end the sequence here.
+- **Stop** — end the sequence here. Actions after a Stop are kept in the job but do not run, and **Run** does not
+  check them: they can have blank boxes, need an axis that is switched off, or need the motion controller, without
+  holding the run back. (An action that a **Goto** jumps to past the Stop does run, and is checked.) **Trace** still
+  shows them.
 - **Goto** — loop the sequence back to an earlier action. Pick the **target action** and a **Repeat**
   count: on reaching the Goto, the sequence returns to that action `Repeat` times (so the actions in
   between run `Repeat + 1` times total). **Repeat 0** passes straight through, as if the Goto weren't
