@@ -22,7 +22,7 @@ is the deeper reference.
 
 ## Connecting (Device ▸ Connection)
 
-1. Open **Device ▸ Connection**.
+1. Open **Device ▸ Connection**, or click the **plug button** on the menu bar, just left of **Preview**.
 2. Pick your controller from the device list and click **Connect**.
 3. When connected, FocuZ shows the **firmware version** and **serial number** and a green status
    indicator; the current lens and correction-file status are also shown.
