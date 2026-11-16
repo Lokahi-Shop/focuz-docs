@@ -404,6 +404,12 @@ actions is locked too: no add, delete, duplicate, move, paste or Disable action.
 for layer and artwork edits; a step that changes an action waits until the job ends. A Calibration - Offset's
 **Apply Offset** also waits. Layer settings stay editable.
 
+A run marks the job **as it was when you pressed Run**. You can keep editing layer settings and artwork while it
+runs — also during a Pause — but those edits apply to the **next** run, not the one in progress. That holds for
+every marking action, the Test Grid and the Z Focal Distance test included, and for every pass of a **Goto** loop.
+Before the first action starts, FocuZ prepares the whole job (the progress bar reads *Preparing the job…*); with
+large 3D models this can take a moment.
+
 ## Timings
 
 Per-layer or per-action overrides for laser/jump timing (laser on/off, polygon corner, end delays; jump
