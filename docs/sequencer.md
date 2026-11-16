@@ -398,7 +398,11 @@ Empty boxes are saved with the project, and clearing a box can be undone (**Undo
 **Redo** empties it again). Disabled groups, layers and sublayers are not checked. A blank **GRBL Command** is fine: it
 sends nothing and the run carries on.
 
-While a job runs, the boxes on the action panels (Delay, Goto, feedrates…) can't be edited.
+While a job runs, an action's own settings can't be changed — its boxes (Delay, Goto, feedrates…), dropdowns (the
+action type, a Goto's target, a jog's direction and distance), ticks and lens pick are locked — and the list of
+actions is locked too: no add, delete, duplicate, move, paste or Disable action. **Undo** and **Redo** still work
+for layer and artwork edits; a step that changes an action waits until the job ends. A Calibration - Offset's
+**Apply Offset** also waits. Layer settings stay editable.
 
 ## Timings
 
