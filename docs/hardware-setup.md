@@ -172,7 +172,8 @@ saved settings).
 
 **Outputs** FocuZ drives:
 
-- **Marking IO** — active while a job is marking (released as soon as it finishes).
+- **Marking IO** — active while a job is marking (released as soon as it finishes). The Test Grid and the Z Focal
+  Distance test drive it — and the finish pulse below — like every other mark.
 - **Red Light Pointer** — active while the red pointer or a trace is running.
 - **Laser Ready / Laser Power** — reserved for machines that expect those lines.
 
