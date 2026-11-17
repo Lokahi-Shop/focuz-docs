@@ -7,6 +7,7 @@ description: "Step-by-step: engrave STL and STEP 3D models on a galvo fiber lase
 **Short answer:** in FocuZ, add a **3D Slice** action, import the model (STEP, STL, OBJ or 3MF), size and
 place it, choose how many slices, and run. FocuZ cuts the model into horizontal layers and marks them
 one after another, so the laser removes material in the shape of the model — no depth map to prepare.
+Several models, in any mix of formats, can share one layer.
 
 ## Step by step
 
@@ -26,6 +27,20 @@ one after another, so the laser removes material in the shape of the model — n
    stack into ridges.
 6. **Trace, then run.** Trace to check placement on the part, then press **Run**. Slices mark top to
    bottom; check **Inverse** to mark from the floor up.
+
+## Getting your models in
+
+- **Any mix of formats on one layer.** Import STL, OBJ, STEP or 3MF into the same 3D Slice action:
+  a STEP part beside a 3MF and an STL from your library. Each import adds to the layer.
+- **Placed in X, Y and Z.** Select a model and type its Location X, Y or Z, or nudge it with the
+  arrow keys (**Alt+Up** / **Alt+Down** for Z, see [Canvas](../canvas.md)). Height is just another
+  coordinate, not a depth map's gray levels.
+- **AI model generation ([Meshy](https://www.meshy.ai/) recommended).** Describe a design or show Meshy
+  a picture, export it as 3MF, STL or OBJ, and import it. Every mesh is checked on import; if it has
+  open edges, FocuZ says how many and offers to repair it.
+- **From CAD.** Export a STEP from a program like [Fusion](https://www.autodesk.com/products/fusion-360/)
+  and it comes in as a true solid at its exact size (see
+  [STEP size and curves](../importing.md#importing-3d-models-slicing)).
 
 ## Tips for clean results
 
