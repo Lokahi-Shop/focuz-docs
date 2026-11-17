@@ -141,7 +141,9 @@ connecting from the other.
 - **Stay with EZCad2** if it does what you need and you only mark simple 2D work. It's free and already
   set up.
 - **Choose LightBurn** if you want design tools included, run other kinds of lasers too, or work on a Mac.
-- **Choose FocuZ** if you engrave 3D relief from models, use several lenses, or run multi-step jobs.
+- **Choose FocuZ** if you engrave 3D reliefs from models, use several lenses, run multi-step jobs, or want
+  additional features such as marking parameter variation within a fill, for marking options you'll only
+  find in FocuZ.
 
 ## Switching between them
 
