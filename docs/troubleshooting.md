@@ -9,7 +9,8 @@ Common issues and how to resolve them. If something isn't here, see [Support](su
 - Check the USB cable and that the controller is powered.
 - Open **Device ▸ Connection** and click **Refresh**.
 - If it's plugged in but not listed, install the WinUSB driver with Zadig (USB ID `9588:9899`) — see
-  [Installation & driver](getting-started/installation.md).
+  [Installation & driver](getting-started/installation.md) or the
+  [BJJCZ USB LMCV4 driver guide](https://lokahi.shop/pages/driver-installation).
 
 **The FocuZ:grbl controller (motion/accessories) isn't responding.**
 

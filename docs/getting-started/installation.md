@@ -15,6 +15,9 @@
 
 ## 2. Install the BJJCZ USB driver
 
+**Step-by-step guide:** [USB LMCV4 driver for Windows 11 & 10](https://lokahi.shop/pages/driver-installation) —
+moving from EZCad2's driver to WinUSB with Zadig, LightBurn users, and switching back to EZCad2.
+
 FocuZ talks to the controller through a **WinUSB** driver. If Windows hasn't already bound a WinUSB
 driver to your controller (for example, if this PC has only ever run EZCad2 with its own driver), install
 it with the free **Zadig** utility.

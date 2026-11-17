@@ -15,7 +15,8 @@ check the laser itself.
 2. **Windows Device Manager.** With the laser on and plugged in, look for a **BJJCZ Device** category
    near the top of the list — the board sits under it (for example *Laser Mark Control Board V4 [USB]*).
    If the laser has been set up for LightBurn or FocuZ, it shows under *Universal Serial Bus devices* as
-   **USBLMCV2** or **USBLMCV4** instead.
+   **USBLMCV2** or **USBLMCV4** instead. To install or swap the driver, see
+   [USB LMCV4 driver for Windows 11 & 10](https://lokahi.shop/pages/driver-installation).
 
     ![Device Manager showing the BJJCZ Device category with Laser Mark Control Board V4 [USB] under it](../assets/device-manager-bjjcz.png)
 
@@ -35,3 +36,4 @@ check the laser itself.
   and serial number.
 - [Switching from EZCad2 or LightBurn](switching-from-ezcad2-or-lightburn.md)
 - [Installation & driver](../getting-started/installation.md)
+- [USB LMCV4 driver (Windows 11 & 10)](https://lokahi.shop/pages/driver-installation)
