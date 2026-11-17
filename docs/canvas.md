@@ -57,6 +57,8 @@ surface. On a rotary job it also marks the axis height and each part surface.
   between its ends except borders.
 - Selecting in the **layer tree** highlights the object on the canvas, and vice-versa.
 - **Nudge** the selection with the arrow keys (step sizes are set in [Preferences](projects-files.md)).
+  **Alt+Up** / **Alt+Down** nudge it in **Z**, with the same steps (Shift and Ctrl work the same way they do for X and Y),
+  so a model's height is placed just like its X and Y. Calibration actions (WCS Offset, Test Grid) don't move in Z.
 - **Ctrl+click** several items in the layer tree (objects, files, borders, layers) to select them together
   (within one layer, or across layers with **Allow multiple layer selection** on in Preferences) —
   the arrow keys then nudge them all by the same step. Ctrl+click toggles exactly what you click: a layer or
