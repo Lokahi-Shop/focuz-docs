@@ -16,7 +16,8 @@ FocuZ talks to the controller through a **WinUSB** driver.
   first — only one program can hold the controller at a time.
 - **Coming from EZCad2:** EZCad2 installs its own vendor driver. Replace it with WinUSB using Zadig,
   selecting the device with USB ID **`9588:9899`** — the full steps are in
-  [Installation & driver](../getting-started/installation.md#2-install-the-bjjcz-usb-driver).
+  [Installation & driver](../getting-started/installation.md#2-install-the-bjjcz-usb-driver) and on the
+  [USB LMCV4 driver installation guide](https://lokahi.shop/pages/driver-installation).
 
 !!! note "Going back to EZCad2"
     EZCad2 needs its own vendor driver, so the WinUSB driver (the one FocuZ and LightBurn share) has to be
@@ -29,7 +30,8 @@ FocuZ talks to the controller through a **WinUSB** driver.
     3. Choose **Action › Scan for hardware changes**, or unplug and replug the controller.
     4. Install EZCad2's own driver (from its driver folder), then start EZCad2.
 
-    Coming back to FocuZ later is just the Zadig step again.
+    Coming back to FocuZ later is just the Zadig step again. Both directions are covered on the
+    [USB LMCV4 driver page](https://lokahi.shop/pages/driver-installation).
 
 ## 2. First-time setup
 
