@@ -20,7 +20,7 @@ image. FocuZ slices the model itself — no depth map image in between.
 - **What you see is what you get.** The model on screen is what marks, and it's easy to place — in X and
   Y, and in Z too.
 - **Faster to the mark.** Import STL, OBJ, 3MF or STEP and mark — no depth map to make. Make a model from
-  an image or text in a tool like Meshy, bring it straight into FocuZ, and engrave.
+  an image or text in a tool like [Meshy](https://www.meshy.ai/), bring it straight into FocuZ, and engrave.
 
 ## See the difference
 
