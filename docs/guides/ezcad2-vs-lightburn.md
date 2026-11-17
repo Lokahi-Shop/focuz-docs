@@ -14,7 +14,7 @@ sublayers.
 
 Put simply, LightBurn is the Swiss Army knife of laser software, built to work with many
 different laser systems, and it includes a drawing suite. FocuZ is the scalpel: designed specifically for BJJCZ (EZCad2-based) fiber laser
-systems, with unique marking features and a higher level of functionality.
+systems, with unique features and a higher level of marking functionality.
 
 This comparison covers fiber lasers with a BJJCZ (EZCad2-based) controller board. Not sure which board yours
 has? See [Does my fiber laser have a BJJCZ board?](does-my-fiber-laser-have-a-bjjcz-board.md).
