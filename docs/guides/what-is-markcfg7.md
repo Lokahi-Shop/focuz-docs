@@ -72,3 +72,4 @@ Changing lenses? See
 - [Hardware setup](../hardware-setup.md)
 - [Switching from EZCad2 or LightBurn](switching-from-ezcad2-or-lightburn.md)
 - [Lenses, Corrections & Calibration](../lenses-corrections.md)
+- [EZCad2 vs LightBurn for BJJCZ fiber lasers](ezcad2-vs-lightburn.md)

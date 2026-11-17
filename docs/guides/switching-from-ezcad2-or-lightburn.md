@@ -56,5 +56,6 @@ Follow [Your first mark](../getting-started/your-first-mark.md): import simple a
 
 ## Related
 
+- [EZCad2 vs LightBurn for BJJCZ fiber lasers](ezcad2-vs-lightburn.md)
 - [Troubleshooting & FAQ](../troubleshooting.md)
 - [Support](../support.md)
