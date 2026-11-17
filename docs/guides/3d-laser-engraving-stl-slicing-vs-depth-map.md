@@ -9,8 +9,10 @@ image. FocuZ slices the model itself — no depth map image in between.
 
 ## Why slicing
 
-- **Accurate in X, Y and Z.** Every slice is the model's exact outline at that height — no pixel grid,
-  no gray levels.
+- **Accurate in X, Y and Z.** Every slice is the model's exact outline at that height — no pixel grid —
+  and every slice is the same depth, so each pass lines up with the depth your settings remove. A depth
+  map's gray levels have to be matched to the slice count, and even a 16-bit map is hard to line up
+  with it.
 - **Depth you control.** Measure how much material one slice removes, set slices per mm from it, and
   the model's depth is the depth you mark.
 - **Quality you choose.** The result comes down to your settings and the number of slices — not a gray

@@ -28,6 +28,11 @@ height. The software converts gray levels into passes or power, so the result ca
 Gentle slopes suffer most: a small change in height spreads one gray level over a wide area, which marks
 as a flat band with a sharp edge.
 
+A 16-bit map has plenty of height levels, but its levels still have to be lined up with the slice count,
+and its quality depends on its pixel resolution too. Editing a depth map to get the detail you expect is
+difficult. With slicing, every slice is a consistent depth, and only the marking settings and the number
+of slices control quality.
+
 ## How slicing is different
 
 A **3D Slice** action in FocuZ imports the model itself — **STEP**, **STL**, **OBJ** or **3MF** — and cuts
@@ -40,7 +45,8 @@ What that gives you:
 - **Outlines at true resolution.** Layer boundaries are vector paths, not pixel edges.
 - **Control over step size.** Depth still builds up layer by layer, so a slice is still a small step — but
   you set the slice count, and finer slices make smaller steps. You are not limited to the levels a
-  depth map happened to contain.
+  depth map happened to contain. Slicing can still leave visible steps if the slices are too few or the
+  depth per pass doesn't match your material.
 - **The model stays editable.** Scale, rotate and place the model in FocuZ; the slices are recomputed
   from the geometry, not from a re-rendered image.
 
