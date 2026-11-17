@@ -142,8 +142,8 @@ connecting from the other.
   set up.
 - **Choose LightBurn** if you want design tools included, run other kinds of lasers too, or work on a Mac.
 - **Choose FocuZ** if you engrave 3D reliefs from models, use several lenses, run multi-step jobs, or want
-  additional features such as marking parameter variation within a fill, for marking options you'll only
-  find in FocuZ.
+  additional features such as marking parameter variation within a fill or other marking options you'll
+  only find in FocuZ.
 
 ## Switching between them
 
