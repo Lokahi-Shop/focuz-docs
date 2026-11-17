@@ -1,3 +1,7 @@
+---
+description: "FocuZ troubleshooting for BJJCZ fiber lasers: USB connection and driver problems, a blocked Run, marking quality and placement, motion and axes, and licensing."
+---
+
 # Troubleshooting & FAQ
 
 Common issues and how to resolve them. If something isn't here, see [Support](support.md).
