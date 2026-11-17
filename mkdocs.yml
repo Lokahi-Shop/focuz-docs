@@ -57,6 +57,10 @@ extra:
       link: https://lokahi.shop
       name: lokahi.shop
 
+# Live FocuZ price (data-fz-price spans) from the homepage's /pricing route
+extra_javascript:
+  - javascripts/fz-price.js
+
 nav:
   - Home: index.md
   - Getting Started:
@@ -66,6 +70,7 @@ nav:
       - Your first mark: getting-started/your-first-mark.md
   - Guides:
       - Switching from EZCad2 or LightBurn: guides/switching-from-ezcad2-or-lightburn.md
+      - EZCad2 vs LightBurn: guides/ezcad2-vs-lightburn.md
       - Engraving STL and STEP models: guides/engraving-stl-step-models.md
       - "Relief engraving: slicing vs depth maps": guides/relief-engraving-slicing-vs-depth-maps.md
       - "Rotary seams: causes and fixes": guides/rotary-seams-causes-and-fixes.md
