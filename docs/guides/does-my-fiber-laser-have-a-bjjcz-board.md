@@ -1,5 +1,5 @@
 ---
-description: "How to tell whether your fiber laser has a BJJCZ (EZCad2-type) controller board — the software it shipped with, Windows Device Manager and the board label — and which boards FocuZ is tested on."
+description: "Does your fiber laser have a BJJCZ (EZCad2-type) board? Check its software, Device Manager and the board label, plus the boards FocuZ is tested on."
 ---
 
 # Does my fiber laser have a BJJCZ board?

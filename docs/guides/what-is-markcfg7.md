@@ -1,5 +1,5 @@
 ---
-description: "markcfg7 is EZCad2's file for your fiber laser's current settings, usually set up by the vendor. What's in it, where to find it, how to check the vendor's calibration, and how FocuZ uses it."
+description: "markcfg7 is EZCad2's file of your fiber laser's settings: what's in it, where to find it, checking the vendor's calibration, and how FocuZ uses it."
 ---
 
 # What is markcfg7? EZCad2's machine configuration file

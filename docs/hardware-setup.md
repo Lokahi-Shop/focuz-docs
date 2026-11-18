@@ -1,5 +1,5 @@
 ---
-description: "Connect FocuZ to a BJJCZ fiber laser and set up the device: Device Setup Wizard, laser setup and timing, power map, digital I/O, rotary, and backing up settings."
+description: "Connect FocuZ to a BJJCZ fiber laser: Device Setup Wizard, laser setup and timing, power map, digital I/O, rotary, and backing up your settings."
 ---
 
 # Hardware & Device Setup

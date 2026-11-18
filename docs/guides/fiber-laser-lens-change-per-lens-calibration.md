@@ -1,5 +1,5 @@
 ---
-description: "Swap f-theta lenses on a fiber laser without recalibrating: FocuZ keeps field size, correction, work offset and focus height per lens, separate from the laser's own settings."
+description: "Swap f-theta lenses on a fiber laser without recalibrating: FocuZ keeps field size, correction, work offset and focus height for each lens."
 ---
 
 # Changing lenses on a fiber laser: per-lens calibration

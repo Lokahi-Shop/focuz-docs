@@ -1,5 +1,5 @@
 ---
-description: "Find fiber laser settings for stainless steel, aluminum, brass or any new material with one test-grid coupon: sweep speed, power, frequency and pulse width, read the values off the engraving, save the winner as a template."
+description: "Find fiber laser settings for steel, aluminum, brass or any new material with one test grid: sweep speed, power, frequency and pulse width, save the winner."
 ---
 
 # Finding fiber laser settings with a test grid

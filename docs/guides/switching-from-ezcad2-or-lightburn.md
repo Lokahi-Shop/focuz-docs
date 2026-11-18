@@ -1,5 +1,5 @@
 ---
-description: "How to run a BJJCZ fiber laser from FocuZ instead of EZCad2 or LightBurn: the WinUSB driver (no change from LightBurn), switching back to EZCad2, and how FocuZ jobs differ."
+description: "Run a BJJCZ fiber laser from FocuZ instead of EZCad2 or LightBurn: the WinUSB driver, switching back to EZCad2, and how FocuZ jobs differ."
 ---
 
 # Switching a BJJCZ fiber laser from EZCad2 or LightBurn to FocuZ
