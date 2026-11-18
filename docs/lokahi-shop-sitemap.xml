@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Lists the lokahi.shop homepage, which Shopify's own sitemap leaves out (a store with no products has no
+     products sitemap, and that is where Shopify puts the homepage). lokahi.shop/robots.txt points here, which
+     makes this cross-host sitemap valid for search engines. Add a lokahi.shop page here if Shopify's sitemap
+     ever misses one. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://lokahi.shop/</loc>
+  </url>
+</urlset>
