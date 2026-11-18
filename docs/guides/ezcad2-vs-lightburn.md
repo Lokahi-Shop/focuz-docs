@@ -1,5 +1,5 @@
 ---
-description: "EZCad2 vs LightBurn for BJJCZ fiber lasers: cost, operating systems, drivers, machine setup, design tools, 3D relief and multiple lenses compared, and where FocuZ fits."
+description: "EZCad2 vs LightBurn for BJJCZ fiber lasers: cost, systems, drivers, setup, design tools, 3D relief and multiple lenses compared, and where FocuZ fits."
 ---
 
 # EZCad2 vs LightBurn for BJJCZ fiber lasers

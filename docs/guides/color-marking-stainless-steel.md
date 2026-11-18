@@ -1,5 +1,5 @@
 ---
-description: "How color laser marking (annealing) on stainless steel works on a fiber laser, how to find your colors with a test grid, and how to blend colors across one fill."
+description: "How color marking (annealing) on stainless steel works on a fiber laser, finding your colors with a test grid, and blending colors across one fill."
 ---
 
 # Color marking stainless steel on a fiber laser

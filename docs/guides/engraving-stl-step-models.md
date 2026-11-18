@@ -1,5 +1,5 @@
 ---
-description: "Step-by-step: engrave STL and STEP 3D models on a galvo fiber laser by slicing them into layers in FocuZ — slice count from material removal rate, perimeter, fill and tips."
+description: "Engrave STL and STEP 3D models on a galvo fiber laser by slicing them into layers in FocuZ: slice count, perimeter, fill and tips, step by step."
 ---
 
 # Engraving STL and STEP models on a galvo fiber laser

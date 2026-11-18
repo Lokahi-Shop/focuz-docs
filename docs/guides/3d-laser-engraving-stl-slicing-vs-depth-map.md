@@ -1,5 +1,5 @@
 ---
-description: "Can a fiber laser engrave an STL file? Slicing the model directly vs converting it to a depth map — accuracy, depth control and a faster path from 3D model to mark."
+description: "Can a fiber laser engrave an STL file? Slicing the model directly vs a depth map: accuracy, depth control and a faster path from 3D model to mark."
 ---
 
 # Can a fiber laser engrave an STL file? True slicing vs a depth map

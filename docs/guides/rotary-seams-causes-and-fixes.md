@@ -1,5 +1,5 @@
 ---
-description: "Fix visible seams on fiber laser rotary engraving: match the symptom to the cause — direction, diameter, alignment, backlash, line-end ridges — and how FocuZ keeps seams consistent."
+description: "Fix visible seams in fiber laser rotary engraving: match the symptom to the cause (direction, diameter, alignment, backlash, line-end ridges) and fix it."
 ---
 
 # Rotary seams on a fiber laser: causes and fixes
