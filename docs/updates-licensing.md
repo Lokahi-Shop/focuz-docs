@@ -48,10 +48,19 @@ the internet and click Run or Trace again, or use **Check for Updates** on the L
 
 ## Buying a license
 
-Click **Purchase License** on the License panel — it opens our checkout in your browser — or buy
-from [lokahi.shop](https://lokahi.shop/#fz-purchasing) under **Purchasing info**, which shows the
-current price and any discount code we're running. Either way, the license key arrives by email at
-the address you enter at checkout; activate it as described next.
+Click **Purchase License** on the License panel — it opens the license page of our store in your
+browser — or go there from [lokahi.shop](https://lokahi.shop/#fz-purchasing) under **Purchasing
+info**, which shows the current price and any discount code we're running. A running discount code
+is applied for you at checkout. Either way, the license key arrives by email at the address you
+enter at checkout, normally within minutes; activate it as described next.
+
+Some orders are reviewed by a person before the key is sent, including every order from outside
+the United States. While an order is being reviewed your card is authorized but not charged, and
+an order that isn't approved within 7 days is cancelled with nothing charged.
+
+A license is refundable within 30 days of purchase if its key has never been activated — the free
+trial is there so you can check FocuZ against your laser first. The full terms are in the
+[Refund Policy](https://lokahi.shop/policies/refund-policy).
 
 ## Activating a license
 
@@ -101,6 +110,16 @@ right license even if you pay with a different email address. Renewing never cos
 added on top of your remaining update period, and renewing **before** your period ends adds
 **two bonus months** on top of that. There are no subscriptions and no automatic charges —
 renew only when you want another year of new releases.
+
+You can add more than one year at a time (up to five). Each update adds 12 months, and every
+update that is added while your update period is still running gets the two bonus months — so two
+updates bought before your period ends add 28 months. If your period has already ended, the first
+update starts a fresh 12 months from the day you buy and each further one adds 14. A license and
+an update bought together give that license 26 months of updates.
+
+The store also has a License Update page where you type your license key. It checks the key
+before you pay and shows the date your updates would run to. A License Update is refundable within
+30 days; the months it added are then removed.
 
 ## Selling your laser?
 
