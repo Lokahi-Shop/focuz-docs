@@ -23,7 +23,7 @@ has? See [Does my fiber laser have a BJJCZ board?](does-my-fiber-laser-have-a-bj
 
 | | EZCad2 | LightBurn | FocuZ |
 |---|---|---|---|
-| **Cost** | Free with the laser | LightBurn Pro (covers galvo lasers): $199 one-time, 3 computers, a year of updates, 30-day free trial | Pay once: <span data-fz-price="license">$139</span> one-time, 3 computers, a year of updates, 30-day free trial |
+| **Cost** | Free with the laser | LightBurn Pro (covers galvo lasers): $199 one-time, 3 computers, a year of updates, 30-day free trial | Pay once (current price at [lokahi.shop](https://lokahi.shop/products/focuz-license)), 3 computers, a year of updates, 30-day free trial |
 | **Operating system** | Windows | Windows and macOS (Linux support ended after version 1.7) | Windows 10 or later (64-bit) |
 | **Lasers** | BJJCZ boards only | Galvo lasers plus CO2, diode and DSP machines | BJJCZ fiber galvo boards |
 | **USB driver** | Its own vendor driver | Swapped in by the LightBurn installer (Zadig and WinUSB as a fallback) | WinUSB, installed with Zadig; LightBurn can use it too |
