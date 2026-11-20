@@ -54,9 +54,9 @@ info**, which shows the current price and any discount code we're running. A run
 is applied for you at checkout. Either way, the license key arrives by email at the address you
 enter at checkout, normally within minutes; activate it as described next.
 
-Some orders are reviewed by a person before the key is sent, including every order from outside
-the United States. While an order is being reviewed your card is authorized but not charged, and
-an order that isn't approved within 7 days is cancelled with nothing charged.
+Some orders are reviewed by a person before the key is sent. While an order is being reviewed
+your card is authorized but not charged, and an order that isn't approved within 7 days is
+cancelled with nothing charged.
 
 A license is refundable within 30 days of purchase if its key has never been activated — the free
 trial is there so you can check FocuZ against your laser first. The full terms are in the
@@ -117,9 +117,11 @@ updates bought before your period ends add 28 months. If your period has already
 update starts a fresh 12 months from the day you buy and each further one adds 14. A license and
 an update bought together give that license 26 months of updates.
 
-The store also has a License Update page where you type your license key. It checks the key
-before you pay and shows the date your updates would run to. A License Update is refundable within
-30 days; the months it added are then removed.
+The store also has a [License Update page](https://lokahi.shop/products/focuz-license-update)
+where you type your license key. It checks the key before you pay and shows the date your updates
+would run to. Use that page if **Renew Updates** in your version of FocuZ does not open a
+checkout — versions before 26.11.20 need it. A License Update is refundable within 30 days; the
+months it added are then removed.
 
 ## Selling your laser?
 
