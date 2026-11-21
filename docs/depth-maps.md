@@ -72,8 +72,10 @@ See [3D perimeters](sequencer.md#3d-layers-the-perimeter).
 ## Edit Depth Map
 
 Right-click a depth-map model in the layer tree and choose **Edit Depth Map…**. Depth-map models show a small
-relief marker after their name. The window edits that one model, and the canvas updates as you go. While it is
-open, the rest of FocuZ is locked, but you can still turn and zoom the 3D view.
+relief marker after their name. The window edits that one model, and the canvas updates as you go. The rest of
+FocuZ stays usable while it is open: you can change layer settings, move the model or turn the view. Run, Trace,
+Save, Open and New ask you to finish the edit first (OK or Cancel). **Cancel** puts the model back but keeps the
+other changes you made meanwhile.
 
 - **Cutting planes**: one track with two handles, over bars that show how much of the image sits at each
   height. Each handle is a flat plane that cuts the model.
@@ -97,7 +99,7 @@ open, the rest of FocuZ is locked, but you can still turn and zoom the 3D view.
   the height follows the new image.
 - **Reset**: everything back to how the depth map was imported.
 - **OK** keeps the changes as one step you can undo with `Ctrl+Z`. **Cancel**, `Esc` or closing the window
-  puts the model back exactly as it was.
+  puts the model back as it was.
 
 In a 3D Slice layer, **Slices/mm** counts from the model's top down to Z 0. Cutting from the bottom leaves the
 top where it is, so the slice count does not change. Cutting from the top lowers the top, so the layer gets fewer
