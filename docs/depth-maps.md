@@ -84,8 +84,9 @@ other changes you made meanwhile.
       background around a coin. If faint near-black specks around the subject survive as small islands, raise
       the low handle a little or add some smoothing.
     - **High handle**: a plane dropping from the top. Everything above it is cut off, leaving a flat top.
-    - Type exact values in mm in **Low** and **High**. In a 3D Slice layer the handles move in whole slices;
-      otherwise in small mm steps.
+    - Type exact values in mm in **Low** and **High**. In a 3D Slice layer the handles step from one slice plane to
+      the next, so a cut always lands exactly on a slice; the steps follow the layer if you change # of Slices,
+      Slices/mm, Fill Through, the size or the position while the window is open. Otherwise they move in small mm steps.
     - **What is left never moves.** Cutting from the bottom raises the base off Z 0 by the amount cut. To put
       the base back on the surface, set the layer's **Location Z** to 0 (with the bottom-centre registration
       point).
