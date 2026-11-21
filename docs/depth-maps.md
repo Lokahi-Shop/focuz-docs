@@ -1,5 +1,5 @@
 ---
-description: "Import a grayscale depth map into FocuZ as a 3D model, then shelf its heights, cut away the background, invert, smooth or swap the image with Edit Depth Map."
+description: "Import a grayscale depth map into FocuZ as a 3D model, then cut it from the top or bottom, invert, smooth or swap the image with Edit Depth Map."
 ---
 
 # Depth Maps
@@ -75,19 +75,18 @@ Right-click a depth-map model in the layer tree and choose **Edit Depth Map…**
 relief marker after their name. The window edits that one model, and the canvas updates as you go. While it is
 open, the rest of FocuZ is locked, but you can still turn and zoom the 3D view.
 
-- **Shelf slider**: one track with two handles, over bars that show how much of the image sits at each
-  height.
-    - **Low handle**: everything below it is raised to it, giving a flat floor.
-    - **High handle**: everything above it is lowered to it, giving a flat top.
+- **Cutting planes**: one track with two handles, over bars that show how much of the image sits at each
+  height. Each handle is a flat plane that cuts the model.
+    - **Low handle**: a plane rising from the bottom. Everything below it is cut away, so the model loses its
+      lowest parts and its outline shrinks to what rises above the plane. This is the way to drop a black
+      background around a coin. If faint near-black specks around the subject survive as small islands, raise
+      the low handle a little or add some smoothing.
+    - **High handle**: a plane dropping from the top. Everything above it is cut off, leaving a flat top.
     - Type exact values in mm in **Low** and **High**. In a 3D Slice layer the handles move in whole slices;
       otherwise in small mm steps.
-    - Shelving makes the model shorter. Its **centre stays where it is**, so shelving the bottom also lifts
-      the base off Z 0. To put the base back on the surface, set the layer's **Location Z** to 0 (with the
-      bottom-centre registration point).
-- **Below the low handle is background**: instead of a flat floor, everything below the low handle is cut
-  away, and the model follows the outline that is left. This is the way to drop a black background around a
-  coin. If faint near-black specks around the subject survive as small islands, raise the low handle a little
-  or add some smoothing.
+    - **What is left never moves.** Cutting from the bottom raises the base off Z 0 by the amount cut. To put
+      the base back on the surface, set the layer's **Location Z** to 0 (with the bottom-centre registration
+      point).
 - **Invert heights**: swaps high and low before the handles act.
 - **Smoothing**: smooths the model's heights over this radius in mm (0 = off), which softens the steps
   between gray levels. The image itself is never changed. Smoothing can lower the highest peaks slightly.
@@ -100,8 +99,10 @@ open, the rest of FocuZ is locked, but you can still turn and zoom the 3D view.
 - **OK** keeps the changes as one step you can undo with `Ctrl+Z`. **Cancel**, `Esc` or closing the window
   puts the model back exactly as it was.
 
-In a 3D Slice layer the **slice thickness stays the same** when you shelve. A shorter model gets fewer slices
-(**# of Slices** goes down, **Slices/mm** stays).
+In a 3D Slice layer, **Slices/mm** counts from the model's top down to Z 0. Cutting from the bottom leaves the
+top where it is, so the slice count does not change. Cutting from the top lowers the top, so the layer gets fewer
+slices of the same thickness. Moving the model with **Location Z** changes Slices/mm, because the distance from
+its top to Z 0 changes.
 
 ## Saving and copying
 
