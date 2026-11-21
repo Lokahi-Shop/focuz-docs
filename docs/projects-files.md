@@ -95,7 +95,9 @@ The dialog has three tabs; **OK** saves all of them at once.
 - **Log** — the rolling log line cap, and a button to clear the log.
 - **3D view ▸ Mesh edge fade** — default **3**. In the 3D view, a model's triangle edges shorter than this many
   pixels on screen fade out, so a detailed model (a depth map, a relief) shows its shape instead of a dark mesh of
-  lines; zoom in and the edges come back. Higher values hide more edges; **Off** shows no edges at all.
+  lines; zoom in and the edges come back. Higher values hide more edges; **Off** shows no edges at all. The
+  view updates as soon as you let go of the slider; **Cancel** puts the previous setting back. On a very detailed model
+  seen from far away every edge is already tiny, so the settings only look different once you zoom in.
 
 !!! note "What keep-awake cannot do"
     Closing a laptop lid, the power button, **Start ▸ Sleep** and a critically low battery still put the PC to
