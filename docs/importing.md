@@ -9,6 +9,7 @@ FocuZ imports both 2D art and full 3D models. 3D models are sliced into layers f
 | 2D vector | **SVG, DXF, AI, EPS, PDF** | Lines/curves to mark or fill. |
 | 3D solid | **STEP / STP** | True solids (via the built-in 3D engine). Imports at the model's exact size; curves come in to within 0.01 mm. |
 | 3D mesh | **STL, OBJ, 3MF** | Triangle meshes. |
+| Depth map | **PNG, TIFF, JPG, BMP, GIF, EXR, PFM** (WebP, HEIC with the Windows codec) | A grayscale height image, turned into a 3D model in 3D actions. See [Depth Maps](depth-maps.md). |
 
 Text and placed images inside a 2D file are not imported — see
 [Text and images](#text-and-images).
@@ -210,6 +211,13 @@ model into layers for marking.
 
 How slices are marked (Z order, per-slice sublayers) is covered in
 [Marking & Tracing](marking-tracing.md#3d-slice-marking).
+
+## Importing depth maps
+
+A grayscale depth map imports into a 3D Slice, 3D Cut or 3D Shadow action as a closed 3D model: white is the top,
+black the bottom of the depth you type, and transparent pixels are left out. Right-click it in the layer tree
+for **Edit Depth Map…** (shelf heights, cut away the background, invert, smooth, change resolution, replace the
+image). Everything is on the [Depth Maps](depth-maps.md) page.
 
 ## Tips
 
