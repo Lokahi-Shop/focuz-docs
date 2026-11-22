@@ -26,7 +26,7 @@ parameters.
 | **2D formats** | SVG, DXF, AI, EPS, PDF (vector) |
 | **Highlights** | 3D slicing, fill variation, rotary marking with even splits, a job sequencer, lens profiles and correction files, a settings library |
 | **Trial and licensing** | Free 30-day trial; a license is purchased inside the app or from [lokahi.shop](https://lokahi.shop/#fz-purchasing) |
-| **Made by** | Lokahi Innovation — [lokahi.shop](https://lokahi.shop) |
+| **Made by** | [Lokahi Innovation](https://lokahiinnovation.com/) — download at [lokahi.shop](https://lokahi.shop) |
 
 ## What makes FocuZ different
 
@@ -92,5 +92,5 @@ sequencer, and direct control of their existing hardware on Windows.
 
 ---
 
-FocuZ is a commercial product by **[Lokahi Innovation](https://lokahi.shop)**. Need help? See
+FocuZ is a commercial product by **[Lokahi Innovation](https://lokahiinnovation.com/)**. Need help? See
 [Support](support.md).

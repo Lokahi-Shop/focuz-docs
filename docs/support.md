@@ -1,6 +1,6 @@
 # Support
 
-FocuZ is a commercial product by **Lokahi Innovation**.
+FocuZ is a commercial product by **[Lokahi Innovation](https://lokahiinnovation.com/)**.
 
 - **Website:** <https://lokahi.shop>
 - **Support email:** <info@lokahi.shop>
