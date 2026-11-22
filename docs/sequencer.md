@@ -77,9 +77,9 @@ Adding an action opens a picker grouped by purpose:
   **focus + Z offset** → a **Lens changed** card (the safety warning's twin) asks you to **Continue** the job. Every card also offers
   **Cancel Sequence**, and the Run button still pauses or cancels the job while a card is up. If the run ends while a
   change is in progress, FocuZ tells you which lens it has selected so you can check it against the one installed.
-  Run checks the action up front: Z enabled, the controller connected, the lens's focus below the Z switch; the action
-  homes Z itself, so it needs no homing before it (as action #1 it counts like a Home action), and the lens picker in
-  the top bar is greyed while a job runs — use this action instead.
+  In Motorized mode Run checks the action up front: Z enabled, the controller connected, the lens's focus below the Z
+  switch; the action homes Z itself, so it needs no homing before it (as action #1 it counts like a Home action). In
+  either mode the lens picker in the top bar is greyed while a job runs — use this action instead.
 
     **Manual mode** is for machines whose Z is raised and lowered by hand (the Z axis switched off in
     **Device ▸ Laser Setup**). FocuZ moves nothing; the cards walk you through the change: **raise Z by hand** until
@@ -87,6 +87,8 @@ Adding an action opens a picker grouped by purpose:
     until the new lens is in focus** on the work → the **Lens changed** card asks you to **Continue**. It needs no
     motion controller and no saved focus Z, so every lens with a field size can be picked. A new Lens Change starts in
     Manual mode when the Z axis is off. Run refuses Manual mode while the Z axis is enabled — use Motorized there.
+    A Manual change homes nothing, so it does not count as a Home action. The layer tree marks it:
+    **Lens Change → L2 (Manual)**.
 - **Stop** — end the sequence here.
 - **Goto** — loop the sequence back to an earlier action. Pick the **target action** and a **Repeat**
   count: on reaching the Goto, the sequence returns to that action `Repeat` times (so the actions in
