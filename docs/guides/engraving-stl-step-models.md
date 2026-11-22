@@ -50,7 +50,7 @@ Several models, in any mix of formats, can share one layer.
   STL (or other mesh) can also show **micro-faceting** if the model doesn't have enough polygons; export
   it with a finer mesh for smooth curves.
 - **Fill Through** fills the mesh or solid down to the workspace, eliminating any undercuts.
-  **Respect holes** keeps through-holes empty.
+  Openings that go straight through the model stay empty.
 - **Models that overlap or touch on one layer mark as one solid**, in any mix of file formats. A wall they
   share is not marked, and fill lines run straight across where it was. To keep two models separate, put
   them on different layers. Shells that overlap inside a single imported model combine the same way.

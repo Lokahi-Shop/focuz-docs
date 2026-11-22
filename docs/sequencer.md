@@ -280,16 +280,14 @@ moves on its own. With **Hull** or **Import**
 selected, the size fields become a single **Off:** (offset) box that grows or shrinks the boundary evenly
 all the way around; setting it back to 0 restores the original outline exactly.
 
-**Respect holes** (on by default) — the model's **through-holes** are treated as real empty space with
-**any** perimeter, or none. The checkbox sits next to **Fill Through** in the slice section and can be switched whenever Fill Through is on; with a Hull
-perimeter, the same setting also makes the Hull itself follow the holes (a ring's outline becomes a ring,
-not a disc — the Hull's own checkbox toggles the same thing). What a hole becomes depends on the setup:
-**with a perimeter**, the hole is carved at full depth along with the background; **without one**, it is
-simply left unmarked and stands at the surface. Uncheck it to fill holes solid (legacy behavior).
+**Through-holes stay open** — a model's **through-holes** are treated as real empty space with **any**
+perimeter, or none, and a **Hull** perimeter follows them too (a ring's outline is a ring, not a disc).
+What a hole becomes depends on the setup: **with a perimeter**, the hole is carved at full depth along
+with the background; **without one**, it is simply left unmarked and stands at the surface.
 A **through-hole** here means an opening you can see straight down through, from the top of the model to
 its base — the inside of a closed loop, for example. A pocket, a groove or a tunnel that bends is part of
-the model's surface: it is marked the same way whether the box is checked or not. With the box unchecked,
-anything standing inside a through-hole is filled solid along with it.
+the model's surface and is marked as such. There is no setting for this: to keep a hole solid, close it
+in the model, or use a **Circle** or imported perimeter where a solid outline is wanted.
 Clean, watertight meshes give the truest holes. An imported multi-contour perimeter still clips with its
 outer outline only.
 
