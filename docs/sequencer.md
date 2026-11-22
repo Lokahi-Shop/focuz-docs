@@ -286,6 +286,10 @@ perimeter, the same setting also makes the Hull itself follow the holes (a ring'
 not a disc — the Hull's own checkbox toggles the same thing). What a hole becomes depends on the setup:
 **with a perimeter**, the hole is carved at full depth along with the background; **without one**, it is
 simply left unmarked and stands at the surface. Uncheck it to fill holes solid (legacy behavior).
+A **through-hole** here means an opening you can see straight down through, from the top of the model to
+its base — the inside of a closed loop, for example. A pocket, a groove or a tunnel that bends is part of
+the model's surface: it is marked the same way whether the box is checked or not. With the box unchecked,
+anything standing inside a through-hole is filled solid along with it.
 Clean, watertight meshes give the truest holes. An imported multi-contour perimeter still clips with its
 outer outline only.
 
