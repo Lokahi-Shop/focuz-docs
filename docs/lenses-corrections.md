@@ -184,7 +184,8 @@ move by hand, set up both lenses' corrections and focus the first lens by hand �
    With **Mode** set to **Manual** — for a Z you raise and lower by hand, the Z axis switched off in
    **Device ▸ Laser Setup** — FocuZ moves nothing: the cards ask you to raise Z by hand, install the second lens, then
    bring it into focus by hand, and the alignment card opens. Manual mode needs no motion controller and no saved
-   focal height, and the card opens straight away when the second lens is already the lens in use.
+   focal height. When the second lens is already the lens in use, one card asks you to confirm it is installed and in
+   focus, then the alignment card opens.
 5. Press **Mark** to mark Square 2 through the ink. Walk it onto the engraved square with the nudge pad (it moves the
    next mark, not the machine or the red light — each press by the chosen step), correct its size with **Scale** and
    its tilt with **Angle**, and Mark again — re-apply marker as needed. Every value is saved to the second lens as you
