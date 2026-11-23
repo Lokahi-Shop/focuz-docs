@@ -26,7 +26,7 @@ Quick-reference material.
 | 2D vector | SVG, DXF, AI |
 | 3D solid | STEP / STP |
 | 3D mesh | STL, OBJ, 3MF |
-| Images | common raster formats |
+| Depth map (3D actions) | PNG, TIFF, JPG, BMP, GIF, EXR, PFM (WebP, HEIC with the Windows codec) — see [Depth Maps](depth-maps.md) |
 | Project | `.focuz` |
 | Device profile | `markcfg7` (imported) |
 | Lens correction | `.cor` (imported) |
