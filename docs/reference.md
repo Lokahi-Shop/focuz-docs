@@ -13,6 +13,7 @@ Quick-reference material.
 | Undo | `Ctrl+Z` |
 | Redo | `Ctrl+Y` (or `Ctrl+Shift+Z`) |
 | Nudge selection | Arrow keys (step set in [Preferences](projects-files.md#preferences-edit-preferences)) |
+| Nudge selection in Z | `Alt`+Up / `Alt`+Down (not on calibration actions) |
 | Add to / remove from the layer-tree selection | `Ctrl`+click |
 | Select a range in the layer tree | `Shift`+click |
 
@@ -25,7 +26,7 @@ Quick-reference material.
 | 2D vector | SVG, DXF, AI |
 | 3D solid | STEP / STP |
 | 3D mesh | STL, OBJ, 3MF |
-| Images | common raster formats |
+| Depth map (3D actions) | PNG, TIFF, JPG, BMP, GIF, EXR, PFM (WebP, HEIC with the Windows codec) — see [Depth Maps](depth-maps.md) |
 | Project | `.focuz` |
 | Device profile | `markcfg7` (imported) |
 | Lens correction | `.cor` (imported) |

@@ -1,11 +1,11 @@
 ---
-title: "FocuZ — 3D-first laser marking software for BJJCZ fiber lasers"
-description: "FocuZ is 3D-first laser marking software for Windows that runs BJJCZ (EZCad2-type) fiber galvo controllers: slice STL and STEP models directly, rotary marking with even splits, fill variation and a job sequencer. Free 30-day trial."
+title: "FocuZ: 3D Galvo Fiber Laser Engraving Software"
+description: "FocuZ is 3D-first laser marking software for BJJCZ (EZCad2-type) fiber galvo lasers: slice STL and STEP models, rotary, fill variation. Free 30-day trial."
 ---
 
 # FocuZ
 
-**FocuZ** is 3D-first laser marking software for Windows that runs **BJJCZ (JCZ) fiber galvo
+**FocuZ** (capital F, capital Z) is 3D-first laser marking software for Windows that runs **BJJCZ (JCZ) fiber galvo
 controllers** — the same controllers used with EZCad2 and sold as "LightBurn-compatible". It slices
 STL and STEP models directly into marking layers instead of relying on grayscale depth maps, and it
 builds every job as an ordered sequence of actions. Import 2D and 3D art, lay it out, slice it, and
@@ -26,7 +26,7 @@ parameters.
 | **2D formats** | SVG, DXF, AI, EPS, PDF (vector) |
 | **Highlights** | 3D slicing, fill variation, rotary marking with even splits, a job sequencer, lens profiles and correction files, a settings library |
 | **Trial and licensing** | Free 30-day trial; a license is purchased inside the app or from [lokahi.shop](https://lokahi.shop/#fz-purchasing) |
-| **Made by** | Lokahi Innovation — [lokahi.shop](https://lokahi.shop) |
+| **Made by** | [Lokahi Innovation](https://lokahiinnovation.com/) — download at [lokahi.shop](https://lokahi.shop) |
 
 ## What makes FocuZ different
 
@@ -92,5 +92,5 @@ sequencer, and direct control of their existing hardware on Windows.
 
 ---
 
-FocuZ is a commercial product by **[Lokahi Innovation](https://lokahi.shop)**. Need help? See
+FocuZ is a commercial product by **[Lokahi Innovation](https://lokahiinnovation.com/)**. Need help? See
 [Support](support.md).

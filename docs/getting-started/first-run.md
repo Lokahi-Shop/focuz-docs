@@ -5,9 +5,9 @@ other boxes are optional: news emails, and **Check for updates each time FocuZ s
 manual checks only; you can change it later under **License ▸ Software Updates**). See
 [Updates & Licensing](../updates-licensing.md).
 
-The first time you launch FocuZ, the **Device Setup** window opens automatically. It also re-opens if you
-try to Run or Trace before the device is configured. You can revisit it any time from **Device ▸ Device
-Setup**.
+The first time you launch FocuZ, the **Device Setup Wizard** window opens automatically. It also re-opens if you
+try to Run or Trace before the device is configured. You can revisit it any time from **Device ▸ Device Setup
+Wizard**.
 
 !!! important "Marking is blocked until the device is configured"
     FocuZ won't let you **Run** or **Trace** until you've imported a `markcfg7`. This prevents marking
@@ -23,8 +23,8 @@ The window has two sections: **Device Setup** on top and **Lens Setup** below it
    lives in EZCad2's **plug** folder.
 2. The status line confirms **"Device configured (markcfg7 imported)."** and Run and Trace unlock.
 
-One import sets up everything device-wide: the **laser** settings (galvo axis mapping, speed and timing
-defaults), the **rotary** motor settings, the **red light**, the **power map** and the **I/O** port
+One import sets up everything device-wide: the **laser** settings (laser type, galvo axis mapping and
+speed limits), the **rotary** motor settings, the **red light**, the **power map** and the **I/O** port
 assignments. If you only want to re-import one of those later, each has its own **Import markcfg7**
 button on its own panel in the **Device** menu.
 

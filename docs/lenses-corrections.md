@@ -23,7 +23,7 @@ aligning the mark to the part.
 ## Distortion correction (the Corrections dialog)
 
 Open **Corrections** from **Device ▸ Lens Corrections** (it applies to the currently selected lens),
-or during [Device Setup](getting-started/first-run.md). It has two modes for correcting galvo/lens
+or during the [Device Setup Wizard](getting-started/first-run.md). It has two modes for correcting galvo/lens
 distortion, and remembers settings per lens:
 
 === "`.cor` file (recommended)"
@@ -95,9 +95,10 @@ and shows the **Offset** saved with that lens, or **Z not set** until a focal ha
 2. Enter an **Offset** (the distance between the baseboard and the top of your test material).
 3. Click **Save Current Z** to commit the focal distance + offset to the active lens.
 
-> The Offset box starts empty each time you change lens — the saved value stays on the heading for
-> reference. The Offset can be updated later without re-finding the focal distance (**Update Offset**). The
-> **Instructions** button repeats these three steps in the app. Saving the focal and updating the
+> The Offset box starts empty each time you change lens, and clears again after **Save Current Z** or
+> **Update Offset** — the saved value stays on the heading for reference. The Offset can be updated later
+> without re-finding the focal distance (**Update Offset**). The **Instructions** button repeats these
+> three steps in the app. Saving the focal and updating the
 > Offset are locked while a sequence is running or paused — a new focal would move the job's later
 > Z positions.
 
@@ -165,9 +166,35 @@ focal height.
     marked square, **Save** commits the calibration to the lens. The same **Square** button works
     any time you open the window yourself, against any square you've marked.
 
+### Aligning two lenses (Dual Lens Alignment)
+
+When you swap between lenses, **Dual Lens Alignment** ([Sequencer](sequencer.md) ▸ Calibration) makes the second lens
+mark on the same spot, at the same size and orientation, as the first.
+
+Before you start: set up the first lens with the Corrections dialog above (field size, scale, angle, WCS offset),
+install it, home Z and go to its focus. Set up the second lens the same way and save its focal height.
+
+1. Add a **Dual Lens Alignment** action. In **Setup** on *Square 1 (small lens)*, set the square's **Size** and
+   **Location** (the location is the square's centre, in design coordinates). Set *Square 1*'s power to engrave
+   lightly, and *Square 2 (large lens)*'s power low enough to remove marker ink without engraving (a fill is available
+   on Square 2 if its edges are easier to read filled). Pick the **Second lens**.
+2. **Run.** Square 1 is engraved with the lens in use.
+3. Cover the engraved square with marker. Do not move the workpiece from here on.
+4. Press **Continue → second lens**. Z homes, you install the second lens and confirm, and Z moves to its focus. The
+   alignment card opens. (If the second lens is already installed and at its focus, the card opens straight away.)
+5. Press **Mark** to mark Square 2 through the ink. Walk it onto the engraved square with the nudge pad (it moves the
+   next mark, not the machine or the red light — each press by the chosen step), correct its size with **Scale** and
+   its tilt with **Angle**, and Mark again — re-apply marker as needed. Every value is saved to the second lens as you
+   enter it (a box turns red while you type and applies on Enter or when you leave it). Press **Done** when the
+   squares coincide.
+
+To align a third lens, run the action again: the lens in use when you press Run is the reference, so start from the
+small lens again or from any lens already aligned. A sequence that holds a calibration action can't contain a Goto.
+
 !!! warning "Per-lens actions confirm the target lens"
     Actions that change per-lens calibration apply to the **currently selected lens** and confirm which lens
-    before applying — double-check it's the right one to avoid mis-calibrating another lens.
+    before applying — double-check it's the right one to avoid mis-calibrating another lens. The Dual Lens Alignment
+    card is the exception by design: it names the second lens in its header and saves to it as you enter values.
 
 ## See also
 
