@@ -99,7 +99,7 @@ A **3D Slice** action marks a model layer by layer:
 
 - Slices run **top to bottom** by default; check **Inverse** to mark bottom-up, starting at the floor.
 - Sublayers (jog, accessory, etc.) can fire on every slice or every Nth slice (Run-every-N).
-- **Fill-Through** controls whether the bottom slice is marked. With **Respect holes** on (any
+- **Fill-Through** controls whether the bottom slice is marked. With Fill Through on (any
   perimeter, or none — see [3D perimeters](sequencer.md#3d-layers-the-perimeter)), the model's
   through-holes stay real empty space: carved at full depth alongside the background when a perimeter
   is set, left unmarked without one.

@@ -50,7 +50,7 @@ Several models, in any mix of formats, can share one layer.
   STL (or other mesh) can also show **micro-faceting** if the model doesn't have enough polygons; export
   it with a finer mesh for smooth curves.
 - **Fill Through** fills the mesh or solid down to the workspace, eliminating any undercuts.
-  **Respect holes** keeps through-holes empty. On the canvas, the space Fill Through adds is shaded dark
+  Openings that go straight through the model stay empty. On the canvas, the space Fill Through adds is shaded dark
   under each overhang — tilt the 3D view to look beneath one (from straight above, the overhang itself
   covers it). The **Preview** slider shows the filled area slice by slice.
 - **Models that overlap or touch on one layer mark as one solid**, in any mix of file formats. A wall they
