@@ -77,6 +77,28 @@ Adding an action opens a picker grouped by purpose:
 
 - **Delay** — wait a set time.
 - **Pause** — stop and wait for you to continue (a modal prompt).
+- **Lens Change** — swap lenses in the middle of a job. **Mode** is **Motorized** (FocuZ moves Z) or **Manual** (you
+  move Z by hand — described at the end of this entry). Pick the **Lens** to change to;
+  in Motorized mode the list shows only lenses that have a field size and a saved focus Z, with each one's label, field
+  size, focus Z and Z offset, and a job won't start until a lens is picked. When the run reaches
+  it in Motorized mode: a card says the **Z axis will home now** (OK, or Cancel Sequence) → Z homes → the **Lens change** card asks you
+  to install the lens (OK commits the change — the new lens's correction and field size apply from here on; the top
+  bar shows it) → a card asks you to **confirm the lens change is complete** → Z moves in one move to the new lens's
+  **focus + Z offset** → a **Lens changed** card (the safety warning's twin) asks you to **Continue** the job. Every card also offers
+  **Cancel Sequence**, and the Run button still pauses or cancels the job while a card is up. If the run ends while a
+  change is in progress, FocuZ tells you which lens it has selected so you can check it against the one installed.
+  In Motorized mode Run checks the action up front: Z enabled, the controller connected, the lens's focus below the Z
+  switch; the action homes Z itself, so it needs no homing before it (as action #1 it counts like a Home action). In
+  either mode the lens picker in the top bar is greyed while a job runs — use this action instead.
+
+    **Manual mode** is for machines whose Z is raised and lowered by hand (the Z axis switched off in
+    **Device ▸ Laser Setup**). FocuZ moves nothing; the cards walk you through the change: **raise Z by hand** until
+    there is room → the **Lens change** card asks you to install the lens (OK commits the change) → **move Z by hand
+    until the new lens is in focus** on the work → the **Lens changed** card asks you to **Continue**. It needs no
+    motion controller and no saved focus Z, so every lens with a field size can be picked. A new Lens Change starts in
+    Manual mode when the Z axis is off. Run refuses Manual mode while the Z axis is enabled — use Motorized there.
+    A Manual change homes nothing, so it does not count as a Home action. The layer tree marks it:
+    **Lens Change → L2 (Manual)**.
 - **Stop** — end the sequence here. Actions after a Stop are kept in the job but do not run, and **Run** does not
   check them: they can have blank boxes, need an axis that is switched off, or need the motion controller, without
   holding the run back. (An action that a **Goto** jumps to past the Stop does run, and is checked.) **Trace** still
@@ -84,7 +106,9 @@ Adding an action opens a picker grouped by purpose:
 - **Goto** — loop the sequence back to an earlier action. Pick the **target action** and a **Repeat**
   count: on reaching the Goto, the sequence returns to that action `Repeat` times (so the actions in
   between run `Repeat + 1` times total). **Repeat 0** passes straight through, as if the Goto weren't
-  there. A run won't start until the Goto has both a target and a repeat count set. Goto loops can be
+  there. A run won't start until the Goto has both a target and a repeat count set. A sequence that holds a
+  calibration action (Test Grid, WCS Offset, Z Focal Distance, Red Light, Dual Lens Alignment) can't contain a
+  Goto — calibration actions never loop. Goto loops can be
   **nested** — a Goto whose loop sits inside another Goto's loop runs its own repeats each time the
   outer loop comes back around.
 - **Select Action** — a no-op placeholder (skipped at marking); useful while building.
@@ -121,8 +145,10 @@ board's rotary port.
   shows its live position, which becomes the start when you press Run. The lens the Z position is
   measured from is shown under the rows. The run-start position is recorded after the Run
   checks pass (or, with a Home action as action #1, once that action is done). Run refuses the job when Z isn't
-  homed at that point (a Home action #1 counts). The return is a move *back by the distance* from where the machine
-  is, and pausing the run holds it rather than cutting it short. Run also refuses the job if a homing line in a Command action would home an
+  homed at that point (a Home action #1 or a Lens Change before it counts), and when a **Lens Change** earlier in the
+  job leaves a different lens installed — the start was recorded with the lens the run began with, so add a Lens Change
+  back to that lens first. The return is a move *back by the distance* from where the machine is, and pausing the run
+  holds it rather than cutting it short. Run also refuses the job if a homing line in a Command action would home an
   axis that isn't homed yet before a Return to Start brings it back — the start would no longer match. After every
   return FocuZ checks the axis arrived.
 - **Return to Saved 0 (FocuZ)** — the same panel, but each ticked axis moves to its saved 0 (Z = the
@@ -161,6 +187,9 @@ Listed in the order you'd normally work through them:
   [Finding focus](lenses-corrections.md#finding-focus-the-z-focal-distance-test)).
 - **Red Light** — mark a centered reference square, then align the red guide beam to it (see
   [Lenses, Corrections & Calibration](lenses-corrections.md)).
+- **Dual Lens Alignment** — engrave a square with one lens, then mark it through marker ink with a second lens
+  while you adjust that lens's offset, scale and angle until the two coincide (see
+  [Aligning two lenses](lenses-corrections.md#aligning-two-lenses-dual-lens-alignment)).
 
 ## Adding, copying & removing actions
 
@@ -290,16 +319,21 @@ move or resize them together.
 
 A perimeter is a normal canvas object — select it to move it or edit it. Moving a selected **Hull** perimeter (arrow keys
 or a typed Location) carries the layer's models with it, so the two stay in step; a Circle, Square or Import perimeter
-moves on its own. With **Hull** or **Import**
+moves on its own. With the **Hull**
 selected, the size fields become a single **Off:** (offset) box that grows or shrinks the boundary evenly
-all the way around; setting it back to 0 restores the original outline exactly.
+all the way around; setting it back to 0 restores the original outline exactly. Above it, in the same place
+as a Circle or Square's size boxes, the Hull's current width (**W**) and height (**H**) are shown as plain
+readouts — they update as you change the offset, but can't be typed into. Circle, Square and Import perimeters
+are sized with their width / length boxes.
 
-**Respect holes** (on by default) — the model's **through-holes** are treated as real empty space with
-**any** perimeter, or none. The checkbox sits next to **Fill Through** in the slice section and can be switched whenever Fill Through is on.
-(The Hull perimeter itself always stays the outer outline.) What a hole becomes depends on the setup:
-**with a perimeter**, the hole is carved at full depth along with the background; **without one**, it is
-simply left unmarked and stands at the surface. Uncheck it to fill holes solid (legacy behavior).
-Clean, watertight meshes give the truest holes.
+**Through-holes stay open** — a model's **through-holes** are treated as real empty space with **any**
+perimeter, or none. (A **Hull** perimeter is the model's outer outline — the holes are not part of it.)
+What a hole becomes depends on the setup: **with a perimeter**, the hole is carved at full depth along
+with the background; **without one**, it is simply left unmarked and stands at the surface.
+A **through-hole** here means an opening you can see straight down through, from the top of the model to
+its base — the inside of a closed loop, for example. A pocket, a groove or a tunnel that bends is part of
+the model's surface and is marked as such. There is no setting for this: to keep a hole solid, close it
+in the model. Clean, watertight meshes give the truest holes.
 
 ## 3D Shadow
 
@@ -407,7 +441,8 @@ end when you press **Enter** or leave the box (with a range of 1–1000, typing 
 An **empty box never runs**: it turns red and stays empty until you type a value — 0 included, where 0 is a
 real setting (an offset, a delay). **Run** and **Trace** list every empty box (action, group, layer and field).
 Empty boxes are saved with the project, and clearing a box can be undone (**Undo** brings the number back,
-**Redo** empties it again). Disabled groups, layers and sublayers are not checked. A blank **GRBL Command** is fine: it
+**Redo** empties it again). Pressing **Esc** in a box puts its last value back — what you typed is dropped, and an
+empty box gets its number again. Disabled groups, layers and sublayers are not checked. A blank **GRBL Command** is fine: it
 sends nothing and the run carries on.
 
 While a job runs, an action's own settings can't be changed — its boxes (Delay, Goto, feedrates…), dropdowns (the

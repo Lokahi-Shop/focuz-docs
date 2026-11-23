@@ -94,3 +94,13 @@ when you contact [Support](support.md).
 **FocuZ showed "Unexpected Error" or closed on its own.** The details are saved to **`crash.log`** in
 `%AppData%\FocuZ` — send that file to [Support](support.md) along with what you were doing at the time. On the
 "Unexpected Error" message, **Yes** keeps working and **No** closes FocuZ.
+
+## Known issues
+
+Confirmed problems we're working on are listed on GitHub as
+[known issues](https://github.com/Lokahi-Shop/FocuZ/issues?q=label%3Aknown-bug), each with its cause, workarounds
+and status.
+
+**FocuZ takes 30–45 seconds to open.** A USB keyboard, mouse or RGB controller may have stopped responding.
+Unplug it and plug it back in, or restart the PC. See
+[the issue](https://github.com/Lokahi-Shop/FocuZ/issues/1) for details.

@@ -93,6 +93,12 @@ The dialog has three tabs; **OK** saves all of them at once.
   On, the screen stays on too (so the PC also never reaches its idle screen lock). Available while the first
   option is on.
 - **Log** — the rolling log line cap, and a button to clear the log.
+- **3D view ▸ Mesh edges** — **0** to **9**, default **6**. How many of a model's triangle edges the 3D view draws:
+  **0** shows none, **1** the fewest, higher shows more, and **9** shows every edge. Below 9, edges that are short on
+  screen fade out, so a detailed model (a depth map, a relief) shows its shape instead of a dark mesh of lines; zoom
+  in and the edges come back. The view updates as soon as you let go of the slider; **Cancel** puts the previous
+  setting back. On a very detailed model seen from far away every edge is tiny, so levels 1–8 only look different
+  once you zoom in.
 
 !!! note "What keep-awake cannot do"
     Closing a laptop lid, the power button, **Start ▸ Sleep** and a critically low battery still put the PC to

@@ -73,3 +73,4 @@ the same surface as depth-map levels and as true slices side by side.
 - [Importing Geometry](../importing.md) — bringing in STEP and mesh files
 - [Marking & Tracing › 3D slice marking](../marking-tracing.md#3d-slice-marking)
 - [Engraving STL and STEP models on a galvo fiber laser](engraving-stl-step-models.md)
+- [Depth Maps](../depth-maps.md) — when a depth map is all you have, FocuZ turns it into a 3D model

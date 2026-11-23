@@ -77,8 +77,10 @@ controller connected.
 
 If the Z axis is enabled but not homed when you Run, FocuZ shows a prompt to **home + jog + run** or
 **run anyway**. This protects against marking out of focus on an un-referenced Z. See
-[Lenses, Corrections & Calibration](lenses-corrections.md). A **Return to Start** action is refused at Run when Z
-isn't homed at that point (a Home action as action #1 counts).
+[Lenses, Corrections & Calibration](lenses-corrections.md). A [Lens Change](sequencer.md#action-types) action as
+action #1 counts like a Home action here — it homes Z itself, so there is no prompt. A **Return to Start** action is
+refused at Run when Z isn't homed at that point, or when a Lens Change before it leaves a lens other than the one the
+run began with installed.
 
 ## Progress
 
@@ -99,7 +101,7 @@ A **3D Slice** action marks a model layer by layer:
 
 - Slices run **top to bottom** by default; check **Inverse** to mark bottom-up, starting at the floor.
 - Sublayers (jog, accessory, etc.) can fire on every slice or every Nth slice (Run-every-N).
-- **Fill-Through** controls whether the bottom slice is marked. With **Respect holes** on (any
+- **Fill-Through** controls whether the bottom slice is marked. With Fill Through on (any
   perimeter, or none — see [3D perimeters](sequencer.md#3d-layers-the-perimeter)), the model's
   through-holes stay real empty space: carved at full depth alongside the background when a perimeter
   is set, left unmarked without one.
