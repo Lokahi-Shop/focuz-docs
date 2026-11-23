@@ -271,7 +271,8 @@ gets carved). Pick a source from the **Perimeter ▾** menu on the layer:
   generated for you, so an overhanging model still gets a perimeter around its whole footprint; move the model up or down
   in Z and the Hull follows its cross-section there. Re-importing the model refreshes it. On a layer with several
   models it wraps the ones that mark: disable marking on a model or file and the Hull rebuilds without it, keeping
-  its Offset.
+  its Offset. The Hull is the **outer outline** only: holes in the model, and anything standing inside them, are
+  left out of it. Models set apart each get their own outline; models that overlap share one.
 - **Circle** / **Square** — a simple shape centered on the model's footprint (set its width/length).
 
 A perimeter is a normal canvas object — select it to move it or edit it. Moving a selected **Hull** perimeter (arrow keys
@@ -281,9 +282,8 @@ selected, the size fields become a single **Off:** (offset) box that grows or sh
 all the way around; setting it back to 0 restores the original outline exactly.
 
 **Respect holes** (on by default) — the model's **through-holes** are treated as real empty space with
-**any** perimeter, or none. The checkbox sits next to **Fill Through** in the slice section and can be switched whenever Fill Through is on; with a Hull
-perimeter, the same setting also makes the Hull itself follow the holes (a ring's outline becomes a ring,
-not a disc — the Hull's own checkbox toggles the same thing). What a hole becomes depends on the setup:
+**any** perimeter, or none. The checkbox sits next to **Fill Through** in the slice section and can be switched whenever Fill Through is on.
+(The Hull perimeter itself always stays the outer outline.) What a hole becomes depends on the setup:
 **with a perimeter**, the hole is carved at full depth along with the background; **without one**, it is
 simply left unmarked and stands at the surface. Uncheck it to fill holes solid (legacy behavior).
 Clean, watertight meshes give the truest holes. An imported multi-contour perimeter still clips with its
