@@ -7,6 +7,8 @@ description: "Can a fiber laser engrave an STL file? Slicing the model directly 
 **Short answer:** yes. Most software turns the model into a grayscale depth map first and marks the
 image. FocuZ slices the model itself — no depth map image in between.
 
+Only have a depth map? FocuZ can [turn it into a 3D model](../depth-maps.md) and slice that.
+
 ## Why slicing
 
 - **Accurate in X, Y and Z.** Every slice is the model's exact outline at that height — no pixel grid —

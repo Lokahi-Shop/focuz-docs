@@ -79,6 +79,7 @@ nav:
   - Hardware & Device Setup: hardware-setup.md
   - Lenses, Corrections & Calibration: lenses-corrections.md
   - Importing Geometry: importing.md
+  - Depth Maps: depth-maps.md
   - The Canvas: canvas.md
   - The Sequencer: sequencer.md
   - The Cut Band: cut-band.md
