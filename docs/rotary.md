@@ -44,7 +44,7 @@ use it. (A project that already contains another fixture's action still runs.) E
   diameter for the motion math.
 
 **Import markcfg7** on this dialog imports the motor parameters (steps/rotation, direction, gear
-ratio, speeds, accel) into the profile currently shown. The Device Setup wizard's import seeds
+ratio, speeds, accel) into the profile currently shown. The Device Setup Wizard's import seeds
 all three profiles at once — check each page's gear ratio afterwards.
 
 ### Default Values
@@ -180,7 +180,7 @@ position as zero, and **Go to Zero** to rotate back to it at the Return Spd — 
 position readout. See [Motion, Homing & Terminal](jog-terminal.md).
 
 **Import Rotary from markcfg7…** pulls rotary parameters from an existing `markcfg7` file, the
-same way as the main [device import](hardware-setup.md). The Device Setup window
+same way as the main [device import](hardware-setup.md). The Device Setup Wizard window
 ([first-run setup](getting-started/first-run.md)) offers the same import in its Rotary Setup
 section — including reusing the device's own `markcfg7` — so a rotary can be configured during
 first run.

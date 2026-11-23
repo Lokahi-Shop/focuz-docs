@@ -22,7 +22,17 @@ it to add one. A layer's header has **+ Sub** for its sublayers.
 To skip a node without deleting it, **right-click** it in the canvas [layer tree](canvas.md#the-layer-tree)
 and choose **Disable marking** (**Enable marking** turns it back on). A disabled node is gray in the tree
 and in its header, isn't drawn on the canvas, and doesn't mark. The same menu works on an imported file or a
-single object inside a layer, and on a multi-selection it acts on everything selected. Groups can be **collapsed** to keep a big
+single object inside a layer, and on a multi-selection it acts on everything selected.
+
+To skip a **whole action**, right-click the action's row in the layer tree and choose **Disable action**
+(**Enable action** turns it back on). It works on every kind of action — marking actions, and steps such as a
+GRBL command, a jog, a Delay, a Pause, a Stop, a Goto or a Lens Change. A disabled action keeps its place and
+its number, and is gray in the tree and in its header. **Run**, **Trace**, the **Preview** and the time estimate
+treat it as if it were not in the sequence: it does not mark, move or send anything, its boxes are not checked,
+and its artwork is not drawn on the canvas. A **Goto** that points at a disabled action continues with the next
+action that runs. It is saved with the project, and it can't be changed while a sequence is running.
+
+Groups can be **collapsed** to keep a big
 job tidy. To **reorder**, right-click a layer, group, sublayer or action in the layer tree and choose **Move up**, **Move down**,
 **Move to top** or **Move to bottom** — the marking order follows. The same menu **copies and pastes** layers, groups,
 actions, files, objects and sublayers, also between projects (see [the layer tree](canvas.md#the-layer-tree)).
@@ -79,11 +89,16 @@ Adding an action opens a picker grouped by purpose:
   Run checks the action up front: Z enabled, the controller connected, the lens's focus below the Z switch; the action
   homes Z itself, so it needs no homing before it (as action #1 it counts like a Home action), and the lens picker in
   the top bar is greyed while a job runs — use this action instead.
-- **Stop** — end the sequence here.
+- **Stop** — end the sequence here. Actions after a Stop are kept in the job but do not run, and **Run** does not
+  check them: they can have blank boxes, need an axis that is switched off, or need the motion controller, without
+  holding the run back. (An action that a **Goto** jumps to past the Stop does run, and is checked.) **Trace** still
+  shows them.
 - **Goto** — loop the sequence back to an earlier action. Pick the **target action** and a **Repeat**
   count: on reaching the Goto, the sequence returns to that action `Repeat` times (so the actions in
   between run `Repeat + 1` times total). **Repeat 0** passes straight through, as if the Goto weren't
-  there. A run won't start until the Goto has both a target and a repeat count set. Goto loops can be
+  there. A run won't start until the Goto has both a target and a repeat count set. A sequence that holds a
+  calibration action (Test Grid, WCS Offset, Z Focal Distance, Red Light, Dual Lens Alignment) can't contain a
+  Goto — calibration actions never loop. Goto loops can be
   **nested** — a Goto whose loop sits inside another Goto's loop runs its own repeats each time the
   outer loop comes back around.
 - **Select Action** — a no-op placeholder (skipped at marking); useful while building.
@@ -128,7 +143,7 @@ board's rotary port.
   return FocuZ checks the axis arrived.
 - **Return to Saved 0 (FocuZ)** — the same panel, but each ticked axis moves to its saved 0 (Z = the
   selected lens's saved focal position; X/Y saved zeros are not available yet). Requires that axis's limit
-  switches to be enabled in both + and − (Device Setup ▸ Enable Limit Switches); the warning icon says so.
+  switches to be enabled in both + and − (Device ▸ Connection ▸ Enable Limit Switches); the warning icon says so.
 - **Go to Position (FocuZ)** — moves X and Y to one of the [saved positions](jog-terminal.md#xy-positioning-saved-positions)
   you set in the Motion window. Pick the **Position**; picking it ticks **Move X** / **Move Y** for the axes that
   slot holds (untick one to leave that axis where it is). **Raise Z first to MPos** lifts Z out of the way
@@ -162,6 +177,9 @@ Listed in the order you'd normally work through them:
   [Finding focus](lenses-corrections.md#finding-focus-the-z-focal-distance-test)).
 - **Red Light** — mark a centered reference square, then align the red guide beam to it (see
   [Lenses, Corrections & Calibration](lenses-corrections.md)).
+- **Dual Lens Alignment** — engrave a square with one lens, then mark it through marker ink with a second lens
+  while you adjust that lens's offset, scale and angle until the two coincide (see
+  [Aligning two lenses](lenses-corrections.md#aligning-two-lenses-dual-lens-alignment)).
 
 ## Adding, copying & removing actions
 
@@ -266,22 +284,29 @@ and an **Intersection** grows the shared area rather than losing it.
 fill around the model's footprint (for a 3D Slice, the area between the perimeter and the model is what
 gets carved). Pick a source from the **Perimeter ▾** menu on the layer:
 
-- **Import…** — load a closed 2D path from a file.
+- **Import…** — load a closed 2D path from a file (SVG, DXF, AI, EPS, PDF). It lands the right way up, centered on
+  the model's footprint, whatever its position in the file; move or resize it from there.
 - **Hull** — the model's outline where it meets the floor (Z 0), plus everything Fill Through carves above it,
   generated for you, so an overhanging model still gets a perimeter around its whole footprint; move the model up or down
-  in Z and the Hull follows its cross-section there. Re-importing the model refreshes it.
+  in Z and the Hull follows its cross-section there. Re-importing the model refreshes it. On a layer with several
+  models it wraps the ones that mark: disable marking on a model or file and the Hull rebuilds without it, keeping
+  its Offset.
 - **Circle** / **Square** — a simple shape centered on the model's footprint (set its width/length).
 
-A perimeter is a normal canvas object — select it to move it or edit it. With **Hull** or **Import**
+A perimeter is a normal canvas object — select it to move it or edit it. Moving a selected **Hull** perimeter (arrow keys
+or a typed Location) carries the layer's models with it, so the two stay in step; a Circle, Square or Import perimeter
+moves on its own. With **Hull** or **Import**
 selected, the size fields become a single **Off:** (offset) box that grows or shrinks the boundary evenly
 all the way around; setting it back to 0 restores the original outline exactly.
 
-**Respect holes** (on by default) — the model's **through-holes** are treated as real empty space with
-**any** perimeter, or none. The checkbox sits next to **Fill Through** in the slice section and can be switched whenever Fill Through is on; with a Hull
-perimeter, the same setting also makes the Hull itself follow the holes (a ring's outline becomes a ring,
-not a disc — the Hull's own checkbox toggles the same thing). What a hole becomes depends on the setup:
-**with a perimeter**, the hole is carved at full depth along with the background; **without one**, it is
-simply left unmarked and stands at the surface. Uncheck it to fill holes solid (legacy behavior).
+**Through-holes stay open** — a model's **through-holes** are treated as real empty space with **any**
+perimeter, or none, and a **Hull** perimeter follows them too (a ring's outline is a ring, not a disc).
+What a hole becomes depends on the setup: **with a perimeter**, the hole is carved at full depth along
+with the background; **without one**, it is simply left unmarked and stands at the surface.
+A **through-hole** here means an opening you can see straight down through, from the top of the model to
+its base — the inside of a closed loop, for example. A pocket, a groove or a tunnel that bends is part of
+the model's surface and is marked as such. There is no setting for this: to keep a hole solid, close it
+in the model, or use a **Circle** or imported perimeter where a solid outline is wanted.
 Clean, watertight meshes give the truest holes. An imported multi-contour perimeter still clips with its
 outer outline only.
 
@@ -391,10 +416,21 @@ end when you press **Enter** or leave the box (with a range of 1–1000, typing 
 An **empty box never runs**: it turns red and stays empty until you type a value — 0 included, where 0 is a
 real setting (an offset, a delay). **Run** and **Trace** list every empty box (action, group, layer and field).
 Empty boxes are saved with the project, and clearing a box can be undone (**Undo** brings the number back,
-**Redo** empties it again). Disabled groups, layers and sublayers are not checked. A blank **GRBL Command** is fine: it
+**Redo** empties it again). Pressing **Esc** in a box puts its last value back — what you typed is dropped, and an
+empty box gets its number again. Disabled groups, layers and sublayers are not checked. A blank **GRBL Command** is fine: it
 sends nothing and the run carries on.
 
-While a job runs, the boxes on the action panels (Delay, Goto, feedrates…) can't be edited.
+While a job runs, an action's own settings can't be changed — its boxes (Delay, Goto, feedrates…), dropdowns (the
+action type, a Goto's target, a jog's direction and distance), ticks and lens pick are locked — and the list of
+actions is locked too: no add, delete, duplicate, move, paste or Disable action. **Undo** and **Redo** still work
+for layer and artwork edits; a step that changes an action waits until the job ends. A Calibration - Offset's
+**Apply Offset** also waits. Layer settings stay editable.
+
+A run marks the job **as it was when you pressed Run**. You can keep editing layer settings and artwork while it
+runs — also during a Pause — but those edits apply to the **next** run, not the one in progress. That holds for
+every marking action, the Test Grid and the Z Focal Distance test included, and for every pass of a **Goto** loop.
+Before the first action starts, FocuZ prepares the whole job (the progress bar reads *Preparing the job…*); with
+large 3D models this can take a moment.
 
 ## Timings
 
@@ -419,7 +455,8 @@ the **group**, and where it is attached decides when it runs — see
   passes over 580 passes reads as −2.4 mm total.
 - **Terminal** — send raw GRBL command lines (e.g. switch a relay) as a step.
 - **Cut** — mark an **offset band** around the path:
-    - **Source** — an imported file, the layer **Perimeter**, or a **Border**.
+    - **Source** — an imported file, the layer **Perimeter**, or a **Border**. An imported file lands the right way
+      up, centered on the layer's art, whatever its position in the file.
     - **Offset** (how far out from the path) and **Distance** (band width).
     - Optional **outline**, or a wobble fill for the band.
 

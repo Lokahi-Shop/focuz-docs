@@ -1,5 +1,5 @@
 ---
-description: "Step-by-step: engrave STL and STEP 3D models on a galvo fiber laser by slicing them into layers in FocuZ — slice count from material removal rate, perimeter, fill and tips."
+description: "Engrave STL and STEP 3D models on a galvo fiber laser by slicing them into layers in FocuZ: slice count, perimeter, fill and tips, step by step."
 ---
 
 # Engraving STL and STEP models on a galvo fiber laser
@@ -7,6 +7,7 @@ description: "Step-by-step: engrave STL and STEP 3D models on a galvo fiber lase
 **Short answer:** in FocuZ, add a **3D Slice** action, import the model (STEP, STL, OBJ or 3MF), size and
 place it, choose how many slices, and run. FocuZ cuts the model into horizontal layers and marks them
 one after another, so the laser removes material in the shape of the model — no depth map to prepare.
+Several models, in any mix of formats, can share one layer.
 
 ## Step by step
 
@@ -27,6 +28,20 @@ one after another, so the laser removes material in the shape of the model — n
 6. **Trace, then run.** Trace to check placement on the part, then press **Run**. Slices mark top to
    bottom; check **Inverse** to mark from the floor up.
 
+## Getting your models in
+
+- **Any mix of formats on one layer.** Import STL, OBJ, STEP or 3MF into the same 3D Slice action:
+  a STEP part beside a 3MF and an STL from your library. Each import adds to the layer.
+- **Placed in X, Y and Z.** Select a model and type its Location X, Y or Z, or nudge it with the
+  arrow keys (**Alt+Up** / **Alt+Down** for Z, see [Canvas](../canvas.md)). Height is just another
+  coordinate, not a depth map's gray levels.
+- **AI model generation ([Meshy](https://www.meshy.ai/) recommended).** Describe a design or show Meshy
+  a picture, export it as 3MF, STL or OBJ, and import it. Every mesh is checked on import; if it has
+  open edges, FocuZ says how many and offers to repair it.
+- **From CAD.** Export a STEP from a program like [Fusion](https://www.autodesk.com/products/fusion-360/)
+  and it comes in as a true solid at its exact size (see
+  [STEP size and curves](../importing.md#importing-3d-models-slicing)).
+
 ## Tips for clean results
 
 - **STEP or STL?** A STEP file is a true solid, so it is normally watertight by construction. Every 3D
@@ -35,7 +50,12 @@ one after another, so the laser removes material in the shape of the model — n
   STL (or other mesh) can also show **micro-faceting** if the model doesn't have enough polygons; export
   it with a finer mesh for smooth curves.
 - **Fill Through** fills the mesh or solid down to the workspace, eliminating any undercuts.
-  **Respect holes** keeps through-holes empty.
+  Openings that go straight through the model stay empty. On the canvas, the space Fill Through adds is shaded dark
+  under each overhang — tilt the 3D view to look beneath one (from straight above, the overhang itself
+  covers it). The **Preview** slider shows the filled area slice by slice.
+- **Models that overlap or touch on one layer mark as one solid**, in any mix of file formats. A wall they
+  share is not marked, and fill lines run straight across where it was. To keep two models separate, put
+  them on different layers. Shells that overlap inside a single imported model combine the same way.
 - **Z+ Offset** includes space above the model, in mm or in slices.
 
 ## Why slice instead of using a depth map?

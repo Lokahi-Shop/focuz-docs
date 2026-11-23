@@ -1,10 +1,11 @@
 site_name: FocuZ Documentation
 site_description: "FocuZ user guide — 3D-first laser marking software for BJJCZ (EZCad2-type) fiber galvo lasers: STL and STEP slicing, rotary, fill variation."
 site_url: https://wiki.lokahi.shop/
-copyright: © 2026 Lokahi Innovation. All rights reserved.
+copyright: © 2026 <a href="https://lokahiinnovation.com/">Lokahi Innovation</a>. All rights reserved.
 
 theme:
   name: material
+  custom_dir: overrides
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -31,6 +32,11 @@ theme:
 
 plugins:
   - search
+  # Real per-page change dates (last git commit) for the sitemap lastmod; see overrides/sitemap.xml.
+  - git-revision-date-localized:
+      type: date
+      timezone: Pacific/Honolulu
+      fallback_to_build_date: true
 
 markdown_extensions:
   - admonition
@@ -60,12 +66,20 @@ nav:
       - Your first mark: getting-started/your-first-mark.md
   - Guides:
       - Switching from EZCad2 or LightBurn: guides/switching-from-ezcad2-or-lightburn.md
+      - EZCad2 vs LightBurn: guides/ezcad2-vs-lightburn.md
       - Engraving STL and STEP models: guides/engraving-stl-step-models.md
       - "Relief engraving: slicing vs depth maps": guides/relief-engraving-slicing-vs-depth-maps.md
       - "Rotary seams: causes and fixes": guides/rotary-seams-causes-and-fixes.md
+      - "3D laser engraving: slicing vs a depth map": guides/3d-laser-engraving-stl-slicing-vs-depth-map.md
+      - "Does my laser have a BJJCZ board?": guides/does-my-fiber-laser-have-a-bjjcz-board.md
+      - Finding settings with a test grid: guides/finding-fiber-laser-settings-with-a-test-grid.md
+      - Color marking stainless steel: guides/color-marking-stainless-steel.md
+      - What is markcfg7?: guides/what-is-markcfg7.md
+      - "Changing lenses: per-lens calibration": guides/fiber-laser-lens-change-per-lens-calibration.md
   - Hardware & Device Setup: hardware-setup.md
   - Lenses, Corrections & Calibration: lenses-corrections.md
   - Importing Geometry: importing.md
+  - Depth Maps: depth-maps.md
   - The Canvas: canvas.md
   - The Sequencer: sequencer.md
   - The Cut Band: cut-band.md
