@@ -77,6 +77,18 @@ Adding an action opens a picker grouped by purpose:
 
 - **Delay** — wait a set time.
 - **Pause** — stop and wait for you to continue (a modal prompt).
+- **Lens Change** — swap lenses in the middle of a job, with the Z axis motorized. Pick the **Lens** to change to;
+  the list shows only lenses that have a field size and a saved focus Z, with each one's label, field size, focus Z
+  and Z offset, and a job won't start until a lens is picked (**Mode** is Motorized for now). When the run reaches
+  it: a card says the **Z axis will home now** (OK, or Cancel Sequence) → Z homes → the **Lens change** card asks you
+  to install the lens (OK commits the change — the new lens's correction and field size apply from here on; the top
+  bar shows it) → a card asks you to **confirm the lens change is complete** → Z moves in one move to the new lens's
+  **focus + Z offset** → a **Lens changed** card (the safety warning's twin) asks you to **Continue** the job. Every card also offers
+  **Cancel Sequence**, and the Run button still pauses or cancels the job while a card is up. If the run ends while a
+  change is in progress, FocuZ tells you which lens it has selected so you can check it against the one installed.
+  Run checks the action up front: Z enabled, the controller connected, the lens's focus below the Z switch; the action
+  homes Z itself, so it needs no homing before it (as action #1 it counts like a Home action), and the lens picker in
+  the top bar is greyed while a job runs — use this action instead.
 - **Stop** — end the sequence here. Actions after a Stop are kept in the job but do not run, and **Run** does not
   check them: they can have blank boxes, need an axis that is switched off, or need the motion controller, without
   holding the run back. (An action that a **Goto** jumps to past the Stop does run, and is checked.) **Trace** still
@@ -123,8 +135,10 @@ board's rotary port.
   shows its live position, which becomes the start when you press Run. The lens the Z position is
   measured from is shown under the rows. The run-start position is recorded after the Run
   checks pass (or, with a Home action as action #1, once that action is done). Run refuses the job when Z isn't
-  homed at that point (a Home action #1 counts). The return is a move *back by the distance* from where the machine
-  is, and pausing the run holds it rather than cutting it short. Run also refuses the job if a homing line in a Command action would home an
+  homed at that point (a Home action #1 or a Lens Change before it counts), and when a **Lens Change** earlier in the
+  job leaves a different lens installed — the start was recorded with the lens the run began with, so add a Lens Change
+  back to that lens first. The return is a move *back by the distance* from where the machine is, and pausing the run
+  holds it rather than cutting it short. Run also refuses the job if a homing line in a Command action would home an
   axis that isn't homed yet before a Return to Start brings it back — the start would no longer match. After every
   return FocuZ checks the axis arrived.
 - **Return to Saved 0 (FocuZ)** — the same panel, but each ticked axis moves to its saved 0 (Z = the
