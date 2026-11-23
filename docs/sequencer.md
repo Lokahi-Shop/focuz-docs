@@ -400,7 +400,8 @@ end when you press **Enter** or leave the box (with a range of 1–1000, typing 
 An **empty box never runs**: it turns red and stays empty until you type a value — 0 included, where 0 is a
 real setting (an offset, a delay). **Run** and **Trace** list every empty box (action, group, layer and field).
 Empty boxes are saved with the project, and clearing a box can be undone (**Undo** brings the number back,
-**Redo** empties it again). Disabled groups, layers and sublayers are not checked. A blank **GRBL Command** is fine: it
+**Redo** empties it again). Pressing **Esc** in a box puts its last value back — what you typed is dropped, and an
+empty box gets its number again. Disabled groups, layers and sublayers are not checked. A blank **GRBL Command** is fine: it
 sends nothing and the run carries on.
 
 While a job runs, an action's own settings can't be changed — its boxes (Delay, Goto, feedrates…), dropdowns (the
