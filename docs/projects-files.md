@@ -80,16 +80,49 @@ deleting actions/layers/sublayers, parameter changes, object transforms, and arr
 
 ## Preferences (Edit ▸ Preferences)
 
-- **Nudge step sizes** — the arrow-key move distances (with modifier variants).
+The dialog has three tabs; **OK** saves all of them at once.
+
+**General**
+
+- **Power ▸ Keep the PC awake while FocuZ is open** — on by default. A PC that goes to sleep drops its USB
+  connections to the laser and the motion controller, so FocuZ asks Windows not to sleep on its idle timer while
+  FocuZ is open. Your Windows power settings are not changed, and the request ends when FocuZ closes. Switched
+  off, Windows may sleep while FocuZ is idle — a **run or a trace still keeps the PC awake** until it ends (a
+  paused run included).
+- **Power ▸ Keep the display on while FocuZ is open** — off by default: the display follows your Windows setting.
+  On, the screen stays on too (so the PC also never reaches its idle screen lock). Available while the first
+  option is on.
+- **Log** — the rolling log line cap, and a button to clear the log.
+- **3D view ▸ Mesh edges** — **0** to **9**, default **6**. How many of a model's triangle edges the 3D view draws:
+  **0** shows none, **1** the fewest, higher shows more, and **9** shows every edge. Below 9, edges that are short on
+  screen fade out, so a detailed model (a depth map, a relief) shows its shape instead of a dark mesh of lines; zoom
+  in and the edges come back. The view updates as soon as you let go of the slider; **Cancel** puts the previous
+  setting back. On a very detailed model seen from far away every edge is tiny, so levels 1–8 only look different
+  once you zoom in.
+
+!!! note "What keep-awake cannot do"
+    Closing a laptop lid, the power button, **Start ▸ Sleep** and a critically low battery still put the PC to
+    sleep. Keep a laptop plugged in for long jobs — on battery, some laptops sleep once their display turns off.
+    Windows can also power down idle USB ports on its own (*USB selective suspend*, in the Windows power plan);
+    that setting is separate from sleep.
+
+**Workspace**
+
+- **Layer panel layout** — layer-panel docked vs. overlay.
 - **Allow multiple layer selection and manipulation** — off by default (one layer at a time; typing into a
   layer's fields selects that layer). On: the layer tree is the main selection tool — select across layers,
   edit their combined Size / Location; clicking or typing in the sequencer never changes the tree selection.
-- **Log** — the rolling log line cap, and a button to clear the log.
+- **Nudge step sizes** — the arrow-key move distances (with modifier variants).
 - **Canvas preview ▸ Solid fill below spacing (mm)** — default **0.05**. Fills spaced below this show on the
   canvas as a solid area instead of lines ([what you see](canvas.md#what-you-see)); **0** always shows the lines.
   Range 0 – 10 mm. It covers every fill on the canvas, cut bands and 2D Grid fills included; the Preview always
   shows lines. It changes the screen only, never what marks.
-- **Layout** — layer-panel docked vs. overlay.
+
+**Import**
+
+- Clipping of AI art that crosses the artboard, the SVG pixel scale, and **Enable marking on imported
+  hidden layers** (off by default: a layer hidden in the art file imports with marking disabled) — see
+  [Importing Geometry](importing.md#hidden-layers).
 
 The motion controller's **After a run, set positioning mode (G90/G91)** setting is in **Device ▸ Laser Setup**, under
 **Motorized Axis (FocuZ controlled)** — see [Distance mode](jog-terminal.md#distance-mode-g90-g91).

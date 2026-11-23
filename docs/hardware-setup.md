@@ -1,3 +1,7 @@
+---
+description: "Connect FocuZ to a BJJCZ fiber laser: Device Setup Wizard, laser setup and timing, power map, digital I/O, rotary, and backing up your settings."
+---
+
 # Hardware & Device Setup
 
 This page covers connecting to the controller and the device-level settings under the **Device** menu. If
@@ -22,7 +26,8 @@ is the deeper reference.
 
 ## Connecting (Device ▸ Connection)
 
-1. Open **Device ▸ Connection**.
+1. Open **Device ▸ Connection**, or click the **plug button** on the menu bar, just left of **Preview**. The plug is
+   green while the laser is connected.
 2. Pick your controller from the device list and click **Connect**.
 3. When connected, FocuZ shows the **firmware version** and **serial number** and a green status
    indicator; the current lens and correction-file status are also shown.
@@ -34,7 +39,7 @@ and again after a power cycle or an unplugged cable. If the connection drops dur
 and FocuZ reconnects when the board is back — press **Run** or **Trace** again. The controller must be connected to
 **Trace** or **Run**.
 
-## Device Setup (Device ▸ Device Setup)
+## Device Setup Wizard (Device ▸ Device Setup Wizard)
 
 The one-page setup — `markcfg7` import on top, lens setup below. It's the fastest way to a working
 configuration and is covered in [First-run setup](getting-started/first-run.md). Importing a
@@ -99,7 +104,7 @@ default and the recommended choice).
 - A `markcfg7` carries **no timing or tolerance values** — EZCad2 keeps delays per pen. So the import never
   changes your **Timing Defaults** or **path tolerances** on its own: if any of them differs from FocuZ's
   built-in defaults, it asks whether to **keep** yours (the default answer) or set the FocuZ defaults. The
-  same question is asked by the Device Setup wizard's import; a first-time setup has nothing to keep and is
+  same question is asked by the Device Setup Wizard's import; a first-time setup has nothing to keep and is
   not asked.
 
 #### Galvo axis assignment

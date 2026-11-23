@@ -95,12 +95,12 @@ All three axes are **off by default**. Your choices persist until you change the
 !!! tip "Set the Z− limit switch so Z can never crash"
     Z homes up to its top switch, but a **Z− limit switch** at the bottom of travel is what stops a wrong move
     from driving the lens into the work or the bed. Mount it at a height where Z stops **before** anything
-    can touch, and enable it in **Device Setup ▸ Enable Limit Switches**.
+    can touch, and enable it in **Device ▸ Connection ▸ Enable Limit Switches**.
 
 ### Position & limits
 
 - **MPos** is the machine (absolute) position; **LPos** is the work position FocuZ derives from it.
-- The top bar shows the live readouts for the enabled axes: **LPos Z** and **MPos Z** in the centre, with
+- While the motion controller is connected, the top bar shows the live readouts for the enabled axes: **LPos Z** and **MPos Z** in the centre, with
   **MPos X** and **MPos Y** to their right. A readout shows **N/A** until its axis has been homed, and an axis
   that is off has no readout — the others keep their places.
 - Limit-switch status is shown per axis/direction so you can confirm switches before homing.

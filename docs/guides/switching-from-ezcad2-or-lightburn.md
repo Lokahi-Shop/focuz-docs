@@ -1,5 +1,5 @@
 ---
-description: "How to run a BJJCZ fiber laser from FocuZ instead of EZCad2 or LightBurn: the WinUSB driver (no change from LightBurn), switching back to EZCad2, and how FocuZ jobs differ."
+description: "Run a BJJCZ fiber laser from FocuZ instead of EZCad2 or LightBurn: the WinUSB driver, switching back to EZCad2, and how FocuZ jobs differ."
 ---
 
 # Switching a BJJCZ fiber laser from EZCad2 or LightBurn to FocuZ
@@ -16,7 +16,8 @@ FocuZ talks to the controller through a **WinUSB** driver.
   first — only one program can hold the controller at a time.
 - **Coming from EZCad2:** EZCad2 installs its own vendor driver. Replace it with WinUSB using Zadig,
   selecting the device with USB ID **`9588:9899`** — the full steps are in
-  [Installation & driver](../getting-started/installation.md#2-install-the-bjjcz-usb-driver).
+  [Installation & driver](../getting-started/installation.md#2-install-the-bjjcz-usb-driver) and on the
+  [USB LMCV4 driver installation guide](https://lokahi.shop/pages/driver-installation).
 
 !!! note "Going back to EZCad2"
     EZCad2 needs its own vendor driver, so the WinUSB driver (the one FocuZ and LightBurn share) has to be
@@ -29,11 +30,12 @@ FocuZ talks to the controller through a **WinUSB** driver.
     3. Choose **Action › Scan for hardware changes**, or unplug and replug the controller.
     4. Install EZCad2's own driver (from its driver folder), then start EZCad2.
 
-    Coming back to FocuZ later is just the Zadig step again.
+    Coming back to FocuZ later is just the Zadig step again. Both directions are covered on the
+    [USB LMCV4 driver page](https://lokahi.shop/pages/driver-installation).
 
 ## 2. First-time setup
 
-If this is the first time FocuZ has run on this PC, the **Device Setup** window opens on launch and walks you
+If this is the first time FocuZ has run on this PC, the **Device Setup Wizard** window opens on launch and walks you
 through importing your EZCad2 `markcfg7` and lens correction — see [First-run setup](../getting-started/first-run.md).
 
 ## 3. The main difference: jobs are a sequence
@@ -54,5 +56,6 @@ Follow [Your first mark](../getting-started/your-first-mark.md): import simple a
 
 ## Related
 
+- [EZCad2 vs LightBurn for BJJCZ fiber lasers](ezcad2-vs-lightburn.md)
 - [Troubleshooting & FAQ](../troubleshooting.md)
 - [Support](../support.md)

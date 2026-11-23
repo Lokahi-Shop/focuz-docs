@@ -15,14 +15,15 @@ aligning the mark to the part.
   **Lens settings…** at the bottom opens **Lens Corrections** for the lens in use.
 - Picking a lens opens the **Lens change** card: the lens's summary and details, then the moves on offer
   (home, jog to the lens's saved Z, or continue without movement) — or **Cancel** to keep the current lens.
-  Each lens carries its own field size, correction, work offset, and focal Z.
+  Each lens carries its own field size, correction, work offset, and focal Z. The picker waits while a job runs —
+  to change lenses inside a job, add a [Lens Change](sequencer.md#action-types) action to the sequence.
 - When the lens needs a known Z reference, FocuZ may prompt to home / jog before marking (see the
   [homing gate](marking-tracing.md#lens-activation-homing-gate)).
 
 ## Distortion correction (the Corrections dialog)
 
 Open **Corrections** from **Device ▸ Lens Corrections** (it applies to the currently selected lens),
-or during [Device Setup](getting-started/first-run.md). It has two modes for correcting galvo/lens
+or during the [Device Setup Wizard](getting-started/first-run.md). It has two modes for correcting galvo/lens
 distortion, and remembers settings per lens:
 
 === "`.cor` file (recommended)"
@@ -94,9 +95,10 @@ and shows the **Offset** saved with that lens, or **Z not set** until a focal ha
 2. Enter an **Offset** (the distance between the baseboard and the top of your test material).
 3. Click **Save Current Z** to commit the focal distance + offset to the active lens.
 
-> The Offset box starts empty each time you change lens — the saved value stays on the heading for
-> reference. The Offset can be updated later without re-finding the focal distance (**Update Offset**). The
-> **Instructions** button repeats these three steps in the app. Saving the focal and updating the
+> The Offset box starts empty each time you change lens, and clears again after **Save Current Z** or
+> **Update Offset** — the saved value stays on the heading for reference. The Offset can be updated later
+> without re-finding the focal distance (**Update Offset**). The **Instructions** button repeats these
+> three steps in the app. Saving the focal and updating the
 > Offset are locked while a sequence is running or paused — a new focal would move the job's later
 > Z positions.
 

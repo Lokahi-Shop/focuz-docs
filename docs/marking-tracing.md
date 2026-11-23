@@ -19,6 +19,13 @@ placement and size on the part before firing. Pick a mode from the Trace dropdow
 | **Hull** | The convex hull (outer boundary) of the marked area. |
 | **Area** | A filled sweep of the marked area's extents. |
 
+**Perimeter**, **Hull** and **Area** show the **whole job at once**: every action is traced together in one pass,
+for the time set for that mode. Hull draws the hull of every shape of every action; Perimeter draws one outline
+around everything; Area draws one box around everything (kept inside the lens field). **Full** and **Single Layer**
+go through the actions one after another, as the job does. A [disabled action](sequencer.md) is left out of every
+mode. If one action can't be traced as it is — a blank or out-of-range box, missing rotary values — Trace says so
+and traces nothing, so the outline you see never has an action missing.
+
 Every mode includes **cut sublayers**: the trace draws the cut band itself, so a band that reaches past the perimeter shows its full extent. Jog sublayers move an axis and have nothing to trace.
 
 Start Trace, confirm on the part, then stop it. Trace needs the controller connected.
@@ -70,7 +77,10 @@ controller connected.
 
 If the Z axis is enabled but not homed when you Run, FocuZ shows a prompt to **home + jog + run** or
 **run anyway**. This protects against marking out of focus on an un-referenced Z. See
-[Lenses, Corrections & Calibration](lenses-corrections.md).
+[Lenses, Corrections & Calibration](lenses-corrections.md). A [Lens Change](sequencer.md#action-types) action as
+action #1 counts like a Home action here — it homes Z itself, so there is no prompt. A **Return to Start** action is
+refused at Run when Z isn't homed at that point, or when a Lens Change before it leaves a lens other than the one the
+run began with installed.
 
 ## Progress
 
@@ -91,7 +101,7 @@ A **3D Slice** action marks a model layer by layer:
 
 - Slices run **top to bottom** by default; check **Inverse** to mark bottom-up, starting at the floor.
 - Sublayers (jog, accessory, etc.) can fire on every slice or every Nth slice (Run-every-N).
-- **Fill-Through** controls whether the bottom slice is marked. With **Respect holes** on (any
+- **Fill-Through** controls whether the bottom slice is marked. With Fill Through on (any
   perimeter, or none — see [3D perimeters](sequencer.md#3d-layers-the-perimeter)), the model's
   through-holes stay real empty space: carved at full depth alongside the background when a perimeter
   is set, left unmarked without one.
