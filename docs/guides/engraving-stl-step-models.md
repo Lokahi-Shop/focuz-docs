@@ -55,7 +55,7 @@ Several models, in any mix of formats, can share one layer.
   covers it). The **Preview** slider shows the filled area slice by slice.
 - **Models that overlap or touch on one layer mark as one solid**, in any mix of file formats. A wall they
   share is not marked, and fill lines run straight across where it was. To keep two models separate, put
-  them on different layers. Shells that overlap inside a single imported model combine the same way.
+  each in its own 3D action (a 3D action holds one layer). Shells that overlap inside a single imported model combine the same way.
 - **Z+ Offset** includes space above the model, in mm or in slices.
 
 ## Why slice instead of using a depth map?
