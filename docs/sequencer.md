@@ -77,18 +77,28 @@ Adding an action opens a picker grouped by purpose:
 
 - **Delay** — wait a set time.
 - **Pause** — stop and wait for you to continue (a modal prompt).
-- **Lens Change** — swap lenses in the middle of a job, with the Z axis motorized. Pick the **Lens** to change to;
-  the list shows only lenses that have a field size and a saved focus Z, with each one's label, field size, focus Z
-  and Z offset, and a job won't start until a lens is picked (**Mode** is Motorized for now). When the run reaches
-  it: a card says the **Z axis will home now** (OK, or Cancel Sequence) → Z homes → the **Lens change** card asks you
+- **Lens Change** — swap lenses in the middle of a job. **Mode** is **Motorized** (FocuZ moves Z) or **Manual** (you
+  move Z by hand — described at the end of this entry). Pick the **Lens** to change to;
+  in Motorized mode the list shows only lenses that have a field size and a saved focus Z, with each one's label, field
+  size, focus Z and Z offset, and a job won't start until a lens is picked. When the run reaches
+  it in Motorized mode: a card says the **Z axis will home now** (OK, or Cancel Sequence) → Z homes → the **Lens change** card asks you
   to install the lens (OK commits the change — the new lens's correction and field size apply from here on; the top
   bar shows it) → a card asks you to **confirm the lens change is complete** → Z moves in one move to the new lens's
   **focus + Z offset** → a **Lens changed** card (the safety warning's twin) asks you to **Continue** the job. Every card also offers
   **Cancel Sequence**, and the Run button still pauses or cancels the job while a card is up. If the run ends while a
   change is in progress, FocuZ tells you which lens it has selected so you can check it against the one installed.
-  Run checks the action up front: Z enabled, the controller connected, the lens's focus below the Z switch; the action
-  homes Z itself, so it needs no homing before it (as action #1 it counts like a Home action), and the lens picker in
-  the top bar is greyed while a job runs — use this action instead.
+  In Motorized mode Run checks the action up front: Z enabled, the controller connected, the lens's focus below the Z
+  switch; the action homes Z itself, so it needs no homing before it (as action #1 it counts like a Home action). In
+  either mode the lens picker in the top bar is greyed while a job runs — use this action instead.
+
+    **Manual mode** is for machines whose Z is raised and lowered by hand (the Z axis switched off in
+    **Device ▸ Laser Setup**). FocuZ moves nothing; the cards walk you through the change: **raise Z by hand** until
+    there is room → the **Lens change** card asks you to install the lens (OK commits the change) → **move Z by hand
+    until the new lens is in focus** on the work → the **Lens changed** card asks you to **Continue**. It needs no
+    motion controller and no saved focus Z, so every lens with a field size can be picked. A new Lens Change starts in
+    Manual mode when the Z axis is off. Run refuses Manual mode while the Z axis is enabled — use Motorized there.
+    A Manual change homes nothing, so it does not count as a Home action. The layer tree marks it:
+    **Lens Change → L2 (Manual)**.
 - **Stop** — end the sequence here. Actions after a Stop are kept in the job but do not run, and **Run** does not
   check them: they can have blank boxes, need an axis that is switched off, or need the motion controller, without
   holding the run back. (An action that a **Goto** jumps to past the Stop does run, and is checked.) **Trace** still
