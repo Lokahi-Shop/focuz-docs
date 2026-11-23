@@ -266,7 +266,8 @@ fill around the model's footprint (for a 3D Slice, the area between the perimete
 gets carved). Pick a source from the **Perimeter ▾** menu on the layer:
 
 - **Import…** — load a closed 2D path from a file (SVG, DXF, AI, EPS, PDF). It lands the right way up, centered on
-  the model's footprint, whatever its position in the file; move or resize it from there.
+  the model's footprint, whatever its position in the file; move or resize it (width / length) from there. Every
+  shape in the file becomes its own perimeter.
 - **Hull** — the model's outline where it meets the floor (Z 0), plus everything Fill Through carves above it,
   generated for you, so an overhanging model still gets a perimeter around its whole footprint; move the model up or down
   in Z and the Hull follows its cross-section there. Re-importing the model refreshes it. On a layer with several
@@ -274,6 +275,18 @@ gets carved). Pick a source from the **Perimeter ▾** menu on the layer:
   its Offset. The Hull is the **outer outline** only: holes in the model, and anything standing inside them, are
   left out of it. Models set apart each get their own outline; models that overlap share one.
 - **Circle** / **Square** — a simple shape centered on the model's footprint (set its width/length).
+
+**Several perimeters on one layer.** Circle, Square and Import perimeters **stack**: each one you add joins the ones
+already on the layer. A **Hull** always stands alone — picking Hull removes the layer's other perimeters, and adding a
+Circle, Square or Import removes a Hull. Stacked perimeters combine into the area that gets marked:
+
+- shapes that **overlap or touch** become one area;
+- a shape **fully inside** a larger shape is left **unmarked** (a hole in it);
+- shapes **set apart** are separate areas, whatever their size.
+
+Each perimeter has its own row in the layer tree, so it can be moved, resized, hidden or deleted on its own.
+**Ctrl+click** or **Shift+click** picks several perimeters of the same layer — in the tree or, with Ctrl, on the canvas — to
+move or resize them together.
 
 A perimeter is a normal canvas object — select it to move it or edit it. Moving a selected **Hull** perimeter (arrow keys
 or a typed Location) carries the layer's models with it, so the two stay in step; a Circle, Square or Import perimeter
@@ -286,8 +299,7 @@ all the way around; setting it back to 0 restores the original outline exactly.
 (The Hull perimeter itself always stays the outer outline.) What a hole becomes depends on the setup:
 **with a perimeter**, the hole is carved at full depth along with the background; **without one**, it is
 simply left unmarked and stands at the surface. Uncheck it to fill holes solid (legacy behavior).
-Clean, watertight meshes give the truest holes. An imported multi-contour perimeter still clips with its
-outer outline only.
+Clean, watertight meshes give the truest holes.
 
 ## 3D Shadow
 
