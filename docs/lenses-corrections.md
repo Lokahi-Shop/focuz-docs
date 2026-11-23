@@ -172,7 +172,8 @@ When you swap between lenses, **Dual Lens Alignment** ([Sequencer](sequencer.md)
 mark on the same spot, at the same size and orientation, as the first.
 
 Before you start: set up the first lens with the Corrections dialog above (field size, scale, angle, WCS offset),
-install it, home Z and go to its focus. Set up the second lens the same way and save its focal height.
+install it, home Z and go to its focus. Set up the second lens the same way and save its focal height. (With a Z you
+move by hand, set up both lenses' corrections and focus the first lens by hand — no focal heights are saved.)
 
 1. Add a **Dual Lens Alignment** action. In **Setup** on *Square 1 (small lens)*, set the square's **Size** and
    **Location** (the location is the square's centre, in design coordinates). Set *Square 1*'s power to engrave
@@ -182,6 +183,11 @@ install it, home Z and go to its focus. Set up the second lens the same way and 
 3. Cover the engraved square with marker. Do not move the workpiece from here on.
 4. Press **Continue → second lens**. Z homes, you install the second lens and confirm, and Z moves to its focus. The
    alignment card opens. (If the second lens is already installed and at its focus, the card opens straight away.)
+   With **Mode** set to **Manual** — for a Z you raise and lower by hand, the Z axis switched off in
+   **Device ▸ Laser Setup** — FocuZ moves nothing: the cards ask you to raise Z by hand, install the second lens, then
+   bring it into focus by hand, and the alignment card opens. Manual mode needs no motion controller and no saved
+   focal height. When the second lens is already the lens in use, one card asks you to confirm it is installed and in
+   focus, then the alignment card opens.
 5. Press **Mark** to mark Square 2 through the ink. Walk it onto the engraved square with the nudge pad (it moves the
    next mark, not the machine or the red light — each press by the chosen step), correct its size with **Scale** and
    its tilt with **Angle**, and Mark again — re-apply marker as needed. Every value is saved to the second lens as you
