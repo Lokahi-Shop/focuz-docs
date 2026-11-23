@@ -278,7 +278,9 @@ A perimeter is a normal canvas object — select it to move it or edit it. Movin
 or a typed Location) carries the layer's models with it, so the two stay in step; a Circle, Square or Import perimeter
 moves on its own. With **Hull** or **Import**
 selected, the size fields become a single **Off:** (offset) box that grows or shrinks the boundary evenly
-all the way around; setting it back to 0 restores the original outline exactly.
+all the way around; setting it back to 0 restores the original outline exactly. Below it, the perimeter's
+current width (**W**) and height (**H**) are shown as plain readouts — they update as you change the offset, but
+can't be typed into.
 
 **Respect holes** (on by default) — the model's **through-holes** are treated as real empty space with
 **any** perimeter, or none. The checkbox sits next to **Fill Through** in the slice section and can be switched whenever Fill Through is on; with a Hull
