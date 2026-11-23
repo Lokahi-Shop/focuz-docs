@@ -19,6 +19,11 @@ To **add** to the tree, use the add button on the right of a header, beside its 
 reads **+ Layer**; press **▼** beside it to switch it to **+ Group** (or **+ Sublayer** on rotary actions), then press
 it to add one. A layer's header has **+ Sub** for its sublayers.
 
+A **3D action** (3D Slice, 3D Cut, 3D Shadow) holds **one layer** — one model stack, sliced top to bottom with its
+own settings — so its group header has no **+ Layer**. For another model with other settings, add another 3D action;
+to run several of them again and again, loop them with a **Goto Action**. Several models can still share one 3D layer
+(they slice as one solid where they overlap).
+
 To skip a node without deleting it, **right-click** it in the canvas [layer tree](canvas.md#the-layer-tree)
 and choose **Disable marking** (**Enable marking** turns it back on). A disabled node is gray in the tree
 and in its header, isn't drawn on the canvas, and doesn't mark. The same menu works on an imported file or a
