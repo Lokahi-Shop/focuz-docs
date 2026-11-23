@@ -103,9 +103,9 @@ The dialog has three tabs; **OK** saves all of them at once.
 **Workspace**
 
 - **Layer panel layout** — layer-panel docked vs. overlay.
-- **Allow multiple layer selection and manipulation** — off by default (one layer at a time; typing into a
-  layer's fields selects that layer). On: the layer tree is the main selection tool — select across layers,
-  edit their combined Size / Location; clicking or typing in the sequencer never changes the tree selection.
+- **Allow multiple layer selection and manipulation** — on by default: the layer tree is the main selection tool —
+  select across layers, edit their combined Size / Location; clicking or typing in the sequencer never changes the
+  tree selection. Off: one layer at a time; typing into a layer's fields selects that layer.
 - **Nudge step sizes** — the arrow-key move distances (with modifier variants).
 - **Canvas preview ▸ Solid fill below spacing (mm)** — default **0.05**. Fills spaced below this show on the
   canvas as a solid area instead of lines ([what you see](canvas.md#what-you-see)); **0** always shows the lines.

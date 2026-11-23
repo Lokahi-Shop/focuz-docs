@@ -130,6 +130,8 @@ Every object — a piece of 2D art or a 3D model — keeps its **own** angle. Ro
   mark). Several selected layers show their combined box and follow the same rule. For 3D, **Location Z** is the lowest
   point on the bed (with a bottom registration point) — it changes as a part tilts — and **Slices/mm** reads against
   that real height.
+- **# of Slices** and **Slices/mm** belong to the layer: they can be edited whatever is selected in it — the layer, a
+  model or a perimeter — and always read the layer's own height. With several layers selected, that row is hidden.
 - Fill lines keep their direction when the art turns.
 - A layer's **cut sublayer art** turns with the layer — also with **Each item** (when the layer is one item, or its
   items share an angle). On a **3D** layer it follows turns about Z and 180° flips; a tilt (e.g. X 90) leaves the flat
