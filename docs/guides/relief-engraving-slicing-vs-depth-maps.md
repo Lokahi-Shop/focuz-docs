@@ -65,8 +65,25 @@ What that gives you:
 
 ## See it for yourself
 
-The free **[Slice vs Depthmap comparison tool](https://compare.lokahi.shop)** loads a 3D model and shows
-the same surface as depth-map levels and as true slices side by side.
+The free **[Slice vs Depthmap comparison tool](https://compare.lokahi.shop)** loads a 3D model and the depth
+map made from it — or its own example — and compares three results at every slice height:
+
+| Result | What it is |
+|---|---|
+| **True slice** | The 3D model sliced directly. The tool treats this as the desired outcome. |
+| **Depth map as a 3D model** | The same depth map built into a 3D surface, the way FocuZ [imports a depth map](../depth-maps.md), then sliced. Contours run between the pixels. |
+| **Classic depth map** | Each pixel marked or skipped by its gray level. Outlines follow the pixel grid. |
+
+For each depth map result it shows where the slice differs from the 3D model, and totals for the whole job:
+**Depth accuracy** (the share of points marked to the right slice), average and maximum depth error, and the
+share off by more than one slice. Depth accuracy changes with the number of slices, so compare runs at the
+same slice count.
+
+A high-resolution 16-bit map scores close both ways. The gap grows with low-resolution or 8-bit maps, where
+the classic result shows its pixels and the 3D-model result stays smooth. Neither can bring back detail the
+image never stored.
+
+Everything runs in your browser; nothing is uploaded.
 
 ## Related
 
