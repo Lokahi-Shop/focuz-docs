@@ -12,6 +12,10 @@ If you have the 3D model itself, import that instead. A depth map can only hold 
 levels, so its slopes are made of small steps. A model slices from its true surface. See
 [Staircase lines: slicing vs depth maps](guides/relief-engraving-slicing-vs-depth-maps.md).
 
+To see what a depth map loses, the free [Slice vs Depthmap comparison tool](https://compare.lokahi.shop)
+compares a 3D model with its depth map sliced as a 3D model, and with the same map used the classic,
+pixel-by-pixel way.
+
 ## Supported files
 
 | File | Notes |

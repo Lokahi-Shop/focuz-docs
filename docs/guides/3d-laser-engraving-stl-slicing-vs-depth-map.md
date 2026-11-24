@@ -26,8 +26,15 @@ Only have a depth map? FocuZ can [turn it into a 3D model](../depth-maps.md) and
 
 ## See the difference
 
-The free [Slice vs Depthmap comparison tool](https://compare.lokahi.shop) shows the same model both ways,
-side by side.
+The free [Slice vs Depthmap comparison tool](https://compare.lokahi.shop) shows the same model three ways,
+side by side:
+
+- the **3D model, sliced** — the result to aim for,
+- its **depth map as a 3D model**, sliced the way FocuZ imports a depth map,
+- the **classic depth map**, where each pixel is marked or skipped by its gray level.
+
+Load your own model and depth map, or press **Load an example**. It runs in your browser; nothing is
+uploaded.
 
 ## Related
 
