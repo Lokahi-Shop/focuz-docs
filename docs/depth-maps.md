@@ -40,7 +40,7 @@ it really uses. For example, "16-bit file, 763 levels" means the file is 16-bit 
 - **Width (X)** or **Height (Y)**: type one and the other follows the image. This is the size of the
   **visible** model, not counting transparent margins.
 - **Depth (Z)**: the full black-to-white depth in mm. The next import starts with the Z you typed last.
-- **Resolution**: the distance between model points. It starts at the image's own pixel spacing, but never
+- **Sampling resolution**: the distance between model points. It starts at the image's own pixel spacing, but never
   finer than 0.02 mm. The window shows how many points that makes.
 
 **Import** stays greyed until X or Y and Z are filled in. Building a large model takes a few seconds behind a
@@ -59,7 +59,7 @@ lighting rather than height. Very large models (over 8 million triangles) also a
 - The model is closed: the image surface on top, walls around the edge and a flat base. Black areas keep a
   very thin layer above the base, so they are still part of the model and of its outline.
 - **EXR and PFM** files hold depth values rather than gray levels. FocuZ maps their nearest-to-farthest range
-  onto your Z depth. A camera depth pass is dark where things are near, so use **Invert heights** (below) to
+  onto your Z depth. A camera depth pass is dark where things are near, so use **Invert map** (below) to
   bring the near side up. Pixels with no depth (the empty background of a render) become transparent.
 
 ## Raised relief or pocket
@@ -94,10 +94,10 @@ other changes you made meanwhile.
     - **What is left never moves.** Cutting from the bottom raises the base off Z 0 by the amount cut. To put
       the base back on the surface, set the layer's **Location Z** to 0 (with the bottom-centre registration
       point).
-- **Invert heights**: swaps high and low before the handles act.
+- **Invert map**: swaps high and low before the handles act.
 - **Smoothing**: smooths the model's heights over this radius in mm (0 = off), which softens the steps
   between gray levels. The image itself is never changed. Smoothing can lower the highest peaks slightly.
-- **Resolution**: rebuild finer or coarser from the original image.
+- **Sampling resolution**: rebuild finer or coarser from the original image.
 - **Show closed mesh**: turn it off to see only the image surface on the canvas. This is display only; slicing
   always uses the closed model.
 - **Replace image…**: swap in a re-edited depth map. Size, position and settings stay. The width is kept and
