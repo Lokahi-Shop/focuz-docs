@@ -216,7 +216,7 @@ How slices are marked (Z order, per-slice sublayers) is covered in
 
 A grayscale depth map imports into a 3D Slice, 3D Cut or 3D Shadow action as a closed 3D model: white is the top,
 black the bottom of the depth you type, and transparent pixels are left out. Right-click it in the layer tree
-for **Edit Depth Map…** (cut it from the top or bottom, invert, smooth, change resolution, replace the
+for **Edit Depth Map…** (cut it from the top or bottom, invert, smooth, change the sampling resolution, replace the
 image). Everything is on the [Depth Maps](depth-maps.md) page.
 
 ## Tips
