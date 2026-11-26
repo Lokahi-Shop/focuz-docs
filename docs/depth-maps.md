@@ -59,7 +59,7 @@ lighting rather than height. Very large models (over 8 million triangles) also a
 - The model is closed: the image surface on top, walls around the edge and a flat base. Black areas keep a
   very thin layer above the base, so they are still part of the model and of its outline.
 - **EXR and PFM** files hold depth values rather than gray levels. FocuZ maps their nearest-to-farthest range
-  onto your Z depth. A camera depth pass is dark where things are near, so use **Invert heights** (below) to
+  onto your Z depth. A camera depth pass is dark where things are near, so use **Invert map** (below) to
   bring the near side up. Pixels with no depth (the empty background of a render) become transparent.
 
 ## Raised relief or pocket
@@ -94,7 +94,7 @@ other changes you made meanwhile.
     - **What is left never moves.** Cutting from the bottom raises the base off Z 0 by the amount cut. To put
       the base back on the surface, set the layer's **Location Z** to 0 (with the bottom-centre registration
       point).
-- **Invert heights**: swaps high and low before the handles act.
+- **Invert map**: swaps high and low before the handles act.
 - **Smoothing**: smooths the model's heights over this radius in mm (0 = off), which softens the steps
   between gray levels. The image itself is never changed. Smoothing can lower the highest peaks slightly.
 - **Sampling resolution**: rebuild finer or coarser from the original image.
